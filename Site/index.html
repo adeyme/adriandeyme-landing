@@ -22,202 +22,504 @@
   <meta property="og:url" content="https://www.adriandeyme.com/">
   <meta property="og:title" content="Adrián Deyme · Liderazgo, OKRs, Kanban & Coaching de Ejecución">
   <meta property="og:description" content="Alineo estrategia y ejecución con OKRs, Kanban y Coaching de Liderazgo.">
-  <meta property="og:image" content="https://www.adriandeyme.com/assets/people/adrian-linkedin-sin-fondo.png">
-  <meta property="og:image:width" content="520">
-  <meta property="og:image:height" content="720">
+  <meta property="og:image" content="https://www.adriandeyme.com/assets/img/og-image.jpg">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Adrián Deyme · Liderazgo, OKRs, Kanban & Coaching de Ejecución">
-  <meta name="twitter:description" content="Alineo estrategia y ejecución con OKRs, Kanban y Coaching de Liderazgo.">
-  <meta name="twitter:image" content="https://www.adriandeyme.com/assets/people/adrian-linkedin-sin-fondo.png">
-  <meta name="theme-color" content="#0e4950">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Corrección de tu diseño original */
+    :root {
+      --ink: #111;
+      --ink-800: #333;
+      --teal: #008080;
+      --paper: #fff;
+      --gray-100: #f4f4f4;
+      --gray-200: #ddd;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --border-radius: 8px;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: var(--paper);
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .section {
+      padding: 60px 0;
+    }
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 32px;
+    }
+    .grid-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    /* Header */
+    header {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--gray-200);
+      background-color: var(--paper);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--teal);
+      text-decoration: none;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--ink-800);
+      font-weight: 500;
+      margin-left: 20px;
+      padding: 5px 0;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--teal);
+    }
+    /* HERO */
+    .hero-wrap {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 40px 0;
+    }
+    .hero-wrap .copy {
+      flex: 1;
+    }
+    .hero-wrap h1 {
+      font-size: 3rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero-wrap .lead {
+      font-size: 1.25rem;
+      margin-bottom: 30px;
+    }
+    .hero-portrait {
+      flex: 0 0 45%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .portrait-card {
+      width: 100%;
+      max-width: 450px;
+      background-color: var(--teal);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 10px 30px var(--shadow-color);
+      position: relative;
+    }
+    .portrait-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      /* Ajuste para PNG sin fondo */
+      position: relative;
+      z-index: 2; 
+    }
+    /* Buttons */
+    .cta-row {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background-color: var(--teal);
+      color: var(--paper);
+    }
+    .btn-primary:hover {
+      background-color: #006666;
+    }
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--teal);
+      border-color: var(--teal);
+    }
+    .btn-ghost:hover {
+      background-color: var(--teal);
+      color: var(--paper);
+    }
+    /* Badges */
+    .badges-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .img-badges img {
+      height: 30px; /* Tamaño para los logos de certificación en HERO */
+      width: auto;
+    }
+    /* Key Bullets */
+    .key-bullets {
+      list-style: none;
+      padding-left: 0;
+    }
+    .key-bullets li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+    .key-bullets li::before {
+      content: '✔';
+      color: var(--teal);
+      position: absolute;
+      left: 0;
+    }
+    /* Boxes */
+    .box {
+      background-color: var(--gray-100);
+      padding: 24px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 10px var(--shadow-color);
+    }
+    .box h3 {
+      color: var(--teal);
+      margin-top: 0;
+      font-weight: 600;
+    }
+    .box .price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    /* Recursos Card */
+    .recursos-card {
+      background-color: var(--teal);
+      color: var(--paper);
+      padding: 30px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 30px var(--shadow-color);
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .recursos-card .copy h3 {
+      color: var(--paper);
+      margin-top: 0;
+    }
+    .recursos-card form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .recursos-card input[type="email"] {
+      padding: 10px;
+      border: none;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+    }
+    .recursos-card .btn-primary {
+      background-color: var(--ink);
+      border-color: var(--ink);
+      color: var(--paper);
+    }
+    .recursos-card .btn-primary:hover {
+      background-color: #333;
+    }
+    /* Articulos */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .article-card {
+      background-color: var(--paper);
+      padding: 20px;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 5px var(--shadow-color);
+    }
+    .article-card h4 {
+      color: var(--teal);
+      margin-top: 0;
+      font-weight: 600;
+    }
+    .article-card .more {
+      display: inline-block;
+      margin-top: 10px;
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    /* Logo Strip */
+    .logo-strip {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 20px 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .logo-strip img {
+      max-height: 50px;
+      width: auto;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    .logo-strip img:hover {
+      opacity: 1;
+    }
+    /* CTA Contacto */
+    .cta {
+      background-color: var(--gray-100);
+      padding: 40px;
+      text-align: center;
+      border-radius: var(--border-radius);
+    }
+    /* Footer */
+    footer {
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--ink-800);
+      border-top: 1px solid var(--gray-200);
+    }
+    footer a {
+      color: var(--ink-800);
+      text-decoration: none;
+    }
+    /* Mobile adjustments */
+    @media (max-width: 900px) {
+      .hero-wrap {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 0;
+      }
+      .hero-wrap .copy {
+        order: 2;
+      }
+      .hero-portrait {
+        order: 1;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .hero-wrap h1 {
+        font-size: 2.5rem;
+      }
+      .cta-row {
+        justify-content: center;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .grid-2 .copy {
+        order: 2;
+        max-width: 100% !important;
+      }
+      .grid-2 .content {
+        order: 1;
+      }
+      .recursos-card {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    @media (max-width: 600px) {
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      nav {
+        display: none; /* Simplificación de navegación en móvil */
+      }
+    }
 
-  <link rel="stylesheet" href="style.css">
+  </style>
+
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header class="site-header">
-    <div class="container nav">
-      <a class="nav-brand" href="#">
-        <img src="assets/brand/logo-ad-favicon-32.png" alt="AD"> Adrián Deyme
-      </a>
-      <nav class="nav-links">
-        <a href="#que-hago">Qué hago</a>
-        <a href="#para-quien">Para quién</a>
-        <a href="#paquetes">Paquetes</a>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" target="_blank" rel="noopener">LinkedIn</a>
+  <header>
+    <div class="container header-wrap">
+      <a class="logo" href="#hero">AD</a>
+      <nav>
+        <a href="#sobremi">Sobre mí</a>
+        <a href="#quehago">Qué hago</a>
+        <a href="#paquetes">Servicios</a>
+        <a href="#recursos">Recursos</a>
+        <a href="https://www.linkedin.com/in/adriandeyme/" target="_blank" rel="noopener">LinkedIn</a>
       </nav>
-      <div class="nav-fill"></div>
-      <a class="btn btn-primary" href="https://calendly.com/adrian-deyme/reunion-exploratoria" target="_blank" rel="noopener">Agendar reunión</a>
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-<section id="hero" class="section hero">
-  <div class="container hero-wrap">
-    <div class="copy">
-      <h1 style="color:var(--teal)">Tu Estrategia Funciona. Tu Ejecución la Hará Ganar.</h1>
-      <p class="lead" style="color:var(--ink-800)">Dejo de lado el "management" y me enfoco en el <strong>Coaching de Ejecución</strong>. Instalo <strong>foco, cadencia</strong> y <strong>liderazgo sistémico</strong> para que tus resultados sean sostenibles.</p>
-
-      <div class="cta-row">
-        <a class="btn btn-primary" href="agenda.html">Agendar exploratoria de 30'</a>
-        <a class="btn btn-ghost" href="mailto:contacto@adriandeyme.com">Contactar</a>
-      </div>
-
-      <div class="badges-row" style="padding-top:10px">
-        <span class="chip">ICF (Level 3 en curso)</span>
-        <span class="chip">OKR Champion</span>
-        <span class="chip">Kanban Management</span>
-      </div>
-    </div>
+  <main>
     
-    <div class="hero-portrait">
-      <div class="portrait-card">
-        <img src="assets/img/adrian-deyme-perfil-580.jpg" alt="Retrato de Adrián Deyme">
-      </div>
-    </div>
-  </div>
-</section>
-  
-  <!-- ===== SOBRE MÍ ===== -->
-<section id="sobre-mi" class="section">
-  <div class="container about card">
-    <p>Mi Propósito: Convertir Estrategia en Resultados Predecibles.</p>
-    <p>Mi experiencia proviene de <strong>más de 20 años</strong> liderando la intersección entre negocio y tecnología. He estado en tu lugar: sé lo que se siente tener una estrategia brillante que falla en la ejecución. Mi trabajo consiste en <strong>cerrar esa brecha</strong>.</p>
+    <section id="hero" class="section hero">
+      <div class="container hero-wrap">
+        <div class="copy">
+          <h1 style="color:var(--teal)">Tu Estrategia Funciona. Tu Ejecución la Hará Ganar.</h1>
+          <p class="lead" style="color:var(--ink-800)">Dejo de lado el "management" y me enfoco en el <strong>Coaching de Ejecución</strong>. Instalo <strong>foco, cadencia y liderazgo sistémico</strong> para que tus resultados sean sostenibles.</p>
 
-    <div class="key-foci">
-        <p><strong>Liderazgo Ejecutivo y Equipos</strong>: Coaching para clarificar propósito, fortalecer hábitos de ejecución y desarrollar capacidades sostenibles.</p>
-        <p><strong>Foco y Cadencia (OKRs/Kanban)</strong>: Implementación pragmática de marcos ágiles para crear flujo y alinear objetivos con métricas claras.</p>
-        <p><strong>Pensamiento Sistémico</strong>: Diagnóstico de estructura y cultura, con acompañamiento en gestión del cambio (p. ej, unFIX y Lean Change).</p>
-    </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://calendly.com/adrian-deyme/reunion-exploratoria" target="_blank" rel="noopener">Agendar exploratoria de 30'</a>
+            <a class="btn btn-ghost" href="mailto:contacto@adriandeyme.com">Contactar</a>
+          </div>
 
-    <p style="padding-top:6px">Combino la precisión del Coaching Ejecutivo (ICF) con la efectividad de las herramientas (OKRs, Kanban) para garantizar que tu inversión se traduzca en <strong>crecimiento y liderazgo sostenibles</strong>.</p>
-  </div>
-</section>
-
-  <!-- ===== QUÉ HAGO ===== -->
-  <section id="que-hago" class="section">
-    <div class="container">
-      <h2>Qué hago</h2>
-      <div class="grid-3">
-        <div class="box">
-          <h3>Liderazgo & Cultura</h3>
-          <p>Coaching ejecutivo y de equipos para clarificar propósito, fortalecer hábitos de ejecución y desarrollar capacidades que habiliten cambios culturales sostenibles.</p>
+          <div class="badges-row img-badges" style="padding-top:10px">
+            <img src="assets/badges/icf-acc.png" alt="ICF Level 3 en curso" title="ICF Level 3 en curso">
+            <img src="assets/badges/okr-champion.png" alt="OKR Champion" title="OKR Champion">
+            <img src="assets/badges/kanban-management.png" alt="Kanban Management" title="Kanban Management">
+          </div>
         </div>
-        <div class="box">
-          <h3>Ejecución ágil</h3>
-          <p>Implementación pragmática de OKRs y Kanban para crear foco, flujo y cadencia; alineación de objetivos con métricas y aprendizaje continuo.</p>
-        </div>
-        <div class="box">
-          <h3>Transformación organizacional</h3>
-          <p>Diagnóstico sistémico y acompañamiento en cambios de estructura (p. ej., unFIX), gestión del cambio (Lean Change Management) y prácticas de Management 3.0.</p>
+        
+        <div class="hero-portrait">
+          <div class="portrait-card">
+            <img src="assets/people/adrian-linkedin-sin-fondo.png" alt="Retrato de Adrián Deyme">
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== PARA QUIÉN ===== -->
-  <section id="para-quien" class="section">
-    <div class="container">
-      <h2>Para quién</h2>
-      <div class="grid-3">
-        <div class="box">
-          <h3>Líderes</h3>
-          <p>Líderes (CEOs, directores, founders, managers) que necesitan <strong>flexibilidad, foco y cadencia</strong> para ser <strong>catalizadores del cambio</strong>.</p>
+    <section id="sobremi" class="section">
+      <div class="container">
+        <div class="grid-2">
+          <div class="copy" style="max-width:400px">
+            <h2 style="color:var(--ink)">Mi Propósito: Convertir Estrategia en Resultados Predecibles.</h2>
+            <p>Mi experiencia proviene de <strong>más de 20 años</strong> liderando la intersección entre negocio y tecnología. He estado en tu lugar: sé lo que se siente tener una estrategia brillante que falla en la ejecución. Mi trabajo consiste en <strong>cerrar esa brecha</strong>.</p>
+            <ul class="key-bullets">
+              <li>Liderazgo Ejecutivo y Equipos: Coaching para clarificar propósito, fortalecer hábitos de ejecución y desarrollar capacidades sostenibles.</li>
+              <li>Foco y Cadencia (OKRs/Kanban): Implementación pragmática de marcos ágiles para crear flujo y alinear objetivos con métricas claras.</li>
+              <li>Pensamiento Sistémico: Diagnóstico de estructura y cultura, con acompañamiento en gestión del cambio (p. ej, unFIX y Lean Change).</li>
+            </ul>
+            <p>Combino la precisión del Coaching Ejecutivo (ICF) con la efectividad de las herramientas (OKRs, Kanban) para garantizar que tu inversión se traduzca en <strong>crecimiento y liderazgo sostenibles</strong>.</p>
+          </div>
+          
+          <div class="content">
+            <img src="assets/img/proceso-ejecucion-sistemica.svg" alt="Diagrama de Ejecución Sistémica">
+          </div>
         </div>
-        <div class="box">
-          <h3>Equipos</h3>
-          <p>Equipos que requieren <strong>Agilidad</strong>, objetivos alineados, <strong>resultados medibles</strong> y <strong>mejora continua</strong>.</p>
+      </div>
+    </section>
+
+    <section id="quehago" class="section" style="background-color:var(--gray-100)">
+      <div class="container">
+        <h2 style="text-align:center">Qué Hago</h2>
+        <p class="muted" style="text-align:center;margin-bottom:32px">Mi práctica se basa en la combinación de Coaching Ejecutivo, Pensamiento Sistémico y Ejecución Ágil.</p>
+
+        <div class="grid-3">
+
+          <div class="box">
+            <h3>Liderazgo & Cultura</h3>
+            <p>Coaching ejecutivo y de equipos para clarificar propósito, fortalecer hábitos de ejecución y desarrollar capacidades que habiliten cambios culturales sostenibles.</p>
+          </div>
+
+          <div class="box">
+            <h3>Ejecución Ágil</h3>
+            <p>Implementación pragmática de OKRs y Kanban para crear foco, flujo y cadencia; alineación de objetivos con métricas y aprendizaje continuo.</p>
+          </div>
+
+          <div class="box">
+            <h3>Transformación Organizacional</h3>
+            <p>Diagnóstico sistémico y acompañamiento en cambios de estructura (p. ej., unFIX), gestión del cambio (Lean Change Management) y prácticas de Management 3.0.</p>
+          </div>
+
         </div>
-        <div class="box">
-          <h3>Organizaciones</h3>
-          <p>Organizaciones que buscan alinear <strong>estructura</strong>, <strong>liderazgo</strong> y <strong>cultura</strong> con ejecución sustentable.</p>
+      </div>
+    </section>
+
+    <section id="paquetes" class="section">
+      <div class="container">
+        <h2 style="text-align:center">Servicios para Ejecución y Liderazgo</h2>
+        <p class="muted" style="text-align:center;margin-bottom:32px">Programas diseñados para instalar foco, cadencia y resultados sostenibles en líderes y equipos.</p>
+        
+        <div class="grid-3">
+
+          <div class="box">
+            <h3>Sesión de Claridad Estratégica</h3>
+            <p>Reunión gratuita para entender el punto exacto donde la ejecución falla, con un plan de acción concreto para los <strong>próximos 7 días</strong>.</p>
+            <p class="price" style="margin-top:10px">Sin costo</p>
+            <p style="margin-top:14px"><a class="btn btn-ghost" href="https://calendly.com/adrian-deyme/reunion-exploratoria" target="_blank" rel="noopener">Agendar</a></p>
+          </div>
+
+          <div class="box">
+            <h3>Sprint de Foco & Cadencia</h3>
+            <p>Intervención corta (3-4 semanas) para <strong>instalar foco, cadencia y un tablero de resultados funcionando</strong>. Formato "Muestra" con entregables claros.</p>
+            <p class="price" style="margin-top:10px">Explorar precios</p>
+            <p style="margin-top:14px"><a class="btn btn-primary" href="descubrimiento.html">Explorar</a></p>
+          </div>
+
+          <div class="box">
+            <h3>Programa de Crecimiento Sostenible</h3>
+            <p>Programa de <strong>Coaching ejecutivo 1:1</strong> (3-6 meses) para escalar la ejecución y el liderazgo. Incluye OKRs avanzados y métricas de impacto.</p>
+            <p class="price" style="margin-top:10px">Plan personalizado por objetivos.</p>
+            <p style="margin-top:14px"><a class="btn btn-ghost" href="mailto:contacto@adriandeyme.com">Conversar</a></p>
+          </div>
+
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== PAQUETES ===== -->
-<section id="paquetes" class="section">
-  <div class="container">
-    <h2 style="text-align:center">Servicios para Ejecución y Liderazgo</h2>
-    <p class="muted" style="text-align:center;margin-bottom:32px">Programas diseñados para instalar foco, cadencia y resultados sostenibles en líderes y equipos.</p>
-    
-    <div class="grid-3">
+    <section id="recursos" class="section" style="background-color:var(--gray-100)">
+      <div class="container">
+        <h2 style="text-align:center">Recursos & Artículos</h2>
 
-      <div class="box">
-        <h3>Sesión de Claridad Estratégica</h3>
-        <p>Reunión gratuita para entender el punto exacto donde la ejecución falla, con un plan de acción concreto para los <strong>próximos 7 días</strong>.</p>
-        <p class="price" style="margin-top:10px">Sin costo</p>
-        <p style="margin-top:14px"><a class="btn btn-ghost" href="agenda.html">Agendar</a></p>
-      </div>
+        <div class="recursos-card" style="margin-bottom:40px;">
+          <div class="copy">
+            <h3>Guía práctica de OKRs</h3>
+            <p>Una guía breve para diseñar objetivos con foco, evidencias y aprendizaje.</p>
+            <p class="muted" style="color:rgba(255,255,255,0.7);font-size:0.9rem;">Acepto recibir la guía y comunicaciones relacionadas a este recurso.</p>
+          </div>
+          <form action="/subscribe" method="POST">
+            <input type="email" name="email" placeholder="Ingresa tu e-mail" required>
+            <button type="submit" class="btn btn-primary">Recibir guía</button>
+          </form>
+        </div>
 
-      <div class="box">
-        <h3>Sprint de Foco & Cadencia</h3>
-        <p>Intervención corta (3-4 semanas) para <strong>instalar foco, cadencia y un tablero de resultados funcionando</strong>. Formato "Muestra" con entregables claros.</p>
-        <p class="price" style="margin-top:10px">Explorar precios</p>
-        <p style="margin-top:14px"><a class="btn btn-primary" href="descubrimiento.html">Explorar</a></p>
-      </div>
-
-      <div class="box">
-        <h3>Programa de Crecimiento Sostenible</h3>
-        <p>Programa de <strong>Coaching ejecutivo 1:1</strong> (3-6 meses) para escalar la ejecución y el liderazgo. Incluye OKRs avanzados y métricas de impacto.</p>
-        <p class="price" style="margin-top:10px">Plan personalizado por objetivos.</p>
-        <p style="margin-top:14px"><a class="btn btn-ghost" href="mailto:contacto@adriandeyme.com">Conversar</a></p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-  <!-- ===== RECURSOS + ARTÍCULOS ===== -->
-  <section id="recursos" class="section">
-    <div class="container resources-wrap">
-
-      <!-- Guía OKRs -->
-<div class="lead-card">
-  <h3>Guía práctica de OKRs <span class="muted">(beta)</span></h3>
-  <p>Una guía breve para diseñar objetivos con foco, evidencias y aprendizaje.</p>
-  <form class="lead-form" action="https://formspree.io/f/xrbypdje" method="POST">
-    <input type="email" name="email" placeholder="tu@correo.com" required>
-
-    <label class="consent">
-      <input type="checkbox" name="consentimiento" required> Acepto recibir la guía y comunicaciones relacionadas a este recurso.
-    </label>
-
-    <input type="hidden" name="_subject" value="Nueva suscripción a Guía OKRs">
-
-    <button class="btn btn-primary" type="submit">Recibir guía</button>
-  </form>
-</div>
-
-      <!-- Últimos artículos -->
-      <div>
-        <h2 style="margin-top:-4px">Últimos artículos</h2>
-        <div class="articles">
-          <article class="article">
-            <img src="assets/posts/okrs-brujula-liderazgo.png" alt="OKRs: la brújula del liderazgo">
-            <div class="pad">
+        <h3 style="text-align:center;margin-bottom:24px">Últimos artículos</h3>
+        <div class="articles-grid">
+          
+          <article class="article-card">
+            <div>
               <h4>OKRs: la brújula del liderazgo</h4>
               <p>Cómo usar OKRs para orientar foco y aprendizaje continuo.</p>
-              <a class="more" href="https://www.linkedin.com/feed/update/urn:li:activity:7374120820190842880/" target="_blank" rel="noopener">Leer en LinkedIn →</a>
+              <a class="more" href="https://www.linkedin.com/feed/update/urn:li:activity:7376601365143425025/" target="_blank" rel="noopener">Leer en LinkedIn →</a>
             </div>
           </article>
 
-          <article class="article">
-            <img src="assets/posts/flujo-cuellos-botella.png" alt="Flujo y cuellos de botella">
-            <div class="pad">
+          <article class="article-card">
+            <div>
               <h4>Flujo & cuellos de botella</h4>
               <p>Por qué limitar el WIP y visualizar el trabajo mejora resultados.</p>
-              <a class="more" href="https://www.linkedin.com/feed/update/urn:li:activity:7373744845728866304/" target="_blank" rel="noopener">Leer en LinkedIn →</a>
+              <a class="more" href="https://www.linkedin.com/feed/update/urn:li:activity:7376601365143425025/" target="_blank" rel="noopener">Leer en LinkedIn →</a>
             </div>
           </article>
 
-          <article class="article">
-            <img src="assets/posts/costo-prejuicios.png" alt="El costo de los prejuicios">
-            <div class="pad">
+          <article class="article-card">
+            <div>
               <h4>El costo de los prejuicios</h4>
               <p>Sesgos invisibles que erosionan decisiones y colaboración.</p>
               <a class="more" href="https://www.linkedin.com/feed/update/urn:li:activity:7376601365143425025/" target="_blank" rel="noopener">Leer en LinkedIn →</a>
@@ -225,31 +527,43 @@
           </article>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ===== CONTACTO ===== -->
-  <section id="contacto" class="section">
-    <div class="container">
-      <div class="cta">
-        <h2 style="margin:0 0 8px">¿Está listo para dar el siguiente paso?</h2>
-        <p class="muted" style="margin-bottom:14px">Coordinemos una reunión de 30 minutos o contácteme por e-mail.</p>
-        <p style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-          <a class="btn btn-primary" href="https://calendly.com/adrian-deyme/reunion-exploratoria" target="_blank" rel="noopener">Agendar exploratoria</a>
-          <a class="btn btn-ghost" href="mailto:contacto@adriandeyme.com">contacto@adriandeyme.com</a>
-        </p>
+    <section id="credenciales" class="section">
+      <div class="container">
+        <h2 style="text-align:center; margin-bottom: 24px;">Credenciales & Membresías</h2>
+        
+        <div class="logo-strip">
+          <img src="assets/badges/logo-icf.png" alt="Logo de International Coaching Federation">
+          <img src="assets/badges/logo-cp-acc.png" alt="Logo de Certificación CP-ACC">
+          <img src="assets/badges/logo-cp-sys.png" alt="Logo de Certificación CP-SYS">
+          <img src="assets/badges/logo-management-30.png" alt="Logo de Management 3.0">
+          <img src="assets/badges/logo-unfix.png" alt="Logo de unFIX">
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== FOOTER ===== -->
+    <section id="contacto" class="section">
+      <div class="container">
+        <div class="cta">
+          <h2 style="margin:0 0 8px">¿Está listo para dar el siguiente paso?</h2>
+          <p class="muted" style="margin-bottom:14px">Coordinemos una reunión de 30 minutos o contácteme por e-mail.</p>
+          <p style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+            <a class="btn btn-primary" href="https://calendly.com/adrian-deyme/reunion-exploratoria" target="_blank" rel="noopener">Agendar exploratoria</a>
+            <a class="btn btn-ghost" href="mailto:contacto@adriandeyme.com">contacto@adriandeyme.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
   <footer>
     <div class="container foot">
       <span>Panamá · Remoto LATAM & ES</span> ·
       <a href="mailto:contacto@adriandeyme.com">contacto@adriandeyme.com</a> ·
-      <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" target="_blank" rel="noopener">LinkedIn</a> ·
-      <span>Diseñado y construido por Adrián Deyme con apoyo de ChatGPT</span>
+      <a href="https://www.linkedin.com/in/adriandeyme/" target="_blank" rel="noopener">LinkedIn</a>
+      <span style="display:block;margin-top:5px">Diseñado y construido por Adrián Deyme con apoyo de Gemini AI (casi me cuesta la vida).</span>
     </div>
   </footer>
 
