@@ -1,5 +1,5 @@
 /* ======================================================= */
-/* GEMINI: style.css (Código Consolidado y OPTIMIZADO UX/UI) */
+/* GEMINI: style.css (Código CONSOLIDADO y CORREGIDO) */
 /* ======================================================= */
 
 /* ========= Design Tokens (Variables Globales) ========= */
@@ -106,22 +106,20 @@ p{margin:0 0 10px}
   .hero h1{font-size:clamp(1.7rem, 4.2vw + .8rem, 2.3rem)}
 }
 
-/* ========= Sobre mí - CSS FINALIZADO ========= */
+/* ========= Sobre mí - CORREGIDO Y DEFINITIVO ========= */
 .card{background:var(--card);border:1px solid rgba(2,32,43,.08);border-radius:var(--radius-xl);box-shadow:var(--shadow-1)}
-.about{padding:24px 28px}
+.about{
+    padding:24px 28px;
+    max-width: 860px; /* Limitar el ancho de la caja para mejor legibilidad */
+    margin: 0 auto; /* Centrar la caja */
+}
 .about p{font-size:clamp(1.02rem,.2vw + 1rem,1.08rem);color:var(--ink-800)}
 .about strong{font-weight:800} /* MANTENIDO: Clave para escanear el texto denso */
 
-/* === CSS para el nuevo formato de 3 bloques sin lista === */
-.about-text-wrap {
-    max-width: 800px; /* Centrar y limitar el ancho del texto */
-    margin: 0 auto;
-}
-
-/* Espacio vertical entre los 3 párrafos de los focos clave (replicando el PDF) */
+/* CSS para el espaciado de los 3 puntos clave (replicando el PDF) */
 .key-foci p {
-    margin: 1.4rem 0; 
-    line-height: 1.5; /* Mantenemos la legibilidad */
+    margin: 1.4rem 0; /* Espacio vertical para separar los 3 focos clave */
+    line-height: 1.5; 
 }
 
 
