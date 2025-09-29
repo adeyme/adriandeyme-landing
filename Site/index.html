@@ -330,17 +330,21 @@
     <div class="container resources-wrap">
 
       <!-- Guía OKRs -->
-      <div class="lead-card">
-        <h3>Guía práctica de OKRs <span class="muted">(beta)</span></h3>
-        <p>Una guía breve para diseñar objetivos con foco, evidencias y aprendizaje.</p>
-        <form class="lead-form" action="gracias.html" method="get">
-          <input type="email" name="email" placeholder="tu@correo.com" required>
-          <button class="btn btn-primary" type="submit">Recibir guía</button>
-        </form>
-        <label class="consent">
-          <input type="checkbox" required> Acepto recibir la guía y comunicaciones relacionadas a este recurso.
-        </label>
-      </div>
+<div class="lead-card">
+  <h3>Guía práctica de OKRs <span class="muted">(beta)</span></h3>
+  <p>Una guía breve para diseñar objetivos con foco, evidencias y aprendizaje.</p>
+  <form class="lead-form" action="https://formspree.io/f/xrbypdje" method="POST">
+    <input type="email" name="email" placeholder="tu@correo.com" required>
+
+    <label class="consent">
+      <input type="checkbox" name="consentimiento" required> Acepto recibir la guía y comunicaciones relacionadas a este recurso.
+    </label>
+
+    <input type="hidden" name="_subject" value="Nueva suscripción a Guía OKRs">
+
+    <button class="btn btn-primary" type="submit">Recibir guía</button>
+  </form>
+</div>
 
       <!-- Últimos artículos -->
       <div>
