@@ -1,0 +1,204 @@
+/* ——— Recursos: tarjeta guía + posts ——— */
+.resources .resources-wrap{
+  display:grid;
+  grid-template-columns:minmax(0,420px) 1fr;
+  gap:32px;
+  align-items:start;
+}
+
+.lead-card.brand{
+  background:var(--petroleo);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  padding:24px;
+  box-shadow:0 1px 2px rgba(0,0,0,.06);
+}
+.lead-card.brand h3{margin:0 0 6px;color:#fff}
+.lead-card.brand p{margin:0 0 14px;color:#cee6eb}
+.lead-card.brand .muted{color:#cee6eb}
+
+.lead-card.brand form .row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:12px;
+  align-items:center;
+  max-width:560px;
+}
+.lead-card.brand .consent{
+  grid-column:1 / -1;
+  display:flex; gap:8px; align-items:flex-start;
+  margin-top:10px; color:#e6f1f3; font-size:14px;
+}
+.lead-card.brand .consent input{margin-top:2px}
+
+.lead-card.brand input[type="email"]{
+  width:100%; padding:14px 16px;
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:10px; background:rgba(255,255,255,.12);
+  color:#fff; outline:none;
+}
+.lead-card.brand input[type="email"]::placeholder{color:#d7e6ea}
+.lead-card.brand input[type="email"]:focus{
+  border-color:#fff; box-shadow:0 0 0 3px rgba(255,255,255,.15);
+}
+
+.lead-card.brand .btn.btn-primary{
+  background:#fff; color:var(--petroleo);
+  padding:14px 18px; white-space:nowrap;
+}
+.lead-card.brand .btn.btn-primary:hover{filter:brightness(0.98)}
+
+.articles-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:16px;
+}
+.article-card{
+  display:flex; flex-direction:column;
+  border:1px solid rgba(15,23,42,.08);
+  border-radius:16px; overflow:hidden; background:#fff;
+}
+.article-card img{aspect-ratio:16/9; object-fit:cover}
+.article-card .meta{padding:14px}
+.article-card .meta b{display:block; margin-bottom:6px}
+.article-card .meta p{margin:0; color:#3d4a53}
+
+@media (max-width:980px){
+  .resources .resources-wrap{ grid-template-columns:1fr; }
+}
+@media (max-width:600px){
+  .lead-card.brand form .row{ grid-template-columns:1fr; }
+  .lead-card.brand .btn.btn-primary{ width:100%; }
+  
+  /* — Ajuste de tamaños en la tarjeta izquierda (Guía OKRs) — */
+.lead-card.brand h3{
+  font-size: clamp(18px, 1.8vw, 20px);
+  line-height: 1.25;
+}
+.lead-card.brand p{
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.55;
+}
+.lead-card.brand input[type="email"]{
+  height: 44px;
+  font-size: 15px;
+}
+.lead-card.brand .btn.btn-primary{
+  height: 44px;
+  padding: 0 16px;
+  font-size: 15px;
+}
+.lead-card.brand .consent{
+  font-size: 13px;
+}
+
+/* Móvil: aún más discreto */
+@media (max-width:600px){
+  .lead-card.brand h3{ font-size: 18px; }
+  .lead-card.brand p{ font-size: 14px; }
+  
+  /* ====== HERO — ajustes tipográficos y de layout ====== */
+
+/* Titular más contenido */
+.hero h1{
+  font-size: clamp(28px, 3.2vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+/* Subtítulo del héroe un pelín más discreto */
+.hero p.lead{
+  font-size: clamp(16px, 1.15vw, 18px);
+  line-height: 1.55;
+}
+
+/* Acercar texto y foto: menos separación entre columnas y abajo */
+.hero{
+  gap: 24px;               /* antes 32–40px */
+  padding-bottom: 24px;    /* reduce el aire bajo el héroe */
+}
+
+/* Limitar el ancho del bloque de la foto y centrarlo en su columna */
+.hero-portrait{
+  max-width: 520px;        /* controla el “tamaño visual” de la foto */
+  justify-self: center;
+}
+
+/* Marco de la foto (tarjeta) */
+.portrait-card{
+  background: #fff;
+  border: 1px solid rgba(3, 24, 30, 0.08);       /* sutil */
+  box-shadow: 0 12px 30px rgba(3, 24, 30, 0.08); /* suave */
+  border-radius: 24px;
+  padding: 12px;           /* “passepartout” alrededor de la imagen */
+}
+
+/* Redondeo de la imagen dentro del marco */
+.portrait-card img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  /* ====== HERO – tipografía y layout ====== */
+.hero h1{
+  font-size: clamp(28px, 3vw, 44px);   /* antes ~48–52px */
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  max-width: 15ch;                     /* evita 5 líneas */
+}
+
+/* Acercar columnas y compactar el bloque */
+.hero{ gap: 20px; padding-bottom: 20px; }
+
+/* Foto: tarjeta/marco sutil */
+.hero-portrait{ max-width: 500px; justify-self: center; }
+.hero-portrait .portrait-card{
+  background: #fff;
+  border: 1px solid rgba(3,24,30,.08);
+  box-shadow: 0 12px 28px rgba(3,24,30,.08);
+  border-radius: 24px;
+  padding: 12px;
+}
+.hero-portrait .portrait-card img{
+  display:block; width:100%; height:auto; border-radius:16px;
+}
+
+/* Tira de badges del héroe un pelín más discreta */
+.hero .badges-strip img{ transform: translateY(2px) scale(.94); }
+
+/* Botones del héroe alineados y con misma altura */
+.hero .cta-row{ display:flex; gap:12px; align-items:center; }
+.hero .cta-row .btn{ height: 48px; display:inline-flex; align-items:center; }
+
+/* Desktop: columnas más cercanas */
+@media (min-width: 992px){
+  .hero{
+    grid-template-columns: minmax(560px, 1fr) minmax(420px, 520px);
+  }
+}
+
+/* Móvil: todo más compacto */
+@media (max-width: 800px){
+  .hero{ gap: 14px; padding-bottom: 14px; }
+  .hero h1{ font-size: clamp(26px, 5.8vw, 34px); max-width: 18ch; }
+  .hero-portrait{ max-width: 420px; }
+  .hero-portrait .portrait-card{ padding:10px; border-radius:20px; }
+  .hero-portrait .portrait-card img{ border-radius:14px; }
+}
+}
+
+/* Desktop: columnas más próximas */
+@media (min-width: 992px){
+  .hero{
+    grid-template-columns: minmax(540px, 1fr) minmax(420px, 520px);
+  }
+}
+
+/* Móvil: todo apilado y compacto */
+@media (max-width: 800px){
+  .hero{ gap: 16px; padding-bottom: 16px; }
+  .hero-portrait{ max-width: 420px; }
+  .portrait-card{ padding: 10px; border-radius: 20px; }
+  .portrait-card img{ border-radius: 14px; }
+}

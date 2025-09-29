@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Descubrimiento · Adrián Deyme</title>
+  <link rel="icon" href="assets/brand/logo-ad-favicon-32.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand:#0e4a56; --brand-2:#396c77; --ink:#0b1c1f; --muted:#415659; --bg:#f4f6f7; --card:#fff;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    .wrap{max-width:1100px;margin:0 auto;padding:32px 20px}
+    header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+    header img{height:28px}
+    header a{color:var(--brand);text-decoration:none;font-weight:600}
+    h1{font-size:28px;line-height:1.2;margin:6px 0 22px}
+    p.lead{color:var(--muted);margin:0 0 24px}
+    .card{background:var(--card);border-radius:22px;box-shadow:0 10px 25px rgba(0,0,0,.05);padding:18px}
+    /* Contenedor responsive para iframe */
+    .iframe-wrap{position:relative;width:100%;padding-bottom:1400px; /* alto aproximado del form en mobile */ height:0; overflow:hidden;border-radius:16px}
+    .iframe-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+    .actions{margin:22px 0 8px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700}
+    .btn-primary{background:var(--brand);color:#fff}
+    .btn-ghost{border:1px solid #d6e1e4;color:var(--ink);background:#fff}
+    footer{margin:28px 0 8px;color:var(--muted);font-size:14px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a href="index.html"><img src="assets/brand/logo-ad-principal-transparente.svg" alt="AD"></a>
+      <a href="index.html">Volver al sitio</a>
+    </header>
+
+    <h1>Sesión de Descubrimiento para Líderes y Organizaciones</h1>
+    <p class="lead">Si preferís dejarme contexto antes de coordinar la reunión, completá este formulario. Te responderé a la brevedad para agendar.</p>
+
+    <div class="card">
+      <div class="iframe-wrap">
+        <!-- Reemplaza el src por tu URL de Google Form -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdC-isQTU0FMrpfzH-BHBJ5xNlsVztEov4cCgt8EKG25h7OrA/viewform?embedded=true">Cargando…</iframe>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="https://calendly.com/adrian-deyme/reunion-exploratoria" target="_blank" rel="noopener">Prefiero agendar 30’ por Calendly</a>
+      <a class="btn btn-ghost" href="index.html">Volver al sitio</a>
+    </div>
+
+    <footer>Diseñado y construido por Adrián Deyme con apoyo de ChatGPT.</footer>
+  </div>
+</body>
+</html>
