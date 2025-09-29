@@ -296,3 +296,22 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
 .hero-portrait .portrait-card:hover {
     box-shadow: 0 16px 36px rgba(3, 24, 30, 0.15);
 }
+
+/* ======================================================= */
+/* GEMINI: AJUSTE DE CTA EN MÓVIL (Foco en CTA Primaria) */
+/* ======================================================= */
+
+@media (max-width: 500px) {
+    /* Forzar al botón secundario a ocupar menos espacio */
+    .hero .cta-row .btn-ghost {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: auto;
+    }
+    
+    /* Disminuir sutilmente el padding del botón secundario para que no compita */
+    .hero .cta-row .btn-ghost {
+        padding: 0.9rem 1rem;
+        font-size: 0.95rem; 
+    }
+}
