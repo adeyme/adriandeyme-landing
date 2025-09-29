@@ -314,4 +314,28 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
         padding: 0.9rem 1rem;
         font-size: 0.95rem; 
     }
+
+  /* ======================================================= */
+/* GEMINI: AJUSTE DE SOBRE MÍ (Formato de lista) */
+/* ======================================================= */
+.about-text-wrap {
+    max-width: 800px; /* Centrar y limitar el ancho del texto */
+    margin: 0 auto;
+}
+
+.method-list {
+    list-style: none; /* Eliminar el punto de la lista */
+    padding: 0;
+    margin: 30px 0;
+    display: grid;
+    gap: 15px;
+}
+
+.method-list li {
+    padding: 12px 0 12px 20px;
+    border-left: 4px solid var(--teal, #0e4950); /* Línea de color para el énfasis */
+    line-height: 1.5;
+    background: var(--card, #fff); /* Fondo claro para que resalte la línea */
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra sutil */
 }
