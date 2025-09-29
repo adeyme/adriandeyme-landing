@@ -118,7 +118,8 @@ p{margin:0 0 10px}
 
 /* CSS para el espaciado de los 3 puntos clave (replicando el PDF) */
 .key-foci p {
-    margin: 1.4rem 0; /* Espacio vertical para separar los 3 focos clave */
+    /* ✨ ESTE ES EL NUEVO VALOR PARA HACER EL TEXTO MÁS COMPACTO (1rem) */
+    margin: 1rem 0; 
     line-height: 1.5; 
 }
 
