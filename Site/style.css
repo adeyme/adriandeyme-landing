@@ -92,7 +92,18 @@ p{margin:0 0 10px}
 /* ========= Qué hago / Para quién / Paquetes ========= */
 .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.box{background:var(--card);border:1px solid rgba(2,32,43,.08);border-radius:var(--radius-lg);padding:18px}
+.box{
+    /* Las propiedades de diseño y fondo que ya tenías */
+    background:var(--card);
+    border:1px solid rgba(2,32,43,.08);
+    border-radius:var(--radius-lg);
+    padding:18px;
+    
+    /* PROPIEDADES AÑADIDAS PARA LA ALINEACIÓN */
+    display:flex; /* Activa el modelo Flexbox */
+    flex-direction:column; /* Asegura que los elementos se apilen verticalmente */
+    justify-content:space-between; /* CLAVE: Empuja el primer elemento hacia arriba y el último (el botón) hacia abajo, alineándolos */
+}
 .box h3{margin:0 0 6px 0;font-size:1.08rem}
 .box p{color:var(--ink-700)}
 .price{font-weight:800;color:var(--teal)}
