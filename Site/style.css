@@ -140,3 +140,42 @@ p{margin:0 0 10px}
 .cta{background:var(--card);border:1px solid rgba(2,32,43,.08);border-radius:var(--radius-xl);padding:22px;text-align:center;box-shadow:var(--shadow-1)}
 footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08)}
 .foot{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;text-align:center}
+
+/* ======================================================= */
+/* GEMINI: MEJORAS DE FLUIDEZ Y ESTÉTICA (MICRO-INTERACCIONES) */
+/* ======================================================= */
+
+/* 1. Transiciones Base (Hacen que todos los cambios sean suaves) */
+.btn, .box, .lead-card, .portrait-card, .article {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 2. Botones Interactivos (Respuesta al hacer hover) */
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(14, 73, 80, 0.4);
+}
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(14, 73, 80, 0.2);
+}
+
+/* 3. Tarjetas de Servicio (Reacción sutil en la sección "Qué Hago" y "Paquetes") */
+.box:hover {
+    transform: scale(1.005);
+    box-shadow: 0 10px 20px rgba(12, 26, 30, 0.12);
+    border-color: var(--teal);
+}
+
+/* 4. Tarjeta del Retrato (Toque premium al pasar el ratón) */
+.hero-portrait .portrait-card:hover {
+    box-shadow: 0 16px 36px rgba(3, 24, 30, 0.2);
+    transform: scale(1.005);
+}
+
+/* 5. Artículos (Efecto en las tarjetas de la sección Recursos) */
+.article:hover {
+    box-shadow: var(--shadow-2);
+    border-color: rgba(2, 32, 43, 0.15);
+    transform: scale(1.005);
+}
