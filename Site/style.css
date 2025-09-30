@@ -219,9 +219,9 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
     grid-template-columns: 1fr; /* Una columna para que el artículo sea legible */
   }
 
-  /* 6. Credenciales: Reduce el tamaño de los badges para la fila móvil */
+/* 6. Credenciales: Reduce el tamaño de los badges para la fila móvil */
   .strip img {
-    height: 48px; /* Iconos un poco más pequeños */
-    margin: 0 4px; /* Espaciado ajustado */
+    height: 40px; /* Tamaño final optimizado para smartphone */
+    margin: 0 4px;
   }
 }
