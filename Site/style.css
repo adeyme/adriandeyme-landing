@@ -139,6 +139,7 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
 /* GEMINI: MEJORAS DE FLUIDEZ Y ESTÉTICA (MICRO-INTERACCIONES) */
 /* ======================================================= */
 
+
 /* 1. Transiciones Base (Hacen que todos los cambios sean suaves) */
 .btn, .box, .lead-card, .portrait-card, .article {
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -152,6 +153,30 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
 .btn-primary:active {
     transform: translateY(0);
     box-shadow: 0 2px 6px rgba(14, 73, 80, 0.2);
+}
+
+/* NUEVO: Botón Seguir LinkedIn (.libutton) */
+.libutton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 7px;
+    text-align: center;
+    outline: none;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    width: 200px;
+    height: 32px;
+    border-radius: 16px;
+    background-color: #0A66C2; /* Color azul de LinkedIn */
+    font-family: "SF Pro Text", Helvetica, sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.libutton:hover {
+    background-color: #004182; /* Tono más oscuro al pasar el ratón */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(10, 102, 194, 0.4);
 }
 
 /* 3. Tarjetas de Servicio (Reacción sutil en la sección "Qué Hago" y "Paquetes") */
