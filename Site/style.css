@@ -224,4 +224,10 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
     height: 36px; /* Ajuste final a un tamaño más sutil */
     margin: 0 2px; /* Espaciado horizontal reducido al mínimo */
   }
+
+  /* 7. Badges de la sección HERO */
+  .badges-row img {
+    height: 36px; /* Uniformiza el tamaño con los badges del footer */
+    margin-right: 12px;
+  }
 }
