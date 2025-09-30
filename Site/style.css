@@ -218,7 +218,7 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
     padding: 16px 14px;
   }
   .section {
-    padding: 30px 0;
+    padding: 30px 0; /* Espacio vertical reducido para móvil */
   }
   
   /* Header: Ajustes para que quepa el logo */
@@ -273,20 +273,16 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
   .articles {
     grid-template-columns: 1fr;
   }
-/* Nuevo: Corrección de espaciado en secciones para móvil */
-@media (max-width: 640px) {
-    /* Reduce el padding para todas las secciones en móvil */
-    .section {
-        padding: 40px 0; /* Un buen tamaño para móvil */
-    }
-
-    /* Ajuste específico para la tira de badges (Credenciales/Membresías) */
-    .strip {
-        padding: 0 14px; /* Asegura que no se desborde */
-    }
-
-    /* Asegura que la sección de recursos (guía + artículos) no tenga un padding inferior excesivo */
-    #recursos {
-        padding-bottom: 40px;
-    }
+  
+  /* >>> CORRECCIÓN FINAL DE ESPACIADO DE BAGES/CTA (Soluciona el problema) <<< */
+  
+  /* Ajuste para la sección de Badges/Credenciales para acercarla a la CTA de Contacto */
+  .strip {
+    margin-top: -10px; /* Sube la tira de badges un poco para compactar */
+  }
+  
+  /* Asegura que el padding de la última sección (Contacto) sea adecuado */
+  #contacto {
+    padding-bottom: 30px; /* Mantiene la consistencia con el padding: 30px 0; */
+  }
 }
