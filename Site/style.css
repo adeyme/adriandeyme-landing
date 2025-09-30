@@ -164,12 +164,12 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
 }
 
 /* ======================================================= */
-/* GEMINI: MEDIA QUERIES OPTIMIZADAS (Móvil y Tablet) */
+/* GEMINI: MEDIA QUERIES OPTIMIZADAS (FINAL) */
 /* ======================================================= */
 
 /* Optimización Tablet (menos de 1000px) */
 @media (max-width: 1000px) {
-  /* 1. Header: Oculta la navegación regular para evitar desbordamiento */
+  /* Oculta la navegación regular para evitar desbordamiento */
   .nav-links {
     display: none;
   }
@@ -177,20 +177,20 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
 
 /* Optimización Móvil (menos de 640px) */
 @media (max-width: 640px) {
-  /* Base: Reducción de padding general en móvil */
+  /* Base: Espaciado y relleno general */
   .container {
-    padding: 16px 14px; /* Menor padding horizontal */
+    padding: 16px 14px;
   }
   .section {
-    padding: 30px 0; /* Menor padding vertical entre secciones */
+    padding: 30px 0;
   }
   
-  /* 2. Header: Ajustes para que quepan logo y botón */
+  /* Header: Ajustes para que quepa el logo */
   .site-header .nav-brand {
-    font-size: 1.1rem; /* Titulo más pequeño en móvil */
+    font-size: 1.1rem;
   }
 
-  /* 3. HERO: Reestructura el layout a una sola columna */
+  /* HERO: Reestructura el layout a una sola columna */
   .hero-wrap {
     grid-template-columns: 1fr;
     gap: 18px;
@@ -198,36 +198,43 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
   /* La tarjeta del retrato va antes del texto en móvil (mejor UX) */
   .portrait-card {
     order: -1; 
-    max-width: 260px; /* Reducción de la imagen para que no sea intrusiva */
+    max-width: 260px; 
     border-radius: 14px;
   }
   .hero h1 {
-    font-size: clamp(1.8rem, 5vw + 0.5rem, 2.2rem); /* Titular más controlado */
+    font-size: clamp(1.8rem, 5vw + 0.5rem, 2.2rem);
   }
   
-  /* 4. Columnas: Convierte todas las cuadrículas de 2 y 3 columnas en pilas de 1 columna */
+  /* Nuevo: Botones del HERO más compactos */
+  .hero-copy .btn {
+    padding: 0.75rem 1rem; /* Botones más chicos */
+    font-size: 0.95rem; 
+  }
+
+  /* Nuevo: Badges y Credenciales FINAL (tamaño sutil) */
+  .strip img,
+  .badges-row img {
+    height: 32px; /* Reducción a 32px (tamaño sutil final) */
+    margin: 0 4px; 
+  }
+
+  /* Nuevo: Compactar la fila de Badges del HERO */
+  .badges-row {
+    gap: 0;
+    justify-content: center;
+  }
+  
+  /* Columnas: Convierte todas las cuadrículas en 1 columna */
   .grid-3, .grid-2 {
     grid-template-columns: 1fr;
     gap: 14px;
   }
   
-  /* 5. Artículos: Estructura de recursos y artículos */
+  /* Artículos: Estructura de recursos */
   .resources-wrap {
     grid-template-columns: 1fr;
   }
   .articles {
-    grid-template-columns: 1fr; /* Una columna para que el artículo sea legible */
-  }
-
-/* 6. Credenciales: Reduce el tamaño de los badges para la fila móvil */
-  .strip img {
-    height: 36px; /* Ajuste final a un tamaño más sutil */
-    margin: 0 2px; /* Espaciado horizontal reducido al mínimo */
-  }
-
-  /* 7. Badges de la sección HERO */
-  .badges-row img {
-    height: 36px; /* Uniformiza el tamaño con los badges del footer */
-    margin-right: 12px;
+    grid-template-columns: 1fr;
   }
 }
