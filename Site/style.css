@@ -144,11 +144,21 @@ p{margin:0 0 10px}
     padding-top: 16px; 
     padding-bottom: 0; 
 }
+/* *** SOLUCIÓN CLAVE ***: Eliminamos el padding inferior del .container para cerrar el espacio con #recursos */
+#badges .container {
+    padding-bottom: 0;
+}
 
 /* ========= Recursos (`#recursos`) ========= */
 /* AJUSTE MÁXIMO: Reducir el padding-top a CERO para compactar al máximo con #badges */
 #recursos {
-    padding-top: 0; /* ¡CERO padding superior! */
+    padding-top: 0; 
+    padding-bottom: 0; /* ¡CERO padding superior e inferior del SECTION! */
+}
+/* *** SOLUCIÓN CLAVE ***: Eliminamos el padding superior e inferior del .container */
+#recursos .container {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 
@@ -156,7 +166,11 @@ p{margin:0 0 10px}
 .cta{background:var(--card);border:1px solid rgba(2,32,43,.08);border-radius:var(--radius-xl);padding:22px;text-align:center;box-shadow:var(--shadow-1)}
 /* AJUSTE MÁXIMO: Reducir el padding superior de la CTA de contacto a CERO */
 #contacto {
-    padding-top: 0; /* ¡CERO padding superior! */
+    padding-top: 0; /* ¡CERO padding superior del SECTION! */
+}
+/* *** SOLUCIÓN CLAVE ***: Eliminamos el padding superior del .container para cerrar el espacio con #recursos */
+#contacto .container {
+    padding-top: 0;
 }
 footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08)}
 .foot{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;text-align:center}
@@ -241,7 +255,8 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
 @media (max-width: 640px) {
   /* Base: Espaciado y relleno general */
   .container {
-    padding: 16px 14px;
+    /* La línea del container está fuera, así que el padding es 24px 20px */
+    padding: 16px 14px; /* AJUSTE: Reducimos padding global en móvil */
   }
   
   /* AJUSTE: Reducción de espaciado vertical global a 16px para móvil */
@@ -338,17 +353,18 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
   /* Espaciado Vertical de secciones pequeñas (ajustadas para reducir el exceso de espacio) */
   #badges {
     padding-top: 16px; 
-    padding-bottom: 0; /* CLAVE: Elimina el espacio blanco extra debajo de los badges */
+    padding-bottom: 0; 
   }
   
-  /* AJUSTE MÁXIMO MÓVIL: Reducir el padding-top a CERO para compactar la separación con #badges */
+  /* Las siguientes reglas de compactación del .container se aplicarán gracias a la especificidad ID.class */
+  
   #recursos {
-    padding-top: 0; /* ¡CERO padding superior! */
+    padding-top: 0; 
+    padding-bottom: 0; 
   }
 
-  /* Ajuste MÁXIMO de Contacto en móvil */
   #contacto {
-    padding-top: 0; /* ¡CERO padding superior! */
+    padding-top: 0; 
   }
   
   /* ¡Cierre del media query! */
