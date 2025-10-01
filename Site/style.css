@@ -339,14 +339,16 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
   ---
   */
   .strip {
-    gap: 2px; 
+    /* AJUSTE EXTREMO MÓVIL: Reducción de gap a 1px */
+    gap: 1px; 
     flex-wrap: wrap; 
     justify-content: center;
   }
   
   .strip img {
     height: 35px; 
-    margin: 0 1px; 
+    /* AJUSTE EXTREMO MÓVIL: Eliminamos el margin lateral */
+    margin: 0 0; 
   }
 
   /* Columnas: Convierte todas las cuadrículas en 1 columna */
