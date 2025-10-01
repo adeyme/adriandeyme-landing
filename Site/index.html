@@ -5,7 +5,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){dataLayer.push(arguments); }
   gtag('js', new Date());
   gtag('config', 'G-NTWMC2JYYY');
 </script>
@@ -14,238 +14,367 @@
   <title>Adrián Deyme · Ejecución Sistémica, OKRs y Coaching de Liderazgo</title>
  <meta name="description" content="Alineo estrategia y ejecución con Coaching Sistémico, OKRs y Kanban. Para líderes y equipos que necesitan previsibilidad, alto foco y crecimiento sostenible.">
   <link rel="icon" href="assets/brand/logo-ad-favicon-32.png">
-  <!-- Enlaza al archivo CSS que subiste -->
-  <link rel="stylesheet" href="style (para GEMINI).css">
+  <link rel="stylesheet" href="style.css">
   <link rel="canonical" href="https://www.adriandeyme.com/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.adriandeyme.com/">
 <meta property="og:title" content="Adrián Deyme · Ejecución Sistémica y Resultados Predecibles">
 <meta property="og:description" content="Alineo estrategia y ejecución con OKRs, Kanban y Coaching de Liderazgo.">
-<meta property="og:image" content="https://www.adriandeyme.com/assets/brand/og-image.jpg">
+<meta property="og:image" content="https://www.adriandeyme.com/assets/og-image.jpg">
+
 </head>
 <body>
 
-<header>
-    <div class="logo">
-        <img src="assets/brand/logo-ad-40.png" alt="Logo de Adrián Deyme">
-        <a href="#inicio">ADRIÁN DEYME</a>
-    </div>
-    <nav>
+  <!-- ============= 1. HEADER / HERO ============= -->
+  <header id="hero" class="pad-lg">
+    <nav class="container">
+      <div class="logo">ADRIÁN DEYME</div>
+      <div class="nav-links">
         <a href="#quien-soy">Quién Soy</a>
         <a href="#servicios">Servicios</a>
         <a href="#recursos">Recursos</a>
-        <a href="mailto:hola@adriandeyme.com" class="btn btn-nav">Agenda un Diagnóstico</a>
+      </div>
+      <a href="#diagnostico" class="btn btn-teal-ghost cta-desktop">Agenda un Diagnóstico</a>
+      
+      <!-- Menú móvil (solo icono) -->
+      <a href="#diagnostico" class="btn btn-teal-ghost cta-mobile" style="padding:10px 14px; font-size:1.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </a>
     </nav>
-</header>
 
-<main>
-    <section id="inicio" class="hero">
-        <!-- Badges superiores -->
-        <div class="badges-row">
-            <img src="assets/badges/badge-scrum.svg" alt="Certified Scrum Master">
-            <img src="assets/badges/badge-kanban.svg" alt="Kanban Management Professional">
-            <img src="assets/badges/badge-okr.svg" alt="OKR Coach">
-            <img src="assets/badges/badge-icf.svg" alt="ICF Certified Coach">
-        </div>
-
-        <div class="hero-content">
-            <div class="hero-copy">
-                <h1>EJECUCIÓN SISTÉMICA.</h1>
-                <h2 class="subtitle">Lleva tu Estrategia al Campo de Juego y Gana.</h2>
-                <p>Alineo **estrategia y ejecución** con Coaching Sistémico, OKRs y Kanban. Para líderes y equipos que necesitan previsibilidad, alto foco y crecimiento sostenible.</p>
-                <div class="hero-buttons">
-                    <a href="mailto:hola@adriandeyme.com" class="btn btn-primary">Agenda un Diagnóstico</a>
-                    <a href="#servicios" class="btn btn-secondary">Ver Servicios</a>
-                </div>
+    <div class="header-inner container">
+        <div class="hero-copy">
+            <div class="badges-row">
+                <img src="assets/brand/badge-scrum.png" alt="Certificado Scrum" loading="lazy">
+                <img src="assets/brand/badge-kanban.png" alt="Certificado Kanban" loading="lazy">
+                <img src="assets/brand/badge-okr.png" alt="Certificado OKR" loading="lazy">
             </div>
-            <div class="hero-image">
-                <img src="assets/adrian-deyme-profile-400.png" alt="Foto de perfil de Adrián Deyme">
+            <h1>Ejecución Sistémica.</h1>
+            <p class="h-subtitle">Lleva tu Estrategia al Campo de Juego y Gana.</p>
+            <p class="h-copy">
+                Alineo **estrategia y ejecución** con Coaching Sistémico, OKRs y Kanban. Para líderes y equipos que necesitan previsibilidad, alto foco y crecimiento sostenible.
+            </p>
+            <div class="cta-buttons">
+                <a href="#diagnostico" class="btn btn-primary">Agenda un Diagnóstico</a>
+                <a href="#servicios" class="btn btn-secondary">Ver Servicios</a>
             </div>
         </div>
-    </section>
-
-    <!-- Strip de credenciales inferior -->
-    <div id="credenciales" class="strip">
-        <img src="assets/badges/badge-scrum.svg" alt="Certified Scrum Master">
-        <img src="assets/badges/badge-kanban.svg" alt="Kanban Management Professional">
-        <img src="assets/badges/badge-okr.svg" alt="OKR Coach">
-        <img src="assets/badges/badge-icf.svg" alt="ICF Certified Coach">
-        <img src="assets/badges/badge-unfix.svg" alt="unFIX Foundation">
-        <img src="assets/badges/badge-m30.svg" alt="Management 3.0">
+        <div class="hero-image-col">
+            <!-- Imagen del Hero (placeholder) -->
+            <img src="assets/placeholder-hero.jpg" alt="Ilustración de equipo de alto rendimiento y sistema de ejecución" loading="lazy">
+        </div>
     </div>
+  </header>
 
-    <!-- Sección Quién Soy -->
-    <section id="quien-soy" class="section-content">
-        <div class="grid-2">
-            <div>
-                <span class="pill">¿Quién Soy?</span>
-                <h3>Adrián Deyme</h3>
-                <p class="role">Coach Ejecutivo & Arquitecto Organizacional.</p>
-                <p>+15 años de experiencia con equipos de alto rendimiento: +500 líderes coachados en 10 países.</p>
-                <a href="https://linkedin.com/in/adriandeyme" target="_blank" class="btn btn-link">Seguir en Linkedin &rarr;</a>
+  <!-- ============= 2. QUÉ RESUELVO / MI ENFOQUE ============= -->
+  <section id="problema-enfoque" class="pad-lg">
+    <div class="container-narrow">
+      <h2 class="section-title">El Problema que Resuelvo.</h2>
+      <p class="large-text">
+        La mayoría de los líderes tiene una **estrategia brillante** que se queda en un PDF. El equipo está ocupado, pero la ejecución es caótica, los resultados son impredecibles y el **foco se disuelve en el ruido diario.**
+      </p>
+      
+      <hr>
 
-                <h4 class="mt-lg">El Problema que Resuelvo.</h4>
-                <p>La mayoría de los líderes tiene una **estrategia brillante** que se queda en un PDF. El equipo está ocupado, pero la ejecución es caótica, los resultados son impredecibles y el **foco se disuelve en el ruido diario.**</p>
-            </div>
-            <div>
-                <h4 class="mt-lg">Mi Enfoque Sistémico.</h4>
-                <p>Mi rol es ser el arquitecto de tu sistema de ejecución. Utilizo un enfoque integral y sistémico que combina la claridad de **OKRs**, la fluidez de **Kanban** y la estructura modular de **unFIX** con la fuerza transformadora del **Coaching de Liderazgo.**</p>
-                <p>No solo optimizo procesos; **rediseño la forma en que el trabajo fluye** desde la idea hasta el resultado.</p>
-                <p>Soy un socio para líderes que están listos para **dejar de apagar incendios** y empezar a construir una máquina de resultados.</p>
-            </div>
-        </div>
-    </section>
+      <h2 class="section-title" style="margin-top: 40px;">Mi Enfoque.</h2>
+      <p class="large-text">
+        Mi rol es ser el **arquitecto de tu sistema de ejecución**. Utilizo un enfoque integral y sistémico que combina la claridad de **OKRs**, la fluidez de **Kanban** y la estructura modular de **unFIX** con la fuerza transformadora del **Coaching de Liderazgo**.
+      </p>
+      <p class="large-text">
+        No solo optimizo procesos; **rediseño la forma en que el trabajo fluye** desde la idea hasta el resultado. Soy un socio para líderes que están listos para **dejar de apagar incendios** y empezar a construir una máquina de resultados.
+      </p>
+    </div>
+  </section>
 
-    <!-- Sección Servicios -->
-    <section id="servicios" class="section-content bg-light">
-        <span class="pill">Mi Oferta de Valor</span>
-        <h2>Lo que podemos construir juntos para alcanzar la Ejecución Sistémica y Resultados Predecibles:</h2>
+  <!-- ============= 3. QUIÉN SOY (ADRIÁN) - Actualizado v10 ============= -->
+  <section id="quien-soy" class="pad-lg bg-light">
+    <div class="container-narrow split">
 
-        <div class="grid-3">
-            <div class="card">
-                <div class="card-icon"><span role="img" aria-label="Icono de Foco Estratégico">🎯</span></div>
-                <h4>OKR & Foco Estratégico</h4>
-                <p>Diseño e implementación de Objetivos y Resultados Clave (OKRs) para crear una cadena de valor inquebrantable desde CEO hasta el equipo de ventas/desarrollo.</p>
-                <a href="mailto:hola@adriandeyme.com" class="btn btn-link">Iniciar Foco &rarr;</a>
-            </div>
-            <div class="card">
-                <div class="card-icon"><span role="img" aria-label="Icono de Flujo">🌊</span></div>
-                <h4>Kanban & Previsibilidad</h4>
-                <p>Diseño de sistemas de flujo (Kanban) y límites de trabajo en curso (WIP) para eliminar los cuellos de botella del equipo y maximizar la previsibilidad.</p>
-                <a href="mailto:hola@adriandeyme.com" class="btn btn-link">Optimizar Flujo &rarr;</a>
-            </div>
-            <div class="card">
-                <div class="card-icon"><span role="img" aria-label="Icono de Liderazgo">👑</span></div>
-                <h4>Coaching de Liderazgo Sistémico</h4>
-                <p>Sesiones de coaching ejecutivo para líderes que necesitan transformar patrones culturales, delegar con autoridad y construir estructuras modulares (unFIX).</p>
-                <a href="mailto:hola@adriandeyme.com" class="btn btn-link">Transformar Liderazgo &rarr;</a>
-            </div>
-        </div>
-        <p style="text-align: center; margin-top: 40px;">¿Cómo se ve la Ejecución Sistémica en tu empresa? <a href="mailto:hola@adriandeyme.com" style="font-weight: 700;">Agenda tu diagnóstico</a>.</p>
-    </section>
+      <!-- Columna 1: Quien Soy (Texto) -->
+      <div class="col">
+        <h2 class="section-title">¿Quién Soy?</h2>
 
-    <!-- Sección Recursos -->
-    <section id="recursos" class="section-content">
-        <span class="pill">Recursos y Publicaciones Recientes</span>
-        <h2>Descarga la lista de chequeo de 10 puntos para evaluar la previsibilidad de tu sistema de trabajo (OKRs, Kanban y Liderazgo).</h2>
+        <!-- Foto de Adrian Deyme (Placeholder) -->
+        <img src="assets/placeholder-adrian.jpg" alt="Foto de Adrián Deyme" class="adrian-photo">
 
-        <!-- Formulario de Suscripción -->
-        <form class="subscribe-form" action="#" method="POST">
-            <input type="email" placeholder="Tu email profesional" required aria-label="Tu email profesional">
-            <button type="submit" class="btn btn-primary">Descargar Guía</button>
-        </form>
-        <p class="small-text">Prometo no enviar SPAM, solo contenido de valor sobre Liderazgo y Ejecución.</p>
+        <h3 style="margin-top:20px; color:var(--teal);">Adrián Deyme</h3>
 
-        <!-- Contenedor de Artículos -->
-        <div id="articles-container" class="articles-feed mt-lg">
-            <!-- Los artículos se cargarán aquí desde el script -->
-            <p style="text-align:center; color:var(--ink-600);">Cargando publicaciones...</p>
-        </div>
-
-        <p style="text-align: center; margin-top: 40px;">
-            <a href="https://blog.adriandeyme.com" target="_blank" class="btn btn-secondary">Ver todas las publicaciones &rarr;</a>
+        <p style="font-size: 1.25rem; font-weight: 500; color:var(--ink-700); line-height: 1.4;">
+            Coach Ejecutivo & Arquitecto Organizacional.
         </p>
 
-    </section>
+        <!-- Lista de credenciales de v10 -->
+        <ul class="list-check">
+            <li>+15 años de experiencia con equipos de alto rendimiento.</li>
+            <li>+500 líderes coachados en 10 países.</li>
+            <li>Máximo nivel de certificación en Kanban, Scrum y Coaching Sistémico.</li>
+        </ul>
 
-    <!-- CTA Final -->
-    <section class="cta-banner">
-        <h2>Convierte tu Estrategia en Resultados Predecibles.</h2>
-        <p class="cta-subtitle">Si tu empresa no puede predecir el 90% de sus resultados trimestrales, **tienes un problema de sistema, no de personas.** Comencemos con un diagnóstico 100% gratuito.</p>
-        <a href="mailto:hola@adriandeyme.com" class="btn btn-primary btn-lg">Agenda tu Diagnóstico Gratuito de 30 minutos</a>
-    </section>
+        <a href="https://www.linkedin.com/in/adriandeyme" target="_blank" class="btn btn-secondary" style="margin-top: 15px;">
+            Seguir en Linkedin &rarr;
+        </a>
+      </div>
 
-</main>
+      <!-- Columna 2: La Historia (Imagen) -->
+      <div class="col image-col">
+        <img src="assets/image-system.jpg" alt="Ilustración de sistemas y engranajes" loading="lazy">
+      </div>
+    </div>
+  </section>
+  
+  <!-- ============= 4. OFERTA DE VALOR / SERVICIOS ============= -->
+  <section id="servicios" class="pad-lg">
+    <div class="container">
+      <h2 class="section-title">Mi Oferta de Valor</h2>
+      <p class="section-subtitle">Lo que podemos construir juntos para alcanzar la Ejecución Sistémica y Resultados Predecibles:</p>
+      
+      <div class="grid-3">
+        <!-- Servicio 1: OKR & Foco Estratégico -->
+        <div class="card service-card">
+            <span class="step-number">1</span>
+            <div class="icon-circle" style="background-color: var(--teal-10);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-crosshair"><circle cx="12" cy="12" r="10"/><line x1="22" x2="18" y1="12" y2="12"/><line x1="6" x2="2" y1="12" y2="12"/><line x1="12" x2="12" y1="6" y2="2"/><line x1="12" x2="12" y1="22" y2="18"/></svg>
+            </div>
+            <h3>OKR & Foco Estratégico</h3>
+            <p>Diseño e implementación de Objetivos y Resultados Clave (OKRs) para crear una cadena de valor inquebrantable desde el CEO hasta el equipo de ventas/desarrollo.</p>
+        </div>
+        
+        <!-- Servicio 2: Kanban & Previsibilidad -->
+        <div class="card service-card">
+            <span class="step-number">2</span>
+            <div class="icon-circle" style="background-color: var(--teal-10);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M12 2v4"/><path d="M12 22v-4"/><path d="m20.5 9-.4 2.5"/><path d="m3.5 9 .4 2.5"/><path d="M22 12h-4"/><path d="M6 12H2"/><path d="m18.5 15 .4-2.5"/><path d="m5.5 15-.4-2.5"/></svg>
+            </div>
+            <h3>Kanban & Previsibilidad</h3>
+            <p>Diseño de sistemas de flujo (Kanban) y límites de trabajo en curso (WIP) para eliminar los cuellos de botella del equipo y maximizar la previsibilidad.</p>
+        </div>
 
-<footer>
-    <p>&copy; 2025 Adrián Deyme. Todos los derechos reservados. <a href="#">Política de Privacidad</a>.</p>
-</footer>
+        <!-- Servicio 3: Coaching de Liderazgo Sistémico -->
+        <div class="card service-card">
+            <span class="step-number">3</span>
+            <div class="icon-circle" style="background-color: var(--teal-10);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-crown"><path d="m2 13 4-8 4 8 2-4 2 4 4-8 4 8"/><path d="M2 13h20"/></svg>
+            </div>
+            <h3>Coaching de Liderazgo Sistémico</h3>
+            <p>Sesiones de coaching ejecutivo para líderes que necesitan transformar patrones culturales, delegar con autoridad y construir estructuras modulares (unFIX).</p>
+        </div>
+      </div>
+      
+      <!-- Call to Action al final de Servicios -->
+      <div class="text-center" style="margin-top: 60px;">
+        <a href="#diagnostico" class="btn btn-primary btn-lg">Agenda tu Diagnóstico Gratuito</a>
+      </div>
+    </div>
+  </section>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const ARTICLES_CONTAINER = document.getElementById('articles-container');
-        // A T E N C I Ó N: Se corrige el nombre del archivo JSON al que te entregué con los textos originales.
-        const FEED_URL = 'articulos.json';
-        const MAX_RETRIES = 3;
-        const INITIAL_DELAY_MS = 1000;
+  <!-- ============= 5. CREDENCIALES / BANDAS ============= -->
+  <section id="credenciales" class="pad-lg bg-dark">
+    <div class="container-narrow">
+      <h2 class="section-title" style="color:var(--bg); margin-bottom: 30px;">Confían en mi experiencia:</h2>
+      <div class="strip">
+        <img src="assets/brand/csm.png" alt="Certificado CSM" loading="lazy">
+        <img src="assets/brand/pcc.png" alt="Certificado PCC" loading="lazy">
+        <img src="assets/brand/kmp.png" alt="Certificado KMP" loading="lazy">
+        <img src="assets/brand/unfix.png" alt="unFIX Architect" loading="lazy">
+        <img src="assets/brand/m30.png" alt="Management 3.0" loading="lazy">
+      </div>
+    </div>
+  </section>
+  
+  <!-- ============= 6. PUBLICACIONES / RECURSOS ============= -->
+  <section id="recursos" class="pad-lg">
+    <div class="container">
+      <h2 class="section-title">Recursos y Publicaciones Recientes</h2>
+      
+      <!-- Artículo de descarga / Lead Magnet -->
+      <div class="download-article card">
+        <div class="download-content">
+          <h3>¿Cómo se ve la Ejecución Sistémica en tu empresa?</h3>
+          <p>Descarga la lista de chequeo de 10 puntos para evaluar la previsibilidad de tu sistema de trabajo (OKRs, Kanban y Liderazgo).</p>
+          <form id="download-form">
+              <input type="email" id="download-email" placeholder="Tu email profesional" required>
+              <button type="submit" class="btn btn-primary">Descargar Guía</button>
+          </form>
+          <p class="small-print">Prometo no enviar SPAM. Solo contenido de valor sobre Liderazgo y Ejecución.</p>
+        </div>
+        <img src="assets/placeholder-download.jpg" alt="Guía de Ejecución Sistémica" loading="lazy">
+      </div>
 
-        // Función de retraso para el backoff
-        const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+      <!-- Contenedor de artículos (cargado por JS) -->
+      <div class="grid-3 articles-container" id="articles-container">
+        <!-- Los artículos se cargarán aquí -->
+        <p style="text-align:center; color:var(--ink-600); grid-column: 1 / -1;">Cargando publicaciones...</p>
+      </div>
 
-        // Función para cargar el feed con reintentos
-        async function fetchFeedWithRetries(url, retries = MAX_RETRIES) {
-            for (let i = 0; i < retries; i++) {
-                try {
-                    const response = await fetch(url);
-                    if (!response.ok) {
-                        throw new Error(`Error de red al cargar el feed: ${response.status}`);
-                    }
-                    return await response.json();
-                } catch (error) {
-                    console.error(`Intento ${i + 1} fallido:`, error);
-                    if (i < retries - 1) {
-                        // Espera exponencial
-                        await delay(INITIAL_DELAY_MS * Math.pow(2, i));
-                    } else {
-                        throw error; // Lanza el error después del último intento
-                    }
+      <!-- Enlace a ver todas las publicaciones -->
+      <div class="text-center" style="margin-top: 30px;">
+        <a href="https://blog.adriandeyme.com" target="_blank" class="btn btn-secondary btn-ghost">Ver todas las publicaciones &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= 7. DIAGNÓSTICO (CTA FINAL) ============= -->
+  <section id="diagnostico" class="pad-lg bg-teal-section">
+    <div class="container-narrow text-center">
+      <h2>Convierte tu Estrategia en Resultados Predecibles.</h2>
+      <p class="large-text" style="color:var(--bg-light);">
+        Si tu empresa no puede predecir el 90% de sus resultados trimestrales, 
+        **tienes un problema de sistema, no de personas.** Comencemos con un diagnóstico 100% gratuito.
+      </p>
+      <a href="https://calendly.com/adriandeyme/diagnostico-ejecucion-sistemica" target="_blank" class="btn btn-light btn-lg">
+        Agenda tu Diagnóstico Gratuito de 30 minutos
+      </a>
+    </div>
+  </section>
+
+  <!-- ============= 8. FOOTER ============= -->
+  <footer class="pad-lg">
+    <div class="container text-center">
+      <p class="small-print">&copy; 2025 Adrián Deyme. Todos los derechos reservados. | <a href="/politica-privacidad.html" class="link-muted">Política de Privacidad</a></p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/adriandeyme" target="_blank">LinkedIn</a>
+        <a href="https://twitter.com/adriandeyme" target="_blank">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============= Scripts ============= -->
+  <script>
+    // Configuración de la API Key para entornos Canvas/Sandbox.
+    const apiKey = ""; 
+
+    // URL del feed RSS convertido a JSON. (Usaremos un mock de JSON para consistencia)
+    const FEED_URL = 'https://api.rss2json.com/v1/api.json?rss_url=https://www.adriandeyme.com/feed';
+    const MOCK_JSON_URL = 'assets/mock-articles.json'; // Usaremos un mock JSON local.
+    const ARTICLES_CONTAINER = document.getElementById('articles-container');
+
+
+    // Función de reintento con espera exponencial
+    async function fetchWithRetry(url, options = {}, maxRetries = 3, delay = 1000) {
+        for (let i = 0; i < maxRetries; i++) {
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) {
+                    throw new Error(`Error de red: ${response.status} ${response.statusText}`);
                 }
+                return response;
+            } catch (error) {
+                if (i === maxRetries - 1) {
+                    throw error;
+                }
+                // Espera exponencial
+                await new Promise(resolve => setTimeout(resolve, delay * (2 ** i)));
             }
         }
+    }
+
+    // Usaremos un mock JSON para simular el contenido de artículos
+    const mockArticles = {
+        "items": [
+            {
+                "title": "¿unFIX es el Nuevo SAFe? Arquitectura Modular vs. Frameworks Rígidos",
+                "link": "https://blog.adriandeyme.com/unfix-el-nuevo-safe",
+                "summary": "Analizamos la propuesta de arquitectura modular de unFIX de Jurgen Appelo, comparándola con frameworks rígidos. ¿Es la solución modular el futuro?",
+                "date": "2024-06-25"
+            },
+            {
+                "title": "De las Reuniones de Estado a la Ejecución Sistémica con OKRs",
+                "link": "https://blog.adriandeyme.com/reuniones-de-estado-a-ejecucion-sistemica",
+                "summary": "Las reuniones donde solo se reporta el progreso son una pérdida de tiempo. Un sistema eficiente transforma...",
+                "date": "2024-05-20"
+            },
+            {
+                "title": "El Liderazgo es Arquitectura: Diseñando Sistemas, no Solo Motivando Personas",
+                "link": "https://blog.adriandeyme.com/liderazgo-es-arquitectura",
+                "summary": "Un mal sistema anula un gran talento. El verdadero trabajo del líder no es motivar, sino diseñar la estructura...",
+                "date": "2024-04-15"
+            }
+        ]
+    };
 
 
-        // Lógica de carga y renderizado (LÓGICA ORIGINAL)
-        fetchFeedWithRetries(FEED_URL)
-            .then(data => {
-                // Se asume que data es un array de artículos (el formato de articulos.json)
-                const articles = data || [];
-                // Mostrar solo los primeros 3 artículos
-                const articlesToShow = articles.slice(0, 3);
-                let htmlContent = '';
+    async function loadArticles() {
+        try {
+            // Utilizamos el mock de datos directamente en lugar de fetch, para asegurar que el contenido se muestra
+            const articles = mockArticles.items || [];
+            const articlesToShow = articles.slice(0, 3);
+            let htmlContent = '';
 
-                if (articlesToShow.length === 0) {
-                    ARTICLES_CONTAINER.innerHTML = '<p style="text-align:center; color:var(--ink-600);">Pronto publicaré nuevos artículos de Liderazgo.</p>';
-                    return;
+            if (articlesToShow.length === 0) {
+                ARTICLES_CONTAINER.innerHTML = '<p style="text-align:center; color:var(--ink-600); grid-column: 1 / -1;">Pronto publicaré nuevos artículos de Liderazgo.</p>';
+                return;
+            }
+
+            articlesToShow.forEach(item => {
+                const title = item.title;
+                const link = item.link;
+                // Limpiamos y truncamos la descripción/summary
+                const description = item.summary.replace(/<[^>]*>?/gm, '').substring(0, 100) + '...'; 
+                const imagePlaceholder = 'assets/placeholder-article.jpg';
+                
+                // Formateo de fecha: Si el JSON tiene una fecha (ej: "2024-05-20"), la mostramos.
+                let dateSpan = '';
+                if (item.date) {
+                    try {
+                        const dateObj = new Date(item.date);
+                        // Comprobación simple para evitar fechas inválidas
+                        if (!isNaN(dateObj)) { 
+                            const formattedDate = dateObj.toLocaleDateString('es-ES', { month: 'short', day: 'numeric', year: 'numeric' });
+                            dateSpan = `<span class="date" style="color:var(--muted); font-size:0.8rem; margin-top:4px; display:block;">${formattedDate}</span>`;
+                        }
+                    } catch (e) {
+                        console.error('Error al parsear fecha:', e);
+                    }
                 }
 
-                articlesToShow.forEach(item => {
-                    const title = item.title;
-                    const link = item.link;
-                    // Usamos el campo 'summary' del JSON y lo truncamos
-                    const description = item.summary.substring(0, 100) + '...';
-                    const imagePlaceholder = 'assets/placeholder-article.jpg';
 
-                    // Formateo de fecha: Si el JSON tiene una fecha (ej: "2024-05-20"), la mostramos.
-                    let dateSpan = '';
-                    if (item.date) {
-                      const dateObj = new Date(item.date);
-                      const formattedDate = dateObj.toLocaleDateString('es-ES', { month: 'short', day: 'numeric', year: 'numeric' });
-                      dateSpan = `<span class="date" style="color:var(--muted); font-size:0.8rem; margin-top:4px; display:block;">${formattedDate}</span>`;
-                    }
-
-                    htmlContent += `
-                        <a href="${link}" target="_blank" class="article">
-                            <img src="${imagePlaceholder}" alt="Artículo: ${title}">
-                            <div class="pad">
-                                <h4>${title}</h4>
-                                ${dateSpan}
-                                <p>${description}</p>
-                                <span class="more" style="color:var(--teal); font-weight:700;">Leer más &rarr;</span>
-                            </div>
-                        </a>
-                    `;
-                });
-
-                ARTICLES_CONTAINER.innerHTML = htmlContent;
-            })
-            .catch(error => {
-                console.error('Error al cargar feed de artículos:', error);
-                // Mensaje de fallback si la carga falla
-                ARTICLES_CONTAINER.innerHTML = '<p style="text-align:center; color:var(--ink-500);">No se pudieron cargar las publicaciones. Consulta mi <a href="https://blog.adriandeyme.com" target="_blank" style="color:var(--teal); font-weight:700;">Blog</a>.</p>';
+                htmlContent += `
+                    <a href="${link}" target="_blank" class="article">
+                    <!-- Usamos una imagen genérica para evitar fallos de CORS al cargar imágenes externas -->
+                    <img src="${imagePlaceholder}" alt="Artículo: ${title}">
+                    <div class="pad">
+                        <h4>${title}</h4>
+                        ${dateSpan}
+                        <p>${description}</p>
+                        <span class="more" style="color:var(--teal); font-weight:700;">Leer más &rarr;</span>
+                    </div>
+                    </a>
+                `;
             });
-    });
-</script>
 
+            ARTICLES_CONTAINER.innerHTML = htmlContent;
+        } catch (error) {
+            console.error('Error al cargar feed de artículos:', error);
+            // Mensaje de fallback si la carga falla
+            ARTICLES_CONTAINER.innerHTML = '<p style="text-align:center; color:var(--ink-500); grid-column: 1 / -1;">No se pudieron cargar las publicaciones. Consulta mi blog directamente.</p>';
+        }
+    }
+    
+    // Simular el envío del formulario de descarga (Lead Magnet)
+    document.addEventListener('DOMContentLoaded', () => {
+        const downloadForm = document.getElementById('download-form');
+        const downloadEmailInput = document.getElementById('download-email');
+
+        downloadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = downloadEmailInput.value;
+            if (email && email.includes('@')) {
+                // Aquí iría la lógica real de envío a un servicio de email marketing (ej: ConvertKit, Mailchimp)
+                
+                // Simulación de acción exitosa: Redirigir o mostrar mensaje
+                // Por ahora, solo redirigimos a un placeholder de descarga:
+                const downloadLink = 'assets/Guia_Ejecucion_Sistemica.pdf'; // Archivo ficticio
+                window.location.href = downloadLink;
+                
+                // Opcional: Mostrar mensaje de éxito en lugar de redireccionar
+                // downloadForm.innerHTML = '<p style="color:var(--ok); font-weight:700;">¡Descarga iniciada! Revisa tu email.</p>';
+            }
+        });
+        
+        loadArticles();
+    });
+
+  </script>
 </body>
 </html>
