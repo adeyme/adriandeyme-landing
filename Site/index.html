@@ -14,797 +14,302 @@
   <title>Adrián Deyme · Ejecución Sistémica, OKRs y Coaching de Liderazgo</title>
  <meta name="description" content="Alineo estrategia y ejecución con Coaching Sistémico, OKRs y Kanban. Para líderes y equipos que necesitan previsibilidad, alto foco y crecimiento sostenible.">
   <link rel="icon" href="assets/brand/logo-ad-favicon-32.png">
+  <link rel="stylesheet" href="style.css">
   <link rel="canonical" href="https://www.adriandeyme.com/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.adriandeyme.com/">
 <meta property="og:title" content="Adrián Deyme · Ejecución Sistémica y Resultados Predecibles">
 <meta property="og:description" content="Alineo estrategia y ejecución con OKRs, Kanban y Coaching de Liderazgo.">
-<meta property="og:image" content="https://www.adriandeyme.com/assets/brand/og-image-dey.jpg">
+<meta property="og:image" content="https://www.adriandeyme.com/assets/img/ad-og-preview-1200x630.jpg">
 
-<style>
-/* ========= Design Tokens (Variables Globales) ========= */
-:root{
-  --bg:#f7f9fa;
-  --card:#ffffff;
-  --ink-900:#0c1a1e;
-  --ink-800:#122a30;
-  --ink-700:#2b4a53;
-  --ink-600:#48656e;
-  --ink-500:#6a8790;
-  --muted:#9db2b8;
-  --teal:#0e4950;        /* botón principal */
-  --teal-2:#0a3b40;
-  --pill:#e8f2f4;        /* chips / x-strip */
-  --ok:#0e844f;
-  --radius-xl:24px;
-  --radius-lg:18px;
-  --radius-md:14px;
-  --radius-sm:10px;
-  --shadow-1:0 8px 18px rgba(2,32,43,.08);
-  --shadow-2:0 12px 30px rgba(2,32,43,.12);
-}
-
-/* ========= Base ========= */
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  background:var(--bg);
-  color:var(--ink-900);
-  font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
-}
-a{color:var(--teal);text-decoration:none}
-a:hover{color:var(--teal-2)}
-
-/* Heading styles */
-h1,h2,h3,h4,h5,h6{
-  line-height:1.2;
-  font-weight:700;
-  margin-top:0;
-  margin-bottom:0.6em;
-}
-
-h1{font-size:3.5rem}
-h2{font-size:2.5rem}
-h3{font-size:1.8rem}
-h4{font-size:1.2rem}
-
-/* Layout */
-.container{
-  max-width:1200px;
-  margin:0 auto;
-  padding:0 20px; /* Padding base para todos los breakpoints */
-}
-
-/* Sección de Margen - Separación principal entre secciones */
-.section-margin{
-  padding: 80px 0; /* Espaciado vertical grande por defecto */
-}
-/* Reducción en móvil */
-@media (max-width: 768px) {
-  .section-margin {
-    padding: 40px 0;
-  }
-}
-
-/* Contenedores de contenido */
-.content-card{
-  background:var(--card);
-  padding:40px;
-  border-radius:var(--radius-xl);
-  box-shadow:var(--shadow-2);
-}
-
-.strip-card{
-  background:var(--card);
-  padding:25px 40px;
-  border-radius:var(--radius-lg);
-  box-shadow:var(--shadow-1);
-}
-
-/* Flex utilities */
-.flex-row{
-  display:flex;
-  align-items:center;
-}
-.flex-col{
-  display:flex;
-  flex-direction:column;
-}
-
-/* Grid utilities */
-.grid-3{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:30px;
-}
-.grid-2{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:30px;
-}
-
-/* Text Utilities */
-.text-center{text-align:center}
-.color-teal{color:var(--teal)}
-.color-ok{color:var(--ok)}
-.text-lg{font-size:1.15rem}
-.text-sm{font-size:0.9rem}
-
-/* Imagenes */
-img{max-width:100%;height:auto;display:block}
-.img-round{border-radius:50%}
-
-/* Botones */
-.btn{
-  display:inline-block;
-  padding:1rem 1.5rem;
-  border-radius:var(--radius-md);
-  text-decoration:none;
-  font-weight:700;
-  transition:background 0.3s, transform 0.1s;
-  text-align:center;
-  border:none;
-  cursor:pointer;
-}
-
-.btn-primary{
-  background:var(--teal);
-  color:var(--card);
-}
-.btn-primary:hover{
-  background:var(--teal-2);
-  transform:translateY(-1px);
-}
-
-.btn-secondary{
-  background:transparent;
-  color:var(--teal);
-  border:2px solid var(--teal);
-}
-.btn-secondary:hover{
-  background:var(--pill);
-  color:var(--teal-2);
-}
-
-/* Navegación y Header */
-.header{
-  padding:20px 0;
-  background:var(--card);
-  box-shadow:var(--shadow-1);
-  position:sticky;
-  top:0;
-  z-index:100;
-}
-
-/* Estilos de la navegación en escritorio */
-.nav-logo a{
-  font-size:1.5rem;
-  font-weight:900;
-  color:var(--ink-900);
-}
-.nav-links a{
-  margin-left:25px;
-  font-weight:500;
-  color:var(--ink-700);
-}
-.nav-links a:hover{
-  color:var(--teal);
-}
-.nav-links .btn{
-  margin-left:25px;
-  padding:0.5rem 1rem;
-}
-
-/* Estilos específicos del HERO */
-.hero{
-  background:var(--bg);
-  padding-top:60px;
-}
-.hero-content{
-  align-items:center;
-  gap:60px;
-}
-.hero-copy{
-  max-width:600px;
-}
-.hero h1{
-  font-size:3.5rem;
-  margin-bottom:15px;
-}
-.hero-image img{
-  border-radius:var(--radius-xl);
-  box-shadow:var(--shadow-2);
-}
-.hero-buttons{
-  display:flex;
-  gap:20px;
-  margin-top:30px;
-}
-
-/* Badges de Certificaciones (Hero Superior) */
-.badges-row{
-  display:flex;
-  justify-content:flex-start;
-  align-items:center;
-  gap:20px;
-  margin-bottom:20px;
-}
-.badges-row img{
-  height:45px;
-  transition:transform 0.3s;
-}
-.badges-row img:hover{
-  transform:scale(1.05);
-}
-
-/* Badges inferiores (Credenciales) */
-.strip{
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  gap:30px;
-  flex-wrap: nowrap; /* Asegurar que no se rompa en múltiples líneas por defecto */
-}
-.strip img{
-  height:45px;
-  filter:grayscale(100%);
-  opacity:0.6;
-  transition:opacity 0.3s;
-}
-.strip img:hover{
-  opacity:1;
-}
-
-/* Secciones de Contenido */
-.servicio-card{
-  background:var(--card);
-  padding:30px;
-  border-radius:var(--radius-lg);
-  box-shadow:var(--shadow-1);
-  height:100%;
-  border-left:5px solid var(--teal);
-}
-.servicio-card h3{
-  color:var(--teal);
-  margin-top:0;
-  margin-bottom:10px;
-}
-.servicio-card p{
-  color:var(--ink-700);
-}
-
-/* Sección de Propuesta de Valor */
-#propuesta{
-  background-color:var(--teal);
-  color:var(--card);
-}
-#propuesta h2, #propuesta h3, #propuesta p{
-  color:var(--card);
-}
-.propuesta-card{
-  background-color:var(--teal-2);
-  padding:30px;
-  border-radius:var(--radius-lg);
-  display:flex;
-  align-items:center;
-  gap:20px;
-  border-left:6px solid var(--ok);
-  transition:background 0.3s;
-}
-.propuesta-card:hover{
-  background-color:rgba(0,0,0,0.15);
-}
-.propuesta-card .icon{
-  font-size:2rem;
-  color:var(--ok);
-  font-weight:900;
-  background-color:var(--card);
-  border-radius:50%;
-  width:50px;
-  height:50px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-shrink:0;
-}
-.propuesta-card h3{
-  margin-bottom:5px;
-}
-
-/* Seccion de Blog/Artículos */
-#articulos .grid-3{
-  gap:40px; /* Aumento de espacio entre artículos */
-}
-.article{
-  display:flex;
-  flex-direction:column;
-  background:var(--card);
-  border-radius:var(--radius-lg);
-  box-shadow:var(--shadow-1);
-  overflow:hidden;
-  transition:transform 0.3s, box-shadow 0.3s;
-  height:100%;
-}
-.article:hover{
-  transform:translateY(-5px);
-  box-shadow:var(--shadow-2);
-}
-.article img{
-  height:200px;
-  object-fit:cover;
-  width:100%;
-}
-.article .pad{
-  padding:20px;
-  flex-grow:1;
-}
-.article h4{
-  color:var(--ink-900);
-  margin-bottom:8px;
-}
-.article p{
-  color:var(--ink-600);
-  font-size:0.95rem;
-  margin-top:8px;
-}
-
-/* Sección de CTA Final */
-.cta-final{
-  background:var(--teal-2);
-  color:var(--card);
-  padding:60px 0;
-  border-radius:var(--radius-xl);
-  text-align:center;
-  margin:40px auto;
-}
-.cta-final h2{
-  color:var(--card);
-}
-.cta-final .btn-secondary{
-  color:var(--card);
-  border-color:var(--card);
-  margin-top:20px;
-}
-.cta-final .btn-secondary:hover{
-  background:var(--card);
-  color:var(--teal);
-}
-
-/* Footer */
-.footer{
-  padding:30px 0;
-  text-align:center;
-  color:var(--ink-600);
-  font-size:0.9rem;
-}
-.footer p{
-  margin:5px 0;
-}
-
-/* --- MEDIA QUERIES --- */
-
-/* Tablet/Desktop pequeño */
-@media (max-width: 992px) {
-  /* Header adjustments */
-  /* Mostramos el menú como siempre en la barra superior */
-  .header .container {
-    justify-content: space-between; 
-  }
-
-  .nav-links {
-    /* Mantener links, pero reducir espacio */
-    gap: 10px;
-  }
-  
-  .nav-links a {
-      margin-left: 15px;
-  }
-
-  .nav-links .btn {
-      padding: 0.5rem 0.8rem;
-  }
-  
-  /* Hero adjustments */
-  .hero-content{
-    flex-direction:column;
-    text-align:center;
-    gap:30px;
-  }
-  .hero h1{
-    font-size:2.8rem;
-  }
-  .hero-buttons{
-    justify-content:center;
-  }
-  .badges-row{
-    justify-content:center;
-  }
-
-  /* Grid: Convertir a 2 columnas para tablet */
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
-  /* Arreglo para que la sección de recursos (opt-in) no se rompa */
-  #articulos .grid-3 {
-      grid-template-columns: repeat(2, 1fr);
-  }
-  
-  /* Quién Soy - forzar a apilar a partir de 992px */
-  #quien-soy .grid-2 {
-      grid-template-columns: 1fr;
-  }
-  
-  .grid-3 .propuesta-card {
-      /* Ajuste para que las 3 tarjetas de propuesta queden en 2 columnas */
-      grid-column: span 1;
-  }
-  /* La tercera tarjeta ocupa el espacio central para 2 columnas */
-  .grid-3 .propuesta-card:last-child:nth-child(3) {
-      grid-column: 1 / span 2;
-      width: 50%;
-      justify-self: center;
-  }
-}
-
-
-/* Móvil (CRÍTICO) */
-@media (max-width: 768px) {
-  h1{font-size:2rem}
-  h2{font-size:1.75rem}
-  h3{font-size:1.4rem}
-
-  .container{
-    padding:0 15px; /* Reducción de padding en móvil */
-  }
-
-  /* Header: Ocultar links para móvil, mostrar solo logo y CTA */
-  .header .container {
-    padding: 0 15px;
-    justify-content: space-between; 
-  }
-  .nav-links {
-    display: none; 
-  }
-  
-  /* Hero */
-  .hero{
-    padding-top:40px;
-    padding-bottom:20px;
-  }
-  .hero-copy {
-      text-align: center;
-  }
-  .hero h1 {
-    margin-bottom: 6px; 
-    font-size: 2.2rem;
-  }
-  
-  /* Botones del HERO */
-  .hero-buttons{
-    justify-content:center;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .hero-buttons .btn {
-    width: 100%; 
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-  }
-  
-  /* Badges del HERO (Superior) */
-  .badges-row {
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap; /* Permitir que los badges se apilen si es necesario */
-  }
-
-  .badges-row img {
-    height: 30px; /* Reducción de tamaño */
-    margin: 0;
-  }
-
-
-  /* Badges INFERIORES (#credenciales / .strip) - CRÍTICO */
-  .strip-card {
-      padding: 15px 10px;
-  }
-  
-  .strip {
-      /* Permitimos que las imágenes se apilen en varias líneas */
-      flex-wrap: wrap; 
-      justify-content: space-around;
-      gap: 15px;
-  }
-  
-  .strip img {
-    height: 30px; 
-    /* Aseguramos que el logo no sea demasiado grande y se ajuste */
-    max-width: 30%; 
-  }
-  
-  /* Columnas: Convierte todas las cuadrículas en 1 columna */
-  .grid-3, .grid-2 {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  /* Propuesta de valor: La tarjeta vuelve a 1 columna */
-  .grid-3 .propuesta-card:last-child:nth-child(3) {
-      grid-column: 1 / 1;
-      width: 100%;
-      justify-self: auto;
-  }
-  
-  /* Artículos: Estructura de tarjetas en móvil */
-  .article img {
-    height: 150px; /* Altura de imagen más pequeña */
-  }
-  .article .pad {
-    padding: 15px; /* Padding reducido */
-  }
-  
-  /* CTA final */
-  .cta-final {
-    padding: 40px 20px;
-    margin: 20px auto;
-  }
-}
-</style>
 </head>
 <body>
 
-  <!-- Header/Navigation -->
+  <!-- ============================================== -->
+  <!-- Header / Navegación -->
+  <!-- ============================================== -->
   <header class="header">
-    <div class="container flex-row" style="justify-content:space-between">
-      <div class="nav-logo">
-        <a href="/">ADRIÁN DEYME</a>
-      </div>
-      <nav class="nav-links flex-row">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Adrián Deyme Home">
+        <img src="assets/brand/logo-ad-color-h.png" alt="Logo Adrián Deyme" class="logo-ad">
+      </a>
+      <nav class="nav-links">
         <a href="#quien-soy">Quién Soy</a>
         <a href="#servicios">Servicios</a>
         <a href="#articulos">Recursos</a>
-        <a href="https://meetings.hubspot.com/adrian-deyme/diagnostico-ejecucion-sistemica" target="_blank" class="btn btn-primary">Agenda un Diagnóstico</a>
+        <a href="https://meetings.hubspot.com/adrian-deyme/diagnostico-gratuito" target="_blank" class="btn">Agenda un Diagnóstico</a>
       </nav>
-      <!-- CTA para móvil: Se oculta en desktop y muestra en móvil -->
-      <a href="https://meetings.hubspot.com/adrian-deyme/diagnostico-ejecucion-sistemica" target="_blank" class="btn btn-primary" style="display:none;" id="mobile-cta-header">
-        Diagnóstico
-      </a>
+      <button class="menu-toggle" aria-label="Abrir menú de navegación">&#9776;</button>
     </div>
   </header>
 
-  <main>
-    <!-- 1. Hero Section -->
-    <section id="hero" class="hero">
-      <div class="container">
-        <!-- Badges de Certificaciones (Superior) -->
+  <!-- ============================================== -->
+  <!-- Hero Section (Portada) -->
+  <!-- ============================================== -->
+  <section id="hero" class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-copy">
+        <span class="info-pill" style="color:var(--teal); font-weight:700; display:block; margin-bottom:12px;">EJECUCIÓN SISTÉMICA</span>
+        <h1>Lleva tu Estrategia al Campo de Juego y Gana.</h1>
+        <p>Alineo **estrategia y ejecución** con Coaching Sistémico, OKRs y Kanban. Para líderes y equipos que necesitan previsibilidad, alto foco y crecimiento sostenible.</p>
+        <div class="hero-cta">
+          <a href="https://meetings.hubspot.com/adrian-deyme/diagnostico-gratuito" target="_blank" class="btn">Agenda un Diagnóstico Gratuito</a>
+          <a href="#servicios" class="btn btn-secondary">Ver Servicios</a>
+        </div>
+        
         <div class="badges-row">
-          <img src="assets/badges/csmp.svg" alt="Certified Scrum Master Professional">
-          <img src="assets/badges/kmp.svg" alt="Kanban Management Professional">
-          <img src="assets/badges/pcc.svg" alt="Professional Certified Coach">
-          <img src="assets/badges/unfix.svg" alt="unFIX Foundation">
-          <img src="assets/badges/m30.svg" alt="Management 3.0">
+            <span style="font-size:0.9rem; color:var(--ink-700); font-weight:600;">Confían en mi experiencia:</span>
+            <img src="assets/brand/badge-scrum.png" alt="Certificación Scrum">
+            <img src="assets/brand/badge-kanban.png" alt="Certificación Kanban">
+            <img src="assets/brand/badge-okr.png" alt="Certificación OKR">
         </div>
+
+      </div>
+      <div class="hero-image-container">
+        <!-- Imagen de Adrián Deyme -->
+        <img src="assets/img/adrian-deyme-hero-v1.jpg" alt="Adrián Deyme: Coach Ejecutivo y Arquitecto Organizacional" class="hero-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- Strip de Credenciales / Confianza -->
+  <!-- ============================================== -->
+  <section id="credenciales" class="pad-y" style="padding-bottom:20px; padding-top:20px;">
+    <div class="container strip">
+        <img src="assets/brand/logo-oracle.png" alt="Logo Oracle">
+        <img src="assets/brand/logo-hp.png" alt="Logo HP">
+        <img src="assets/brand/logo-dhl.png" alt="Logo DHL">
+        <img src="assets/brand/logo-visa.png" alt="Logo Visa">
+        <img src="assets/brand/logo-banco-azteca.png" alt="Logo Banco Azteca">
+        <img src="assets/brand/logo-grupo-coppel.png" alt="Logo Grupo Coppel">
+    </div>
+  </section>
+
+
+  <!-- ============================================== -->
+  <!-- El Problema que Resuelvo / Mi Enfoque -->
+  <!-- ============================================== -->
+  <section id="problema-enfoque" class="pad-y">
+    <div class="container grid-2">
+        <div class="content-box">
+            <h2>El Problema que Resuelvo.</h2>
+            <p style="font-size:1.1rem; color:var(--ink-900);">La mayoría de los lideres tiene una **estrategia brillante** que se queda en un PDF. El equipo está ocupado, pero la ejecución es caótica, los resultados son impredecibles y el **foco se disuelve en el ruido diario.**</p>
+            <p>El estrés, el agotamiento y los conflictos son síntomas de una **arquitectura de trabajo** mal diseñada. No se trata de motivar más, sino de **diseñar un sistema que funcione**.</p>
+        </div>
+        <div class="content-box">
+            <h2>Mi Enfoque Sistémico.</h2>
+            <p>Mi rol es ser el arquitecto de tu sistema de ejecución. Utilizo un enfoque integral que combina la claridad de **OKRs**, la fluidez de **Kanban** y la estructura modular de **unFIX** con la fuerza transformadora del **Coaching de Liderazgo**.</p>
+            <p style="font-size:1.1rem; color:var(--ink-900);">No solo optimizo procesos; **rediseño la forma en que el trabajo fluye** desde la idea hasta el resultado. Soy un socio para líderes que están listos para **dejar de apagar incendios** y empezar a construir una máquina de resultados.</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- Quién Soy -->
+  <!-- ============================================== -->
+  <section id="quien-soy" class="pad-y" style="background:var(--card);">
+    <div class="container grid-2 about-block">
+      <div class="about-image">
+        <!-- Otra imagen de Adrián Deyme o un placeholder -->
+        <img src="assets/img/adrian-deyme-profile-v1.jpg" alt="Adrián Deyme" style="max-width:300px;">
+      </div>
+      <div class="about-content">
+        <h2 style="text-align:left; color:var(--teal);">¿Quién Soy?</h2>
+        <span class="info-pill">Coach Ejecutivo & Arquitecto Organizacional.</span>
+        <h3>Adrián Deyme</h3>
+        <p>**+15 años de experiencia** con equipos de alto rendimiento:</p>
+        <ul>
+            <li>**+500 líderes** coachados en 10 países.</li>
+            <li>Máximo nivel de certificación en Kanban (KMP), Scrum (CSM) y Coaching Sistémico (PCC/ICF).</li>
+        </ul>
+        <p>Mi obsesión es la **ejecución predecible**. Ayudo a líderes a diseñar sistemas de trabajo que garantizan alto foco, crecimiento sostenible y previsibilidad trimestral. Un mal sistema anula un gran talento.</p>
+        <a href="https://www.linkedin.com/in/adriandeyme/" target="_blank" class="btn btn-secondary" style="margin-top:20px;">Seguir en Linkedin &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================== -->
+  <!-- Mi Oferta de Valor (Servicios) -->
+  <!-- ============================================== -->
+  <section id="servicios" class="pad-y">
+    <div class="container">
+      <h2 style="text-align:center;">Mi Oferta de Valor</h2>
+      <p class="section-subtitle" style="text-align:center; max-width:800px; margin:0 auto 40px auto; font-size:1.1rem;">Lo que podemos construir juntos para alcanzar la Ejecución Sistémica y Resultados Predecibles:</p>
+
+      <div class="grid-3">
         
-        <div class="hero-content grid-2">
-          <div class="hero-copy">
-            <h1 style="color:var(--teal)">EJECUCIÓN SISTÉMICA.</h1>
-            <h2>Lleva tu Estrategia al Campo de Juego y Gana.</h2>
-            <p class="text-lg">Alineo **estrategia y ejecución** con Coaching Sistémico, OKRs y Kanban. Para líderes y equipos que necesitan previsibilidad, alto foco y crecimiento sostenible.</p>
-            <div class="hero-buttons">
-              <a href="https://meetings.hubspot.com/adrian-deyme/diagnostico-ejecucion-sistemica" target="_blank" class="btn btn-primary">Agenda un Diagnóstico</a>
-              <a href="#servicios" class="btn btn-secondary">Ver Servicios</a>
-            </div>
-          </div>
-          <div class="hero-image">
-            <img src="assets/adriandeyme-hero-crop.jpg" alt="Adrián Deyme, Coach Ejecutivo y Arquitecto Organizacional" loading="eager">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2. Strip de Credenciales Inferiores -->
-    <section id="credenciales" class="section-margin" style="padding:20px 0;">
-      <div class="container">
-        <div class="strip-card strip">
-          <!-- CRÍTICO: Aseguramos que los logos se ajusten en móvil con los estilos CSS corregidos -->
-          <img src="assets/clients/logo-santander.svg" alt="Cliente Santander">
-          <img src="assets/clients/logo-telefonica.svg" alt="Cliente Telefónica">
-          <img src="assets/clients/logo-bbva.svg" alt="Cliente BBVA">
-          <img src="assets/clients/logo-latam.svg" alt="Cliente LATAM Airlines">
-          <img src="assets/clients/logo-enel.svg" alt="Cliente Enel">
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. Quién Soy (El Problema y Mi Enfoque) -->
-    <section id="quien-soy" class="section-margin">
-      <div class="container content-card">
-        <h2 class="text-center">El Problema que Resuelvo.</h2>
-        <p class="text-center text-lg" style="max-width:700px; margin:0 auto 40px auto; color:var(--ink-700);">La mayoría de los líderes tiene una estrategia brillante que se queda en un PDF. El equipo está ocupado, pero la ejecución es caótica, los resultados son impredecibles y el foco se disuelve en el ruido diario.</p>
-        
-        <div class="grid-2" style="margin-top:40px;">
-          <div>
-            <h3>Mi Enfoque</h3>
-            <p>Mi rol es ser el **arquitecto de tu sistema de ejecución**. Utilizo un enfoque integral y sistémico que combina la claridad de **OKRs**, la fluidez de **Kanban** y la estructura modular de **unFIX** con la fuerza transformadora del **Coaching de Liderazgo**.</p>
-            <p>No solo optimizo procesos; **rediseño la forma en que el trabajo fluye** desde la idea hasta el resultado. Soy un socio para líderes que están listos para **dejar de apagar incendios** y empezar a construir una máquina de resultados.</p>
-            <a href="https://www.linkedin.com/in/adriandeyme/" target="_blank" class="btn btn-secondary" style="margin-top:15px;">Seguir en Linkedin &rarr;</a>
-          </div>
-          <div>
-            <h3>¿Quién Soy?</h3>
-            <p><strong>Adrián Deyme</strong></p>
-            <p class="color-teal">Coach Ejecutivo & Arquitecto Organizacional.</p>
-            <ul style="list-style:none; padding:0; margin-top:20px;">
-              <li style="margin-bottom:10px;">✅ +15 años de experiencia con equipos de alto rendimiento.</li>
-              <li style="margin-bottom:10px;">✅ +500 líderes coachados en 10 países.</li>
-              <li>✅ Máximo nivel de certificación en Kanban, Scrum y Coaching Sistémico.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. Propuesta de Valor (Lo que podemos construir juntos) -->
-    <section id="propuesta" class="section-margin">
-      <div class="container">
-        <h2 class="text-center">Mi Oferta de Valor</h2>
-        <p class="text-center text-lg" style="max-width:700px; margin:0 auto 40px auto;">Lo que podemos construir juntos para alcanzar la Ejecución Sistémica y Resultados Predecibles:</p>
-        
-        <div class="grid-3">
-          <!-- Card 1: OKR & Foco Estratégico -->
-          <div class="propuesta-card">
-            <div class="icon">1</div>
-            <div>
-              <h3>OKR & Foco Estratégico</h3>
-              <p>Diseño e implementación de Objetivos y Resultados Clave (OKRs) para crear una cadena de valor inquebrantable desde CEO hasta el equipo de ventas/desarrollo.</p>
-            </div>
-          </div>
-          
-          <!-- Card 2: Kanban & Previsibilidad -->
-          <div class="propuesta-card">
-            <div class="icon">2</div>
-            <div>
-              <h3>Kanban & Previsibilidad</h3>
-              <p>Diseño de sistemas de flujo (Kanban) y límites de trabajo en curso (WIP) para eliminar los cuellos de botella del equipo y maximizar la previsibilidad.</p>
-            </div>
-          </div>
-          
-          <!-- Card 3: Coaching de Liderazgo Sistémico -->
-          <div class="propuesta-card">
-            <div class="icon">3</div>
-            <div>
-              <h3>Coaching de Liderazgo Sistémico</h3>
-              <p>Sesiones de coaching ejecutivo para líderes que necesitan transformar patrones culturales, delegar con autoridad y construir estructuras modulares (unFIX).</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Artículos/Recursos (Carga Dinámica JSON) -->
-    <section id="articulos" class="section-margin">
-      <div class="container">
-        <h2 class="text-center">Recursos y Publicaciones Recientes</h2>
-        <p class="text-center text-lg" style="max-width:700px; margin:0 auto 40px auto; color:var(--ink-700);">Descarga la lista de chequeo de 10 puntos para evaluar la previsibilidad de tu sistema de trabajo (OKRs, Kanban y Liderazgo).</p>
-        
-        <!-- Contenedor donde se cargarán los artículos -->
-        <div id="articles-container" class="grid-3">
-            <!-- Contenido dinámico cargado por JavaScript -->
-            <p style="grid-column: 1 / -1; text-align:center; color:var(--ink-600);">Cargando publicaciones...</p>
-        </div>
-        
-        <div class="text-center" style="margin-top:50px;">
-          <a href="https://www.linkedin.com/in/adriandeyme/recent-activity/posts/" target="_blank" class="btn btn-secondary">Ver todas las publicaciones &rarr;</a>
+        <div class="service-card">
+          <h3><span class="num">1</span> OKR & Foco Estratégico</h3>
+          <p>Diseño e implementación de Objetivos y Resultados Clave (**OKRs**) para crear una cadena de valor inquebrantable desde CEO hasta el equipo de ventas/desarrollo.</p>
         </div>
 
+        <div class="service-card">
+          <h3><span class="num">2</span> Kanban & Previsibilidad</h3>
+          <p>Diseño de sistemas de flujo (**Kanban**) y límites de trabajo en curso (WIP) para eliminar los cuellos de botella del equipo y maximizar la previsibilidad.</p>
+        </div>
+
+        <div class="service-card">
+          <h3><span class="num">3</span> Coaching de Liderazgo Sistémico</h3>
+          <p>Sesiones de coaching ejecutivo para líderes que necesitan transformar patrones culturales, delegar con autoridad y construir estructuras modulares (**unFIX**).</p>
+        </div>
       </div>
-    </section>
 
-    <!-- 6. CTA Final -->
-    <section class="container">
-      <div class="cta-final">
-        <h2>Convierte tu Estrategia en Resultados Predecibles.</h2>
-        <p class="text-lg">Si tu empresa no puede predecir el 90% de sus resultados trimestrales, **tienes un problema de sistema, no de personas.** Comencemos con un diagnóstico 100% gratuito.</p>
-        <a href="https://meetings.hubspot.com/adrian-deyme/diagnostico-ejecucion-sistemica" target="_blank" class="btn btn-secondary">Agenda tu Diagnóstico Gratuito de 30 minutos</a>
+    </div>
+  </section>
+
+
+  <!-- ============================================== -->
+  <!-- Artículos y Recursos (Feed de JSON) -->
+  <!-- ============================================== -->
+  <section id="articulos" class="pad-y" style="background:var(--bg);">
+    <div class="container">
+      <h2 style="text-align:center;">Recursos y Publicaciones Recientes</h2>
+      <p class="section-subtitle" style="text-align:center; margin-bottom:30px;">Descarga la lista de chequeo de 10 puntos para evaluar la previsibilidad de tu sistema de trabajo (OKRs, Kanban y Liderazgo).</p>
+      
+      <!-- Contenedor donde se cargarán los artículos con JavaScript -->
+      <div id="articles-container" class="article-grid">
+          <!-- Los artículos se cargarán aquí -->
       </div>
-    </section>
+      
+      <div style="text-align:center; margin-top:40px;">
+          <a href="#" target="_blank" class="btn btn-secondary">Ver todas las publicaciones &rarr;</a>
+      </div>
 
-  </main>
+    </div>
+  </section>
 
+  <!-- ============================================== -->
+  <!-- CTA Final -->
+  <!-- ============================================== -->
+  <section id="cta-final" class="pad-y">
+    <div class="container download-section">
+        <h3>Convierte tu Estrategia en Resultados Predecibles.</h3>
+        <p>Si tu empresa no puede predecir el 90% de sus resultados trimestrales, **tienes un problema de sistema, no de personas.** Comencemos con un diagnóstico 100% gratuito.</p>
+        <a href="https://meetings.hubspot.com/adrian-deyme/diagnostico-gratuito" target="_blank" class="btn">Agenda tu Diagnóstico Gratuito de 30 minutos</a>
+    </div>
+  </section>
+
+
+  <!-- ============================================== -->
   <!-- Footer -->
+  <!-- ============================================== -->
   <footer class="footer">
     <div class="container">
       <p>&copy; 2025 Adrián Deyme. Todos los derechos reservados. <a href="#">Política de Privacidad</a></p>
-      <p>Desarrollado con Foco y Previsibilidad.</p>
     </div>
   </footer>
 
-  <!-- Lógica JavaScript para cargar artículos (usando JSON) -->
+  <!-- ============================================== -->
+  <!-- Lógica de carga de artículos (JavaScript) -->
+  <!-- ============================================== -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const ARTICLES_CONTAINER = document.getElementById('articles-container');
-      // Usamos el proxy de rss2json.com para obtener el JSON del feed de Medium
-      const JSON_FEED_URL = 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@adriandeyme';
-      
-      // Función para obtener los artículos (con manejo de errores y reintentos)
-      const fetchArticles = async () => {
-        const MAX_RETRIES = 3;
-        for (let i = 0; i < MAX_RETRIES; i++) {
-          try {
-            const response = await fetch(JSON_FEED_URL);
-            
-            if (!response.ok) {
-              // Si falla la respuesta HTTP, pasamos al catch
-              throw new Error(`Error de red HTTP: ${response.status}`);
-            }
-            
-            const data = await response.json();
-            const articles = data.items || [];
-            // Filtrar y mostrar solo los 3 primeros artículos que sean tipo 'post'
-            const articlesToShow = articles.filter(item => item.categories && item.categories.length > 0).slice(0, 3);
-            
-            let htmlContent = '';
+    // URL del JSON que contiene los artículos
+    const FEED_URL = 'https://example.com/api/articles.json'; // Reemplaza con tu URL real
+    const ARTICLES_CONTAINER = document.getElementById('articles-container');
 
-            if (articlesToShow.length === 0) {
-                ARTICLES_CONTAINER.innerHTML = '<p style="grid-column: 1 / -1; text-align:center; color:var(--ink-600);">Pronto publicaré nuevos artículos de Liderazgo.</p>';
-                return;
-            }
+    /**
+     * Función para cargar y mostrar los artículos desde un JSON
+     */
+    async function loadArticles() {
+      // Muestra un mensaje de carga mientras se recupera la información
+      ARTICLES_CONTAINER.innerHTML = '<p style="text-align:center; color:var(--teal);">Cargando publicaciones recientes...</p>';
 
-            articlesToShow.forEach(item => {
-              const title = item.title;
-              const link = item.link;
-              // Quitamos tags HTML de la descripción y limitamos a 100 caracteres
-              const description = item.content.replace(/<[^>]*>?/gm, '').substring(0, 100) + '...'; 
-              const imagePlaceholder = 'assets/placeholder-article.jpg';
-              
-              let dateSpan = '';
-              if (item.pubDate) {
-                const dateObj = new Date(item.pubDate);
-                if (!isNaN(dateObj)) {
-                  // Formateo de fecha en español
-                  const formattedDate = dateObj.toLocaleDateString('es-ES', { month: 'short', day: 'numeric', year: 'numeric' });
-                  dateSpan = `<span class="date" style="color:var(--muted); font-size:0.8rem; margin-top:4px; display:block;">${formattedDate}</span>`;
-                }
-              }
+      try {
+        const response = await fetch(FEED_URL);
+        
+        if (!response.ok) {
+          // Si la respuesta no es 200 OK, lanza un error
+          throw new Error(`Error de red o JSON no encontrado: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        // Asumiendo que el JSON tiene una estructura como: { "items": [...] }
+        const articles = data.items || [];
+        const articlesToShow = articles.slice(0, 3); // Muestra solo los primeros 3
 
-              htmlContent += `
-                <a href="${link}" target="_blank" class="article">
-                  <img src="${imagePlaceholder}" alt="Artículo: ${title}">
-                  <div class="pad">
-                    <h4>${title}</h4>
-                    ${dateSpan}
-                    <p>${description}</p>
-                    <span class="more" style="color:var(--teal); font-weight:700;">Leer más &rarr;</span>
-                  </div>
-                </a>
-              `;
-            });
+        let htmlContent = '';
 
-            ARTICLES_CONTAINER.innerHTML = htmlContent;
-            return; // Salir de la función si la carga es exitosa
-          } catch (error) {
-            console.error(`Intento ${i + 1} fallido al cargar feed de artículos:`, error);
-            if (i < MAX_RETRIES - 1) {
-              // Esperar un tiempo antes de reintentar (Exponencial Backoff: 1s, 2s)
-              await new Promise(resolve => setTimeout(resolve, (i + 1) * 1000)); 
-            } else {
-              // Último intento fallido: mostrar mensaje de error
-              ARTICLES_CONTAINER.innerHTML = '<p style="grid-column: 1 / -1; text-align:center; color:var(--ink-500);">No se pudieron cargar las publicaciones. Consulta mi <a href="https://www.linkedin.com/in/adriandeyme/recent-activity/posts/" target="_blank">LinkedIn</a> para ver los últimos artículos.</p>';
+        if (articlesToShow.length === 0) {
+            ARTICLES_CONTAINER.innerHTML = '<p style="text-align:center; color:var(--ink-600);">Pronto publicaré nuevos artículos de Liderazgo.</p>';
+            return;
+        }
+
+        articlesToShow.forEach(item => {
+          // Asegúrate de que las propiedades del JSON coincidan con las siguientes variables
+          const title = item.title || 'Título del Artículo';
+          const link = item.link || '#';
+          
+          // Usa 'summary' o 'content' del JSON, limitando la descripción a 100 caracteres
+          const descriptionRaw = item.summary || item.content || 'Descripción breve del artículo...';
+          const description = descriptionRaw.replace(/<[^>]*>?/gm, '').substring(0, 100) + '...'; 
+          
+          // Usa una imagen por defecto hasta que la ruta real sea provista en el JSON
+          const imagePlaceholder = item.imageUrl || 'assets/placeholder-article.jpg';
+
+          // Formato de fecha
+          let dateSpan = '';
+          if (item.date) {
+            try {
+                const dateObj = new Date(item.date);
+                const formattedDate = dateObj.toLocaleDateString('es-ES', { month: 'short', day: 'numeric', year: 'numeric' });
+                dateSpan = `<span class="date" style="color:var(--muted); font-size:0.8rem; margin-top:4px; display:block; margin-bottom: 8px;">${formattedDate}</span>`;
+            } catch (e) {
+                console.warn("Error al formatear la fecha:", e);
             }
           }
-        }
-      };
 
-      fetchArticles();
+          htmlContent += `
+            <a href="${link}" target="_blank" class="article">
+              <img src="${imagePlaceholder}" alt="Artículo: ${title}">
+              <div class="pad" style="flex-grow:1; display:flex; flex-direction:column;">
+                <h4>${title}</h4>
+                ${dateSpan}
+                <p style="flex-grow:1;">${description}</p>
+                <span class="more" style="color:var(--teal); font-weight:700; margin-top:auto;">Leer más &rarr;</span>
+              </div>
+            </a>
+          `;
+        });
 
-      // Para asegurar que el botón "Diagnóstico" aparezca en móvil
-      if (window.matchMedia("(max-width: 768px)").matches) {
-          document.getElementById('mobile-cta-header').style.display = 'inline-block';
+        ARTICLES_CONTAINER.innerHTML = htmlContent;
+
+      } catch (error) {
+        console.error('Error al cargar feed de artículos:', error);
+        // Mensaje de fallback si la carga falla
+        ARTICLES_CONTAINER.innerHTML = '<p style="text-align:center; color:var(--ink-500);">No se pudieron cargar las publicaciones. Consulta mi blog directamente.</p>';
       }
-    });
-  </script>
+    }
 
+    // Inicializa la carga cuando el DOM esté completamente cargado
+    document.addEventListener('DOMContentLoaded', loadArticles);
+    
+    // Lógica del menú móvil (toggle)
+    const navLinks = document.querySelector('.nav-links');
+    const menuToggle = document.querySelector('.menu-toggle');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            // Usa el estilo 'display' para forzar la visibilidad del menú en móvil
+            // En CSS normal, solo se muestra cuando la pantalla es pequeña.
+            const isMenuOpen = navLinks.style.display === 'flex';
+            navLinks.style.display = isMenuOpen ? 'none' : 'flex';
+            navLinks.style.flexDirection = 'column'; // Asegura la disposición en columna
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '70px'; // Ajustar según el alto del header
+            navLinks.style.right = '20px';
+            navLinks.style.background = 'var(--card)';
+            navLinks.style.padding = '16px';
+            navLinks.style.borderRadius = 'var(--radius-md)';
+            navLinks.style.boxShadow = 'var(--shadow-2)';
+            navLinks.style.zIndex = '100';
+            navLinks.style.gap = '8px';
+        });
+    }
+
+  </script>
 </body>
 </html>
