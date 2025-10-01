@@ -27,456 +27,287 @@ html,body{margin:0;padding:0}
 body{
   background:var(--bg);
   color:var(--ink-900);
-  font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial,sans-serif;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
-  font-feature-settings:"liga" 0;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1180px;margin-inline:auto;padding:24px 20px}
+/* AJUSTE CLAVE (MÁS AGRESIVO): Reducción de espaciado vertical global a 20px */
+.section{padding:20px 0} 
+h2{font-size:clamp(1.4rem,1vw + 1rem,1.9rem);line-height:1.2;margin:0 0 12px}
+p{margin:0 0 10px}
+.muted{color:var(--ink-600)}
+
+/* ========= Header ========= */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,249,250,.85);
+  backdrop-filter:saturate(160%) blur(8px);
+  border-bottom:1px solid rgba(2,32,43,.06)
+}
+.nav{display:flex;align-items:center;gap:18px}
+.nav-brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
+.nav-brand img{width:24px;height:24px}
+.nav-links{display:flex;gap:18px;color:var(--ink-700)}
+.nav-fill{flex:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.9rem 1.15rem;border-radius:999px;border:1px solid transparent;font-weight:700;cursor:pointer;transition:.18s}
+.btn-primary{background:var(--teal);color:#fff}
+.btn-primary:hover{filter:brightness(1.05)}
+.btn-ghost{background:transparent;border-color:rgba(2,32,43,.15);color:var(--ink-900)}
+.btn-ghost:hover{background:rgba(2,32,43,.06)}
+.chip{display:inline-block;padding:.35rem .7rem;border-radius:999px;background:var(--pill);color:var(--ink-700);font-weight:600;letter-spacing:.12em}
+
+/* ========= HERO ========= */
+/* AJUSTE: Reducción de padding vertical en ESCRITORIO */
+.hero{padding:28px 0 16px} 
+.hero-wrap{
+  /* Reducción del ancho de la columna de la foto en ESCRITORIO (460px -> 400px) */
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 400px; /* copy + foto */
+  gap:22px; align-items:center;
+}
+.hero h1{
+  /* AJUSTE: Reduce el margen inferior del título */
+  margin:0 0 8px 0;
+  font-weight:800; letter-spacing:-.02em; line-height:1.12;
+  font-size:clamp(1.9rem, 2.1vw + 1rem, 3.0rem);
+  max-width:22ch;
+}
+.lead{
+  color:var(--ink-600);
+  /* AJUSTE: Reduce el margen inferior del texto principal */
+  margin:0 0 10px 0;
+  font-size:clamp(1rem,.25vw + .95rem,1.1rem)
+}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 16px}
+.badges-row{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+.badge-hero{height:54px;filter:drop-shadow(0 1px 0 rgba(2,32,43,.02))}
+.portrait-card{
+  background:#fff;border:1px solid rgba(2,32,43,.08);
+  border-radius:20px;padding:12px;
+  box-shadow:var(--shadow-2);
+  max-width:460px;margin-inline:auto;
 }
 
-h1{font-size:2.8rem;line-height:1.1;font-weight:700;}
-h2{font-size:2.2rem;line-height:1.2;font-weight:700;color:var(--teal);}
-h3{font-size:1.6rem;line-height:1.3;font-weight:700;}
-h4{font-size:1.2rem;line-height:1.4;font-weight:700;}
-p{margin-top:0;margin-bottom:1rem;color:var(--ink-700);}
-a{color:var(--teal);text-decoration:none;transition:color .2s}
-a:hover{color:var(--teal-2);}
-ul{margin:0;padding-left:1.5rem;}
-li{margin-bottom:0.5rem;}
+.portrait-card img{border-radius:14px}
 
-/* Estilos de botones */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 1.75rem;
-  border-radius: var(--radius-lg);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  text-decoration: none;
-  border: 1px solid transparent;
-  white-space: nowrap;
+/* ========= Sobre mí ========= */
+.card{background:var(--card);border:1px solid rgba(2,32,43,.08);border-radius:var(--radius-xl);box-shadow:var(--shadow-1)}
+.about{padding:24px 28px}
+.about p{font-size:clamp(1.02rem,.2vw + 1rem,1.08rem);color:var(--ink-800)}
+.about strong{font-weight:800}
+
+/* ========= Qué hago / Para quién / Paquetes ========= */
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.box{
+    /* Las propiedades de diseño y fondo que ya tenías */
+    background:var(--card);
+    border:1px solid rgba(2,32,43,.08);
+    border-radius:var(--radius-lg);
+    padding:18px;
+    
+    /* PROPIEDADES AÑADIDAS PARA LA ALINEACIÓN */
+    display:flex; /* Activa el modelo Flexbox */
+    flex-direction:column; /* Asegura que los elementos se apilen verticalmente */
+    justify-content:space-between; /* CLAVE: Empuja el primer elemento hacia arriba y el último (el botón) hacia abajo, alineándolos */
+}
+.box h3{margin:0 0 6px 0;font-size:1.08rem}
+.box p{color:var(--ink-700)}
+.price{font-weight:800;color:var(--teal)}
+
+/* ========= Recursos + Artículos ========= */
+.resources-wrap{display:grid;grid-template-columns: 1.15fr 1.85fr;gap:18px}
+.lead-card{background:#0f5860;color:#eaf5f6;border-radius:var(--radius-lg);padding:20px;border:1px solid rgba(255,255,255,.2);box-shadow:0 12px 28px rgba(14,73,80,.25)}
+.lead-card h3{margin:0 0 6px 0}
+.lead-card p{color:#cdf0f4}
+.lead-form{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.lead-form input[type="email"]{flex:1;min-width:220px;border-radius:999px;border:1px solid rgba(255,255,255,.45);padding:.85rem 1rem;background:#134c53;color:#fff}
+.lead-form input::placeholder{color:#bfe7eb}
+.lead-form .btn-primary{background:#053b40}
+.consent{font-size:.9rem;opacity:.9;margin-top:8px}
+.articles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.article{background:var(--card);border:1px solid rgba(2,32,43,.08);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column}
+.article img{aspect-ratio:16/9;object-fit:cover}
+.article .pad{padding:12px}
+.article h4{margin:0 0 6px 0;font-size:1.02rem}
+.article p{color:var(--ink-700)}
+.article a.more{margin-top:auto;color:var(--teal);font-weight:700}
+
+/* ========= Credenciales (Badges) ========= */
+/* *** AJUSTE CLAVE DE COMPACTACIÓN HORIZONTAL (ESCRITORIO) *** */
+.strip{
+  display:flex;
+  gap:12px; /* Reducido de 26px a 12px */
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center
+}
+.strip img{height:62px}
+/* #badges: Espacio inferior a CERO. Se basa en el padding superior de .section */
+#badges {
+    padding-top: 16px; 
+    padding-bottom: 0; 
+}
+/* *** SOLUCIÓN CLAVE ***: Eliminamos el padding inferior del .container para cerrar el espacio con #recursos */
+#badges .container {
+    padding-bottom: 0;
 }
 
-/* Estilo Primario */
-.btn-primary {
-  background-color: var(--teal);
-  color: var(--card); /* Blanco */
-  box-shadow: var(--shadow-1);
+/* ========= Recursos (`#recursos`) ========= */
+/* AJUSTE MÁXIMO: Reducir el padding-top a CERO para compactar al máximo con #badges */
+#recursos {
+    padding-top: 0; 
+    padding-bottom: 0; /* ¡CERO padding superior e inferior del SECTION! */
 }
+/* *** SOLUCIÓN CLAVE ***: Eliminamos el padding superior e inferior del .container */
+#recursos .container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+/* *** NUEVO AJUSTE EXTREMO ***: Reducir el margen inferior del título h2 para pegar el contenido */
+#recursos h2 {
+    margin-bottom: 6px; 
+}
+
+
+/* ========= Contacto / Footer ========= */
+.cta{background:var(--card);border:1px solid rgba(2,32,43,.08);border-radius:var(--radius-xl);padding:22px;text-align:center;box-shadow:var(--shadow-1)}
+/* AJUSTE MÁXIMO: Reducir el padding superior de la CTA de contacto a CERO */
+#contacto {
+    padding-top: 0; /* ¡CERO padding superior del SECTION! */
+}
+/* *** SOLUCIÓN CLAVE ***: Eliminamos el padding superior del .container para cerrar el espacio con #recursos */
+#contacto .container {
+    padding-top: 0;
+}
+/* *** NUEVO AJUSTE EXTREMO ***: Reducir el margen inferior del título h2 para pegar la CTA */
+#contacto h2 {
+    margin-bottom: 6px; 
+}
+footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08)}
+.foot{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;text-align:center}
+
+/* ======================================================= */
+/* GEMINI: MEJORAS DE FLUIDEZ Y ESTÉTICA (MICRO-INTERACCIONES) */
+/* ======================================================= */
+
+
+/* 1. Transiciones Base (Hacen que todos los cambios sean suaves) */
+.btn, .box, .lead-card, .portrait-card, .article {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 2. Botones Interactivos (Respuesta al hacer hover) */
 .btn-primary:hover {
-  background-color: var(--teal-2);
-  color: var(--card);
-  box-shadow: var(--shadow-2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(14, 73, 80, 0.4);
+}
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(14, 73, 80, 0.2);
 }
 
-/* Estilo Secundario/Outline */
-.btn-secondary {
-  background-color: transparent;
-  color: var(--teal);
-  border: 1px solid var(--teal);
-}
-.btn-secondary:hover {
-  background-color: var(--teal);
-  color: var(--card);
-}
-
-/* Estilo Terciario/Link */
-.btn-link {
-  background-color: transparent;
-  color: var(--ink-700);
-  border: none;
-  padding: 0;
-  font-weight: 500;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-.btn-link:hover {
-  color: var(--teal);
-}
-
-/* Contenedores y Layout */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-section {
-  padding: 60px 0;
-}
-.pad {
-  padding: 24px;
-}
-.section-title {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-/* Columnas (Grid) */
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  align-items: start;
-}
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  align-items: stretch;
-}
-
-/* Header/Nav */
-.header {
-  position: sticky;
-  top: 0;
-  background-color: var(--card);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  z-index: 100;
-}
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-}
-.nav-links {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-weight: 500;
-}
-.nav-links a {
-  color: var(--ink-700);
-  padding: 8px 12px;
-  border-radius: var(--radius-sm);
-}
-.nav-links a:hover {
-  background-color: var(--pill);
-  color: var(--teal-2);
-}
-.logo {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--teal-2);
-  letter-spacing: -0.5px;
-}
-.logo img {
-    height: 36px; /* Ajustar el tamaño del logo */
-}
-
-/* Hero Section */
-.hero-section {
-  padding-top: 80px;
-  padding-bottom: 80px;
-  text-align: left;
-}
-.hero-content {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-.hero-copy {
-  flex: 1;
-}
-.hero-image-container {
-  flex: 1;
-  text-align: center;
-}
-.hero-image-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-2);
-  object-fit: cover;
-}
-.hero-tagline {
-  color: var(--teal);
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-.hero-copy h1 {
-  margin-top: 0;
-  margin-bottom: 16px;
-  color: var(--ink-900);
-}
-.hero-copy p {
-  font-size: 1.15rem;
-  margin-bottom: 30px;
-  color: var(--ink-600);
-}
-.hero-actions {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-/* Sección de Badges (Confían en mi experiencia) - Superior en el Hero */
-.badges-row {
+/* NUEVO: Botón Seguir LinkedIn (.libutton) */
+.libutton {
     display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-content: flex-start; /* Alineado a la izquierda */
-    margin-top: 20px;
-    flex-wrap: wrap; /* Permitir que se envuelvan en móvil */
-}
-.badges-row img {
-    height: 45px; /* Tamaño de los logos */
-    opacity: 0.8;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
-}
-.badges-row img:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-}
-
-/* Sección de Servicios/Características */
-.feature-card {
-  background: var(--card);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%; /* Asegura que la tarjeta se estire en el grid */
-  display: flex;
-  flex-direction: column;
-}
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-2);
-}
-.feature-card h3 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--teal-2);
-}
-.feature-card h3 span.number {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: var(--teal);
-    line-height: 1;
-}
-.feature-card .content {
-    flex-grow: 1; /* Permite que el contenido se estire */
-    margin-bottom: 15px;
-}
-.feature-card a {
-    align-self: flex-start; /* Alinea el enlace a la izquierda */
-    margin-top: auto; /* Empuja el enlace hacia abajo */
-    font-weight: 600;
-}
-
-/* Sección de Créditos (Badges inferiores) */
-.strip-container {
-  background-color: var(--pill); /* Color de fondo suave */
-  padding: 20px 0;
-}
-.strip {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 30px;
-  flex-wrap: nowrap;
-  overflow-x: auto; /* Scroll horizontal si es necesario */
-  padding: 10px 0;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-.strip::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
-}
-.strip img {
-    height: 40px;
-    object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.6;
-    transition: all 0.3s ease;
-}
-.strip img:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-}
-
-/* Formulario */
-.form-container {
-    background: var(--card);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-1);
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 30px;
-}
-.form-container h3 {
+    flex-direction: column;
+    justify-content: center;
+    padding: 7px;
     text-align: center;
-    margin-bottom: 20px;
-    color: var(--teal-2);
-}
-.form-group {
-    margin-bottom: 15px;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: var(--ink-700);
-    font-size: 0.9rem;
-}
-.form-group input[type="email"] {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--muted);
-    border-radius: var(--radius-md);
-    font-size: 1rem;
-    transition: border-color 0.2s;
-}
-.form-group input[type="email"]:focus {
     outline: none;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    width: 200px;
+    height: 32px;
+    border-radius: 16px;
+    background-color: #0A66C2; /* Color azul de LinkedIn */
+    font-family: "SF Pro Text", Helvetica, sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.libutton:hover {
+    background-color: #004182; /* Tono más oscuro al pasar el ratón */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(10, 102, 194, 0.4);
+}
+
+/* 3. Tarjetas de Servicio (Reacción sutil en la sección "Qué Hago" y "Paquetes") */
+.box:hover {
+    transform: scale(1.005);
+    box-shadow: 0 10px 20px rgba(12, 26, 30, 0.12);
     border-color: var(--teal);
-    box-shadow: 0 0 0 3px rgba(14, 73, 80, 0.2);
-}
-.form-container .btn-primary {
-    width: 100%;
-    margin-top: 10px;
-}
-.form-message {
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--ok);
-    margin-top: 10px;
-    font-weight: 500;
-}
-.form-subtext {
-    font-size: 0.8rem;
-    color: var(--muted);
-    text-align: center;
-    margin-top: 15px;
 }
 
-/* Artículos (Publicaciones Recientes) */
-.article-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 30px;
+/* 4. Tarjeta del Retrato (Toque premium al pasar el ratón) */
+.hero-portrait .portrait-card:hover {
+    box-shadow: 0 16px 36px rgba(3, 24, 30, 0.2);
+    transform: scale(1.005);
 }
-.article {
-    display: block;
-    background: var(--card);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-    height: 100%;
-    color: var(--ink-900);
-}
+
+/* 5. Artículos (Efecto en las tarjetas de la sección Recursos) */
 .article:hover {
-    transform: translateY(-5px);
     box-shadow: var(--shadow-2);
-}
-.article img {
-    width: 100%;
-    height: 180px; /* Altura fija para la imagen */
-    object-fit: cover;
-    display: block;
-}
-.article h4 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    color: var(--ink-800);
-    font-weight: 700;
-}
-.article p {
-    color: var(--ink-600);
-    font-size: 0.95rem;
-    margin-bottom: 10px;
-}
-.article .more {
-    display: inline-block;
-    margin-top: 5px;
-    color: var(--teal);
-    font-weight: 600;
-}
-.article .date {
-    color: var(--muted); 
-    font-size: 0.8rem; 
-    margin-top: 4px; 
-    display: block;
-    margin-bottom: 4px;
+    border-color: rgba(2, 32, 43, 0.15);
+    transform: scale(1.005);
 }
 
+/* ======================================================= */
+/* GEMINI: MEDIA QUERIES OPTIMIZADAS (FINAL) */
+/* ======================================================= */
 
-/* Footer */
-.footer {
-  padding: 40px 0;
-  background-color: var(--ink-800);
-  color: var(--muted);
-  font-size: 0.9rem;
-  text-align: center;
-}
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer-links a {
-  color: var(--muted);
-  margin-left: 20px;
-}
-.footer-links a:hover {
-  color: var(--card);
-}
-
-/* === Media Queries (Adaptabilidad Móvil) === */
-@media (max-width: 900px) {
-  h1{font-size:2.4rem;}
-  h2{font-size:1.8rem;}
-  h3{font-size:1.4rem;}
-
-  /* Header */
-  .navbar {
-    flex-wrap: wrap;
-    padding: 12px 0;
-  }
+/* Optimización Tablet (menos de 1000px) */
+@media (max-width: 1000px) {
+  /* Oculta la navegación regular para evitar desbordamiento */
   .nav-links {
-    display: none; /* Ocultar enlaces de navegación en móvil */
+    display: none;
   }
-  .header .btn {
-      /* Hacer el botón del header visible */
-      display: flex;
+}
+
+/* Optimización Móvil (menos de 640px) */
+@media (max-width: 640px) {
+  /* Base: Espaciado y relleno general */
+  .container {
+    /* La línea del container está fuera, así que el padding es 24px 20px */
+    padding: 16px 14px; /* AJUSTE: Reducimos padding global en móvil */
   }
-  .logo {
-      flex-grow: 1; /* Permite que el logo ocupe espacio */
+  
+  /* AJUSTE: Reducción de espaciado vertical global a 16px para móvil */
+  .section {
+    padding: 16px 0; 
+  }
+  
+  /* AJUSTE CLAVE: Reducir padding de la sección HERO en móvil */
+  .hero {
+    padding: 16px 0 8px; /* Reducción a la mitad del padding vertical */
+  }
+  
+  /* Header: Ajustes para que quepa el logo */
+  .site-header .nav-brand {
+    font-size: 1.1rem;
   }
 
-  /* Hero Section */
-  .hero-section {
-    padding-top: 40px;
-    padding-bottom: 40px;
+  /*
+  ---
+  CORRECCIÓN 1: Reducción de la Foto (Retrato) en Móvil
+  ---
+  */
+  .hero-wrap {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
-  .hero-content {
-    flex-direction: column; /* Apilar contenido en móvil */
-    text-align: center;
-    gap: 30px;
+  .portrait-card {
+    order: -1; 
+    /* LIMITAR EL ANCHO DEL CONTENEDOR Y CENTRARLO */
+    max-width: 280px; 
+    margin-inline: auto; 
+    border-radius: 14px;
   }
-  .hero-copy {
-    order: 2; /* Copia debajo de la imagen */
-  }
-  .hero-image-container {
-    order: 1; /* Imagen arriba */
-    max-width: 300px;
-  }
-  .hero-image-container img {
-    border-radius: var(--radius-md);
-  }
-  .hero-copy h1 {
-    /* Reducción de margin inferior del título en móvil */
+  .hero h1 {
+    font-size: clamp(1.8rem, 5vw + 0.5rem, 2.2rem);
+    /* AJUSTE: Reducción de margin inferior del título en móvil */
     margin-bottom: 6px; 
   }
   
@@ -485,11 +316,6 @@ section {
     padding: 0.75rem 1rem; 
     font-size: 0.95rem; 
   }
-  .hero-actions {
-      justify-content: center; /* Centrar botones */
-      flex-wrap: wrap;
-  }
-
 
   /*
   ---
@@ -531,45 +357,32 @@ section {
     gap: 14px;
   }
   
-  /* Artículos: Estructura de grid también a 1 columna */
-  .article-grid {
-      grid-template-columns: 1fr;
-      gap: 20px;
+  /* Artículos: Estructura de recursos */
+  .resources-wrap {
+    grid-template-columns: 1fr;
+    gap: 14px; 
   }
-  .article img {
-      height: 150px; /* Reducir altura en móvil */
+  .articles {
+    grid-template-columns: 1fr;
+    gap: 14px; 
+  }
+  
+  /* Espaciado Vertical de secciones pequeñas (ajustadas para reducir el exceso de espacio) */
+  #badges {
+    padding-top: 16px; 
+    padding-bottom: 0; 
+  }
+  
+  /* Las siguientes reglas de compactación del .container se aplicarán gracias a la especificidad ID.class */
+  
+  #recursos {
+    padding-top: 0; 
+    padding-bottom: 0; 
   }
 
-  /* Footer */
-  .footer-content {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
+  #contacto {
+    padding-top: 0; 
   }
-  .footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .footer-links a {
-      margin-left: 0;
-  }
+  
+  /* ¡Cierre del media query! */
 }
-
-/* Estilo para el icono de flecha en las tarjetas de características */
-.arrow-icon {
-    font-size: 1.1rem;
-    line-height: 1;
-    font-weight: 900;
-}
-
-/* Clases de utilidad */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-.margin-bottom { margin-bottom: 20px; }
-.margin-top { margin-top: 20px; }
-.pad-top-lg { padding-top: 80px; }
-.pad-bottom-lg { padding-bottom: 80px; }
-.pad-top-md { padding-top: 40px; }
-.pad-bottom-md { padding-bottom: 40px; }
