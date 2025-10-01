@@ -29,6 +29,7 @@
 <header>
   <div class="content">
     <a href="#" class="logo">
+      <!-- Ruta revisada para el logo -->
       <img src="assets/brand/logo-ad-header.svg" alt="Logotipo Adrián Deyme">
     </a>
     <nav>
@@ -64,6 +65,7 @@
       </div>
     </div>
     <div class="hero-image">
+      <!-- Ruta revisada para la foto de Adrián -->
       <img src="assets/Adrian-Deyme-Avatar-Hero.webp" alt="Adrián Deyme, Coach Ejecutivo y Arquitecto Organizacional">
     </div>
   </div>
@@ -73,14 +75,33 @@
 <section class="hero-strip">
   <div class="content">
     <h3 class="hero-lead">Máximo nivel de certificación en **Coaching, OKR y Kanban**.</h3>
-    <!-- BADGES DEL HERO - SECCIÓN DE CERTIFICACIONES PRINCIPALES -->
+    <!-- BADGES DEL HERO - SECCIÓN DE CERTIFICACIONES PRINCIPALES (ICF / AGILIDAD) -->
     <div class="badges-row" id="hero-badges">
-        <!-- BADGES DE LIDERAZGO Y COACHING ICF / AGILIDAD (ACTUALIZADOS) -->
-        <img src="assets/badges/icf-member.webp" alt="Miembro ICF" title="Miembro ICF" onerror="this.style.display='none'">
-        <!-- Nota: Asumo .webp ya que los otros lo son, y añado fallback -->
-        <img src="assets/badges/icf-ce-level2.webp" alt="Coach Ontológico ICF" title="Coach Ontológico ICF" onerror="this.src='assets/badges/icf-ce-level2.png'; if (this.src == 'assets/badges/icf-ce-level2.png') this.style.display='none';">
-        <img src="assets/badges/icp-acc.webp" alt="Agile Coach" title="Agile Coach" onerror="this.style.display='none'">
-        <img src="assets/badges/icp-sys.webp" alt="Agile System Coach" title="Agile System Coach" onerror="this.style.display='none'">
+        <!-- Implementación con rutas y fallbacks mejorados -->
+        
+        <!-- ICF Member (.webp) -->
+        <img src="assets/badges/icf-member.webp" 
+             alt="Miembro ICF" 
+             title="Miembro ICF"
+             onerror="this.onerror=null; this.src='assets/badges/icf-member.png'">
+
+        <!-- ICF CE Level 2 (.webp) -->
+        <img src="assets/badges/icf-ce-level2.webp" 
+             alt="Coach Ontológico ICF" 
+             title="Coach Ontológico ICF"
+             onerror="this.onerror=null; this.src='assets/badges/icf-ce-level2.png'">
+
+        <!-- ICP-ACC (Agile Coach) (.webp) -->
+        <img src="assets/badges/icp-acc.webp" 
+             alt="Agile Coach" 
+             title="Agile Coach"
+             onerror="this.onerror=null; this.src='assets/badges/icp-acc.png'">
+        
+        <!-- ICP-SYS (Agile System Coach) (.webp) -->
+        <img src="assets/badges/icp-sys.webp" 
+             alt="Agile System Coach" 
+             title="Agile System Coach"
+             onerror="this.onerror=null; this.src='assets/badges/icp-sys.png'">
     </div>
   </div>
 </section>
@@ -186,12 +207,32 @@
 <!-- SECCIÓN DE HERRAMIENTAS / METODOLOGÍAS CERTIFICADAS (Strip Inferior) -->
 <section id="credenciales" class="pad-lg">
     <div class="content strip">
-        <!-- BADGES DE METODOLOGÍAS Y HERRAMIENTAS (OKR, Kanban, unFIX, LCM, M3.0) (ACTUALIZADOS) -->
-        <img src="assets/badges/okr-coach-badge.webp" alt="OKR Coach Professional" title="OKR Coach Professional" onerror="this.style.display='none'">
-        <img src="assets/badges/kcp-badge.webp" alt="Kanban Coach Professional" title="Kanban Coach Professional" onerror="this.style.display='none'">
-        <img src="assets/badges/unfix.webp" alt="unFIX Arqchitect" title="unFIX Arqchitect" onerror="this.style.display='none'">
-        <img src="assets/badges/lcm-explorer.webp" alt="Lean Change Management Explorer" title="Lean Change Management Explorer" onerror="this.style.display='none'">
-        <img src="assets/badges/management30.webp" alt="Management 3.0" title="Management 3.0" onerror="this.style.display='none'">
+        <!-- BADGES DE METODOLOGÍAS Y HERRAMIENTAS (OKR, Kanban, unFIX, LCM, M3.0) -->
+        <!-- Implementación con rutas y fallbacks mejorados -->
+        <img src="assets/badges/okr-coach-badge.webp" 
+             alt="OKR Coach Professional" 
+             title="OKR Coach Professional"
+             onerror="this.onerror=null; this.src='assets/badges/okr-coach-badge.png'">
+
+        <img src="assets/badges/kcp-badge.webp" 
+             alt="Kanban Coach Professional" 
+             title="Kanban Coach Professional"
+             onerror="this.onerror=null; this.src='assets/badges/kcp-badge.png'">
+
+        <img src="assets/badges/unfix.webp" 
+             alt="unFIX Arqchitect" 
+             title="unFIX Arqchitect"
+             onerror="this.onerror=null; this.src='assets/badges/unfix.png'">
+
+        <img src="assets/badges/lcm-explorer.webp" 
+             alt="Lean Change Management Explorer" 
+             title="Lean Change Management Explorer"
+             onerror="this.onerror=null; this.src='assets/badges/lcm-explorer.png'">
+
+        <img src="assets/badges/management30.webp" 
+             alt="Management 3.0" 
+             title="Management 3.0"
+             onerror="this.onerror=null; this.src='assets/badges/management30.png'">
     </div>
 </section>
 
@@ -214,6 +255,7 @@
       </a>
     </div>
     <div class="image-with-frame">
+      <!-- Ruta revisada para la foto de la historia -->
       <img src="assets/Adrian-Deyme-square.webp" alt="Adrián Deyme en la oficina">
     </div>
   </div>
