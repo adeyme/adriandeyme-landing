@@ -27,482 +27,556 @@ html,body{margin:0;padding:0}
 body{
   background:var(--bg);
   color:var(--ink-900);
-  font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,sans-serif;
   -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  transition: background-color 0.3s ease;
+  text-rendering:optimizeLegibility;
+  scroll-behavior:smooth;
 }
 
-/* ========= Utilidades de Layout ========= */
+h1,h2,h3,h4,h5,h6{
+  line-height:1.2;
+  font-weight:700;
+  margin-top:0;
+  margin-bottom:1rem;
+}
+
+h1{font-size:3rem}
+h2{font-size:2.2rem}
+h3{font-size:1.8rem; margin-bottom: 1.5rem;}
+h4{font-size:1.25rem}
+p{margin-top:0;margin-bottom:1rem}
+a{color:var(--teal);text-decoration:none;transition:color .2s ease}
+a:hover{color:var(--teal-2)}
+
+/* Estilo para negritas Markdown */
+p strong, p b { 
+  font-weight: 700; 
+}
+
+/* ========= Utilities ========= */
+
 .container{
   max-width:1200px;
   margin:0 auto;
   padding:0 20px;
 }
-
-.pad{padding:24px;}
-.pad-y{padding:40px 0;}
-
-h1{
-  font-size:2.8rem;
-  line-height:1.1;
-  font-weight:900;
-  margin:0 0 16px 0;
+.alt-bg{
+  background:var(--card);
 }
-h2{
-  font-size:2.2rem;
-  font-weight:800;
-  line-height:1.2;
-  margin:0 0 14px 0;
-  color:var(--teal);
-}
-h3{
-  font-size:1.6rem;
-  font-weight:700;
-  margin:0 0 12px 0;
-  line-height:1.3;
-}
-h4{
-  font-size:1.1rem;
-  font-weight:700;
-  margin:0 0 8px 0;
-  line-height:1.3;
-}
-p{
-  margin:0 0 16px 0;
-  color:var(--ink-700);
-}
-p:last-child{margin-bottom:0;}
-
-a{
-  color:var(--teal);
-  text-decoration:none;
-  transition:color 0.2s ease;
-}
-a:hover{color:var(--teal-2);}
-
-img{
-  max-width:100%;
-  height:auto;
-  display:block;
-}
-
-/* Botones (CTA) */
-.btn{
-  display:inline-flex;
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
   align-items:center;
-  justify-content:center;
-  padding:1rem 1.5rem;
-  background:var(--teal);
-  color:var(--card); /* Blanco */
-  font-weight:700;
+}
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.text-center{
   text-align:center;
+}
+.lead{
+  font-size:1.25rem;
+  font-weight:400;
+}
+.rounded-image {
+  border-radius: var(--radius-xl);
+  width: 100%;
+  height: auto;
+  box-shadow: var(--shadow-2);
+}
+
+/* Lista de chequeo (check-list) */
+.check-list {
+    list-style: none; /* Eliminar el estilo de viñeta predeterminado */
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.check-list li {
+    padding-left: 28px; /* Espacio para el ícono */
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.check-list li::before {
+    content: '✓'; /* Usar un checkmark unicode como viñeta */
+    color: var(--teal); 
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+/* ========= Botones ========= */
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+.btn, .btn-sm{
+  display:inline-block;
+  padding:1rem 1.75rem;
   border-radius:var(--radius-md);
-  transition:background 0.2s ease, transform 0.1s ease;
-  border:none;
+  text-align:center;
+  font-weight:600;
   cursor:pointer;
-  line-height:1;
+  transition:all .3s ease;
+  border:2px solid transparent;
+  line-height:1; /* Fix para alinear texto en botón */
+}
+.btn-sm {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+}
+
+.btn-primary, .btn-cta{
+  background:var(--teal);
+  color:var(--card);
   box-shadow:var(--shadow-1);
 }
-.btn:hover{
+.btn-primary:hover, .btn-cta:hover{
   background:var(--teal-2);
-  transform:translateY(-1px);
+  color:var(--card);
   box-shadow:var(--shadow-2);
 }
 .btn-secondary{
-  background:var(--pill);
-  color:var(--teal);
-  box-shadow:none;
+  background:transparent;
+  color:var(--ink-900);
+  border-color:var(--muted);
 }
 .btn-secondary:hover{
-  background:var(--teal);
-  color:var(--card);
-  transform:translateY(-1px);
-  box-shadow:var(--shadow-1);
+  background:var(--pill);
+  color:var(--ink-900);
+  border-color:var(--pill);
+}
+.btn-link {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
-/* Pill de información */
-.info-pill{
-    display:inline-block;
-    padding:4px 10px;
-    background:var(--pill);
-    color:var(--ink-900);
-    border-radius:var(--radius-sm);
-    font-size:0.8rem;
-    font-weight:600;
+/* Botón CTA Final */
+.btn-cta {
+    background: var(--teal);
+    color: var(--card);
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 20px rgba(14, 73, 80, 0.4); /* Sombra más fuerte para CTA */
+}
+.btn-cta:hover {
+    background: var(--teal-2);
+    box-shadow: 0 6px 25px rgba(14, 73, 80, 0.6);
 }
 
-/* ========= Header (Navegación) ========= */
-.header{
-  padding:16px 0;
+
+/* ========= Layout/Estructura General ========= */
+
+header{
   background:var(--card);
-  box-shadow:0 1px 3px rgba(0,0,0,0.05);
+  padding:15px 0;
+  border-bottom:1px solid var(--bg);
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
-
-.header .container{
+header .container{
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
-
-.logo-ad{
-  display:block;
-  height:40px;
-  width:auto;
+.logo{
+  font-size:1.1rem;
+  font-weight:800;
+  color:var(--ink-800);
+  letter-spacing:1px;
 }
-
-.nav-links{
-  display:flex;
-  gap:24px;
-}
-
-.nav-links a{
-  color:var(--ink-700);
+nav a{
+  margin-left:25px;
   font-weight:500;
+  color:var(--ink-700);
 }
-.nav-links a:hover{
+nav a:last-child{
+    margin-left: 35px; /* Más espacio para el CTA */
+}
+nav a.btn-sm{
+    margin-left: 35px;
+    color: var(--card);
+}
+nav a:hover{
   color:var(--teal);
 }
 
-/* Menú de Hamburguesa para móvil (oculto por defecto) */
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: var(--ink-900);
+section{
+  padding:70px 0;
 }
-
-
-/* ========= Hero Section ========= */
-.hero-section{
-  display:flex;
-  align-items:center;
-  padding:80px 0 60px 0;
-  min-height:450px;
+.section-header{
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
 }
-
-.hero-content{
-    display: flex;
-    align-items: center;
-    gap: 40px;
+.section-header h3 {
+    margin-bottom: 10px;
 }
-
-.hero-copy{
-  flex:1;
-}
-
-.hero-image-container{
-  flex:1;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.hero-image{
-  max-width:400px;
-  border-radius:var(--radius-xl);
-  box-shadow:var(--shadow-2);
-}
-
-.hero-cta{
-  display:flex;
-  gap:16px;
-  margin-top:24px;
-  flex-wrap: wrap;
-}
-
-.badges-row{
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 30px;
-    padding: 0 0 10px 0;
-    border-bottom: 1px solid var(--pill);
-}
-
-.badges-row img{
-    height: 42px;
-    width: auto;
-    margin: 0;
-    padding: 0;
-}
-
-/* ========= Secciones Generales ========= */
-.section-card{
-  background:var(--card);
-  border-radius:var(--radius-xl);
-  box-shadow:var(--shadow-1);
-  padding:40px;
-  margin-bottom:40px;
-}
-
-.grid-3{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:24px;
-}
-.grid-2{
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:24px;
-}
-
-/* Quién Soy - Bloque */
-.about-block{
-    display: flex;
-    align-items: center;
-    gap: 60px;
-}
-
-.about-block ul{
-    list-style-type: none;
-    padding: 0;
-    margin: 16px 0;
-}
-.about-block ul li{
-    margin-bottom: 8px;
-    padding-left: 20px;
-    position: relative;
-    color: var(--ink-700);
-}
-.about-block ul li::before{
-    content: "✓";
-    color: var(--ok);
-    position: absolute;
-    left: 0;
-    font-weight: 700;
-}
-
-
-/* Cards de Servicios */
-.service-card{
-  background:var(--pill);
-  padding:30px;
-  border-radius:var(--radius-lg);
-  border-left:5px solid var(--teal);
-  min-height: 200px; /* Asegura un mínimo de altura */
-  display: flex;
-  flex-direction: column;
-}
-.service-card h3{
-  color:var(--teal-2);
-  margin-bottom:8px;
-  display:flex;
-  align-items:center;
-}
-.service-card h3 span.num{
+.final-cta-band {
     background: var(--teal);
     color: var(--card);
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    font-size: 0.9rem;
-    font-weight: 800;
-    margin-right: 12px;
-    flex-shrink: 0;
+    padding: 80px 0;
+    margin-top: 50px;
+    text-align: center;
 }
-.service-card p{
-  font-size:0.95rem;
+.final-cta-band h3 {
+    font-size: 2.5rem;
+    color: var(--card);
+    margin-bottom: 20px;
+}
+.final-cta-band p.lead {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 35px;
 }
 
-/* Strip de Credenciales */
-.strip{
-  padding:20px 0;
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  gap:20px;
-  background:var(--card);
-  box-shadow:0 4px 8px rgba(0,0,0,0.03);
-  margin-top:20px;
-  border-radius: var(--radius-lg);
+
+/* ========= 2. HERO SECTION ========= */
+
+.hero-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
-.strip img{
-  height:40px;
-  width:auto;
-  opacity:0.8;
-  transition:opacity 0.3s ease;
+.hero-layout {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 50px;
+    align-items: center;
 }
-.strip img:hover{
+.hero-copy {
+    /* Ajustes para el texto del Hero */
+}
+.hero-copy h1 {
+    font-size: 3.5rem;
+    margin-bottom: 5px;
+    color: var(--teal);
+}
+.hero-copy h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+.hero-copy p {
+    font-size: 1.15rem;
+    max-width: 600px;
+    color: var(--ink-700);
+}
+
+.badges-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.badges-row img {
+    height: 45px;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+.badges-row img:hover {
+    filter: grayscale(0%);
     opacity: 1;
 }
 
-/* Artículos (Publicaciones Recientes) */
-#articulos .container h2 {
+.hero-image {
     text-align: center;
-    margin-bottom: 30px;
 }
-
-.article-grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-.article{
-    display: flex;
-    flex-direction: column;
-    background: var(--card);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-1);
-    overflow: hidden;
-    text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.article:hover {
-    transform: translateY(-4px);
+.hero-image .profile-photo {
+    width: 100%;
+    max-width: 400px; /* Limite visual */
+    height: auto;
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-2);
 }
 
-.article img{
-    height: 200px; /* Altura fija para la imagen */
-    object-fit: cover;
-    width: 100%;
-}
 
-.article h4 {
-    color: var(--ink-900);
-    margin-bottom: 8px;
-}
+/* ========= 2.5. CREDENCIALES STRIP ========= */
 
-.article p {
-    color: var(--ink-600);
-    font-size: 0.9rem;
-    margin-bottom: 12px;
+.strip-section {
+    background: var(--pill);
+    padding: 20px 0;
 }
-.article .pad{
-    padding: 24px;
-    flex-grow: 1;
+.strip {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Para asegurar que se ajusta en móvil */
+}
+.strip img {
+    height: 45px;
+    opacity: 0.7;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+.strip img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
 }
 
-/* Sección de Descarga (Lead Magnet) */
-.download-section{
-  background:var(--teal-2); /* Azul Oscuro */
-  color:var(--card);
-  padding:60px;
-  text-align:center;
-  border-radius:var(--radius-xl);
-  margin-bottom:40px;
+/* ========= 3. QUIÉN SOY (Alt-bg) ========= */
+
+.card {
+    background: var(--card);
+    padding: 30px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-1);
+    height: 100%; /* Asegura que las tarjetas tengan la misma altura si están en un grid */
 }
-.download-section h3{
-  color:var(--card);
-  font-size:2rem;
-  margin-bottom:10px;
+.card-copy h4 {
+    margin-bottom: 5px;
+    color: var(--teal-2);
 }
-.download-section p{
-  color:var(--muted);
-  max-width:600px;
-  margin:0 auto 24px auto;
+.card-copy h5 {
+    margin-bottom: 20px;
+    color: var(--ink-600);
+    font-weight: 400;
+    font-size: 1.1rem;
 }
-.download-section .btn{
-  background:var(--ok); /* Color de éxito/positivo */
+.card-photo {
+    padding: 0;
+    box-shadow: none; /* Elimina la sombra si solo contiene la imagen */
+    background: transparent;
+    border-radius: var(--radius-xl);
 }
-.download-section .btn:hover{
-  background:var(--teal); /* Oscurecer un poco el verde */
+.card-photo .rounded-image {
+    border-radius: var(--radius-xl);
 }
 
-/* ========= Footer ========= */
-.footer{
-  padding:40px 0;
-  text-align:center;
-  border-top:1px solid var(--pill);
-  color:var(--ink-600);
-  font-size:0.9rem;
+/* ========= 4. SERVICIOS ========= */
+
+.service-card {
+    background: var(--card);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-1);
+    border-top: 5px solid var(--teal);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.footer p{
-    color:var(--ink-600);
-    margin:0;
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-2);
+    border-top-color: var(--teal-2);
 }
-.footer a{
-    color:var(--ink-600);
+.service-number {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: var(--pill);
+    color: var(--teal);
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+.service-card h4 {
+    color: var(--ink-800);
+}
+.service-card p {
+    color: var(--ink-700);
 }
 
 
-/* ========= Responsive Design (Mobile First - Ajustes para pantalla pequeña) ========= */
-@media (max-width: 900px) {
-  /* Ocultar navegación en móvil */
-  .nav-links {
-    display: none;
-  }
-  
-  /* Mostrar toggle de menú */
-  .menu-toggle {
+/* ========= 5. RECURSOS / ARTÍCULOS ========= */
+
+.download-form-container {
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+}
+.download-form {
+    padding: 40px;
+    border-top: 5px solid var(--teal);
+    background: linear-gradient(145deg, var(--card), #fcfcfc);
+}
+.download-form input[type="email"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid var(--muted);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+.download-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(14, 73, 80, 0.2);
+}
+.download-form button {
+    width: 100%;
+    font-size: 1.1rem;
+}
+.download-form .disclaimer {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Estilos de los Artículos */
+.article {
     display: block;
+    background: var(--card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.article:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-2);
+}
+.article img {
+    width: 100%;
+    height: 180px; /* Altura fija para la imagen */
+    object-fit: cover;
+    display: block;
+}
+.article .pad {
+    padding: 20px;
+}
+.article h4 {
+    margin-bottom: 8px;
+    color: var(--ink-800);
+}
+.article p {
+    font-size: 0.95rem;
+    color: var(--ink-700);
+    margin-bottom: 15px;
+}
+
+
+/* ========= 7. FOOTER ========= */
+
+footer {
+    background: var(--ink-900);
+    color: var(--muted);
+    padding: 25px 0;
+    font-size: 0.9rem;
+}
+footer a {
+    color: var(--card);
+    text-decoration: underline;
+}
+footer .container {
+    text-align: center;
+}
+
+
+/* ========= Media Queries (Responsividad Móvil) ========= */
+
+@media (max-width: 768px) {
+  
+  /* ======================== */
+  /* 1. Base / Tipografía */
+  /* ======================== */
+  h1 {font-size: 2.2rem;}
+  h2 {font-size: 1.5rem;}
+  h3 {font-size: 1.4rem; margin-bottom: 1rem;}
+  h4 {font-size: 1.15rem;}
+
+  section { padding: 40px 0; }
+  .final-cta-band { padding: 50px 0; margin-top: 30px;}
+  .final-cta-band h3 { font-size: 1.75rem; }
+  .final-cta-band p.lead { font-size: 1.1rem; }
+  .btn-cta { padding: 1rem 1.5rem; font-size: 1rem; }
+  .section-header { margin-bottom: 30px; }
+
+
+  /* ======================== */
+  /* 2. Header / Nav */
+  /* ======================== */
+  header .container {
+    flex-direction: column;
+  }
+  header nav {
+    display: none; /* Ocultamos el menú de navegación completo */
+  }
+  .logo {
+    margin-bottom: 10px;
   }
   
-  /* Hero Section: Apilamos la imagen y el texto */
-  .hero-section{
-    padding-top: 40px; 
-    min-height: auto; 
+  /* ======================== */
+  /* 3. Hero */
+  /* ======================== */
+  .hero-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
-
-  .hero-content{
-      flex-direction: column-reverse;
-      text-align: center; 
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
-
-  .hero-copy{
-    padding-right: 0;
-    margin-bottom: 30px;
+  .hero-copy {
+    order: 2; /* El copy va debajo de la imagen en móvil */
+    text-align: center;
   }
-  
+  .hero-image {
+    order: 1; /* La imagen va arriba en móvil */
+  }
   .hero-copy h1 {
+    font-size: 2.5rem;
     /* Reducción de margin inferior del título en móvil */
     margin-bottom: 6px; 
   }
   
-  .hero-cta{
-      justify-content: center;
+  /* Nuevo: Botones del HERO más compactos */
+  .hero-copy .btn {
+    padding: 0.75rem 1rem; 
+    font-size: 0.95rem; 
   }
+  .btn-group {
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan si no caben */
+  }
+
 
   /*
   ---
-  Badges del HERO (Superior)
+  CORRECCIÓN 2: Badges del HERO (Superior) - MANTENIDOS
   ---
   */
   .badges-row {
-    gap: 8px;
+    gap: 0;
     justify-content: center;
-    border-bottom: none;
-    padding-bottom: 0;
-    padding-top: 10px;
   }
 
   .badges-row img {
     height: 38px; 
     margin: 0 4px; 
   }
-  
-  /* Bloque "Quién Soy" */
-  .about-block{
-      flex-direction: column;
-      text-align: center;
-      gap: 30px;
-  }
-  .about-block ul{
-      text-align: left;
-  }
 
 
   /*
   ---
-  Strip de Credenciales / Confianza (#credenciales / .strip)
+  CORRECCIÓN 3: Badges INFERIORES (#credenciales / .strip) - MANTENIDOS
   ---
   */
   .strip {
-    gap: 10px; 
+    /* AJUSTE EXTREMO MÓVIL: Reducción de gap a 1px */
+    gap: 1px; 
     flex-wrap: wrap; 
     justify-content: center;
   }
   
   .strip img {
     height: 35px; 
+    /* AJUSTE EXTREMO MÓVIL: Eliminamos el margin lateral */
     margin: 0 0; 
   }
 
@@ -512,33 +586,15 @@ img{
     gap: 14px;
   }
   
-  /* Artículos: Estructura de grid a flex-direction column */
-  .article-grid {
-    grid-template-columns: 1fr; /* Forzamos a una sola columna */
+  /* Artículos: Estructura de artículo individual en móvil */
+  .article img {
+    height: 150px; /* Reducir altura de la imagen del artículo */
   }
 
-  /* Ajustes de espaciado y tamaño */
-  .container {
-    padding: 0 16px;
-  }
-  .pad{padding:20px;}
-  .section-card {
-    padding: 24px;
-    margin-bottom: 20px;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1.6rem;
-  }
-  h3 {
-    font-size: 1.4rem;
+  /* Invertir el orden para la sección "Quién Soy" */
+  .reverse-on-mobile {
+      /* Ya que el hero tiene order: 1 y 2, esta regla no es necesaria en este momento,
+         pero es una buena práctica si se necesitara invertir el orden de las columnas del grid-2. */
   }
   
-  /* Secciones especiales */
-  .download-section{
-      padding: 40px 20px;
-      border-radius: var(--radius-lg);
-  }
 }
