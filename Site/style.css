@@ -49,8 +49,13 @@ h4{font-size:1.3rem}
 a{color:var(--teal);text-decoration:none}
 a:hover{color:var(--teal-2);text-decoration:underline}
 img{max-width:100%;height:auto}
-.container{
-  max-width:1200px;
+.container-l{
+  max-width:1400px; /* Para el header y footer ancho */
+  margin:0 auto;
+  padding:0 20px;
+}
+.container-m{
+  max-width:1100px; /* Para el contenido principal */
   margin:0 auto;
   padding:0 20px;
 }
@@ -73,22 +78,27 @@ img{max-width:100%;height:auto}
     font-weight:600;
     margin-bottom:12px;
 }
-.cta-box{
+.cta-final{
     background-color:var(--teal);
     color:var(--card);
-    border-radius:var(--radius-xl);
-    padding:40px;
-    margin:60px 0;
+    padding:60px 0;
+    text-align:center;
 }
-.cta-box h2, .cta-box p {
+.cta-final h2, .cta-final p {
     color:var(--card); /* Asegura que el texto dentro de CTA sea blanco */
-    margin:0 0 20px 0;
+    margin:0 auto 20px auto;
 }
-.cta-box .btn-cta{
+.cta-final h2{
+    max-width:800px;
+}
+.cta-final p{
+    max-width:700px;
+}
+.cta-final .btn-main{
     background-color:var(--card);
     color:var(--teal);
 }
-.cta-box .btn-cta:hover{
+.cta-final .btn-main:hover{
     background-color:#eee;
     color:var(--teal-2);
 }
@@ -105,23 +115,31 @@ img{max-width:100%;height:auto}
   border:none;
   text-decoration:none;
 }
-.btn-primary{
+.btn-small{
+    padding:8px 16px;
+    font-size:0.9rem;
+}
+.btn-large{
+    padding:16px 32px;
+    font-size:1.1rem;
+}
+.btn-main{
   background:var(--teal);
   color:var(--card);
 }
-.btn-primary:hover{
+.btn-main:hover{
   background:var(--teal-2);
   color:var(--card);
   text-decoration:none;
   transform:translateY(-1px);
   box-shadow:var(--shadow-1);
 }
-.btn-secondary{
+.btn-outline{
   background:transparent;
   color:var(--teal);
   border:2px solid var(--teal);
 }
-.btn-secondary:hover{
+.btn-outline:hover{
   background:var(--teal);
   color:var(--card);
   text-decoration:none;
@@ -138,7 +156,7 @@ header{
   z-index:100;
   background-color:var(--card);
 }
-.nav-content{
+.nav-flex{
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -155,6 +173,9 @@ header{
   width:32px;
   margin-right:8px;
 }
+.logo-name{
+    display:block;
+}
 nav a{
   margin-left:20px;
   color:var(--ink-700);
@@ -163,9 +184,6 @@ nav a{
 nav a:hover{
   color:var(--teal-2);
   text-decoration:none;
-}
-.nav-btn{
-    margin-left: 20px;
 }
 .menu-toggle {
     display: none; /* Oculto por defecto en desktop */
@@ -182,46 +200,94 @@ nav a:hover{
     padding:100px 0;
     text-align:center;
     background: linear-gradient(180deg, var(--bg) 0%, var(--card) 100%);
+    /* Usamos flexbox para centrar el contenido */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .hero-content{
-    max-width:800px;
+    max-width:1000px;
     margin:0 auto;
-}
-.hero-badges{
     display:flex;
-    justify-content:center;
-    gap:16px;
-    margin:20px 0 40px 0;
+    gap:40px;
+    align-items:center;
+    text-align:left; /* Alineamos el texto a la izquierda en desktop */
 }
-.hero-badges img{
-    height:50px;
-    opacity:0.8;
+.hero-copy{
+    flex:1;
+}
+.hero-image{
+    flex:1;
+}
+.hero-image img{
+    width:100%;
+    height:auto;
+    border-radius:var(--radius-xl);
+    box-shadow:var(--shadow-2);
+}
+.eyebrow{
+    text-transform:uppercase;
+    font-size:0.9rem;
+    font-weight:600;
+    color:var(--teal);
+    margin-bottom:10px;
 }
 .hero-content h1{
     font-size:3.5rem;
     margin-bottom:16px;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 100%;
 }
 .hero-content h1 strong{
     color:var(--teal);
 }
-.hero-content p{
+.hero-content .lead{
     font-size:1.3rem;
     margin-bottom:40px;
     color:var(--ink-600);
 }
-.hero-cta-buttons .btn{
-    margin:0 10px;
+.hero-actions .btn{
+    margin-right:15px;
+}
+.badges-row{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    margin-top:60px;
+    padding: 0 20px;
+    max-width:100%;
+}
+.badges-row img{
+    height:50px;
+    opacity:0.8;
+    filter:grayscale(100%);
+    transition:filter 0.3s ease;
+}
+.badges-row img:hover{
+    filter:grayscale(0%);
+    opacity:1;
 }
 
 /* ========= Secciones Generales (Card, Grid, etc) ========= */
-.card{
-  background:var(--card);
+.panel{
+  background:var(--pill);
   border-radius:var(--radius-lg);
-  box-shadow:var(--shadow-1);
-  padding:30px;
+  padding:25px;
+  margin-bottom:20px;
+}
+.panel h4{
+    color:var(--teal-2);
+    margin-top:0;
+    margin-bottom:10px;
+}
+#quiensoy{
+    padding:80px 0;
+}
+#servicios{
+    padding:80px 0;
+}
+#recursos{
+    padding:80px 0;
 }
 .grid-3{
   display:grid;
@@ -233,22 +299,33 @@ nav a:hover{
   grid-template-columns:repeat(2, 1fr);
   gap:30px;
 }
-.centered-section-title{
-    max-width:700px;
-    margin:0 auto 50px auto;
+.service-card{
+    padding:30px;
+    border-radius:var(--radius-lg);
+    background-color:var(--card);
+    box-shadow:var(--shadow-1);
+    height:100%;
+    display:flex;
+    flex-direction:column;
 }
-.section-subtitle{
-    display:block;
-    color:var(--teal);
-    font-weight:600;
-    margin-bottom:10px;
-    text-transform:uppercase;
+.service-card h3{
+    color:var(--ink-900);
+    margin-top:0;
+    font-size:1.5rem;
+}
+.service-card p{
+    flex-grow:1;
+}
+.service-card .pill{
+    margin-bottom:15px;
 }
 
-/* --- LOGOS BAR (Credenciales) --- */
+
+/* --- STRIP DE CREDENCIALES --- */
 #credenciales{
     padding: 20px 0;
     background-color: var(--card);
+    border-top: 1px solid var(--pill);
 }
 .strip{
     display:flex;
@@ -268,55 +345,47 @@ nav a:hover{
     opacity:1;
 }
 
-/* --- SECCIÓN QUIÉN SOY --- */
-#quien-soy .grid-2{
+/* --- CTA Strip (Formulario Descarga) --- */
+.cta-strip{
+    background-color:var(--teal);
+    color:var(--card);
+    border-radius:var(--radius-xl);
+    padding:35px 40px;
+    margin-bottom:50px;
+    display:flex;
+    justify-content:space-between;
     align-items:center;
 }
-#quien-soy .copy-box{
-    padding-right:40px;
+.cta-strip p{
+    color:var(--card);
+    font-size:1.1rem;
+    margin:0;
+    max-width:600px;
+    line-height:1.4;
 }
-#quien-soy .image-box img{
-    width:100%;
-    height:auto;
-    border-radius:var(--radius-xl);
-    box-shadow:var(--shadow-2);
-}
-
-/* --- SECCIÓN SERVICIOS --- */
-.service-card{
-    padding:30px;
-    border-radius:var(--radius-lg);
-    background-color:var(--card);
-    box-shadow:var(--shadow-1);
-    height:100%; /* Asegura que todas las tarjetas tengan la misma altura */
+.cta-strip .form-strip{
     display:flex;
-    flex-direction:column;
+    gap:10px;
+    align-items:center;
 }
-.service-card h4{
+.cta-strip input[type="email"]{
+    padding:10px 15px;
+    border:none;
+    border-radius:var(--radius-md);
+    font-size:1rem;
+    width:250px;
+    flex-grow:1;
+}
+.cta-strip .btn-small{
+    background-color:var(--card);
     color:var(--teal);
-    margin-top:0;
-    font-size:1.4rem;
+    font-weight:700;
 }
-.service-card p{
-    flex-grow:1; /* Permite que el párrafo empuje el 'leer más' al fondo */
-}
-.service-card .icon{
-    font-size:2rem;
-    margin-bottom:15px;
-    color:var(--teal);
-}
-.service-card .step-title {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+.cta-strip .btn-small:hover{
+    background-color:#f0f0f0;
+    color:var(--teal-2);
 }
 
-.service-card .step-title .number {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--teal-2);
-    margin-right: 10px;
-}
 
 /* --- SECCIÓN ARTÍCULOS --- */
 .articles-grid{
@@ -356,7 +425,7 @@ nav a:hover{
 }
 .article h4{
     margin-top:0;
-    margin-bottom:8px;
+    margin-bottom:4px;
     color:var(--ink-900);
     line-height:1.3;
 }
@@ -370,61 +439,6 @@ nav a:hover{
     color:var(--teal);
     font-weight:600;
     font-size:0.9rem;
-}
-
-/* --- FORMULARIO DE CONTACTO (Dentro de Artículos) --- */
-.contact-form-box{
-    padding:40px;
-    background-color:var(--pill);
-    border-radius:var(--radius-xl);
-    text-align:center;
-}
-.contact-form-box h3{
-    color:var(--teal-2);
-    margin-top:0;
-}
-.contact-form-box p{
-    color:var(--ink-600);
-}
-.contact-form-box form{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:10px;
-    margin-top:20px;
-}
-.contact-form-box input[type="email"]{
-    padding:12px 15px;
-    border:1px solid var(--muted);
-    border-radius:var(--radius-md);
-    font-size:1rem;
-    width:300px;
-    max-width:100%;
-    flex-grow:1;
-    transition:border-color 0.2s;
-}
-.contact-form-box input[type="email"]:focus{
-    outline:none;
-    border-color:var(--teal);
-}
-.contact-form-box .btn-submit{
-    padding:12px 24px;
-    background-color:var(--teal);
-    color:var(--card);
-    border:none;
-    cursor:pointer;
-    border-radius:var(--radius-md);
-    font-weight:600;
-    transition:background-color 0.2s;
-}
-.contact-form-box .btn-submit:hover{
-    background-color:var(--teal-2);
-}
-.form-note{
-    font-size:0.8rem;
-    color:var(--muted);
-    margin-top:10px;
-    display:block;
 }
 
 /* ========= Footer ========= */
@@ -459,10 +473,51 @@ footer a:hover{
   h3{font-size:1.5rem}
   p{font-size:1rem}
 
-  /* Artículos */
-  .articles-grid{
+  /* HERO */
+  .hero-content{
+      flex-direction:column;
+      text-align:center;
+      gap:30px;
+  }
+  .hero-copy{
+      order:2;
+  }
+  .hero-image{
+      order:1;
+      max-width:500px;
+      margin:0 auto;
+  }
+  .hero-actions .btn{
+      margin:10px 8px;
+  }
+  .badges-row{
+      margin-top:40px;
+  }
+
+  /* Servicios y Artículos */
+  .grid-3{
     grid-template-columns:repeat(2, 1fr); /* 2 columnas en tablet */
     gap:20px;
+  }
+
+  /* CTA Strip */
+  .cta-strip{
+      flex-direction:column;
+      padding:30px;
+  }
+  .cta-strip p{
+      margin-bottom:20px;
+  }
+  .cta-strip .form-strip{
+      width:100%;
+      flex-direction:column;
+      max-width:400px;
+  }
+  .cta-strip input[type="email"]{
+      width:100%;
+  }
+  .cta-strip .btn-small{
+      width:100%;
   }
 }
 
@@ -497,38 +552,35 @@ footer a:hover{
     nav a:last-child{
         border-bottom:none;
     }
-    .nav-content .btn-primary {
+    .nav-flex .btn-main {
         display: none; /* Ocultar el botón de diagnóstico del nav en móvil */
+    }
+    .logo-name{
+        display: none;
     }
 
     /* Hero */
-    #hero{padding:80px 0 40px 0;}
+    #hero{padding:60px 0 30px 0;}
     .hero-content h1{
         font-size:2.5rem;
-        margin-bottom:10px; /* Reducción de margin inferior del título en móvil */
     }
-    .hero-content p{
+    .hero-content .lead{
         font-size:1.1rem;
-        margin-bottom:30px;
     }
-    .hero-cta-buttons .btn{
-        /* Aseguramos que los botones se apilen verticalmente */
+    .hero-actions .btn{
         display:block;
         margin: 10px auto;
         width:90%;
         max-width:300px;
     }
-    
-    /* Badges del HERO */
-    .hero-badges{
+    .badges-row{
         gap:10px;
         flex-wrap: wrap;
-        margin:15px 0 30px 0;
+        margin-top:30px;
     }
-    .hero-badges img{
+    .badges-row img{
         height:40px;
     }
-
 
     /* Credenciales Inferiores */
     .strip{
@@ -540,8 +592,7 @@ footer a:hover{
         height:40px;
     }
 
-
-    /* Columnas: Convierte todas las cuadrículas en 1 columna */
+    /* Columnas: Convierte las cuadrículas en 1 columna */
     .grid-3, .grid-2{
         grid-template-columns:1fr;
         gap:20px;
@@ -550,65 +601,20 @@ footer a:hover{
     /* Artículos: Ahora 1 columna */
     .articles-grid{
         grid-template-columns:1fr;
+        gap:20px;
     }
     .article img{
-        height:220px; /* Aumentar ligeramente la altura de la imagen en móvil */
+        height:200px;
     }
-    .article .pad{
-        padding:15px 18px;
+    .cta-final{
+        padding:40px 0;
     }
-    .article p{
-        font-size:1rem;
-    }
-    .article .more{
-        font-size:1rem;
-    }
-
-
-    /* Quién Soy */
-    #quien-soy .copy-box{
-        padding-right:0;
-        order:2; /* Mueve el texto debajo de la imagen */
-    }
-    #quien-soy .image-box{
-        order:1; /* Mueve la imagen arriba del texto */
-        margin-bottom:20px;
-    }
-
-    /* Formulario de Contacto */
-    .contact-form-box{
-        padding:30px 20px;
-    }
-    .contact-form-box form{
-        flex-direction:column;
-        gap:10px;
-    }
-    .contact-form-box input[type="email"],
-    .contact-form-box .btn-submit{
-        width:100%;
-        max-width:400px;
-    }
-    .contact-form-box input[type="email"]{
-        margin-bottom:0;
-    }
-    .form-note{
-        text-align:center;
-    }
-
-    .cta-box{
-        padding:30px;
-    }
-    .cta-box h2{
+    .cta-final h2{
         font-size:1.8rem;
     }
+
 }
 
-
-/*
-  ======================================================
-  AJUSTES POSTERIORES PARA MEJORAR RESPONSIVIDAD (V2)
-  ======================================================
-*/
 
 @media (max-width: 500px) {
   /* Ajustes para móviles muy pequeños */
@@ -616,69 +622,45 @@ footer a:hover{
   /* Reducción general de padding de sección */
   .section-pad{padding:40px 0}
   .pad{padding:16px}
-  .container{padding:0 15px}
+  .container-m{padding:0 15px}
 
   /* Títulos más pequeños */
-  h1{font-size:2rem}
+  h1{font-size:2.2rem}
   h2{font-size:1.6rem}
   h3{font-size:1.4rem}
 
   /* HERO */
-  #hero{padding:60px 0 30px 0;}
+  #hero{padding:40px 0 20px 0;}
   .hero-content h1{
-    font-size:2.2rem; /* Título aún más pequeño en pantallas muy pequeñas */
-    /* Nueva corrección: Reducción de margin inferior del título en móvil */
+    font-size:2.2rem;
     margin-bottom: 6px; 
   }
-  
-  /* Nuevo: Botones del HERO más compactos */
-  .hero-copy .btn {
+  .hero-actions .btn {
     padding: 0.75rem 1rem; 
     font-size: 0.95rem; 
   }
-
-  /*
-  ---
-  CORRECCIÓN 2: Badges del HERO (Superior) - MANTENIDOS
-  ---
-  */
+  
+  /* Badges del HERO */
   .badges-row {
-    gap: 0;
-    justify-content: center;
+    gap: 10px;
   }
-
   .badges-row img {
-    height: 38px; 
-    margin: 0 4px; 
+    height: 35px; 
+    margin: 0 2px; 
   }
 
 
-  /*
-  ---
-  CORRECCIÓN 3: Badges INFERIORES (#credenciales / .strip) - MANTENIDOS
-  ---
-  */
+  /* Credenciales Inferiores */
   .strip {
-    /* AJUSTE EXTREMO MÓVIL: Reducción de gap a 1px */
-    gap: 1px; 
-    flex-wrap: wrap; 
-    justify-content: center;
+    gap: 10px; 
   }
   
   .strip img {
-    height: 35px; 
-    /* AJUSTE EXTREMO MÓVIL: Eliminamos el margin lateral */
-    margin: 0 0; 
+    height: 30px; 
   }
 
-  /* Columnas: Convierte todas las cuadrículas en 1 columna */
-  .grid-3, .grid-2 {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  
-  /* Artículos: Estructura de */
+  /* Artículos */
   .article img {
-    height: 180px; /* Reducir altura de imagen de artículo */
+    height: 150px; 
   }
 }
