@@ -1,11 +1,11 @@
 /* ========= Design Tokens (Variables Globales) ========= */
 :root{
-  /* Colores basados en Guía de Identidad Visual */
+  /* Colores basados en Guía de Identidad Visual y PDF */
   --bg: #F5F5F5;            /* Gris Claro (Fondo Neutro) */
   --card: #FFFFFF;          /* Blanco (Contraste) */
   --ink-900: #062F36;       /* Azul Oscuro (Profundo) - Texto Principal */
-  --ink-800: #122a30;       /* Ligeramente más claro que el 900 */
-  --ink-700: #2b4a53;       /* Títulos y Subtítulos */
+  --ink-800: #122a30;       /* Títulos Principales */
+  --ink-700: #2b4a53;       /* Subtítulos y Títulos de Sección */
   --ink-600: #48656e;       /* Párrafos y texto secundario */
   --ink-500: #6a8790;       /* Muted */
   --muted: #9db2b8;         /* Texto/Detalles muy suaves */
@@ -17,256 +17,294 @@
   --radius-xl:24px;
   --radius-lg:18px;
   --radius-md:14px;
-
-  /* Tipografía */
-  --font-inter: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* ========================================================= */
-/* ======================== Estilos Base ========================= */
-/* ========================================================= */
-
-* {
-  box-sizing: border-box;
-}
-
-html {
+/* ========= Base y Tipografía ========= */
+html{
   scroll-behavior: smooth;
 }
-
 body {
   margin: 0;
-  padding: 0;
-  font-family: var(--font-inter);
-  color: var(--ink-700);
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink-900);
   background-color: var(--bg);
-  line-height: 1.6;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
-
 .content {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
 }
+a {
+  color: var(--teal);
+  text-decoration: none;
+}
+h1, h2, h3, h4, .title-section {
+  color: var(--ink-800);
+  line-height: 1.2;
+  font-weight: 800;
+}
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.5rem; }
+.lead-section {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--ink-700);
+    margin: 10px 0 40px;
+}
 
+/* Sección Genérica */
 .section {
   padding: 80px 0;
 }
 
-.bg-soft {
-  background-color: #e8f0f1; /* Un gris/azul muy suave */
+/* Sección Hero */
+.hero {
+  background-color: var(--card); /* Fondo blanco para la sección hero */
+  padding: 100px 0;
+  border-bottom-left-radius: var(--radius-xl);
+  border-bottom-right-radius: var(--radius-xl);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
 }
-
-/* Títulos y Tipografía */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--ink-900);
-  line-height: 1.2;
-  font-weight: 800;
-  margin-top: 0;
+.hero .content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+.hero-text {
+  flex: 1;
 }
 .hero-title {
-  font-size: 4.5rem;
-  text-transform: uppercase;
-  letter-spacing: -2px;
-  margin-bottom: 5px;
+  font-size: 3.5rem; /* Muy grande, como en el PDF */
+  font-weight: 900;
+  margin: 0 0 15px 0;
+}
+.hero-title span {
   color: var(--teal);
 }
 .hero-subtitle {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: var(--ink-800);
-}
-.hero-lead {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-.hero-pitch {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--ink-600);
-    margin-bottom: 30px;
-}
-
-.title-section {
-  font-size: 2.2rem;
-  font-weight: 800;
-  margin-bottom: 30px;
-  color: var(--ink-900);
-}
-.align-center {
-  text-align: center;
-}
-.lead {
-  font-size: 1.15rem;
+  font-size: 1.5rem;
+  font-weight: 400;
   color: var(--ink-600);
+  margin-bottom: 30px;
+}
+.hero-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+.hero-image {
+  flex: 0 0 40%;
+  max-width: 400px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-/* ========================================================= */
-/* ======================== Componentes ========================= */
-/* ========================================================= */
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
 
 /* Botones */
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
+  justify-content: center;
+  padding: 14px 25px;
   border-radius: var(--radius-md);
   text-decoration: none;
   font-weight: 700;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  font-size: 1rem;
+  transition: all 0.2s ease;
   white-space: nowrap;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
   border: 2px solid transparent;
 }
 .btn-primary {
-  background-color: var(--teal);
+  background: var(--teal);
   color: var(--card);
 }
 .btn-primary:hover {
-  background-color: var(--teal-2);
-  box-shadow: 0 6px 20px rgba(14, 76, 90, 0.3);
+  background: var(--teal-2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(14, 76, 90, 0.3);
 }
 .btn-secondary {
-  background-color: var(--card);
+  background: transparent;
   color: var(--teal);
-  border: 2px solid var(--teal);
-}
-.btn-secondary:hover {
-  background-color: var(--teal-soft);
-  color: var(--card);
   border-color: var(--teal-soft);
 }
-.btn-ghost {
-  background-color: transparent;
-  color: var(--ink-700);
-  border: 2px solid var(--muted);
-}
-.btn-ghost:hover {
-  background-color: var(--pill);
+.btn-secondary:hover {
+  background: var(--pill);
   border-color: var(--teal);
-  color: var(--teal);
 }
 
-/* Grids */
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
+/* Tarjetas de Pilaes (Feature Cards) - Estilo limpio del PDF */
+.feature-card {
+    background-color: var(--card);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid var(--teal); /* Línea de acento como en el PDF */
 }
-.grid-2-alt { /* Para la sección de Problema/Enfoque */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+.feature-card h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: var(--ink-800);
 }
-.grid-2-rev { /* Para Mi Historia */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
+.feature-card p {
+    color: var(--ink-600);
+    font-size: 1rem;
 }
-.grid-2-rev > :first-child {
-  order: 2; /* Texto a la derecha en desktop */
+.feature-card .icon-wrap {
+    width: 50px;
+    height: 50px;
+    background-color: var(--teal-soft);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
 }
-.grid-2-rev > :last-child {
-  order: 1; /* Imagen a la izquierda en desktop */
-}
-
-
-/* Certificaciones */
-.cert-row {
-  display: flex;
-  gap: 15px;
-  margin-top: 40px;
-  flex-wrap: wrap;
-}
-.cert img {
-  height: 30px; /* Tamaño consistente para logos */
-  opacity: 0.8;
+.feature-card .icon-wrap svg {
+    width: 24px;
+    height: 24px;
+    color: var(--card);
 }
 
-/* Card de Nota */
-.note-card {
-  background-color: var(--pill);
-  padding: 20px;
-  border-left: 4px solid var(--teal);
-  border-radius: var(--radius-md);
-  margin-top: 30px;
+/* Testimonios */
+.testimonial-card {
+  background-color: var(--teal-soft);
+  color: var(--card);
+  padding: 40px;
+  border-radius: var(--radius-xl);
 }
-.note-card p {
-  margin: 0;
-  color: var(--ink-700);
+.testimonial-card blockquote {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 20px 0;
+  padding-left: 0;
+  border-left: none;
+  position: relative;
+}
+.testimonial-card cite {
+  display: block;
+  font-style: normal;
+  font-weight: 400;
   font-size: 1rem;
 }
+.testimonial-card cite strong {
+    font-weight: 700;
+}
 
-/* Card de Resultado (para el final de los Pilares) */
-.result-card {
-  background-color: var(--card);
-  border: 1px solid var(--muted);
-  padding: 30px;
-  border-radius: var(--radius-xl);
+/* Publicaciones Recientes (Artículos) */
+#articles-section {
+    padding: 60px 0;
+    background-color: var(--bg);
+}
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.article {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Borde sutil */
+}
+.article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Nuevo estilo para reemplazar la imagen que fallaba */
+.article .image-placeholder {
+    width: 100%;
+    height: 180px; /* Altura fija para el bloque visual */
+    background-color: var(--teal); /* Color de acento sólido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--card);
+    /* Opcional: Icono o texto de placeholder, lo manejo en el JS */
+    opacity: 0.8;
+}
+
+.article .pad {
+    padding: 20px;
+}
+.article h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.15rem;
+    color: var(--ink-800);
+}
+.article p {
+    margin: 0 0 15px 0;
+    font-size: 0.95rem;
+    color: var(--ink-600);
+}
+
+/* Footer y Llamada a la Acción */
+footer {
+  background-color: var(--ink-900);
+  color: var(--muted);
+  padding: 40px 0;
+  font-size: 0.9rem;
   text-align: center;
-  margin-top: 60px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
-.result-card i {
-  font-size: 2rem;
-  color: var(--ok);
-  margin-bottom: 10px;
+.cta-banner {
+  background-color: var(--teal-2);
+  color: var(--card);
+  text-align: center;
+  padding: 60px 20px;
 }
-.result-title {
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--ink-900);
+.cta-banner h2 {
+  color: var(--card);
   margin-top: 0;
+  font-size: 2rem;
 }
-
-
-/* Lista de Story / Historia */
-.story-text ul {
-  list-style: none;
-  padding: 0;
+.cta-banner p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 30px;
 }
-.story-text ul li {
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-  padding-left: 25px;
-  position: relative;
-  color: var(--ink-600);
-}
-.story-text ul li::before {
-  content: "»"; /* Viñeta personalizada */
+.cta-banner .btn-primary {
+  background: var(--card);
   color: var(--teal);
-  font-size: 1.5rem;
-  font-weight: 700;
-  position: absolute;
-  left: 0;
-  top: -5px;
+  border: none;
 }
-.story-subtitle {
-    font-style: italic;
-    font-weight: 400;
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-    color: var(--muted);
+.cta-banner .btn-primary:hover {
+    background: #e8e8e8;
 }
 
-/* ========================================================= */
-/* ======================== Navegación ========================= */
-/* ========================================================= */
+/* Header */
 header {
   background-color: var(--card);
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -278,234 +316,52 @@ header .content {
   padding: 15px 20px;
 }
 header .brand img {
-  height: 40px;
-  width: auto;
-  display: block;
+  height: 30px;
 }
 header nav a {
-  text-decoration: none;
-  color: var(--ink-700);
-  font-weight: 600;
-  margin-left: 30px;
+  margin-left: 25px;
+  color: var(--ink-600);
+  font-weight: 500;
   padding: 5px 0;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s;
+  transition: color 0.2s;
 }
 header nav a:hover {
   color: var(--teal);
-  border-bottom-color: var(--teal);
+}
+header .btn {
+  margin-left: 20px;
+  padding: 8px 15px;
+  font-size: 0.9rem;
 }
 
-/* ========================================================= */
-/* ======================== Secciones Específicas ========================= */
-/* ========================================================= */
-
-/* Hero Section Actions */
-.hero-actions {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-/* ESTILO CRÍTICO PARA LA IMAGEN DEL HERO Y LA HISTORIA */
-.hero-image img, .story-image img {
-    /* 100% de ancho del contenedor de la cuadrícula */
-    width: 100%; 
-    /* Mantiene la proporción */
-    height: auto; 
-    /* Esquinas redondeadas para un look moderno */
-    border-radius: var(--radius-xl); 
-    /* Asegura que la imagen se vea bien en el espacio disponible */
-    display: block;
-    /* Sombra para que la imagen destaque ligeramente */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
-    /* El contenedor de la cuadrícula ya maneja el tamaño, esto es para la imagen dentro */
-    object-fit: cover; 
-}
-
-
-/* Grid de Pilares */
-.pillar-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-}
-.pillar-card {
-  background-color: var(--card);
-  padding: 30px;
-  border-radius: var(--radius-xl);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-}
-.pillar-card .icon-wrap {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-  color: var(--card);
-}
-.pillar-card .color-blue {
-    background-color: #0E4C5A; /* Teal */
-}
-.pillar-card .color-green {
-    background-color: #0e844f; /* OK Color */
-}
-.pillar-card .color-red {
-    background-color: #c9514f; /* Tono de contraste */
-}
-.pillar-card hr {
-    border: 0;
-    border-top: 1px solid var(--pill);
-    margin: 20px 0;
-}
-.pillar-title {
-  font-size: 1.4rem;
-  margin-bottom: 15px;
-}
-.pillar-card p {
-  color: var(--ink-600);
-}
-.pillar-card ul {
-  list-style-type: "– ";
-  padding-left: 20px;
-  color: var(--ink-600);
-}
-.resolve-title {
-    font-weight: 700;
-    color: var(--teal);
-    margin-top: 0;
-}
-.pillar-card ul li {
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-}
-
-/* Recursos y Artículos */
-.articles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/* ========= Adaptación Móvil ========= */
+@media (max-width: 1024px) {
+  .hero .content {
     gap: 30px;
-    margin-top: 50px;
-}
-.article {
-    background-color: var(--card);
-    border-radius: var(--radius-lg);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    text-decoration: none;
-    color: var(--ink-700);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-.article:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-.article img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-}
-.article .pad {
-    padding: 20px;
-}
-.article h4 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    color: var(--teal);
-}
-.article p {
-    font-size: 0.9rem;
-    color: var(--ink-600);
-    margin-bottom: 15px;
-}
-
-/* CTA Final */
-.cta {
-    background-color: var(--teal);
-    text-align: center;
-}
-.cta .title-section {
-    color: var(--card);
-}
-.cta .lead {
-    color: #e8f0f1;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40px;
-}
-
-/* Footer */
-footer {
-    background-color: var(--ink-900);
-    padding: 30px 0;
-    color: var(--muted);
-    font-size: 0.9rem;
-}
-footer .content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-footer .links a {
-    color: var(--muted);
-    font-size: 1.4rem;
-    margin-left: 15px;
-    transition: color 0.3s;
-}
-footer .links a:hover {
-    color: var(--teal-soft);
-}
-footer .creditos {
-    font-size: 0.8rem;
-    margin-top: 10px;
-}
-
-/* ========================================================= */
-/* ======================== MEDIA QUERIES (Responsividad) ======================== */
-/* ========================================================= */
-
-/* Tablet y Escritorio pequeño (992px y menos) */
-@media (max-width: 992px) {
-  /* En tablets, reducimos el gap */
-  .grid-2, .grid-2-alt, .grid-2-rev {
-    gap: 16px;
-  }
-  
-  .grid-2-rev {
-    /* Forzamos a 1 columna para tablets */
-    grid-template-columns: 1fr; 
-    gap: 20px;
   }
 }
-
-/* Móvil (768px y menos) */
 @media (max-width: 768px) {
+  /* Restablecer paddings y gaps */
   .section {
     padding: 50px 0;
   }
   .title-section {
     font-size: 1.8rem;
   }
+  .lead-section {
+      font-size: 1.2rem;
+      margin: 10px 0 30px;
+  }
   .hero {
     padding: 50px 0;
   }
   .hero .content {
-    /* Mantenemos el orden de apilamiento en móvil: Texto primero, luego imagen */
-    flex-direction: column-reverse; 
+    flex-direction: column-reverse;
     text-align: center;
     gap: 30px;
   }
   .hero-title {
-    font-size: 2.5rem; /* TAMAÑO OPTIMIZADO PARA MÓVIL */
+    font-size: 2.5rem;
   }
   .hero-subtitle {
     font-size: 1.3rem;
@@ -517,41 +373,25 @@ footer .creditos {
     margin-bottom: 30px;
   }
   .hero-image {
-    max-width: 100%; /* Imagen al 100% del contenedor */
-  }
-  .hero-lead {
-    text-align: center;
+    flex: 1;
+    max-width: 80%;
   }
 
   /* Navegación y Header */
-  /* Ocultamos los enlaces de menú en móvil y dejamos solo el logo y el botón de CTA */
   header nav {
-    display: none; 
+    display: none;
   }
   header .content {
     justify-content: space-between;
   }
 
   /* Grid Layouts se convierten en 1 columna */
-  .grid-2, .grid-2-alt, .grid-2-rev {
+  .grid-2, .grid-3 {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 20px;
   }
 
-  /* Se revierte el orden en el modo "Historia" para que la imagen quede primero */
-  .grid-2-rev > :first-child {
-      order: 1; /* Texto a la izquierda/arriba */
-  }
-  .grid-2-rev > :last-child {
-      order: 2; /* Imagen a la derecha/abajo */
-  }
-
-  .cert-row {
-    justify-content: center;
-  }
-
-  footer .content {
-    flex-direction: column;
-    gap: 10px;
+  .testimonial-card blockquote {
+      font-size: 1.2rem;
   }
 }
