@@ -23,6 +23,7 @@
   <style>
     /* ========= Design Tokens (Variables Globales) ========= */
     :root{
+      /* Paleta de colores ajustada basada en la guía: Azul Petróleo (#0E4C5A) y relacionados */
       --bg:#f7f9fa;
       --card:#ffffff;
       --ink-900:#0c1a1e;
@@ -31,8 +32,8 @@
       --ink-600:#48656e;
       --ink-500:#6a8790;
       --muted:#9db2b8;
-      --teal:#0e4950;        /* botón principal */
-      --teal-2:#0a3b40;
+      --teal:#0E4C5A;        /* Azul Petróleo - botón principal, títulos */
+      --teal-2:#062F36;      /* Azul Oscuro Profundo - Hover */
       --pill:#e8f2f4;        /* chips / x-strip */
       --ok:#0e844f;
       --radius-xl:24px;
@@ -167,7 +168,7 @@
     }
 
     .logo-ad {
-        font-family: 'Pacifico', cursive; /* Reemplazo de tipografía manuscrita */
+        font-family: 'Pacifico', cursive; /* Tipografía manuscrita sugerida */
         font-size: 1.5rem;
         font-weight: normal;
         color: var(--teal);
@@ -730,11 +731,11 @@
       </div>
       
       <div class="hero-image">
-        <!-- Imagen de perfil de Adrián Deyme - Usando un placeholder -->
+        <!-- CAMBIO: Se ha actualizado la ruta de la imagen con la proporcionada por el usuario -->
         <img 
-          src="https://placehold.co/400x400/0E4C5A/FFFFFF?text=Tu+Foto+Aquí" 
+          src="adriandeyme-landing/Site/assets/people/adrian-linkedin-sin-fondo.webp" 
           alt="Adrián Deyme - Coach Ejecutivo" 
-          onerror="this.onerror=null; this.src='https://placehold.co/400x400/0E4C5A/FFFFFF?text=Foto+Perfil';"
+          onerror="this.onerror=null; this.src='https://placehold.co/400x400/0E4C5A/FFFFFF?text=Error+Carga+Imagen';"
         />
       </div>
     </section>
