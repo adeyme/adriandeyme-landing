@@ -139,24 +139,24 @@ p{margin:0 0 10px}
 /* ========= Credenciales (Badges) ========= */
 .strip{display:flex;gap:26px;flex-wrap:wrap;align-items:center;justify-content:center}
 .strip img{height:62px}
-/* #badges: Espacio inferior a CERO, superior pequeño (16px) */
+/* #badges: Espacio inferior a CERO. Se basa en el padding superior de .section */
 #badges {
     padding-top: 16px; 
     padding-bottom: 0; 
 }
 
 /* ========= Recursos (`#recursos`) ========= */
-/* AJUSTE FINO: Reducir el padding-top para compactar la separación con #badges */
+/* AJUSTE MÁXIMO: Reducir el padding-top a CERO para compactar al máximo con #badges */
 #recursos {
-    padding-top: 16px; /* Reducido de 20px a 16px */
+    padding-top: 0; /* ¡CERO padding superior! */
 }
 
 
 /* ========= Contacto / Footer ========= */
 .cta{background:var(--card);border:1px solid rgba(2,32,43,.08);border-radius:var(--radius-xl);padding:22px;text-align:center;box-shadow:var(--shadow-1)}
-/* AJUSTE FINO: Reducir el padding superior de la CTA de contacto */
+/* AJUSTE MÁXIMO: Reducir el padding superior de la CTA de contacto a CERO */
 #contacto {
-    padding-top: 10px; /* Reducido de 12px a 10px */
+    padding-top: 0; /* ¡CERO padding superior! */
 }
 footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08)}
 .foot{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;text-align:center}
@@ -341,14 +341,14 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
     padding-bottom: 0; /* CLAVE: Elimina el espacio blanco extra debajo de los badges */
   }
   
-  /* AJUSTE FINO MÓVIL: Reducir el padding-top para compactar la separación con #badges */
+  /* AJUSTE MÁXIMO MÓVIL: Reducir el padding-top a CERO para compactar la separación con #badges */
   #recursos {
-    padding-top: 12px; /* Reducido de 16px a 12px para móvil */
+    padding-top: 0; /* ¡CERO padding superior! */
   }
 
-  /* Ajuste de Contacto en móvil */
+  /* Ajuste MÁXIMO de Contacto en móvil */
   #contacto {
-    padding-top: 8px; /* Reducido de 10px a 8px */
+    padding-top: 0; /* ¡CERO padding superior! */
   }
   
   /* ¡Cierre del media query! */
