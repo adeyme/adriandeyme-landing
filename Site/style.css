@@ -7,6 +7,7 @@
   --ink-700:#2b4a53;
   --ink-600:#48656e;
   --ink-500:#6a8790;
+  --ink-500:#6a8790;
   --muted:#9db2b8;
   --teal:#0e4950;        /* botón principal */
   --teal-2:#0a3b40;
@@ -33,7 +34,8 @@ body{
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 .container{max-width:1180px;margin-inline:auto;padding:24px 20px}
-.section{padding:40px 0}
+/* AJUSTE: Reducción de espaciado vertical global */
+.section{padding:30px 0} 
 h2{font-size:clamp(1.4rem,1vw + 1rem,1.9rem);line-height:1.2;margin:0 0 12px}
 p{margin:0 0 10px}
 .muted{color:var(--ink-600)}
@@ -58,9 +60,10 @@ p{margin:0 0 10px}
 .chip{display:inline-block;padding:.35rem .7rem;border-radius:999px;background:var(--pill);color:var(--ink-700);font-weight:600;letter-spacing:.12em}
 
 /* ========= HERO ========= */
-.hero{padding:36px 0 24px}
+/* AJUSTE: Reducción de padding vertical en ESCRITORIO */
+.hero{padding:28px 0 16px} 
 .hero-wrap{
-  /* AJUSTE: Reducción del ancho de la columna de la foto en ESCRITORIO (460px -> 400px) */
+  /* Reducción del ancho de la columna de la foto en ESCRITORIO (460px -> 400px) */
   display:grid;
   grid-template-columns:minmax(0,1fr) 400px; /* copy + foto */
   gap:22px; align-items:center;
@@ -130,6 +133,11 @@ p{margin:0 0 10px}
 /* ========= Credenciales ========= */
 .strip{display:flex;gap:26px;flex-wrap:wrap;align-items:center;justify-content:center}
 .strip img{height:62px}
+/* AJUSTE: Reducción de padding vertical para la sección de badges en ESCRITORIO */
+#badges {
+    padding: 20px 0;
+}
+
 
 /* ========= Contacto / Footer ========= */
 .cta{background:var(--card);border:1px solid rgba(2,32,43,.08);border-radius:var(--radius-xl);padding:22px;text-align:center;box-shadow:var(--shadow-1)}
@@ -219,12 +227,14 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
     padding: 16px 14px;
   }
   
-  /* AJUSTE CLAVE: Reducir padding de la sección HERO y de las secciones en general */
+  /* AJUSTE: Reducción de espaciado vertical entre secciones en móvil */
   .section {
-    padding: 30px 0; /* Espaciado vertical entre secciones */
+    padding: 24px 0; 
   }
+  
+  /* AJUSTE CLAVE: Reducir padding de la sección HERO en móvil */
   .hero {
-    padding: 20px 0 10px; /* Reducción de padding inferior del HERO (soluciona el gap entre badges y "Sobre mí") */
+    padding: 16px 0 8px; /* Reducción a la mitad del padding vertical */
   }
   
   /* Header: Ajustes para que quepa el logo */
@@ -243,9 +253,9 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
   }
   .portrait-card {
     order: -1; 
-    /* CLAVE: LIMITAR EL ANCHO DEL CONTENEDOR Y CENTRARLO */
-    max-width: 280px; /* Reducción del tamaño visible de la foto */
-    margin-inline: auto; /* Asegurar que quede centrada */
+    /* LIMITAR EL ANCHO DEL CONTENEDOR Y CENTRARLO */
+    max-width: 280px; 
+    margin-inline: auto; 
     border-radius: 14px;
   }
   .hero h1 {
@@ -290,7 +300,6 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
     margin: 0 1px; 
   }
 
-
   /* Columnas: Convierte todas las cuadrículas en 1 columna */
   .grid-3, .grid-2 {
     grid-template-columns: 1fr;
@@ -309,7 +318,7 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
   
   /* Espaciado Vertical de secciones pequeñas (ajustadas para reducir el exceso de espacio) */
   #badges {
-    padding-top: 20px;
+    padding-top: 16px; /* Reducción en móvil */
     padding-bottom: 10px; 
   }
   
