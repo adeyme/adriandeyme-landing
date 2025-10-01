@@ -1,17 +1,21 @@
 /* ========= Design Tokens (Variables Globales) ========= */
 :root{
-  --bg:#f7f9fa;
-  --card:#ffffff;
-  --ink-900:#0c1a1e;
-  --ink-800:#122a30;
-  --ink-700:#2b4a53;
-  --ink-600:#48656e;
-  --ink-500:#6a8790;
+  /* PALETA DE COLORES OFICIAL DE LA GUÍA VISUAL */
+  --bg:#F5F5F5;             /* Gris Claro (Fondo Neutro) */
+  --card:#FFFFFF;           /* Blanco (Contraste) */
+  --teal-dark:#062F36;      /* Azul Oscuro (Profundo) */
+  --teal:#0E4C5A;           /* Azul Petróleo (Principal) */
+  --teal-light:#4D7C87;     /* Azul Claro (Suave) */
+  
+  --ink-900:var(--teal-dark); /* Texto principal (muy oscuro) */
+  --ink-800:var(--teal-dark); 
+  --ink-700:#3d5f66;        /* Tono medio para cuerpos de texto */
+  --ink-600:#5e808a;
+  --ink-500:var(--teal-light);
   --muted:#9db2b8;
-  --teal:#0e4950;        /* botón principal */
-  --teal-2:#0a3b40;
-  --pill:#e8f2f4;        /* chips / x-strip */
+  --pill:var(--bg);          /* chips / x-strip */
   --ok:#0e844f;
+  
   --radius-xl:24px;
   --radius-lg:18px;
   --radius-md:14px;
@@ -49,10 +53,10 @@ a {
     text-decoration: none; 
 }
 a:hover { 
-    color: var(--teal-2);
+    color: var(--teal-light); /* Hover más suave */
 }
 
-/* Contenedor Principal (SOLUCIÓN AL LAYOUT ROTO) */
+/* Contenedor Principal */
 .container {
     width: 100%;
     max-width: 1200px; /* Ancho máximo para el contenido de escritorio */
@@ -70,17 +74,19 @@ a:hover {
     font-weight: 600;
     cursor: pointer;
     text-align: center;
-    transition: background-color 0.2s, transform 0.1s;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
 }
 
 .btn-primary {
     background-color: var(--teal);
     color: var(--card);
+    box-shadow: 0 4px 10px rgba(14, 76, 90, 0.3); /* Sombra para resaltar */
 }
 
 .btn-primary:hover {
-    background-color: var(--teal-2);
+    background-color: var(--teal-light);
     transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(14, 76, 90, 0.4);
 }
 
 .btn-secondary {
@@ -105,13 +111,29 @@ a:hover {
     font-size: 0.9rem;
 }
 
+/* **CORRECCIÓN: BOTÓN EN HEADER** */
+.btn-nav {
+    /* Hacer que el botón en el header sea más sutil y limpio */
+    background-color: var(--teal); 
+    color: var(--card);
+    box-shadow: none; /* Eliminar sombra para un look más limpio en la nav */
+    padding: 0.5rem 1rem; /* Más pequeño que el default */
+    border-radius: var(--radius-sm);
+}
+.btn-nav:hover {
+    background-color: var(--teal-light);
+    transform: none; /* No animar el header button */
+}
+
+
 /* ========= Estructura General y Secciones ========= */
 .section {
     padding: 80px 0;
 }
 
+/* Usamos el color Azul Oscuro de la guía */
 .section-dark {
-    background-color: var(--ink-900);
+    background-color: var(--teal-dark); 
     color: var(--card);
 }
 
@@ -124,7 +146,7 @@ a:hover {
 }
 
 .section-dark a {
-    color: #92e0ff;
+    color: var(--teal-light); /* Enlaces más claros en fondo oscuro */
 }
 
 .section-title {
@@ -136,12 +158,15 @@ a:hover {
 .section-subtitle {
     text-align: center;
     font-size: 1.1rem;
-    color: var(--ink-600);
+    color: var(--ink-700);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 40px;
 }
 
 .section-dark .section-subtitle {
-    color: var(--muted);
+    color: var(--ink-500);
 }
 
 /* Card y Bloques */
@@ -196,10 +221,6 @@ header {
     padding: 8px 0;
 }
 
-.menu-desktop .btn-nav {
-    margin-left: 30px;
-}
-
 /* Menu Mobile Toggle (Oculto en Desktop) */
 .menu-toggle {
     display: none; /* Oculto por defecto, se muestra en móvil */
@@ -216,7 +237,7 @@ header {
     right: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--ink-900);
+    background-color: var(--teal-dark); /* Fondo oscuro profesional */
     z-index: 1001;
     display: flex;
     flex-direction: column;
@@ -255,7 +276,7 @@ header {
 }
 
 .menu-mobile a:hover {
-    color: var(--teal);
+    color: var(--teal-light);
 }
 
 .menu-mobile .btn-primary {
@@ -284,12 +305,13 @@ header {
 .pill-title {
     display: inline-block;
     background-color: var(--pill);
-    color: var(--teal-2);
+    color: var(--teal);
     font-size: 0.9rem;
     font-weight: 700;
     padding: 6px 14px;
     border-radius: var(--radius-sm);
     margin-bottom: 12px;
+    border: 1px solid var(--teal-light);
 }
 
 .hero-copy h2 {
@@ -299,7 +321,7 @@ header {
 
 .hero-copy .subtitle {
     font-size: 1.25rem;
-    color: var(--ink-600);
+    color: var(--ink-700);
     margin-bottom: 30px;
     font-weight: 400;
 }
@@ -316,6 +338,9 @@ header {
     height: auto;
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-2);
+    /* Asegurar que la foto de portada se vea bien */
+    object-fit: cover;
+    max-height: 550px;
 }
 
 .badges-row {
@@ -326,19 +351,27 @@ header {
     padding-top: 10px;
 }
 
-.badges-row img {
-    height: 45px;
-    opacity: 0.8;
+.badge {
+    /* Estilo del badge para texto limpio */
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    background-color: var(--card);
+    color: var(--teal-dark);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid var(--bg);
 }
 
-/* ========= 3. QUIÉN SOY & EL PROBLEMA ========= */
+
+/* ========= 3. QUIÉN SOY & EL PROBLEMA (Fondo Azul Oscuro) ========= */
 .profile-card {
-    background-color: var(--ink-800);
+    background-color: var(--teal); /* Tarjeta con el Azul Petróleo */
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-2);
     text-align: center;
     color: var(--card);
-    padding: 0; /* pad class handles internal padding */
+    padding: 0; 
 }
 
 .profile-card h3 {
@@ -347,7 +380,7 @@ header {
 }
 
 .profile-card .role {
-    color: var(--muted);
+    color: var(--bg); /* Un color muy claro para contraste */
     font-size: 1rem;
     margin-bottom: 20px;
 }
@@ -358,7 +391,7 @@ header {
     margin: 0 auto 10px auto;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid var(--teal);
+    border: 3px solid var(--teal-dark); /* Borde de color oscuro para contraste */
 }
 
 .avatar-img {
@@ -369,7 +402,7 @@ header {
 
 .section#quien-soy .container {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Columna 1: Tarjeta (1/3), Columna 2: Contenido (2/3) */
+    grid-template-columns: 1fr 2fr; 
     gap: 40px;
     align-items: start;
 }
@@ -380,7 +413,7 @@ header {
 
 .title-quien-soy {
     font-size: 1.1rem;
-    color: var(--teal);
+    color: var(--teal-light); /* Usamos el azul claro para el título */
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -394,18 +427,18 @@ header {
     color: var(--card);
     font-size: 1.8rem;
     margin-bottom: 10px;
-    border-left: 4px solid var(--teal);
+    border-left: 4px solid var(--teal-light); /* Usamos el azul claro para la línea */
     padding-left: 15px;
 }
 
 .block p {
-    color: var(--muted);
+    color: var(--ink-500);
 }
 
-/* Negritas en el cuerpo del texto para resaltar */
+/* Estilo para las negritas dentro de los párrafos */
 .content-row p strong {
     color: var(--card);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 /* ========= 4. MI OFERTA DE VALOR (SERVICIOS) ========= */
@@ -433,6 +466,7 @@ header {
 .icon-teal {
     background-color: var(--pill);
     color: var(--teal);
+    border: 1px solid var(--teal-light);
 }
 
 .service-card h4 {
@@ -471,9 +505,9 @@ header {
 }
 
 .cta-banner-mini .btn-small {
-    background-color: var(--teal-2);
+    background-color: var(--teal-dark); /* Color más oscuro para mejor contraste en el botón */
     color: var(--card);
-    border-color: var(--card);
+    border: 1px solid var(--card);
 }
 
 .cta-banner-mini .btn-small:hover {
@@ -502,7 +536,7 @@ header {
     position: absolute;
     left: 0;
     top: -15px;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .testimonial-card cite {
@@ -521,9 +555,9 @@ header {
 
 /* Columna de Descarga */
 .download-card {
-    padding: 0; /* pad class handles internal padding */
+    padding: 0; 
     position: sticky;
-    top: 100px; /* Se pega al header al hacer scroll */
+    top: 100px; 
 }
 
 .download-card h4 {
@@ -543,6 +577,11 @@ header {
     border: 1px solid var(--muted);
     border-radius: var(--radius-sm);
     font-size: 1rem;
+    transition: border-color 0.2s;
+}
+.download-form input[type="email"]:focus {
+    border-color: var(--teal);
+    outline: none;
 }
 
 .download-form .btn-primary {
@@ -570,11 +609,14 @@ header {
     border-radius: var(--radius-xl);
     overflow: hidden;
     padding: 20px;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    background-color: var(--card); /* Para dar profundidad */
+    box-shadow: var(--shadow-1);
 }
 
 .article:hover {
-    background-color: var(--card); /* Resaltar al pasar el ratón */
+    background-color: var(--bg); 
+    box-shadow: var(--shadow-2);
 }
 
 .article img {
@@ -603,7 +645,7 @@ header {
 }
 
 
-/* ========= 7. CTA FINAL ========= */
+/* ========= 7. CTA FINAL (Fondo Azul Oscuro) ========= */
 .cta-final-content {
     text-align: center;
 }
@@ -616,7 +658,7 @@ header {
 
 .cta-final-subtitle {
     font-size: 1.25rem;
-    color: var(--muted);
+    color: var(--ink-500);
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -627,9 +669,9 @@ header {
     color: var(--card);
 }
 
-/* ========= 8. FOOTER ========= */
+/* ========= 8. FOOTER (Fondo Azul Oscuro) ========= */
 footer {
-    background-color: var(--ink-900);
+    background-color: var(--teal-dark);
     color: var(--muted);
     padding: 30px 0;
     font-size: 0.9rem;
@@ -655,7 +697,7 @@ footer {
 }
 
 .copyright a {
-    color: var(--teal);
+    color: var(--teal-light);
 }
 
 /* =============================== */
@@ -731,11 +773,11 @@ footer {
 
     /* Navegación */
     .menu-desktop {
-        display: none; /* Ocultar menú desktop */
+        display: none; 
     }
 
     .menu-toggle {
-        display: block; /* Mostrar botón de menú móvil */
+        display: block; 
     }
 
     .nav-row {
