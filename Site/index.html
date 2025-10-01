@@ -182,7 +182,7 @@
       
       <!-- Artículos (Contenido dinámico cargado con JS) -->
       <div class="articles-grid" id="articles-container">
-        <!-- Aquí se cargarán los artículos con JavaScript -->
+        <!-- Aquí se cargarán los artículos con JavaScript (Medium Feed) -->
         <p style="text-align:center; color:var(--ink-600);">Cargando publicaciones...</p>
       </div>
 
@@ -217,23 +217,28 @@
 
 
   <!-- ======================== -->
-  <!-- JavaScript para Carga Dinámica de Artículos -->
+  <!-- JavaScript para Carga Dinámica de Artículos (Medium Feed) -->
   <!-- ======================== -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const ARTICLES_CONTAINER = document.getElementById('articles-container');
-      const JSON_FEED_URL = 'articles.json'; // Usamos el archivo JSON local
+      
+      // La URL de tu feed RSS/JSON de Medium debe ir aquí.
+      // Aquí se usa un placeholder que simulaba un feed JSON, pero tu intención era usar Medium.
+      const MEDIUM_FEED_URL = 'URL_DEL_FEED_DE_MEDIUM_O_CONVERTIDOR_A_JSON'; 
 
-      fetch(JSON_FEED_URL)
+      fetch(MEDIUM_FEED_URL)
         .then(response => {
           if (!response.ok) {
-            throw new Error('Error de red al cargar el feed de artículos');
+            throw new Error('Error de red al cargar el feed');
           }
           return response.json();
         })
         .then(data => {
-          // Asumimos que 'data' es un array de artículos o tiene una propiedad 'items' que es un array.
-          const articles = data.items || data || []; 
+          // Nota: Esta parte asume un formato JSON específico que funciona con fetch().
+          // Si usas un feed RSS/XML puro, necesitarás una herramienta de conversión (como rss2json.com) 
+          // o un backend para que funcione.
+          const articles = data.items || [];
           const articlesToShow = articles.slice(0, 3);
           let htmlContent = '';
 
@@ -245,30 +250,15 @@
           articlesToShow.forEach(item => {
             const title = item.title;
             const link = item.link;
-            // Usamos item.summary si existe, o un placeholder si no
-            const description = item.summary ? item.summary.substring(0, 100) + '...' : 'Pulsa para leer la descripción completa...'; 
+            // Quitamos el HTML del contenido para la descripción corta
+            const description = item.content.replace(/<[^>]*>?/gm, '').substring(0, 100) + '...'; 
             const imagePlaceholder = 'assets/placeholder-article.jpg';
-            
-            // Formateo de fecha: Si el JSON tiene una fecha (ej: "2024-05-20"), la mostramos.
-            let dateSpan = '';
-            if (item.date) {
-              try {
-                // Intenta formatear la fecha si el campo 'date' existe
-                const dateObj = new Date(item.date);
-                const formattedDate = dateObj.toLocaleDateString('es-ES', { month: 'short', day: 'numeric', year: 'numeric' });
-                dateSpan = `<span class="date" style="color:var(--muted); font-size:0.8rem; margin-top:4px; display:block;">${formattedDate}</span>`;
-              } catch (e) {
-                console.warn('Error al formatear fecha:', e);
-              }
-            }
-
 
             htmlContent += `
               <a href="${link}" target="_blank" class="article">
                 <img src="${imagePlaceholder}" alt="Artículo: ${title}">
                 <div class="pad">
                   <h4>${title}</h4>
-                  ${dateSpan}
                   <p>${description}</p>
                   <span class="more" style="color:var(--teal); font-weight:700;">Leer más &rarr;</span>
                 </div>
@@ -276,14 +266,14 @@
             `;
           });
 
-          // Envolvemos el contenido en un grid-3 para que use el CSS de cuadrícula
-          ARTICLES_CONTAINER.innerHTML = `<div class="grid-3">${htmlContent}</div>`;
+          // Aquí asumo que el CSS original usa .articles-grid para el layout
+          ARTICLES_CONTAINER.innerHTML = htmlContent;
 
         })
         .catch(error => {
-          console.error('Error al cargar feed de artículos:', error);
+          console.error('Error al cargar feed:', error);
           // Mensaje de fallback si la carga falla
-          ARTICLES_CONTAINER.innerHTML = '<p style="text-align:center; color:var(--ink-500);">No se pudieron cargar las publicaciones. Consulta mi <a href="https://www.adriandeyme.com/publicaciones" target="_blank" style="color:var(--teal); font-weight:700;">sección de recursos</a>.</p>';
+          ARTICLES_CONTAINER.innerHTML = '<p style="text-align:center; color:red;">Error al cargar las publicaciones. ¿Estás usando una URL de feed válida y compatible (JSON)?</p>';
         });
     });
 
