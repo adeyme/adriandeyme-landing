@@ -60,8 +60,9 @@ p{margin:0 0 10px}
 /* ========= HERO ========= */
 .hero{padding:36px 0 24px}
 .hero-wrap{
+  /* AJUSTE: Reducción del ancho de la columna de la foto en ESCRITORIO (460px -> 400px) */
   display:grid;
-  grid-template-columns:minmax(0,1fr) 460px; /* copy + foto */
+  grid-template-columns:minmax(0,1fr) 400px; /* copy + foto */
   gap:22px; align-items:center;
 }
 .hero h1{
@@ -217,8 +218,13 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
   .container {
     padding: 16px 14px;
   }
+  
+  /* AJUSTE CLAVE: Reducir padding de la sección HERO y de las secciones en general */
   .section {
-    padding: 30px 0;
+    padding: 30px 0; /* Espaciado vertical entre secciones */
+  }
+  .hero {
+    padding: 20px 0 10px; /* Reducción de padding inferior del HERO (soluciona el gap entre badges y "Sobre mí") */
   }
   
   /* Header: Ajustes para que quepa el logo */
@@ -226,14 +232,20 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
     font-size: 1.1rem;
   }
 
-  /* HERO: Reestructura el layout a una sola columna */
+  /*
+  ---
+  CORRECCIÓN 1: Reducción de la Foto (Retrato) en Móvil
+  ---
+  */
   .hero-wrap {
     grid-template-columns: 1fr;
     gap: 18px;
   }
   .portrait-card {
     order: -1; 
-    max-width: 100%; 
+    /* CLAVE: LIMITAR EL ANCHO DEL CONTENEDOR Y CENTRARLO */
+    max-width: 280px; /* Reducción del tamaño visible de la foto */
+    margin-inline: auto; /* Asegurar que quede centrada */
     border-radius: 14px;
   }
   .hero h1 {
@@ -248,7 +260,7 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
 
   /*
   ---
-  CORRECCIÓN 1: Badges del HERO (Superior) - COMPACTO Y EN LÍNEA
+  CORRECCIÓN 2: Badges del HERO (Superior) - MANTENIDOS
   ---
   */
   .badges-row {
@@ -258,25 +270,24 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
 
   .badges-row img {
     height: 38px; 
-    margin: 0 4px; /* Margen lateral reducido */
+    margin: 0 4px; 
   }
 
 
   /*
   ---
-  CORRECCIÓN 2: Badges INFERIORES (#credenciales / .strip) - MÁXIMA COMPRESIÓN
+  CORRECCIÓN 3: Badges INFERIORES (#credenciales / .strip) - MANTENIDOS
   ---
   */
   .strip {
-    gap: 2px; /* Reducción extrema del espacio entre elementos (antes 4px) */
+    gap: 2px; 
     flex-wrap: wrap; 
     justify-content: center;
   }
   
-  /* Selector Específico: Reducir altura y margen lateral al mínimo */
   .strip img {
-    height: 35px; /* Reducción del tamaño vertical (antes 42px) */
-    margin: 0 1px; /* Espacio horizontal casi nulo */
+    height: 35px; 
+    margin: 0 1px; 
   }
 
 
@@ -296,7 +307,7 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
     gap: 14px; 
   }
   
-  /* Espaciado Vertical */
+  /* Espaciado Vertical de secciones pequeñas (ajustadas para reducir el exceso de espacio) */
   #badges {
     padding-top: 20px;
     padding-bottom: 10px; 
