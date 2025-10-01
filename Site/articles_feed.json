@@ -1,0 +1,27 @@
+{
+  "title": "Publicaciones de Adrián Deyme",
+  "link": "https://medium.com/@tu_usuario",
+  "items": [
+    {
+      "title": "¿unFIX es el Nuevo SAFe? Arquitectura Modular vs. Frameworks Rígidos",
+      "link": "https://medium.com/tu_usuario/unfix-es-el-nuevo-safe-a67b93c8d003",
+      "summary": "Analizamos la propuesta de arquitectura modular de unFIX de Jurgen Appelo, comparándola con frameworks ágiles escalados tradicionales. La clave no es el framework, sino la intención sistémica detrás.",
+      "date": "2025-05-20",
+      "content": "Analizamos la propuesta de arquitectura modular de unFIX de Jurgen Appelo, comparándola con frameworks ágiles escalados tradicionales. La clave no es el framework, sino la intención sistémica detrás. unFIX ofrece una alternativa a los modelos rígidos, enfocándose en la adaptabilidad de las 'Bases' y 'Tripulaciones'. Un must-read para líderes que buscan flexibilidad real."
+    },
+    {
+      "title": "De las Reuniones de Estado a la Ejecución Sistémica con OKRs",
+      "link": "https://medium.com/tu_usuario/reuniones-de-estado-a-ejecucion-sistemica-okrs-2d8e4f1a9b21",
+      "summary": "Las reuniones donde solo se reporta el progreso son una pérdida de tiempo. Un sistema eficiente transforma el tiempo de reporte en tiempo de resolución de impedimentos. Así es como los OKRs fuerzan la conversación correcta.",
+      "date": "2025-04-15",
+      "content": "Las reuniones donde solo se reporta el progreso son una pérdida de tiempo. Un sistema eficiente transforma el tiempo de reporte en tiempo de resolución de impedimentos. Así es como los OKRs fuerzan la conversación correcta. Descubre el ritual clave que usamos para asegurar que cada minuto de reunión impulse el foco estratégico."
+    },
+    {
+      "title": "El Liderazgo es Arquitectura: Diseñando Sistemas, no Solo Motivando Personas",
+      "link": "https://medium.com/tu_usuario/liderazgo-es-arquitectura-diseno-de-sistemas-7f1b2c4e0a9d",
+      "summary": "Un mal sistema anula un gran talento. El verdadero trabajo del líder no es motivar, sino diseñar la arquitectura organizacional que permita a la gente sobresalir. Esto implica usar Kanban, OKRs y principios de Coaching Sistémico.",
+      "date": "2025-03-01",
+      "content": "Un mal sistema anula un gran talento. El verdadero trabajo del líder no es motivar, sino diseñar la arquitectura organizacional que permita a la gente sobresalir. Esto implica usar Kanban, OKRs y principios de Coaching Sistémico. Un vistazo profundo a por qué la estructura es más importante que el carisma."
+    }
+  ]
+}
