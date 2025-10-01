@@ -32,9 +32,17 @@ body{
   font-family: 'Poppins', sans-serif;
   font-size:16px;
   line-height:1.55;
-  /* IMPORTANTE: Eliminamos cualquier desbordamiento horizontal global para evitar barras de desplazamiento */
+  /* CRÍTICO: Eliminamos cualquier desbordamiento horizontal global */
   overflow-x: hidden; 
 }
+
+/* CRÍTICO: Asegura que NINGUNA imagen rompa el contenedor */
+img {
+    max-width: 100%; 
+    height: auto;
+    display: block; /* Elimina espacio inferior residual */
+}
+
 
 /* Configuración de Contenedor */
 .content{
@@ -131,16 +139,16 @@ strong {
     padding: 0.5rem 1.2rem;
 }
 
-/* Grid Layouts - AJUSTE CLAVE DE GAP PARA ESCRITORIO */
+/* Grid Layouts */
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px; /* Ajuste más conservador */
+    gap: 20px; 
 }
 .grid-2-alt {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    gap: 20px; /* Ajuste más conservador */
+    gap: 20px; 
     align-items: stretch; 
 }
 .grid-2-rev {
@@ -151,8 +159,10 @@ strong {
 }
 .grid-3 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* REDUCCIÓN DE GAP DE ESCRITORIO MÁXIMA PARA LIBERAR ESPACIO EN COLUMNAS */
+    /* CORRECCIÓN CRÍTICA: Usamos auto-fit y minmax. 
+       Esto hace que el grid sea completamente fluido y elimine el desbordamiento.
+       Mínimo 280px para que quepan 3 tarjetas en 992px+ */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 16px; 
 }
 
@@ -265,8 +275,8 @@ nav a:hover{
 }
 
 .hero-image img {
+    /* max-width: 450px; eliminado debido a la regla img global */
     width: 100%;
-    max-width: 450px;
     height: auto;
     display: block;
     border-radius: var(--radius-xl);
@@ -282,6 +292,7 @@ nav a:hover{
 .badges-row img {
     height: 45px;
     opacity: 0.8;
+    max-width: none; /* Permitimos que las insignias usen su ancho fijo */
 }
 
 /* ========= SERVICIOS (Nuevo Estilo para Pilares) ========= */
@@ -379,12 +390,9 @@ nav a:hover{
 
 /* ========= QUIÉN SOY SECTION ========= */
 .quien-soy-image img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
+    /* Removido max-width de 400px para usar la regla global 100% y dejar que el contenedor controle */
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-1);
-    display: block;
     margin: 0 auto;
 }
 .tagline-mini {
@@ -431,18 +439,17 @@ nav a:hover{
 .strip {
     display: flex;
     justify-content: center;
-    /* REDUCCIÓN DE GAP MÁXIMA PARA ESCRITORIO */
     gap: 15px; 
     align-items: center;
-    /* Asegura que los logos se envuelvan si es necesario, sin desbordar */
     flex-wrap: wrap; 
 }
 .strip img {
     height: 40px;
     opacity: 0.9;
     filter: invert(100%);
-    /* Asegura que los logos no se encojan en anchos estrechos */
-    flex-shrink: 0; 
+    /* Permitimos que se encojan un poco si es necesario, pero manteniendo la altura */
+    flex-shrink: 1; 
+    max-width: none; /* Permitimos que los logos usen su ancho fijo/base */
 }
 
 /* ========= RECURSOS / ARTÍCULOS - AJUSTE CLAVE DE TEXTO ========= */
@@ -457,6 +464,7 @@ nav a:hover{
     overflow: hidden;
     transition: box-shadow 0.2s ease, transform 0.2s ease;
     text-decoration: none;
+    height: 100%; /* Asegura que todas las tarjetas tengan la misma altura dentro del grid */
 }
 .article:hover {
     box-shadow: var(--shadow-2);
@@ -467,7 +475,7 @@ nav a:hover{
     width: 100%;
     height: 180px; 
     object-fit: cover;
-    display: block;
+    /* max-width: 100% se aplica aquí, asegurando que la imagen se ajuste */
 }
 .article .pad {
     padding: 15px;
@@ -479,7 +487,7 @@ nav a:hover{
     margin-bottom: 5px;
     color: var(--ink-900);
     line-height: 1.3; 
-    /* ESTO ES CRÍTICO: Limita el título a dos líneas para evitar el desborde */
+    /* Limita el título a dos líneas para evitar el desborde (FIX anterior mantenido) */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -490,7 +498,7 @@ nav a:hover{
     font-size: 0.9rem;
     color: var(--ink-600);
     margin-bottom: 10px;
-    /* Opcional: Limitar la descripción a tres líneas */
+    /* Limitar la descripción a tres líneas (FIX anterior mantenido) */
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -571,24 +579,24 @@ footer a {
 /* ======================== MEDIA QUERIES (Responsividad) ======================== */
 /* ========================================================= */
 
+/* Tablet y Escritorio pequeño (992px y menos) */
 @media (max-width: 992px) {
-  /* En tablets, reducimos el gap de la cuadrícula a 16px */
-  .grid-2, .grid-2-alt, .grid-2-rev, .grid-3 {
+  /* En tablets, reducimos el gap */
+  .grid-2, .grid-2-alt, .grid-2-rev {
     gap: 16px;
   }
   
-  /* Hacemos que la grilla de artículos pase a 2 columnas en pantallas pequeñas de escritorio/tablet */
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  /* La sección de quién soy se revierte para mejor lectura en tablet */
+  /* El grid-3 ya usa minmax, así que no necesitamos una media query específica aquí, 
+     ya que se adaptará automáticamente a 2 o 1 columna según el espacio. */
+  
   .grid-2-rev {
     /* Mantenemos el orden original para evitar confusión, pero reducimos gap */
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1fr; /* Forzamos a 1 columna para tablets */
     gap: 20px;
   }
 }
 
+/* Móvil (768px y menos) */
 @media (max-width: 768px) {
   .section {
     padding: 50px 0;
@@ -623,17 +631,17 @@ footer a {
   }
   
   /* Grid Layouts se convierten en 1 columna */
-  .grid-2, .grid-2-alt, .grid-2-rev, .grid-3 {
+  .grid-2, .grid-2-alt, .grid-2-rev {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  .grid-2-rev {
-    flex-direction: column;
+  /* El grid-3 ya es automático, pero confirmamos el gap. */
+  .grid-3 {
+      gap: 20px;
   }
-  
+
   /* Tira de Logos en Móvil */
   .strip {
-    /* Ajustamos el gap a un valor pequeño, asegurando el wrap */
     gap: 15px; 
     padding: 10px 0;
   }
@@ -647,5 +655,6 @@ footer a {
   }
   .contact-section {
     padding: 60px 0;
+    margin-bottom: 20px; 
   }
 }
