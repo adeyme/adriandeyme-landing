@@ -1,850 +1,388 @@
 /* ========= Design Tokens (Variables Globales) ========= */
 :root{
-  /* PALETA DE COLORES OFICIAL DE LA GUÍA VISUAL */
-  --bg:#F5F5F5;             /* Gris Claro (Fondo Neutro) */
-  --card:#FFFFFF;           /* Blanco (Contraste) */
-  --teal-dark:#062F36;      /* Azul Oscuro (Profundo) */
-  --teal:#0E4C5A;           /* Azul Petróleo (Principal) */
-  --teal-light:#4D7C87;     /* Azul Claro (Suave) */
-  
-  --ink-900:var(--teal-dark); /* Texto principal (muy oscuro) */
-  --ink-800:var(--teal-dark); 
-  --ink-700:#3d5f66;        /* Tono medio para cuerpos de texto */
-  --ink-600:#5e808a;
-  --ink-500:var(--teal-light);
+  --bg:#f7f9fa;
+  --card:#ffffff;
+  --ink-900:#0c1a1e;
+  --ink-800:#122a30;
+  --ink-700:#2b4a53;
+  --ink-600:#48656e;
+  --ink-500:#6a8790;
+  --ink-500:#6a8790;
   --muted:#9db2b8;
-  --pill:var(--bg);          /* chips / x-strip */
+  --teal:#0e4950;        /* botón principal */
+  --teal-2:#0a3b40;
+  --pill:#e8f2f4;        /* chips / x-strip */
   --ok:#0e844f;
-  
   --radius-xl:24px;
   --radius-lg:18px;
   --radius-md:14px;
   --radius-sm:10px;
   --shadow-1:0 8px 18px rgba(2,32,43,.08);
   --shadow-2:0 12px 30px rgba(2,32,43,.12);
-  
-  /* Puntos de quiebre (breakpoints) */
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
 }
 
 /* ========= Base ========= */
 *{box-sizing:border-box}
-html,body{margin:0;padding:0; scroll-behavior: smooth;}
+html,body{margin:0;padding:0}
 body{
   background:var(--bg);
   color:var(--ink-900);
-  font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1180px;margin-inline:auto;padding:24px 20px}
+/* AJUSTE CLAVE (MÁS AGRESIVO): Reducción de espaciado vertical global a 20px */
+.section{padding:20px 0} 
+h2{font-size:clamp(1.4rem,1vw + 1rem,1.9rem);line-height:1.2;margin:0 0 12px}
+p{margin:0 0 10px}
+.muted{color:var(--ink-600)}
+
+/* ========= Header ========= */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,249,250,.85);
+  backdrop-filter:saturate(160%) blur(8px);
+  border-bottom:1px solid rgba(2,32,43,.06)
+}
+.nav{display:flex;align-items:center;gap:18px}
+.nav-brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
+.nav-brand img{width:24px;height:24px}
+.nav-links{display:flex;gap:18px;color:var(--ink-700)}
+.nav-fill{flex:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.9rem 1.15rem;border-radius:999px;border:1px solid transparent;font-weight:700;cursor:pointer;transition:.18s}
+.btn-primary{background:var(--teal);color:#fff}
+.btn-primary:hover{filter:brightness(1.05)}
+.btn-ghost{background:transparent;border-color:rgba(2,32,43,.15);color:var(--ink-900)}
+.btn-ghost:hover{background:rgba(2,32,43,.06)}
+.chip{display:inline-block;padding:.35rem .7rem;border-radius:999px;background:var(--pill);color:var(--ink-700);font-weight:600;letter-spacing:.12em}
+
+/* ========= HERO ========= */
+/* AJUSTE: Reducción de padding vertical en ESCRITORIO */
+.hero{padding:28px 0 16px} 
+.hero-wrap{
+  /* Reducción del ancho de la columna de la foto en ESCRITORIO (460px -> 400px) */
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 400px; /* copy + foto */
+  gap:22px; align-items:center;
+}
+.hero h1{
+  /* AJUSTE: Reduce el margen inferior del título */
+  margin:0 0 8px 0;
+  font-weight:800; letter-spacing:-.02em; line-height:1.12;
+  font-size:clamp(1.9rem, 2.1vw + 1rem, 3.0rem);
+  max-width:22ch;
+}
+.lead{
+  color:var(--ink-600);
+  /* AJUSTE: Reduce el margen inferior del texto principal */
+  margin:0 0 10px 0;
+  font-size:clamp(1rem,.25vw + .95rem,1.1rem)
+}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 16px}
+.badges-row{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+.badge-hero{height:54px;filter:drop-shadow(0 1px 0 rgba(2,32,43,.02))}
+.portrait-card{
+  background:#fff;border:1px solid rgba(2,32,43,.08);
+  border-radius:20px;padding:12px;
+  box-shadow:var(--shadow-2);
+  max-width:460px;margin-inline:auto;
 }
 
-/* Tipografía y Reseteo */
-h1,h2,h3,h4,h5,h6 { 
-    line-height: 1.2; 
-    margin-top: 0;
-    font-weight: 700;
-}
-h2 { font-size: 2.2rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.2rem; }
-p { margin-bottom: 1em; }
+.portrait-card img{border-radius:14px}
 
-a { 
-    color: var(--teal); 
-    text-decoration: none; 
+/* ========= Sobre mí ========= */
+.card{background:var(--card);border:1px solid rgba(2,32,43,.08);border-radius:var(--radius-xl);box-shadow:var(--shadow-1)}
+.about{padding:24px 28px}
+.about p{font-size:clamp(1.02rem,.2vw + 1rem,1.08rem);color:var(--ink-800)}
+.about strong{font-weight:800}
+
+/* ========= Qué hago / Para quién / Paquetes ========= */
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.box{
+    /* Las propiedades de diseño y fondo que ya tenías */
+    background:var(--card);
+    border:1px solid rgba(2,32,43,.08);
+    border-radius:var(--radius-lg);
+    padding:18px;
+    
+    /* PROPIEDADES AÑADIDAS PARA LA ALINEACIÓN */
+    display:flex; /* Activa el modelo Flexbox */
+    flex-direction:column; /* Asegura que los elementos se apilen verticalmente */
+    justify-content:space-between; /* CLAVE: Empuja el primer elemento hacia arriba y el último (el botón) hacia abajo, alineándolos */
 }
-a:hover { 
-    color: var(--teal-light); /* Hover más suave */
+.box h3{margin:0 0 6px 0;font-size:1.08rem}
+.box p{color:var(--ink-700)}
+.price{font-weight:800;color:var(--teal)}
+
+/* ========= Recursos + Artículos ========= */
+.resources-wrap{display:grid;grid-template-columns: 1.15fr 1.85fr;gap:18px}
+.lead-card{background:#0f5860;color:#eaf5f6;border-radius:var(--radius-lg);padding:20px;border:1px solid rgba(255,255,255,.2);box-shadow:0 12px 28px rgba(14,73,80,.25)}
+.lead-card h3{margin:0 0 6px 0}
+.lead-card p{color:#cdf0f4}
+.lead-form{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.lead-form input[type="email"]{flex:1;min-width:220px;border-radius:999px;border:1px solid rgba(255,255,255,.45);padding:.85rem 1rem;background:#134c53;color:#fff}
+.lead-form input::placeholder{color:#bfe7eb}
+.lead-form .btn-primary{background:#053b40}
+.consent{font-size:.9rem;opacity:.9;margin-top:8px}
+.articles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.article{background:var(--card);border:1px solid rgba(2,32,43,.08);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column}
+.article img{aspect-ratio:16/9;object-fit:cover}
+.article .pad{padding:12px}
+.article h4{margin:0 0 6px 0;font-size:1.02rem}
+.article p{color:var(--ink-700)}
+.article a.more{margin-top:auto;color:var(--teal);font-weight:700}
+
+/* ========= Credenciales (Badges) ========= */
+/* *** AJUSTE CLAVE DE COMPACTACIÓN HORIZONTAL (ESCRITORIO) *** */
+.strip{
+  display:flex;
+  gap:12px; /* Reducido de 26px a 12px */
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center
+}
+.strip img{height:62px}
+/* #badges: Espacio inferior a CERO. Se basa en el padding superior de .section */
+#badges {
+    padding-top: 16px; 
+    padding-bottom: 0; 
+}
+/* *** SOLUCIÓN CLAVE ***: Eliminamos el padding inferior del .container para cerrar el espacio con #recursos */
+#badges .container {
+    padding-bottom: 0;
 }
 
-/* Contenedor Principal */
-.container {
-    width: 100%;
-    max-width: 1200px; /* Ancho máximo para el contenido de escritorio */
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 24px; /* Padding horizontal para móviles y escritorio */
+/* ========= Recursos (`#recursos`) ========= */
+/* AJUSTE MÁXIMO: Reducir el padding-top a CERO para compactar al máximo con #badges */
+#recursos {
+    padding-top: 0; 
+    padding-bottom: 0; /* ¡CERO padding superior e inferior del SECTION! */
+}
+/* *** SOLUCIÓN CLAVE ***: Eliminamos el padding superior e inferior del .container */
+#recursos .container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+/* *** NUEVO AJUSTE EXTREMO ***: Reducir el margen inferior del título h2 para pegar el contenido */
+#recursos h2 {
+    margin-bottom: 6px; 
 }
 
-/* ========= Botones (Buttons) ========= */
-.btn {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: var(--radius-md);
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+
+/* ========= Contacto / Footer ========= */
+.cta{background:var(--card);border:1px solid rgba(2,32,43,.08);border-radius:var(--radius-xl);padding:22px;text-align:center;box-shadow:var(--shadow-1)}
+/* AJUSTE MÁXIMO: Reducir el padding superior de la CTA de contacto a CERO */
+#contacto {
+    padding-top: 0; /* ¡CERO padding superior del SECTION! */
+}
+/* *** SOLUCIÓN CLAVE ***: Eliminamos el padding superior del .container para cerrar el espacio con #recursos */
+#contacto .container {
+    padding-top: 0;
+}
+/* *** NUEVO AJUSTE EXTREMO ***: Reducir el margen inferior del título h2 para pegar la CTA */
+#contacto h2 {
+    margin-bottom: 6px; 
+}
+footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08)}
+.foot{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;text-align:center}
+
+/* ======================================================= */
+/* GEMINI: MEJORAS DE FLUIDEZ Y ESTÉTICA (MICRO-INTERACCIONES) */
+/* ======================================================= */
+
+
+/* 1. Transiciones Base (Hacen que todos los cambios sean suaves) */
+.btn, .box, .lead-card, .portrait-card, .article {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn-primary {
-    background-color: var(--teal);
-    color: var(--card);
-    box-shadow: 0 4px 10px rgba(14, 76, 90, 0.3); /* Sombra para resaltar */
-}
-
+/* 2. Botones Interactivos (Respuesta al hacer hover) */
 .btn-primary:hover {
-    background-color: var(--teal-light);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 12px rgba(14, 76, 90, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(14, 73, 80, 0.4);
+}
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(14, 73, 80, 0.2);
 }
 
-.btn-secondary {
-    background-color: transparent;
-    color: var(--ink-800);
-    border: 1px solid var(--ink-500);
-}
-
-.btn-secondary:hover {
-    background-color: var(--pill);
-    border-color: var(--teal);
-}
-
-.btn-xl {
-    padding: 1rem 2.5rem;
-    font-size: 1.1rem;
-    border-radius: var(--radius-lg);
-}
-
-.btn-small {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-}
-
-/* **CORRECCIÓN: BOTÓN EN HEADER** */
-.btn-nav {
-    /* Hacer que el botón en el header sea más sutil y limpio */
-    background-color: var(--teal); 
-    color: var(--card);
-    box-shadow: none; /* Eliminar sombra para un look más limpio en la nav */
-    padding: 0.5rem 1rem; /* Más pequeño que el default */
-    border-radius: var(--radius-sm);
-}
-.btn-nav:hover {
-    background-color: var(--teal-light);
-    transform: none; /* No animar el header button */
-}
-
-
-/* ========= Estructura General y Secciones ========= */
-.section {
-    padding: 80px 0;
-}
-
-/* Usamos el color Azul Oscuro de la guía */
-.section-dark {
-    background-color: var(--teal-dark); 
-    color: var(--card);
-}
-
-.section-light {
-    background-color: var(--pill);
-}
-
-.section-dark h2, .section-dark h3, .section-dark h4 {
-    color: var(--card);
-}
-
-.section-dark a {
-    color: var(--teal-light); /* Enlaces más claros en fondo oscuro */
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.section-subtitle {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--ink-700);
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40px;
-}
-
-.section-dark .section-subtitle {
-    color: var(--ink-500);
-}
-
-/* Card y Bloques */
-.card {
-    background-color: var(--card);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-1);
-}
-.pad {
-    padding: 32px;
-}
-
-/* Grid Layouts */
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-}
-
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-}
-
-/* ========= 1. HEADER / NAVEGACIÓN ========= */
-header {
-    background-color: var(--card);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.nav-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-.logo img {
-    height: 36px;
-}
-
-/* Menú Desktop */
-.menu-desktop a {
-    color: var(--ink-900);
-    margin-left: 20px;
-    font-weight: 500;
-    padding: 8px 0;
-}
-
-/* Menu Mobile Toggle (Oculto en Desktop) */
-.menu-toggle {
-    display: none; /* Oculto por defecto, se muestra en móvil */
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--teal);
-}
-
-/* Menu Mobile */
-.menu-mobile {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--teal-dark); /* Fondo oscuro profesional */
-    z-index: 1001;
+/* NUEVO: Botón Seguir LinkedIn (.libutton) */
+.libutton {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-out;
-}
-
-.menu-mobile.is-open {
-    transform: translateX(0);
-}
-
-.menu-close {
-    position: absolute;
-    top: 20px;
-    right: 24px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--card);
-}
-
-.menu-items {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.menu-mobile a {
-    color: var(--card);
-    font-size: 1.5rem;
-    padding: 15px 0;
-    font-weight: 600;
-    transition: color 0.2s;
-}
-
-.menu-mobile a:hover {
-    color: var(--teal-light);
-}
-
-.menu-mobile .btn-primary {
-    margin-top: 30px;
-}
-
-/* Bloquea el scroll cuando el menú móvil está abierto */
-.no-scroll {
-    overflow: hidden;
-}
-
-
-/* ========= 2. HERO SECTION ========= */
-.hero {
-    background-color: var(--bg);
-    padding: 100px 0;
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.pill-title {
-    display: inline-block;
-    background-color: var(--pill);
-    color: var(--teal);
-    font-size: 0.9rem;
-    font-weight: 700;
-    padding: 6px 14px;
-    border-radius: var(--radius-sm);
-    margin-bottom: 12px;
-    border: 1px solid var(--teal-light);
-}
-
-.hero-copy h2 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.hero-copy .subtitle {
-    font-size: 1.25rem;
-    color: var(--ink-700);
-    margin-bottom: 30px;
-    font-weight: 400;
-}
-
-.hero-actions {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
-    align-items: center;
-}
-
-.hero-image img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-2);
-    /* Asegurar que la foto de portada se vea bien */
-    object-fit: cover;
-    max-height: 550px;
-}
-
-.badges-row {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    flex-wrap: wrap;
-    padding-top: 10px;
-}
-
-.badge {
-    /* Estilo del badge para texto limpio */
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: var(--radius-sm);
-    background-color: var(--card);
-    color: var(--teal-dark);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    border: 1px solid var(--bg);
-}
-
-
-/* ========= 3. QUIÉN SOY & EL PROBLEMA (Fondo Azul Oscuro) ========= */
-.profile-card {
-    background-color: var(--teal); /* Tarjeta con el Azul Petróleo */
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-2);
+    padding: 7px;
     text-align: center;
-    color: var(--card);
-    padding: 0; 
-}
-
-.profile-card h3 {
-    margin-top: 15px;
-    margin-bottom: 0;
-}
-
-.profile-card .role {
-    color: var(--bg); /* Un color muy claro para contraste */
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-.avatar-container {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 10px auto;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--teal-dark); /* Borde de color oscuro para contraste */
-}
-
-.avatar-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.section#quien-soy .container {
-    display: grid;
-    grid-template-columns: 1fr 2fr; 
-    gap: 40px;
-    align-items: start;
-}
-
-.content-row {
-    color: var(--card);
-}
-
-.title-quien-soy {
-    font-size: 1.1rem;
-    color: var(--teal-light); /* Usamos el azul claro para el título */
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.block {
-    margin-bottom: 30px;
-}
-
-.block-title {
-    color: var(--card);
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    border-left: 4px solid var(--teal-light); /* Usamos el azul claro para la línea */
-    padding-left: 15px;
-}
-
-.block p {
-    color: var(--ink-500);
-}
-
-/* Estilo para las negritas dentro de los párrafos */
-.content-row p strong {
-    color: var(--card);
-    font-weight: 700;
-}
-
-/* ========= 4. MI OFERTA DE VALOR (SERVICIOS) ========= */
-.service-card {
-    text-align: center;
+    outline: none;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    width: 200px;
+    height: 32px;
+    border-radius: 16px;
+    background-color: #0A66C2; /* Color azul de LinkedIn */
+    font-family: "SF Pro Text", Helvetica, sans-serif;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-2);
+.libutton:hover {
+    background-color: #004182; /* Tono más oscuro al pasar el ratón */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(10, 102, 194, 0.4);
 }
 
-.icon-circle {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.icon-teal {
-    background-color: var(--pill);
-    color: var(--teal);
-    border: 1px solid var(--teal-light);
-}
-
-.service-card h4 {
-    margin-bottom: 10px;
-}
-
-.service-card p {
-    color: var(--ink-700);
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-.step-label {
-    display: block;
-    color: var(--teal);
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-top: 15px;
-}
-
-/* CTA Banner Mini */
-.cta-banner-mini {
-    background-color: var(--teal);
-    color: var(--card);
-    padding: 30px;
-    border-radius: var(--radius-xl);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 40px;
-}
-
-.cta-banner-mini h3 {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-.cta-banner-mini .btn-small {
-    background-color: var(--teal-dark); /* Color más oscuro para mejor contraste en el botón */
-    color: var(--card);
-    border: 1px solid var(--card);
-}
-
-.cta-banner-mini .btn-small:hover {
-    background-color: var(--ink-900);
-}
-
-/* ========= 5. TESTIMONIOS ========= */
-.testimonial-card {
-    box-shadow: var(--shadow-2);
-    padding: 40px;
-}
-
-.testimonial-card .quote {
-    font-size: 1.2rem;
-    font-style: italic;
-    color: var(--ink-800);
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 15px;
-}
-
-.testimonial-card .quote::before {
-    content: '“';
-    font-size: 3rem;
-    color: var(--teal);
-    position: absolute;
-    left: 0;
-    top: -15px;
-    opacity: 0.8;
-}
-
-.testimonial-card cite {
-    display: block;
-    text-align: right;
-    font-style: normal;
-    font-weight: 600;
-    color: var(--ink-700);
-}
-
-/* ========= 6. RECURSOS Y ARTÍCULOS ========= */
-.resources-grid {
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
-}
-
-/* Columna de Descarga */
-.download-card {
-    padding: 0; 
-    position: sticky;
-    top: 100px; 
-}
-
-.download-card h4 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.download-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.download-form input[type="email"] {
-    padding: 12px;
-    border: 1px solid var(--muted);
-    border-radius: var(--radius-sm);
-    font-size: 1rem;
-    transition: border-color 0.2s;
-}
-.download-form input[type="email"]:focus {
+/* 3. Tarjetas de Servicio (Reacción sutil en la sección "Qué Hago" y "Paquetes") */
+.box:hover {
+    transform: scale(1.005);
+    box-shadow: 0 10px 20px rgba(12, 26, 30, 0.12);
     border-color: var(--teal);
-    outline: none;
 }
 
-.download-form .btn-primary {
-    width: 100%;
+/* 4. Tarjeta del Retrato (Toque premium al pasar el ratón) */
+.hero-portrait .portrait-card:hover {
+    box-shadow: 0 16px 36px rgba(3, 24, 30, 0.2);
+    transform: scale(1.005);
 }
 
-.legal-text {
-    font-size: 0.8rem;
-    color: var(--ink-500);
-    text-align: center;
-    margin: 0;
-}
-
-/* Columna de Artículos */
-.articles-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.article {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    padding: 20px;
-    transition: background-color 0.2s, box-shadow 0.2s;
-    background-color: var(--card); /* Para dar profundidad */
-    box-shadow: var(--shadow-1);
-}
-
+/* 5. Artículos (Efecto en las tarjetas de la sección Recursos) */
 .article:hover {
-    background-color: var(--bg); 
     box-shadow: var(--shadow-2);
+    border-color: rgba(2, 32, 43, 0.15);
+    transform: scale(1.005);
 }
 
-.article img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    flex-shrink: 0;
+/* ======================================================= */
+/* GEMINI: MEDIA QUERIES OPTIMIZADAS (FINAL) */
+/* ======================================================= */
+
+/* Optimización Tablet (menos de 1000px) */
+@media (max-width: 1000px) {
+  /* Oculta la navegación regular para evitar desbordamiento */
+  .nav-links {
+    display: none;
+  }
 }
 
-.article h4 {
-    margin: 0 0 5px 0;
+/* Optimización Móvil (menos de 640px) */
+@media (max-width: 640px) {
+  /* Base: Espaciado y relleno general */
+  .container {
+    /* La línea del container está fuera, así que el padding es 24px 20px */
+    padding: 16px 14px; /* AJUSTE: Reducimos padding global en móvil */
+  }
+  
+  /* AJUSTE: Reducción de espaciado vertical global a 16px para móvil */
+  .section {
+    padding: 16px 0; 
+  }
+  
+  /* AJUSTE CLAVE: Reducir padding de la sección HERO en móvil */
+  .hero {
+    padding: 16px 0 8px; /* Reducción a la mitad del padding vertical */
+  }
+  
+  /* Header: Ajustes para que quepa el logo */
+  .site-header .nav-brand {
     font-size: 1.1rem;
-    line-height: 1.3;
-}
+  }
 
-.article p {
-    margin: 0;
-    font-size: 0.95rem;
-    color: var(--ink-600);
-}
+  /*
+  ---
+  CORRECCIÓN 1: Reducción de la Foto (Retrato) en Móvil
+  ---
+  */
+  .hero-wrap {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .portrait-card {
+    order: -1; 
+    /* LIMITAR EL ANCHO DEL CONTENEDOR Y CENTRARLO */
+    max-width: 280px; 
+    margin-inline: auto; 
+    border-radius: 14px;
+  }
+  .hero h1 {
+    font-size: clamp(1.8rem, 5vw + 0.5rem, 2.2rem);
+    /* AJUSTE: Reducción de margin inferior del título en móvil */
+    margin-bottom: 6px; 
+  }
+  
+  /* Nuevo: Botones del HERO más compactos */
+  .hero-copy .btn {
+    padding: 0.75rem 1rem; 
+    font-size: 0.95rem; 
+  }
 
-.article .more {
-    display: block;
-    margin-top: 5px;
-}
+  /*
+  ---
+  CORRECCIÓN 2: Badges del HERO (Superior) - MANTENIDOS
+  ---
+  */
+  .badges-row {
+    gap: 0;
+    justify-content: center;
+  }
+
+  .badges-row img {
+    height: 38px; 
+    margin: 0 4px; 
+  }
 
 
-/* ========= 7. CTA FINAL (Fondo Azul Oscuro) ========= */
-.cta-final-content {
-    text-align: center;
-}
+  /*
+  ---
+  CORRECCIÓN 3: Badges INFERIORES (#credenciales / .strip) - MANTENIDOS
+  ---
+  */
+  .strip {
+    /* AJUSTE EXTREMO MÓVIL: Reducción de gap a 1px */
+    gap: 1px; 
+    flex-wrap: wrap; 
+    justify-content: center;
+  }
+  
+  .strip img {
+    height: 35px; 
+    /* AJUSTE EXTREMO MÓVIL: Eliminamos el margin lateral */
+    margin: 0 0; 
+  }
 
-.cta-final-content h2 {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    color: var(--card);
-}
+  /* Columnas: Convierte todas las cuadrículas en 1 columna */
+  .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  
+  /* Artículos: Estructura de recursos */
+  .resources-wrap {
+    grid-template-columns: 1fr;
+    gap: 14px; 
+  }
+  .articles {
+    grid-template-columns: 1fr;
+    gap: 14px; 
+  }
+  
+  /* Espaciado Vertical de secciones pequeñas (ajustadas para reducir el exceso de espacio) */
+  #badges {
+    padding-top: 16px; 
+    padding-bottom: 0; 
+  }
+  
+  /* Las siguientes reglas de compactación del .container se aplicarán gracias a la especificidad ID.class */
+  
+  #recursos {
+    padding-top: 0; 
+    padding-bottom: 0; 
+  }
 
-.cta-final-subtitle {
-    font-size: 1.25rem;
-    color: var(--ink-500);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40px;
-}
-
-.cta-final-subtitle strong {
-    color: var(--card);
-}
-
-/* ========= 8. FOOTER (Fondo Azul Oscuro) ========= */
-footer {
-    background-color: var(--teal-dark);
-    color: var(--muted);
-    padding: 30px 0;
-    font-size: 0.9rem;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-links a {
-    color: var(--muted);
-    margin-left: 20px;
-}
-
-.footer-links a:hover {
-    color: var(--card);
-}
-
-.copyright {
-    margin: 0;
-}
-
-.copyright a {
-    color: var(--teal-light);
-}
-
-/* =============================== */
-/* MEDIAS QUERIES (RESPONSIVE) */
-/* =============================== */
-@media (max-width: 1024px) {
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    /* Hero */
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        padding-top: 0;
-    }
-
-    .hero-copy {
-        order: 2;
-        text-align: center;
-    }
-
-    .hero-copy h2 {
-        font-size: 2.2rem;
-    }
-
-    .hero-image {
-        order: 1;
-        max-width: 350px;
-        margin: 0 auto;
-    }
-
-    .hero-actions {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .badges-row {
-        justify-content: center;
-    }
-
-    /* Quién Soy */
-    .section#quien-soy .container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .profile-card {
-        order: 2;
-    }
-
-    .content-row {
-        order: 1;
-    }
-
-    /* Artículos */
-    .resources-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .download-card {
-        position: static; /* Desactivar sticky en móvil */
-        top: auto;
-        margin-bottom: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Base */
-    .section {
-        padding: 60px 0;
-    }
-
-    /* Navegación */
-    .menu-desktop {
-        display: none; 
-    }
-
-    .menu-toggle {
-        display: block; 
-    }
-
-    .nav-row {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
-    /* Hero */
-    .hero {
-        padding: 40px 0 60px 0;
-    }
-    
-    .hero-copy h2 {
-        font-size: 1.8rem;
-    }
-    
-    .hero-copy .subtitle {
-        font-size: 1.1rem;
-    }
-
-    /* Servicios */
-    .grid-3 {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Testimonios */
-    .grid-2 {
-        grid-template-columns: 1fr;
-    }
-
-    /* Recursos */
-    .article {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-    }
-    
-    .article img {
-        width: 100%;
-        height: auto;
-        max-height: 150px;
-    }
-
-    /* CTA Mini Banner */
-    .cta-banner-mini {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-    
-    .cta-banner-mini h3 {
-        font-size: 1.3rem;
-    }
-    
-    /* CTA Final */
-    .cta-final-content h2 {
-        font-size: 2rem;
-    }
-
-    /* Footer */
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-
-    .footer-links a {
-        margin: 0 10px;
-    }
+  #contacto {
+    padding-top: 0; 
+  }
+  
+  /* ¡Cierre del media query! */
 }
