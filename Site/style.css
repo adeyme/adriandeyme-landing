@@ -1,17 +1,19 @@
 /* ========= Design Tokens (Variables Globales) ========= */
 :root{
-  --bg:#f7f9fa;
-  --card:#ffffff;
-  --ink-900:#0c1a1e;
-  --ink-800:#122a30;
-  --ink-700:#2b4a53;
-  --ink-600:#48656e;
-  --ink-500:#6a8790;
-  --muted:#9db2b8;
-  --teal:#0e4950;        /* botón principal */
-  --teal-2:#0a3b40;
-  --pill:#e8f2f4;        /* chips / x-strip */
-  --ok:#0e844f;
+  /* Colores basados en Guía de Identidad Visual */
+  --bg: #F5F5F5;            /* Gris Claro (Fondo Neutro) */
+  --card: #FFFFFF;          /* Blanco (Contraste) */
+  --ink-900: #062F36;       /* Azul Oscuro (Profundo) - Texto Principal */
+  --ink-800: #122a30;       /* Ligeramente más claro que el 900 */
+  --ink-700: #2b4a53;       /* Títulos y Subtítulos */
+  --ink-600: #48656e;       /* Párrafos y texto secundario */
+  --ink-500: #6a8790;       /* Muted */
+  --muted: #9db2b8;         /* Texto/Detalles muy suaves */
+  --teal: #0E4C5A;          /* Azul Petróleo (Principal) - Botón, Acentos */
+  --teal-2: #0a3b40;        /* Azul Oscuro para :hover */
+  --teal-soft: #4D7C87;     /* Azul Claro (Suave) - Fondos sutiles */
+  --pill: #e8f2f4;          /* Chips / Background de Herramientas */
+  --ok: #0e844f;            /* Color de éxito */
   --radius-xl:24px;
   --radius-lg:18px;
   --radius-md:14px;
@@ -26,10 +28,12 @@ html,body{margin:0;padding:0}
 body{
   background:var(--bg);
   color:var(--ink-900);
-  font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Poppins,sans-serif;
+  /* Usando Poppins para todo el cuerpo por legibilidad profesional */
   font-family: 'Poppins', sans-serif;
   font-size:16px;
   line-height:1.55;
+  /* IMPORTANTE: Eliminamos cualquier desbordamiento horizontal global para evitar barras de desplazamiento */
+  overflow-x: hidden; 
 }
 
 /* Configuración de Contenedor */
@@ -41,29 +45,29 @@ body{
 
 /* Configuración de Secciones */
 .section{
-  padding: 80px 0;
+  padding: 60px 0;
 }
 .bg-light {
     background-color: #fcfcfc;
 }
 .centered-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 .title-section {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: var(--ink-900);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ink-700);
     margin-bottom: 8px;
 }
 .title-sub-section {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--teal);
     margin-top: 0;
 }
 .subtitle-section {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--ink-600);
     max-width: 800px;
     margin: 0 auto;
@@ -85,18 +89,19 @@ a:hover{
 strong {
     font-weight: 600;
 }
+
 /* Botones */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.9rem 1.8rem;
+  padding: 0.8rem 1.75rem;
   border-radius: var(--radius-md);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   border: 2px solid transparent;
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
@@ -104,13 +109,11 @@ strong {
   background-color: var(--teal);
   color: var(--card);
   border-color: var(--teal);
-  box-shadow: 0 4px 12px rgba(14, 73, 80, 0.3);
 }
 .btn-primary:hover {
   background-color: var(--teal-2);
   border-color: var(--teal-2);
   text-decoration: none;
-  box-shadow: 0 6px 16px rgba(14, 73, 80, 0.4);
 }
 
 .btn-secondary {
@@ -126,32 +129,31 @@ strong {
 }
 .btn-nav {
     padding: 0.5rem 1.2rem;
-    font-size: 0.95rem;
 }
 
-/* Grid Layouts - AJUSTES PARA DESKTOP */
-/* Aplicamos un gap más pequeño para liberar espacio horizontal */
+/* Grid Layouts - AJUSTE CLAVE DE GAP PARA ESCRITORIO */
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px; /* Reducido de 30px */
+    gap: 20px; /* Ajuste más conservador */
 }
 .grid-2-alt {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    gap: 24px; /* Reducido de 30px */
-    align-items: stretch;
+    gap: 20px; /* Ajuste más conservador */
+    align-items: stretch; 
 }
 .grid-2-rev {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: 30px; 
+    gap: 30px;
     align-items: center;
 }
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px; /* Reducido de 30px - CRÍTICO PARA ARTÍCULOS Y SERVICIOS */
+    /* REDUCCIÓN DE GAP DE ESCRITORIO MÁXIMA PARA LIBERAR ESPACIO EN COLUMNAS */
+    gap: 16px; 
 }
 
 /* Tarjetas Generales */
@@ -163,7 +165,7 @@ strong {
     height: 100%;
 }
 .card-highlight {
-    background-color: var(--teal-2);
+    background-color: var(--teal-soft);
     color: var(--card);
     h2, p { color: var(--card); }
     h2 { border-bottom: 2px solid rgba(255, 255, 255, 0.3); padding-bottom: 10px; margin-bottom: 20px;}
@@ -179,7 +181,7 @@ header{
   z-index: 1000;
   background-color: var(--card);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  padding: 12px 0;
+  padding: 10px 0;
 }
 header .content{
   display: flex;
@@ -188,16 +190,16 @@ header .content{
 }
 
 .logo-first {
-    font-family: 'Pacifico', cursive;
-    font-size: 1.9rem;
+    font-family: 'Pacifico', cursive; 
+    font-size: 1.8rem;
     color: var(--ink-900);
     margin-right: 4px;
 }
 .logo-last {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    color: var(--teal);
+    color: var(--teal); 
     letter-spacing: 1px;
 }
 .logo {
@@ -218,7 +220,7 @@ nav a:hover{
 
 /* ========= HERO SECTION ========= */
 .hero {
-  padding: 100px 0;
+  padding: 80px 0;
   background: linear-gradient(180deg, var(--bg) 0%, #ffffff 100%);
 }
 .hero .content {
@@ -226,8 +228,9 @@ nav a:hover{
     align-items: center;
     gap: 40px;
 }
+
 .hero-title {
-    font-size: 3.5rem; 
+    font-size: 3.2rem; 
     margin-bottom: 10px;
     line-height: 1.1;
     font-weight: 800;
@@ -242,7 +245,7 @@ nav a:hover{
 }
 
 .hero-subtitle {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 500;
     color: var(--ink-700);
     margin-top: 0;
@@ -250,7 +253,7 @@ nav a:hover{
 }
 
 .hero-lead {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--ink-600);
     margin-bottom: 30px;
 }
@@ -263,7 +266,7 @@ nav a:hover{
 
 .hero-image img {
     width: 100%;
-    max-width: 480px;
+    max-width: 450px;
     height: auto;
     display: block;
     border-radius: var(--radius-xl);
@@ -277,11 +280,11 @@ nav a:hover{
     flex-wrap: wrap;
 }
 .badges-row img {
-    height: 48px;
+    height: 45px;
     opacity: 0.8;
 }
 
-/* ========= SERVICIOS (PILARES) ========= */
+/* ========= SERVICIOS (Nuevo Estilo para Pilares) ========= */
 .pilar-card {
     background: var(--card);
     padding: 30px;
@@ -305,7 +308,7 @@ nav a:hover{
 }
 
 .pilar-card h3 {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: var(--teal-2);
     margin-top: 0;
@@ -386,7 +389,7 @@ nav a:hover{
 }
 .tagline-mini {
     display: block;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--teal-soft);
     margin-bottom: 5px;
@@ -419,7 +422,7 @@ nav a:hover{
     margin-top: 20px;
 }
 
-/* ========= CREDENCIALES (Strip) - AJUSTE PARA ESCRITORIO ========= */
+/* ========= CREDENCIALES (Strip) - AJUSTE CLAVE DE FLEX PARA ESCRITORIO ========= */
 .strip-section {
     background-color: var(--teal-soft);
     padding: 10px 0;
@@ -428,10 +431,11 @@ nav a:hover{
 .strip {
     display: flex;
     justify-content: center;
-    /* REDUCCIÓN DE GAP DE ESCRITORIO: Permite que más logos quepan sin apilamiento */
-    gap: 20px; 
+    /* REDUCCIÓN DE GAP MÁXIMA PARA ESCRITORIO */
+    gap: 15px; 
     align-items: center;
-    flex-wrap: wrap;
+    /* Asegura que los logos se envuelvan si es necesario, sin desbordar */
+    flex-wrap: wrap; 
 }
 .strip img {
     height: 40px;
@@ -441,8 +445,7 @@ nav a:hover{
     flex-shrink: 0; 
 }
 
-/* ========= RECURSOS / ARTÍCULOS ========= */
-/* Usa .grid-3 y el nuevo gap de 24px */
+/* ========= RECURSOS / ARTÍCULOS - AJUSTE CLAVE DE TEXTO ========= */
 .article-grid {
     margin-top: 40px;
 }
@@ -475,13 +478,23 @@ nav a:hover{
     margin-top: 0;
     margin-bottom: 5px;
     color: var(--ink-900);
-    /* Ligeramente menor line-height para optimizar espacio */
     line-height: 1.3; 
+    /* ESTO ES CRÍTICO: Limita el título a dos líneas para evitar el desborde */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .article p {
     font-size: 0.9rem;
     color: var(--ink-600);
     margin-bottom: 10px;
+    /* Opcional: Limitar la descripción a tres líneas */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .centered-cta {
@@ -557,6 +570,7 @@ footer a {
 /* ========================================================= */
 /* ======================== MEDIA QUERIES (Responsividad) ======================== */
 /* ========================================================= */
+
 @media (max-width: 992px) {
   /* En tablets, reducimos el gap de la cuadrícula a 16px */
   .grid-2, .grid-2-alt, .grid-2-rev, .grid-3 {
@@ -569,7 +583,9 @@ footer a {
   }
   /* La sección de quién soy se revierte para mejor lectura en tablet */
   .grid-2-rev {
-    grid-template-columns: 1fr 1.2fr;
+    /* Mantenemos el orden original para evitar confusión, pero reducimos gap */
+    grid-template-columns: 1.2fr 1fr;
+    gap: 20px;
   }
 }
 
@@ -617,7 +633,7 @@ footer a {
   
   /* Tira de Logos en Móvil */
   .strip {
-    /* Mantenemos el gap y el flex-wrap de escritorio, pero centramos y damos un poco más de espacio vertical */
+    /* Ajustamos el gap a un valor pequeño, asegurando el wrap */
     gap: 15px; 
     padding: 10px 0;
   }
