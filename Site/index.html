@@ -14,7 +14,6 @@
   <title>Adrián Deyme · Ejecución Sistémica, OKRs y Coaching de Liderazgo</title>
  <meta name="description" content="Alineo estrategia y ejecución con Coaching Sistémico, OKRs y Kanban. Para líderes y equipos que necesitan previsibilidad, alto foco y crecimiento sostenible.">
   <link rel="icon" href="assets/brand/logo-ad-favicon-32.png">
-  <!-- <link rel="stylesheet" href="style.css"> ESTILOS INCLUIDOS ABAJO EN <style> -->
   <link rel="canonical" href="https://www.adriandeyme.com/">
 
 <meta property="og:type" content="website">
@@ -177,6 +176,8 @@ img{max-width:100%;height:auto;display:block}
   top:0;
   z-index:100;
 }
+
+/* Estilos de la navegación en escritorio */
 .nav-logo a{
   font-size:1.5rem;
   font-weight:900;
@@ -243,6 +244,7 @@ img{max-width:100%;height:auto;display:block}
   justify-content:space-around;
   align-items:center;
   gap:30px;
+  flex-wrap: nowrap; /* Asegurar que no se rompa en múltiples líneas por defecto */
 }
 .strip img{
   height:45px;
@@ -382,15 +384,27 @@ img{max-width:100%;height:auto;display:block}
 
 /* --- MEDIA QUERIES --- */
 
+/* Tablet/Desktop pequeño */
 @media (max-width: 992px) {
   /* Header adjustments */
-  .nav-links {
-    display: none; /* Ocultar links en tablet/mobile */
-  }
+  /* Mostramos el menú como siempre en la barra superior */
   .header .container {
-    justify-content: center; /* Centrar logo si no hay links */
+    justify-content: space-between; 
   }
 
+  .nav-links {
+    /* Mantener links, pero reducir espacio */
+    gap: 10px;
+  }
+  
+  .nav-links a {
+      margin-left: 15px;
+  }
+
+  .nav-links .btn {
+      padding: 0.5rem 0.8rem;
+  }
+  
   /* Hero adjustments */
   .hero-content{
     flex-direction:column;
@@ -398,7 +412,7 @@ img{max-width:100%;height:auto;display:block}
     gap:30px;
   }
   .hero h1{
-    font-size:2.5rem;
+    font-size:2.8rem;
   }
   .hero-buttons{
     justify-content:center;
@@ -406,9 +420,37 @@ img{max-width:100%;height:auto;display:block}
   .badges-row{
     justify-content:center;
   }
+
+  /* Grid: Convertir a 2 columnas para tablet */
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  /* Arreglo para que la sección de recursos (opt-in) no se rompa */
+  #articulos .grid-3 {
+      grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Quién Soy - forzar a apilar a partir de 992px */
+  #quien-soy .grid-2 {
+      grid-template-columns: 1fr;
+  }
+  
+  .grid-3 .propuesta-card {
+      /* Ajuste para que las 3 tarjetas de propuesta queden en 2 columnas */
+      grid-column: span 1;
+  }
+  /* La tercera tarjeta ocupa el espacio central para 2 columnas */
+  .grid-3 .propuesta-card:last-child:nth-child(3) {
+      grid-column: 1 / span 2;
+      width: 50%;
+      justify-self: center;
+  }
 }
 
 
+/* Móvil (CRÍTICO) */
 @media (max-width: 768px) {
   h1{font-size:2rem}
   h2{font-size:1.75rem}
@@ -418,62 +460,82 @@ img{max-width:100%;height:auto;display:block}
     padding:0 15px; /* Reducción de padding en móvil */
   }
 
+  /* Header: Ocultar links para móvil, mostrar solo logo y CTA */
+  .header .container {
+    padding: 0 15px;
+    justify-content: space-between; 
+  }
+  .nav-links {
+    display: none; 
+  }
+  
   /* Hero */
   .hero{
     padding-top:40px;
     padding-bottom:20px;
   }
-
-  /* Corrección 1: Títulos en móvil */
+  .hero-copy {
+      text-align: center;
+  }
   .hero h1 {
-    /* Reducción de margin inferior del título en móvil */
     margin-bottom: 6px; 
+    font-size: 2.2rem;
   }
   
-  /* Nuevo: Botones del HERO más compactos */
-  .hero-copy .btn {
-    padding: 0.75rem 1rem; 
-    font-size: 0.95rem; 
+  /* Botones del HERO */
+  .hero-buttons{
+    justify-content:center;
+    flex-direction: column;
+    gap: 10px;
   }
-
-  /*
-  ---
-  CORRECCIÓN 2: Badges del HERO (Superior) - MANTENIDOS
-  ---
-  */
+  .hero-buttons .btn {
+    width: 100%; 
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+  }
+  
+  /* Badges del HERO (Superior) */
   .badges-row {
-    gap: 0;
+    gap: 10px;
     justify-content: center;
+    flex-wrap: wrap; /* Permitir que los badges se apilen si es necesario */
   }
 
   .badges-row img {
-    height: 38px; 
-    margin: 0 4px; 
+    height: 30px; /* Reducción de tamaño */
+    margin: 0;
   }
 
 
-  /*
-  ---
-  CORRECCIÓN 3: Badges INFERIORES (#credenciales / .strip) - MANTENIDOS
-  ---
-  */
+  /* Badges INFERIORES (#credenciales / .strip) - CRÍTICO */
+  .strip-card {
+      padding: 15px 10px;
+  }
+  
   .strip {
-    /* AJUSTE EXTREMO MÓVIL: Reducción de gap a 1px */
-    gap: 1px; 
-    flex-wrap: wrap; 
-    justify-content: center;
+      /* Permitimos que las imágenes se apilen en varias líneas */
+      flex-wrap: wrap; 
+      justify-content: space-around;
+      gap: 15px;
   }
   
   .strip img {
-    height: 35px; 
-    /* AJUSTE EXTREMO MÓVIL: Eliminamos el margin lateral */
-    margin: 0 0; 
+    height: 30px; 
+    /* Aseguramos que el logo no sea demasiado grande y se ajuste */
+    max-width: 30%; 
   }
-
+  
   /* Columnas: Convierte todas las cuadrículas en 1 columna */
   .grid-3, .grid-2 {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 20px;
+  }
+  
+  /* Propuesta de valor: La tarjeta vuelve a 1 columna */
+  .grid-3 .propuesta-card:last-child:nth-child(3) {
+      grid-column: 1 / 1;
+      width: 100%;
+      justify-self: auto;
   }
   
   /* Artículos: Estructura de tarjetas en móvil */
@@ -483,7 +545,7 @@ img{max-width:100%;height:auto;display:block}
   .article .pad {
     padding: 15px; /* Padding reducido */
   }
-
+  
   /* CTA final */
   .cta-final {
     padding: 40px 20px;
@@ -506,6 +568,10 @@ img{max-width:100%;height:auto;display:block}
         <a href="#articulos">Recursos</a>
         <a href="https://meetings.hubspot.com/adrian-deyme/diagnostico-ejecucion-sistemica" target="_blank" class="btn btn-primary">Agenda un Diagnóstico</a>
       </nav>
+      <!-- CTA para móvil: Se oculta en desktop y muestra en móvil -->
+      <a href="https://meetings.hubspot.com/adrian-deyme/diagnostico-ejecucion-sistemica" target="_blank" class="btn btn-primary" style="display:none;" id="mobile-cta-header">
+        Diagnóstico
+      </a>
     </div>
   </header>
 
@@ -533,7 +599,6 @@ img{max-width:100%;height:auto;display:block}
             </div>
           </div>
           <div class="hero-image">
-            <!-- Usamos un placeholder con el color de fondo para mantener el diseño -->
             <img src="assets/adriandeyme-hero-crop.jpg" alt="Adrián Deyme, Coach Ejecutivo y Arquitecto Organizacional" loading="eager">
           </div>
         </div>
@@ -544,6 +609,7 @@ img{max-width:100%;height:auto;display:block}
     <section id="credenciales" class="section-margin" style="padding:20px 0;">
       <div class="container">
         <div class="strip-card strip">
+          <!-- CRÍTICO: Aseguramos que los logos se ajusten en móvil con los estilos CSS corregidos -->
           <img src="assets/clients/logo-santander.svg" alt="Cliente Santander">
           <img src="assets/clients/logo-telefonica.svg" alt="Cliente Telefónica">
           <img src="assets/clients/logo-bbva.svg" alt="Cliente BBVA">
@@ -659,71 +725,84 @@ img{max-width:100%;height:auto;display:block}
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const ARTICLES_CONTAINER = document.getElementById('articles-container');
+      // Usamos el proxy de rss2json.com para obtener el JSON del feed de Medium
       const JSON_FEED_URL = 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@adriandeyme';
       
-      // Función para obtener los artículos (con manejo de errores)
+      // Función para obtener los artículos (con manejo de errores y reintentos)
       const fetchArticles = async () => {
-        try {
-          // El feed de Medium debe ser proxy-eado por un servicio como rss2json.com para evitar CORS
-          const response = await fetch(JSON_FEED_URL);
-          
-          if (!response.ok) {
-            throw new Error('Error de red al cargar el feed JSON');
-          }
-          
-          const data = await response.json();
-          const articles = data.items || [];
-          // Filtrar y mostrar solo los 3 primeros artículos que sean tipo 'post'
-          const articlesToShow = articles.filter(item => item.categories.length > 0).slice(0, 3);
-          
-          let htmlContent = '';
-
-          if (articlesToShow.length === 0) {
-              ARTICLES_CONTAINER.innerHTML = '<p style="text-align:center; color:var(--ink-600);">Pronto publicaré nuevos artículos de Liderazgo.</p>';
-              return;
-          }
-
-          articlesToShow.forEach(item => {
-            const title = item.title;
-            const link = item.link;
-            // Quitamos tags HTML de la descripción y limitamos a 100 caracteres
-            const description = item.content.replace(/<[^>]*>?/gm, '').substring(0, 100) + '...'; 
-            const imagePlaceholder = 'assets/placeholder-article.jpg'; // Usar un placeholder local
+        const MAX_RETRIES = 3;
+        for (let i = 0; i < MAX_RETRIES; i++) {
+          try {
+            const response = await fetch(JSON_FEED_URL);
             
-            // Formateo de fecha: Si el JSON tiene una fecha (ej: "2024-05-20"), la mostramos.
-            let dateSpan = '';
-            if (item.pubDate) {
-              const dateObj = new Date(item.pubDate);
-              // Si la fecha es válida, la formateamos en español.
-              if (!isNaN(dateObj)) {
-                const formattedDate = dateObj.toLocaleDateString('es-ES', { month: 'short', day: 'numeric', year: 'numeric' });
-                dateSpan = `<span class="date" style="color:var(--muted); font-size:0.8rem; margin-top:4px; display:block;">${formattedDate}</span>`;
-              }
+            if (!response.ok) {
+              // Si falla la respuesta HTTP, pasamos al catch
+              throw new Error(`Error de red HTTP: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            const articles = data.items || [];
+            // Filtrar y mostrar solo los 3 primeros artículos que sean tipo 'post'
+            const articlesToShow = articles.filter(item => item.categories && item.categories.length > 0).slice(0, 3);
+            
+            let htmlContent = '';
+
+            if (articlesToShow.length === 0) {
+                ARTICLES_CONTAINER.innerHTML = '<p style="grid-column: 1 / -1; text-align:center; color:var(--ink-600);">Pronto publicaré nuevos artículos de Liderazgo.</p>';
+                return;
             }
 
+            articlesToShow.forEach(item => {
+              const title = item.title;
+              const link = item.link;
+              // Quitamos tags HTML de la descripción y limitamos a 100 caracteres
+              const description = item.content.replace(/<[^>]*>?/gm, '').substring(0, 100) + '...'; 
+              const imagePlaceholder = 'assets/placeholder-article.jpg';
+              
+              let dateSpan = '';
+              if (item.pubDate) {
+                const dateObj = new Date(item.pubDate);
+                if (!isNaN(dateObj)) {
+                  // Formateo de fecha en español
+                  const formattedDate = dateObj.toLocaleDateString('es-ES', { month: 'short', day: 'numeric', year: 'numeric' });
+                  dateSpan = `<span class="date" style="color:var(--muted); font-size:0.8rem; margin-top:4px; display:block;">${formattedDate}</span>`;
+                }
+              }
 
-            htmlContent += `
-              <a href="${link}" target="_blank" class="article">
-                <img src="${imagePlaceholder}" alt="Artículo: ${title}">
-                <div class="pad">
-                  <h4>${title}</h4>
-                  ${dateSpan}
-                  <p>${description}</p>
-                  <span class="more" style="color:var(--teal); font-weight:700;">Leer más &rarr;</span>
-                </div>
-              </a>
-            `;
-          });
+              htmlContent += `
+                <a href="${link}" target="_blank" class="article">
+                  <img src="${imagePlaceholder}" alt="Artículo: ${title}">
+                  <div class="pad">
+                    <h4>${title}</h4>
+                    ${dateSpan}
+                    <p>${description}</p>
+                    <span class="more" style="color:var(--teal); font-weight:700;">Leer más &rarr;</span>
+                  </div>
+                </a>
+              `;
+            });
 
-          ARTICLES_CONTAINER.innerHTML = htmlContent;
-        } catch (error) {
-          console.error('Error al cargar feed de artículos:', error);
-          // Mensaje de fallback si la carga falla
-          ARTICLES_CONTAINER.innerHTML = '<p style="grid-column: 1 / -1; text-align:center; color:var(--ink-500);">No se pudieron cargar las publicaciones. Consulta mi <a href="https://www.linkedin.com/in/adriandeyme/recent-activity/posts/" target="_blank">LinkedIn</a> para ver los últimos artículos.</p>';
+            ARTICLES_CONTAINER.innerHTML = htmlContent;
+            return; // Salir de la función si la carga es exitosa
+          } catch (error) {
+            console.error(`Intento ${i + 1} fallido al cargar feed de artículos:`, error);
+            if (i < MAX_RETRIES - 1) {
+              // Esperar un tiempo antes de reintentar (Exponencial Backoff: 1s, 2s)
+              await new Promise(resolve => setTimeout(resolve, (i + 1) * 1000)); 
+            } else {
+              // Último intento fallido: mostrar mensaje de error
+              ARTICLES_CONTAINER.innerHTML = '<p style="grid-column: 1 / -1; text-align:center; color:var(--ink-500);">No se pudieron cargar las publicaciones. Consulta mi <a href="https://www.linkedin.com/in/adriandeyme/recent-activity/posts/" target="_blank">LinkedIn</a> para ver los últimos artículos.</p>';
+            }
+          }
         }
       };
 
       fetchArticles();
+
+      // Para asegurar que el botón "Diagnóstico" aparezca en móvil
+      if (window.matchMedia("(max-width: 768px)").matches) {
+          document.getElementById('mobile-cta-header').style.display = 'inline-block';
+      }
     });
   </script>
 
