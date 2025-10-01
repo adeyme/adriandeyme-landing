@@ -139,9 +139,11 @@ p{margin:0 0 10px}
 /* ========= Credenciales ========= */
 .strip{display:flex;gap:26px;flex-wrap:wrap;align-items:center;justify-content:center}
 .strip img{height:62px}
-/* AJUSTE: Reducción de padding vertical para la sección de badges en ESCRITORIO */
+/* AJUSTE FINAL: Reducción de padding vertical para la sección de badges.
+   El padding inferior se establece a 0 para que no haya un espacio muerto antes de la siguiente sección. */
 #badges {
-    padding: 16px 0; /* Más compacto que 20px 0 */
+    padding-top: 16px; 
+    padding-bottom: 0; /* CLAVE: Elimina el espacio blanco extra debajo de los badges */
 }
 
 
@@ -327,7 +329,7 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
   /* Espaciado Vertical de secciones pequeñas (ajustadas para reducir el exceso de espacio) */
   #badges {
     padding-top: 16px; /* Mismo que escritorio */
-    padding-bottom: 8px; /* Menos que 10px para compactar */
+    padding-bottom: 0; /* CLAVE: Elimina el espacio blanco extra debajo de los badges */
   }
   
   #contacto {
