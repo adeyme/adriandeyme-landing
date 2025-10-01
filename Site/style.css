@@ -1,19 +1,17 @@
 /* ========= Design Tokens (Variables Globales) ========= */
 :root{
-  /* Colores basados en Guía de Identidad Visual */
-  --bg: #F5F5F5;            /* Gris Claro (Fondo Neutro) */
-  --card: #FFFFFF;          /* Blanco (Contraste) */
-  --ink-900: #062F36;       /* Azul Oscuro (Profundo) - Texto Principal */
-  --ink-800: #122a30;       /* Ligeramente más claro que el 900 */
-  --ink-700: #2b4a53;       /* Títulos y Subtítulos */
-  --ink-600: #48656e;       /* Párrafos y texto secundario */
-  --ink-500: #6a8790;       /* Muted */
-  --muted: #9db2b8;         /* Texto/Detalles muy suaves */
-  --teal: #0E4C5A;          /* Azul Petróleo (Principal) - Botón, Acentos */
-  --teal-2: #0a3b40;        /* Azul Oscuro para :hover */
-  --teal-soft: #4D7C87;     /* Azul Claro (Suave) - Fondos sutiles */
-  --pill: #e8f2f4;          /* Chips / Background de Herramientas */
-  --ok: #0e844f;            /* Color de éxito */
+  --bg:#f7f9fa;
+  --card:#ffffff;
+  --ink-900:#0c1a1e;
+  --ink-800:#122a30;
+  --ink-700:#2b4a53;
+  --ink-600:#48656e;
+  --ink-500:#6a8790;
+  --muted:#9db2b8;
+  --teal:#0e4950;        /* botón principal */
+  --teal-2:#0a3b40;
+  --pill:#e8f2f4;        /* chips / x-strip */
+  --ok:#0e844f;
   --radius-xl:24px;
   --radius-lg:18px;
   --radius-md:14px;
@@ -28,7 +26,7 @@ html,body{margin:0;padding:0}
 body{
   background:var(--bg);
   color:var(--ink-900);
-  /* Usando Poppins para todo el cuerpo por legibilidad profesional */
+  font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Poppins,sans-serif;
   font-family: 'Poppins', sans-serif;
   font-size:16px;
   line-height:1.55;
@@ -43,29 +41,29 @@ body{
 
 /* Configuración de Secciones */
 .section{
-  padding: 60px 0;
+  padding: 80px 0;
 }
 .bg-light {
     background-color: #fcfcfc;
 }
 .centered-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 .title-section {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--ink-700);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--ink-900);
     margin-bottom: 8px;
 }
 .title-sub-section {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 600;
     color: var(--teal);
     margin-top: 0;
 }
 .subtitle-section {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--ink-600);
     max-width: 800px;
     margin: 0 auto;
@@ -87,19 +85,18 @@ a:hover{
 strong {
     font-weight: 600;
 }
-
 /* Botones */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.8rem 1.75rem;
+  padding: 0.9rem 1.8rem;
   border-radius: var(--radius-md);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   border: 2px solid transparent;
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.5;
 }
 
@@ -107,11 +104,13 @@ strong {
   background-color: var(--teal);
   color: var(--card);
   border-color: var(--teal);
+  box-shadow: 0 4px 12px rgba(14, 73, 80, 0.3);
 }
 .btn-primary:hover {
   background-color: var(--teal-2);
   border-color: var(--teal-2);
   text-decoration: none;
+  box-shadow: 0 6px 16px rgba(14, 73, 80, 0.4);
 }
 
 .btn-secondary {
@@ -127,30 +126,32 @@ strong {
 }
 .btn-nav {
     padding: 0.5rem 1.2rem;
+    font-size: 0.95rem;
 }
 
-/* Grid Layouts */
+/* Grid Layouts - AJUSTES PARA DESKTOP */
+/* Aplicamos un gap más pequeño para liberar espacio horizontal */
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 24px; /* Reducido de 30px */
 }
 .grid-2-alt {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    gap: 30px;
-    align-items: stretch; /* Asegura que las tarjetas se estiren */
+    gap: 24px; /* Reducido de 30px */
+    align-items: stretch;
 }
 .grid-2-rev {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: 40px;
+    gap: 30px; 
     align-items: center;
 }
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 24px; /* Reducido de 30px - CRÍTICO PARA ARTÍCULOS Y SERVICIOS */
 }
 
 /* Tarjetas Generales */
@@ -162,9 +163,8 @@ strong {
     height: 100%;
 }
 .card-highlight {
-    background-color: var(--teal-soft);
+    background-color: var(--teal-2);
     color: var(--card);
-    /* Ajuste de color de texto para mayor contraste */
     h2, p { color: var(--card); }
     h2 { border-bottom: 2px solid rgba(255, 255, 255, 0.3); padding-bottom: 10px; margin-bottom: 20px;}
 }
@@ -179,7 +179,7 @@ header{
   z-index: 1000;
   background-color: var(--card);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  padding: 10px 0;
+  padding: 12px 0;
 }
 header .content{
   display: flex;
@@ -188,16 +188,16 @@ header .content{
 }
 
 .logo-first {
-    font-family: 'Pacifico', cursive; /* Estilo Manuscrito */
-    font-size: 1.8rem;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.9rem;
     color: var(--ink-900);
     margin-right: 4px;
 }
 .logo-last {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: 700;
-    color: var(--teal); /* Color de Acento */
+    color: var(--teal);
     letter-spacing: 1px;
 }
 .logo {
@@ -205,7 +205,6 @@ header .content{
     align-items: baseline;
     text-decoration: none;
 }
-/* Aseguramos que la navegación sea visible en escritorio */
 nav a{
   margin-left: 20px;
   font-weight: 500;
@@ -219,7 +218,7 @@ nav a:hover{
 
 /* ========= HERO SECTION ========= */
 .hero {
-  padding: 80px 0;
+  padding: 100px 0;
   background: linear-gradient(180deg, var(--bg) 0%, #ffffff 100%);
 }
 .hero .content {
@@ -227,9 +226,8 @@ nav a:hover{
     align-items: center;
     gap: 40px;
 }
-
 .hero-title {
-    font-size: 3.2rem; 
+    font-size: 3.5rem; 
     margin-bottom: 10px;
     line-height: 1.1;
     font-weight: 800;
@@ -244,7 +242,7 @@ nav a:hover{
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 500;
     color: var(--ink-700);
     margin-top: 0;
@@ -252,7 +250,7 @@ nav a:hover{
 }
 
 .hero-lead {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--ink-600);
     margin-bottom: 30px;
 }
@@ -265,7 +263,7 @@ nav a:hover{
 
 .hero-image img {
     width: 100%;
-    max-width: 450px;
+    max-width: 480px;
     height: auto;
     display: block;
     border-radius: var(--radius-xl);
@@ -279,11 +277,11 @@ nav a:hover{
     flex-wrap: wrap;
 }
 .badges-row img {
-    height: 45px;
+    height: 48px;
     opacity: 0.8;
 }
 
-/* ========= SERVICIOS (Nuevo Estilo para Pilares) ========= */
+/* ========= SERVICIOS (PILARES) ========= */
 .pilar-card {
     background: var(--card);
     padding: 30px;
@@ -292,7 +290,7 @@ nav a:hover{
     border-top: 6px solid var(--teal);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     height: 100%;
-    display: flex; /* Asegura que el contenido interno fluya bien */
+    display: flex; 
     flex-direction: column;
 }
 .pilar-card:hover {
@@ -307,7 +305,7 @@ nav a:hover{
 }
 
 .pilar-card h3 {
-    font-size: 1.35rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--teal-2);
     margin-top: 0;
@@ -320,7 +318,7 @@ nav a:hover{
     border-bottom: 1px solid var(--pill);
     padding-bottom: 15px;
     margin-bottom: 15px;
-    flex-grow: 1; /* Permite que este párrafo crezca para igualar altura */
+    flex-grow: 1; 
 }
 
 .pilar-item h4 {
@@ -343,7 +341,6 @@ nav a:hover{
     padding: 15px;
     border-radius: var(--radius-md);
     margin-top: 20px;
-    /* Empuja las herramientas al final */
     margin-top: auto; 
 }
 .pilar-resultado h4 {
@@ -389,7 +386,7 @@ nav a:hover{
 }
 .tagline-mini {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--teal-soft);
     margin-bottom: 5px;
@@ -422,7 +419,7 @@ nav a:hover{
     margin-top: 20px;
 }
 
-/* ========= CREDENCIALES (Strip) ========= */
+/* ========= CREDENCIALES (Strip) - AJUSTE PARA ESCRITORIO ========= */
 .strip-section {
     background-color: var(--teal-soft);
     padding: 10px 0;
@@ -431,7 +428,8 @@ nav a:hover{
 .strip {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    /* REDUCCIÓN DE GAP DE ESCRITORIO: Permite que más logos quepan sin apilamiento */
+    gap: 20px; 
     align-items: center;
     flex-wrap: wrap;
 }
@@ -439,9 +437,12 @@ nav a:hover{
     height: 40px;
     opacity: 0.9;
     filter: invert(100%);
+    /* Asegura que los logos no se encojan en anchos estrechos */
+    flex-shrink: 0; 
 }
 
 /* ========= RECURSOS / ARTÍCULOS ========= */
+/* Usa .grid-3 y el nuevo gap de 24px */
 .article-grid {
     margin-top: 40px;
 }
@@ -461,7 +462,6 @@ nav a:hover{
 }
 .article img {
     width: 100%;
-    /* Altura fija para la imagen del placeholder para evitar estiramientos raros */
     height: 180px; 
     object-fit: cover;
     display: block;
@@ -475,6 +475,8 @@ nav a:hover{
     margin-top: 0;
     margin-bottom: 5px;
     color: var(--ink-900);
+    /* Ligeramente menor line-height para optimizar espacio */
+    line-height: 1.3; 
 }
 .article p {
     font-size: 0.9rem;
@@ -487,7 +489,6 @@ nav a:hover{
     margin-top: 40px;
 }
 
-/* Placeholder para la carga de artículos (Para que ocupe el ancho completo del grid-3) */
 .placeholder-article {
     background-color: #eee;
     padding: 20px;
@@ -504,7 +505,7 @@ nav a:hover{
     background-color: var(--teal);
     color: var(--card);
     padding: 80px 0;
-    margin-bottom: 40px; /* Separación del footer */
+    margin-bottom: 40px; 
     border-radius: var(--radius-xl);
 }
 .contact-box {
@@ -557,40 +558,41 @@ footer a {
 /* ======================== MEDIA QUERIES (Responsividad) ======================== */
 /* ========================================================= */
 @media (max-width: 992px) {
-  /* Columnas: El grid-3 se convierte en 2 columnas */
+  /* En tablets, reducimos el gap de la cuadrícula a 16px */
+  .grid-2, .grid-2-alt, .grid-2-rev, .grid-3 {
+    gap: 16px;
+  }
+  
+  /* Hacemos que la grilla de artículos pase a 2 columnas en pantallas pequeñas de escritorio/tablet */
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  }
+  /* La sección de quién soy se revierte para mejor lectura en tablet */
+  .grid-2-rev {
+    grid-template-columns: 1fr 1.2fr;
   }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 40px 0;
+    padding: 50px 0;
   }
   .title-section {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
   .hero {
-    padding-top: 40px;
+    padding: 50px 0;
   }
   .hero .content {
-    flex-direction: column-reverse; /* Imagen arriba, texto abajo */
+    flex-direction: column-reverse; 
     text-align: center;
     gap: 30px;
   }
-  .hero-image {
-    max-width: 300px;
-  }
-  .hero-copy {
-    text-align: center;
-  }
-  /* FIX CRÍTICO MÓVIL: Ajuste el tamaño del título para móvil */
   .hero-title {
-    font-size: 2.5rem; /* TAMAÑO OPTIMIZADO PARA MÓVIL */
+    font-size: 2.8rem; 
   }
   .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
   .hero-actions {
     justify-content: center;
@@ -598,52 +600,36 @@ footer a {
     gap: 15px;
     margin-bottom: 30px;
   }
-  .hero-lead {
-    text-align: center;
-  }
 
   /* Navegación y Header */
-  /* Ocultamos los enlaces de menú en móvil y dejamos solo el logo y el botón de CTA */
   header nav {
     display: none; 
   }
-  header .content {
-    justify-content: space-between;
-  }
-
+  
   /* Grid Layouts se convierten en 1 columna */
-  .grid-2, .grid-2-alt, .grid-2-rev {
+  .grid-2, .grid-2-alt, .grid-2-rev, .grid-3 {
     grid-template-columns: 1fr;
     gap: 20px;
   }
   .grid-2-rev {
     flex-direction: column;
   }
-
-  /* --- FIX 1: CREDENCIALES (Strip) --- */
+  
+  /* Tira de Logos en Móvil */
   .strip {
-    /* Aumentamos el gap a 20px para separar los logos */
-    gap: 20px; 
-    /* Quitamos el ajuste extremo de imágenes si lo hubiera */
+    /* Mantenemos el gap y el flex-wrap de escritorio, pero centramos y damos un poco más de espacio vertical */
+    gap: 15px; 
+    padding: 10px 0;
   }
   .strip img {
-    height: 35px;
-    /* Ajustamos el tamaño de la imagen, más control en móvil */
-    flex-shrink: 0;
+    height: 30px;
   }
-  /* ---------------------------------- */
-
-  /* --- FIX 2: RECURSOS/ARTÍCULOS --- */
-  .article-grid {
-    grid-template-columns: 1fr; /* Una sola columna en móvil */
-  }
-  /* ---------------------------------- */
   
   /* Contacto Final */
   .contact-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   .contact-section {
-    padding: 50px 0;
+    padding: 60px 0;
   }
 }
