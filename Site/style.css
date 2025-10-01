@@ -228,9 +228,8 @@ nav a:hover{
     gap: 40px;
 }
 
-/* FIX CRÍTICO: Reducimos el tamaño de fuente para evitar el desborde */
 .hero-title {
-    font-size: 3.2rem; /* TAMAÑO OPTIMIZADO PARA ESCRITORIO */
+    font-size: 3.2rem; 
     margin-bottom: 10px;
     line-height: 1.1;
     font-weight: 800;
@@ -496,7 +495,7 @@ nav a:hover{
     color: var(--ink-500);
     text-align: center;
     border: 1px solid #ddd;
-    grid-column: 1 / -1; /* Asegura que ocupe todas las columnas */
+    grid-column: 1 / -1; 
 }
 
 
@@ -621,18 +620,24 @@ footer a {
     flex-direction: column;
   }
 
-  /* Strip de Credenciales */
+  /* --- FIX 1: CREDENCIALES (Strip) --- */
   .strip {
-    gap: 15px;
+    /* Aumentamos el gap a 20px para separar los logos */
+    gap: 20px; 
+    /* Quitamos el ajuste extremo de imágenes si lo hubiera */
   }
   .strip img {
     height: 35px;
+    /* Ajustamos el tamaño de la imagen, más control en móvil */
+    flex-shrink: 0;
   }
+  /* ---------------------------------- */
 
-  /* Tarjetas de Servicio */
-  .grid-3 {
-    grid-template-columns: 1fr; /* 1 columna en móvil */
+  /* --- FIX 2: RECURSOS/ARTÍCULOS --- */
+  .article-grid {
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
   }
+  /* ---------------------------------- */
   
   /* Contacto Final */
   .contact-title {
