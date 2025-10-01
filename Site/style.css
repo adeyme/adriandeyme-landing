@@ -138,7 +138,7 @@ section {
 }
 
 
-/* ========= HEADER / NAV ========= */
+/* ========= HEADER / NAV (Ajustado para el logo grande) ========= */
 header {
     background-color: var(--card);
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -154,6 +154,7 @@ header {
     padding: 15px 0;
 }
 
+/* Estilos del Logo (ADRIAN DEYME) */
 .logo a {
     font-family: var(--font-display);
     font-weight: 800;
@@ -161,8 +162,10 @@ header {
     color: var(--ink-800);
     text-transform: uppercase;
     letter-spacing: -1px;
+    padding-left: 0; /* Asegura que el logo esté pegado a la izquierda */
 }
 
+/* Links de navegación */
 .nav-links a {
     margin-left: 20px;
     font-weight: 500;
@@ -173,79 +176,91 @@ header {
     color: var(--teal);
 }
 
-/* Ocultar botón de diagnóstico en desktop para la barra de navegación */
+/* Ocultar botón de diagnóstico en desktop para la barra de navegación (se moverá al HERO) */
 .navbar .btn {
     display: none;
 }
 
 
-/* ========= HERO / PORTADA ========= */
+/* ========= HERO / PORTADA (Ajustado al diseño de la imagen) ========= */
 
-/* Estilos específicos para la sección hero */
 #hero {
-    background-color: var(--bg);
-    padding: 80px 0 60px;
+    background-color: var(--card); /* Fondo blanco para la sección de portada */
+    padding: 40px 0 0; /* Menos padding arriba para que el hero comience antes */
 }
 
 .hero-content {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start; /* Alineación arriba para el contenido */
     gap: 40px;
 }
 
+/* Contenedor Izquierdo: Copy y Botones */
 .hero-copy {
     flex: 1;
-    max-width: 600px;
+    padding-top: 40px; /* Separación vertical */
+    max-width: 650px;
 }
 
-.hero-image {
-    flex: 1;
-    text-align: center;
-    min-width: 300px; /* Evita que la imagen se comprima demasiado */
+/* Título EJECUCIÓN SISTÉMICA - Usando el estilo de la imagen */
+.hero-copy .subtitle-top {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
 }
 
-.hero-image img {
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-2);
-    width: 100%;
-    max-width: 450px;
-    height: auto;
-}
-
-/* Titulo del Hero */
+/* Título Principal */
 .hero-copy h1 {
     font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 20px;
 }
 
-/* Subtítulo */
+/* Subtítulo/Párrafo descriptivo */
 .hero-copy p {
     font-size: 1.15rem;
     color: var(--ink-700);
     margin-bottom: 30px;
 }
 
-/* Fila de insignias (badges) */
-.badges-row {
+/* Fila de botones */
+.hero-actions {
     display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.badges-row img {
-    height: 40px;
-    opacity: 0.8;
+    gap: 15px;
+    margin-bottom: 50px; /* Separación grande con la siguiente sección */
 }
 
 .hero-copy .btn {
-    margin-right: 15px;
-    margin-bottom: 15px; /* Para asegurar espacio en móvil */
+    margin: 0;
+    padding: 0.9rem 1.4rem;
 }
 
-/* ========= SECCIONES GENERALES / LAYOUTS ========= */
+
+/* Contenedor Derecho: Imagen del Perfil */
+.hero-image {
+    flex: 1;
+    text-align: right; /* Alinea la imagen a la derecha */
+    min-width: 300px;
+}
+
+.hero-image img {
+    /* La imagen debe ser el recurso subido por el usuario */
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-2);
+    width: 100%;
+    max-width: 450px; /* Controla el tamaño máximo en desktop */
+    height: auto;
+    margin-top: -40px; /* Para que la parte superior de la imagen se solape con el nav */
+}
+
+
+/* ========= SECCIONES GENERALES / LAYOUTS (No modificadas) ========= */
 
 /* Patrón Grid para contenido en columnas */
 .grid-2 {
@@ -352,6 +367,7 @@ header {
 /* SECCIÓN QUIÉN SOY/ACERCA DE */
 #quien-soy {
     padding-bottom: 0; /* Para que la sección de enfoque se pegue */
+    background-color: var(--bg); /* Asegura el fondo gris */
 }
 
 #quien-soy .grid-2 {
@@ -371,6 +387,7 @@ header {
 #enfoque {
     padding-top: 40px;
     padding-bottom: 60px;
+    background-color: var(--bg); /* Asegura el fondo gris */
 }
 
 .enfoque-card {
@@ -524,22 +541,21 @@ footer a:hover {
     .hero-content {
         flex-direction: column;
         text-align: center;
+        padding-top: 0; /* Resetear el padding */
     }
     .hero-copy {
         max-width: none;
+        padding-top: 0;
     }
     .hero-image {
         order: -1; /* Mueve la imagen arriba en móvil */
         margin-bottom: 30px;
     }
-    .badges-row {
-        justify-content: center;
+    .hero-image img {
+        margin-top: 0; /* Resetear el margen negativo en móvil */
     }
-    .hero-copy .btn {
-        width: 100%;
-        display: block;
-        margin-right: 0;
-        margin-bottom: 10px;
+    .hero-actions {
+        justify-content: center;
     }
 
     /* Grids */
@@ -576,20 +592,21 @@ footer a:hover {
 
     /* HERO */
     .hero-copy h1 {
-        margin-bottom: 10px; /* Reducción de margin inferior del título en móvil */
+        font-size: 2.5rem;
+        margin-bottom: 10px;
     }
-    .badges-row img {
-        height: 35px; /* Badges más pequeños */
-        margin: 0 4px;
+    .hero-actions {
+        flex-direction: column;
+        gap: 10px;
     }
-    .hero-image img {
-        max-width: 300px;
-    }
-
-    /* Botones del HERO más compactos */
     .hero-copy .btn {
       padding: 0.75rem 1rem;
       font-size: 0.95rem;
+      width: 100%;
+    }
+    .hero-image img {
+        max-width: 300px;
+        margin: 0 auto;
     }
 
     /* Credenciales Strip */
