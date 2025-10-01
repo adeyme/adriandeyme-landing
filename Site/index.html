@@ -21,12 +21,16 @@
 <meta property="og:url" content="https://www.adriandeyme.com/">
 <meta property="og:title" content="Adrián Deyme · Ejecución Sistémica y Resultados Predecibles">
 <meta property="og:description" content="Alineo estrategia y ejecución con OKRs, Kanban y Coaching de Liderazgo.">
-<meta property="og:image" content="https://www.adriandeyme.com/assets/brand/og-image-dey.png">
+<!-- Manteniendo el placeholder de la imagen OG para evitar errores si no está cargada -->
+<meta property="og:image" content="https://www.adriandeyme.com/assets/brand/og-image-1200x630.jpg">
 
-<!-- Google Fonts: Inter -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://www.adriandeyme.com/">
+<meta property="twitter:title" content="Adrián Deyme · Ejecución Sistémica y Resultados Predecibles">
+<meta property="twitter:description" content="Alineo estrategia y ejecución con OKRs, Kanban y Coaching de Liderazgo.">
+<meta property="twitter:image" content="https://www.adriandeyme.com/assets/brand/og-image-1200x630.jpg">
+
 </head>
 <body>
 
@@ -36,7 +40,8 @@
         <!-- Logo -->
         <div class="logo">
             <a href="index.html">
-                <img src="assets/brand/logo-ad-dark.svg" alt="Adrian Deyme | Logo">
+                <!-- RUTA CORRECTA: logo-ad-favicon-180.png -->
+                <img src="assets/brand/logo-ad-favicon-180.png" alt="Adrian Deyme | Logo">
             </a>
         </div>
         <!-- Menú de Navegación -->
@@ -50,227 +55,206 @@
     </div>
 </header>
 
-
-<!-- SECCIÓN HERO -->
+<!-- HERO SECTION -->
 <section class="hero">
-    <div class="content">
-        <!-- Columna de Texto -->
+    <div class="content grid-2-rev">
         <div class="hero-copy">
-            <span class="pill-badge" style="background-color: var(--pill); color: var(--teal); border: 2px solid var(--teal-soft);">EJECUCIÓN SISTÉMICA.</span>
+            <p class="tag-label">EJECUCIÓN SISTÉMICA</p>
             <h1 class="hero-title">Lleva tu Estrategia al Campo de Juego y Gana.</h1>
-            <h2 class="hero-subtitle">Alineo estrategia y ejecución con **Coaching Sistémico, OKRs y Kanban**. Para líderes y equipos que necesitan previsibilidad, alto foco y crecimiento sostenible.</h2>
+            <p class="hero-subtitle">Alineo estrategia y ejecución con <strong>Coaching Sistémico, OKRs y Kanban</strong>. Para líderes y equipos que necesitan previsibilidad, alto foco y crecimiento sostenible.</p>
             <div class="hero-actions">
                 <a href="agenda.html" class="button button-cta">Agenda un Diagnóstico</a>
-                <a href="descubrimiento.html" class="button button-alt">Ver Servicios</a>
+                <a href="descubrimiento.html" class="button button-secondary">Ver Servicios</a>
             </div>
         </div>
-        <!-- Columna de Imagen -->
-        <div class="hero-art">
-            <img class="hero-image" src="assets/lead/ad-dey-hero.webp" alt="Adrián Deyme | Consultor de Ejecución Sistémica y OKR">
+        <div class="hero-image">
+            <!-- RUTA CORRECTA: Imagen de perfil -->
+            <img src="assets/people/adrian-linkedin-sin-fondo.webp" alt="Adrián Deyme, Coach Ejecutivo y Arquitecto Organizacional">
         </div>
     </div>
 </section>
 
-<!-- STRIP DE BADGES DE LIDERAZGO (Acreditaciones) -->
-<section class="hero-strip">
+<!-- STRIP 1: CREDENCIALES DE COACHING/LIDERAZGO -->
+<div class="strip strip-1">
     <div class="content">
-        <!-- Título principal de la sección de credenciales -->
-        <h3 class="hero-lead">Máximo nivel de certificación en **Liderazgo y Ejecución Sistémica**.</h3>
-
-        <!-- GRUPO 1: LIDERAZGO, COACHING Y SISTEMAS -->
-        <div class="badge-group">
-            <h4 class="badge-group-title">Liderazgo, Coaching de Sistemas y Agile</h4>
-            <div class="badges-row badges-coaching">
-                <!-- Coaching ICF -->
-                <img src="assets/badges/icf-member.webp" alt="Miembro ICF" title="Miembro ICF">
-                <img src="assets/badges/icf-ce-level2.webp" alt="Coach Ontológico ICF" title="Coach Ontológico ICF">
-                <!-- Agile / Sistemas -->
-                <img src="assets/badges/icp-acc.webp" alt="Agile Coach (ICAgile)" title="Agile Coach (ICAgile)">
-                <img src="assets/badges/icp-sys.webp" alt="Agile System Coach (ICAgile)" title="Agile System Coach (ICAgile)">
-            </div>
-        </div>
-        
-        <!-- GRUPO 2: METODOLOGÍAS Y HERRAMIENTAS DE EJECUCIÓN -->
-        <div class="badge-group">
-            <h4 class="badge-group-title">Sistemas de Ejecución, Foco y Arquitectura Organizacional</h4>
-            <div class="badges-row badges-methodology">
-                <!-- OKR / Kanban / unFIX -->
-                <img src="assets/badges/okr-coach-badge.webp" alt="OKR Coach Professional" title="OKR Coach Professional">
-                <img src="assets/badges/kcp-badge.webp" alt="Kanban Coaching Professional (KCP)" title="Kanban Coaching Professional (KCP)">
-                <img src="assets/badges/unfix.webp" alt="unFIX Architect" title="unFIX Architect">
-                <!-- Liderazgo y Cambio -->
-                <img src="assets/badges/lcm-explorer.webp" alt="Lean Change Management Explorer" title="Lean Change Management Explorer">
-                <img src="assets/badges/management30.webp" alt="Management 3.0" title="Management 3.0">
-            </div>
-        </div>
-
+        <!-- Badges de Coaching (ICF y Agile Coaching) -->
+        <img src="assets/badges/icf-member.webp" alt="Miembro ICF">
+        <img src="assets/badges/icf-ce-level2.webp" alt="Coach Ontológico ICF Nivel 2">
+        <img src="assets/badges/icp-acc.webp" alt="Agile Coach (ICP-ACC)">
+        <img src="assets/badges/icp-sys.webp" alt="Agile System Coach (ICP-SYS)">
     </div>
-</section>
+</div>
 
-<!-- SECCIÓN 2: EL PROBLEMA QUE RESUELVO -->
-<section class="section">
+<!-- STRIP 2: CREDENCIALES DE METODOLOGÍAS/ARQUITECTURA -->
+<div class="strip strip-2">
     <div class="content">
-        <h2 class="title-section">El Problema que Resuelvo.</h2>
-        <div class="grid-2-alt">
-            <p>La mayoría de los líderes tiene una **estrategia brillante que se queda en un PDF**. El equipo está ocupado, pero la ejecución es **caótica**, los resultados son impredecibles y el foco se disuelve en el ruido diario.</p>
-            <p>Mi rol es ser el arquitecto de tu sistema de ejecución. Utilizo un enfoque integral que combina la claridad de **OKRs**, la **fluidez de Kanban** y la **estructura modular de unFIX** con la fuerza transformadora del **Coaching de Liderazgo**.</p>
-            <p>No solo optimizo procesos, rediseño la forma en que el trabajo fluye desde la idea hasta el resultado. Soy un socio para líderes listos para "dejar de apagar incendios" y empezar a construir una máquina de resultados.</p>
-        </div>
+        <!-- Badges de Metodologías (OKRs, Kanban, unFIX, LCM, Management 3.0) -->
+        <img src="assets/badges/okr-coach-badge.webp" alt="OKR Coach Professional">
+        <img src="assets/badges/kcp-badge.webp" alt="Kanban Coach Professional">
+        <img src="assets/badges/unfix.webp" alt="unFIX Organization Architect">
+        <img src="assets/badges/lcm-explorer.webp" alt="Lean Change Management Explorer">
+        <img src="assets/badges/management30.webp" alt="Management 3.0">
     </div>
-</section>
+</div>
 
-<!-- SECCIÓN 3: OFERTA DE VALOR (3 PILARES) -->
-<section class="section" style="background-color: var(--teal-soft);">
-    <div class="content">
-        <h2 class="title-section" style="color: var(--card);">Mi Oferta de Valor: Los 3 Pilares de la Ejecución Sistémica</h2>
-        <p class="subtitle-section" style="color: var(--card);">Lo que podemos construir juntos para alinear Estrategia, Personas y Estructura, y alcanzar **Resultados Predecibles**.</p>
-
-        <div class="grid-3" style="gap: 30px;">
-
-            <!-- PILAR 1 -->
-            <div class="card" style="background-color: var(--card);">
-                <span class="icon-label" style="color: var(--teal); border: 2px solid var(--teal-soft);">Pilar 1</span>
-                <h3>Coaching de Liderazgo Sistémico</h3>
-                <p>Trabajamos sobre lo humano, transformando al líder en un **catalizador del cambio**.</p>
-                <div class="list-resolved">
-                    <h4>¿Qué resolvemos?</h4>
-                    <ul>
-                        <li>Delegación ineficaz y microgestión.</li>
-                        <li>Patrones culturales limitantes (resistencia al cambio, silos).</li>
-                        <li>Agotamiento y coctice (fatiga por iniciativas).</li>
-                    </ul>
-                </div>
-                <h4 class="resolved-title">El Resultado: Liderazgo Estratégico</h4>
-                <div class="tools-pills">
-                    <span class="tool-pill" style="background-color: var(--pill); color: var(--ink-700);">Coaching Ontológico</span>
-                    <span class="tool-pill" style="background-color: var(--pill); color: var(--ink-700);">Coaching Sistémico</span>
-                    <span class="tool-pill" style="background-color: var(--pill); color: var(--ink-700);">Gestión del Cambio</span>
-                </div>
-            </div>
-
-            <!-- PILAR 2 -->
-            <div class="card" style="background-color: var(--card);">
-                <span class="icon-label" style="color: var(--teal); border: 2px solid var(--teal-soft);">Pilar 2</span>
-                <h3>Ejecución y Resultados Predecibles</h3>
-                <p>Establecemos el **sistema de flujo** y la métrica de valor para la **ejecución predecible**.</p>
-                <div class="list-resolved">
-                    <h4>¿Qué resolvemos?</h4>
-                    <ul>
-                        <li>Falta de foco y dispersión de recursos.</li>
-                        <li>Entregas tardías o fallidas.</li>
-                        <li>No poder predecir resultados trimestrales.</li>
-                    </ul>
-                </div>
-                <h4 class="resolved-title">El Resultado: Sistema de Alto Flujo</h4>
-                <div class="tools-pills">
-                    <span class="tool-pill" style="background-color: var(--pill); color: var(--ink-700);">OKR (Objetivos y Resultados Clave)</span>
-                    <span class="tool-pill" style="background-color: var(--pill); color: var(--ink-700);">Kanban System Design</span>
-                    <span class="tool-pill" style="background-color: var(--pill); color: var(--ink-700);">Scrum, Lean-Agile</span>
-                </div>
-            </div>
-
-            <!-- PILAR 3 -->
-            <div class="card" style="background-color: var(--card);">
-                <span class="icon-label" style="color: var(--teal); border: 2px solid var(--teal-soft);">Pilar 3</span>
-                <h3>Arquitectura y Escalabilidad</h3>
-                <p>Rediseñamos la estructura para que la organización sea **modular, adaptable y escalable**.</p>
-                <div class="list-resolved">
-                    <h4>¿Qué resolvemos?</h4>
-                    <ul>
-                        <li>Dependencia de personas clave (cuellos de botella).</li>
-                        <li>Silos departamentales y fricción.</li>
-                        <li>Incapacidad de escalar procesos.</li>
-                    </ul>
-                </div>
-                <h4 class="resolved-title">El Resultado: Estructura Modular y Sostenible</h4>
-                <div class="tools-pills">
-                    <span class="tool-pill" style="background-color: var(--pill); color: var(--ink-700);">unFIX (Arquitectura Modular)</span>
-                    <span class="tool-pill" style="background-color: var(--pill); color: var(--ink-700);">Design Thinking</span>
-                    <span class="tool-pill" style="background-color: var(--pill); color: var(--ink-700);">Management 3.0</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SECCIÓN 4: MI HISTORIA / LLAMADO A LA ACCIÓN (QUIÉN SOY) -->
-<section class="section">
-    <div class="content grid-2-rev">
-        <!-- Columna de Imagen -->
+<!-- PROBLEMA QUE RESUELVO -->
+<section class="section section-dark">
+    <div class="content grid-2">
         <div>
-            <img class="image-full-width-rounded" src="assets/lead/ad-dey-about.webp" alt="Adrián Deyme | Coach y Arquitecto Organizacional">
-            <h4 class="image-caption">Adrián Deyme · Coach Ejecutivo & Arquitecto Organizacional.</h4>
+            <p class="tag-label tag-label-light">EL PROBLEMA QUE RESUELVO</p>
+            <h2 class="title-section title-section-light">La mayoría de los líderes tiene una estrategia brillante que se queda en un PDF.</h2>
+            <p class="lead lead-light">El equipo está ocupado, pero la ejecución es <strong>caótica</strong>, los resultados son <strong>impredecibles</strong> y el foco se disuelve en el ruido diario.</p>
         </div>
-
-        <!-- Columna de Texto -->
-        <div>
-            <h2 class="title-section">Mi historia</h2>
-            <p>Mi trayectoria se centra en la intersección de la **estrategia humana** y la **eficiencia operativa**. Entiendo que un gran talento puede ser anulado por un mal sistema. Por eso, mi trabajo va más allá de la consultoría tradicional, buscando el equilibrio entre el "ser" del líder y el "flujo" del negocio.</p>
-            <div class="stats-box">
-                <p><strong>+15 años</strong> de experiencia con equipos de alto rendimiento.</p>
-                <p><strong>+500 líderes</strong> coachados en 10 países.</p>
-            </div>
-            <p class="mt-4">Máximo nivel de certificación en Kanban, Scrum y Coaching Sistémico.</p>
-            <a href="https://www.linkedin.com/in/adriandeyme/" target="_blank" class="button button-alt">Seguir en Linkedin &rarr;</a>
+        <div class="feature-box">
+            <img src="assets/icons/stopwatch-light.svg" alt="Reloj de Arena" class="icon">
+            <p><strong>El tiempo es el mayor costo de la ineficacia.</strong> Cada trimestre perdido es una oportunidad de mercado que no se recupera.</p>
         </div>
     </div>
 </section>
 
-<!-- SECCIÓN 5: RECURSOS Y PUBLICACIONES (FEED) -->
-<section class="section" id="recursos" style="background-color: var(--bg);">
-    <div class="content">
-        <h2 class="title-section">Recursos y Publicaciones Recientes</h2>
-        <div class="subtitle-and-link">
-            <p class="subtitle-section">Mi conocimiento al servicio de tu ejecución. Estrategia, Liderazgo y Arquitectura Modular.</p>
-            <a href="https://www.adriandeyme.com/recursos" target="_blank" class="button-link" style="color: var(--teal); font-weight: 700;">Ver todas las publicaciones &rarr;</a>
+<!-- MI ENFOQUE SISTÉMICO -->
+<section class="section">
+    <div class="content grid-2-alt">
+        <div class="intro-copy">
+            <p class="tag-label">MI ENFOQUE SISTÉMICO</p>
+            <h2 class="title-section">El Arquitecto de tu sistema de ejecución.</h2>
+            <p class="lead">Utilizo un enfoque integral que combina la claridad de <strong>OKRs</strong>, la fluidez de <strong>Kanban</strong> y la estructura modular de <strong>unFIX</strong> con la fuerza transformadora del <strong>Coaching de Liderazgo</strong>.</p>
+            <p class="copy">No solo optimizo procesos, rediseño la forma en que el trabajo fluye desde la idea hasta el resultado. Soy un socio para líderes listos para "dejar de apagar incendios" y empezar a construir una máquina de resultados.</p>
+            <a href="descubrimiento.html" class="button button-secondary">Conoce el Proceso</a>
         </div>
+        <div class="tools-list">
+            <div class="tool-item">
+                <span class="pill">COACHING</span>
+                <p><strong>Liderazgo Sistémico</strong></p>
+                <p class="tool-desc">Transformación de patrones de liderazgo para crear equipos auto-organizados y de alto rendimiento.</p>
+            </div>
+            <div class="tool-item">
+                <span class="pill">ESTRATEGIA</span>
+                <p><strong>OKRs & Ejecución (Pilar 2)</strong></p>
+                <p class="tool-desc">Traducción de la estrategia en resultados medibles y un ritmo predecible de entrega de valor.</p>
+            </div>
+            <div class="tool-item">
+                <span class="pill">ARQUITECTURA</span>
+                <p><strong>Organización Modular (unFIX)</strong></p>
+                <p class="tool-desc">Diseño de estructuras que escalan, maximizan el flujo y eliminan la dependencia de silos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIAL / LLAMADA A LA ACCIÓN -->
+<section class="section section-teal">
+    <div class="content testimonial">
+        <div class="quote-icon">
+            <img src="assets/icons/quote.svg" alt="Comillas">
+        </div>
+        <blockquote>
+            <p>"Adrián tiene una habilidad única para simplificar la complejidad. Nos ayudó a pasar de un caos de iniciativas a un sistema de ejecución claro, lo que nos permitió lanzar nuestro producto principal un trimestre antes de lo previsto."</p>
+            <footer>
+                <cite>— Javier A., VP de Producto en Tech Startup</cite>
+            </footer>
+        </blockquote>
+    </div>
+</section>
+
+<!-- RECURSOS Y PUBLICACIONES -->
+<section class="section" id="recursos">
+    <div class="content">
+        <p class="tag-label">RECURSOS Y PUBLICACIONES RECIENTES</p>
+        <h2 class="title-section">Mi conocimiento al servicio de tu ejecución.</h2>
+        <p class="lead">Estrategia, Liderazgo y Arquitectura Modular.</p>
         
-        <!-- Contenedor del Feed de Artículos (JS lo poblará) -->
         <div class="articles-grid" id="articles-container">
-            <!-- Mensaje de carga inicial o error -->
+            <!-- Los artículos se cargarán aquí con JavaScript -->
             <p style="text-align:center; color:var(--ink-600); grid-column: 1 / -1;">Cargando publicaciones...</p>
         </div>
 
+        <div class="text-center" style="margin-top: 40px;">
+            <a href="https://blog.adriandeyme.com" target="_blank" class="button button-secondary">Ver todas las publicaciones &rarr;</a>
+        </div>
     </div>
 </section>
 
-<!-- SECCIÓN 6: LLAMADO A LA ACCIÓN FINAL (CTA) -->
-<section class="section final-cta">
-    <div class="content grid-2">
-        <div class="copy-box">
-            <h2 class="title-section">Convierte tu Estrategia en Resultados Predecibles.</h2>
-            <p>Si tu empresa no puede predecir el 90% de sus resultados trimestrales, tienes un problema de sistema, no de personas.</p>
-        </div>
-        <div class="action-box">
-            <p class="cta-subtitle">Comencemos con un diagnóstico 100% gratuito de 30 minutos para identificar los frenos de tu Ejecución Sistémica.</p>
-            <a href="agenda.html" class="button button-cta">Agenda tu Diagnóstico Gratuito de 30 minutos</a>
-        </div>
+<!-- FINAL CTA -->
+<section class="section section-dark">
+    <div class="content text-center">
+        <h2 class="title-section title-section-light">Convierte tu Estrategia en Resultados Predecibles.</h2>
+        <p class="lead lead-light">Si tu empresa no puede predecir el 90% de sus resultados trimestrales, tienes un problema de sistema, no de personas.</p>
+        <p class="copy copy-light">Comencemos con un diagnóstico 100% gratuito de 30 minutos para identificar los frenos de tu Ejecución Sistémica.</p>
+        <a href="agenda.html" class="button button-cta-invert">Agenda tu Diagnóstico Gratuito de 30 minutos</a>
     </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
     <div class="content">
-        <p class="legal-copy">2025 Adrian Deyme. Todos los derechos reservados. <a href="politica.html">Política de Privacidad</a></p>
+        <p class="copy-small">&copy; 2025 Adrian Deyme. Todos los derechos reservados.</p>
+        <nav class="footer-nav">
+            <a href="politica-privacidad.html">Política de Privacidad</a>
+            <a href="https://www.linkedin.com/in/adriandeyme/" target="_blank">LinkedIn</a>
+            <a href="https://blog.adriandeyme.com" target="_blank">Blog</a>
+        </nav>
     </div>
 </footer>
 
-<!-- SCRIPT PARA CARGAR ARTÍCULOS DESDE RSS/JSON -->
 <script>
-  function loadArticles() {
-      const ARTICLES_CONTAINER = document.getElementById('articles-container');
-      const FEED_URL = 'articles_feed.json'; // Archivo JSON generado a partir de RSS
+  // Script para cargar el Feed RSS de publicaciones
+  const RSS_FEED_URL = 'https://blog.adriandeyme.com/rss/';
+  const ARTICLES_CONTAINER = document.getElementById('articles-container');
+  const MAX_ARTICLES = 3;
 
-      fetch(FEED_URL)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-          }
-          return response.json();
-        })
-        .then(data => {
+  /**
+   * Helper para obtener el contenido raw del feed.
+   * La API de Fetch requiere un CORS proxy o que el servidor de origen permita CORS.
+   * Usaremos un proxy de terceros, pero es importante tener en cuenta que esto es una limitación.
+   * En un entorno real, se debería usar un backend propio para esta tarea.
+   */
+  async function fetchFeed() {
+    // Usamos un proxy temporalmente para simular el acceso (NOTA: En un entorno de producción real
+    // se recomienda usar un proxy de backend propio o asegurar que el RSS tenga cabeceras CORS).
+    const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
+    const response = await fetch(CORS_PROXY + encodeURIComponent(RSS_FEED_URL));
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.text();
+  }
+
+  /**
+   * Parsea el XML RSS a una estructura JSON simplificada.
+   * @param {string} xmlText - El texto XML del feed RSS.
+   * @returns {Array<Object>} Lista de artículos.
+   */
+  function parseRSS(xmlText) {
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+    const items = xmlDoc.querySelectorAll("item");
+    const articles = [];
+
+    items.forEach(item => {
+      // Usamos innerHTML para obtener el contenido, que es más robusto para la descripción/contenido
+      const descriptionElement = item.querySelector("description") || item.querySelector("content\\:encoded");
+      const summaryElement = item.querySelector("summary");
+      
+      articles.push({
+        title: item.querySelector("title")?.textContent || "Título no disponible",
+        link: item.querySelector("link")?.textContent || "#",
+        // Preferir content:encoded si existe, sino description, sino summary
+        content: item.querySelector("content\\:encoded")?.innerHTML || descriptionElement?.innerHTML || summaryElement?.textContent || "Contenido no disponible",
+        summary: item.querySelector("description")?.textContent || summaryElement?.textContent || "Resumen no disponible"
+      });
+    });
+
+    return articles;
+  }
+
+
+  function loadArticles() {
+      fetchFeed()
+        .then(xmlText => parseRSS(xmlText))
+        .then(articles => {
           let htmlContent = '';
-          const articlesToShow = data.items.slice(0, 3); // Muestra solo los primeros 3
+          const articlesToShow = articles.slice(0, MAX_ARTICLES);
 
           if (articlesToShow.length === 0) {
               ARTICLES_CONTAINER.innerHTML = '<p style="text-align:center; color:var(--ink-600); grid-column: 1 / -1;">Pronto publicaré nuevos artículos de Liderazgo.</p>';
