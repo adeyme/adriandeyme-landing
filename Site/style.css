@@ -22,6 +22,9 @@
   --shadow-2:0 12px 30px rgba(2,32,43,.12);
 }
 
+/* ========= Fuentes de Google Fonts ========= */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 /* ========= Base ========= */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -92,6 +95,7 @@ a{
   text-decoration:none;
 }
 a:hover{
+  color: var(--teal-2);
   text-decoration:underline;
 }
 strong {
@@ -159,9 +163,7 @@ strong {
 }
 .grid-3 {
     display: grid;
-    /* CORRECCIÓN CRÍTICA: Usamos auto-fit y minmax. 
-       Esto hace que el grid sea completamente fluido y elimine el desbordamiento.
-       Mínimo 280px para que quepan 3 tarjetas en 992px+ */
+    /* FIX: Usamos auto-fit y minmax para que el grid sea completamente fluido y elimine el desbordamiento. */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 16px; 
 }
@@ -200,10 +202,11 @@ header .content{
 }
 
 .logo-first {
-    font-family: 'Pacifico', cursive; 
+    font-family: 'Pacifico', cursive; /* Fuente para "Adrián" */
     font-size: 1.8rem;
     color: var(--ink-900);
     margin-right: 4px;
+    line-height: 1; /* Asegura el alineamiento con el resto del logo */
 }
 .logo-last {
     font-family: 'Poppins', sans-serif;
@@ -211,6 +214,7 @@ header .content{
     font-weight: 700;
     color: var(--teal); 
     letter-spacing: 1px;
+    line-height: 1; /* Asegura el alineamiento con el resto del logo */
 }
 .logo {
     display: flex;
@@ -224,7 +228,7 @@ nav a{
   display: inline-block;
 }
 nav a:hover{
-  color: var(--teal);
+  color: var(--teal-2);
   text-decoration: none;
 }
 
@@ -275,7 +279,6 @@ nav a:hover{
 }
 
 .hero-image img {
-    /* max-width: 450px; eliminado debido a la regla img global */
     width: 100%;
     height: auto;
     display: block;
@@ -390,7 +393,6 @@ nav a:hover{
 
 /* ========= QUIÉN SOY SECTION ========= */
 .quien-soy-image img {
-    /* Removido max-width de 400px para usar la regla global 100% y dejar que el contenedor controle */
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-1);
     margin: 0 auto;
@@ -413,6 +415,7 @@ nav a:hover{
     margin-bottom: 10px;
     font-size: 1.05rem;
     color: var(--ink-700);
+    font-weight: 500;
 }
 .list-bullet li::before {
     content: '';
@@ -434,22 +437,22 @@ nav a:hover{
 .strip-section {
     background-color: var(--teal-soft);
     padding: 10px 0;
-    margin-bottom: -40px; 
+    margin-bottom: -40px; /* Se eleva sobre la siguiente sección */
+    margin-top: 40px; /* Se baja un poco de la sección anterior */
 }
 .strip {
     display: flex;
     justify-content: center;
-    gap: 15px; 
+    gap: 25px; /* Aumentamos un poco el espacio entre logos */
     align-items: center;
     flex-wrap: wrap; 
 }
 .strip img {
     height: 40px;
     opacity: 0.9;
-    filter: invert(100%);
-    /* Permitimos que se encojan un poco si es necesario, pero manteniendo la altura */
+    filter: brightness(0) invert(1); /* Aplica blanco puro a los logos */
     flex-shrink: 1; 
-    max-width: none; /* Permitimos que los logos usen su ancho fijo/base */
+    max-width: none; 
 }
 
 /* ========= RECURSOS / ARTÍCULOS - AJUSTE CLAVE DE TEXTO ========= */
@@ -464,7 +467,7 @@ nav a:hover{
     overflow: hidden;
     transition: box-shadow 0.2s ease, transform 0.2s ease;
     text-decoration: none;
-    height: 100%; /* Asegura que todas las tarjetas tengan la misma altura dentro del grid */
+    height: 100%; 
 }
 .article:hover {
     box-shadow: var(--shadow-2);
@@ -475,7 +478,6 @@ nav a:hover{
     width: 100%;
     height: 180px; 
     object-fit: cover;
-    /* max-width: 100% se aplica aquí, asegurando que la imagen se ajuste */
 }
 .article .pad {
     padding: 15px;
@@ -487,7 +489,7 @@ nav a:hover{
     margin-bottom: 5px;
     color: var(--ink-900);
     line-height: 1.3; 
-    /* Limita el título a dos líneas para evitar el desborde (FIX anterior mantenido) */
+    /* Limita el título a dos líneas (FIX) */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -498,7 +500,7 @@ nav a:hover{
     font-size: 0.9rem;
     color: var(--ink-600);
     margin-bottom: 10px;
-    /* Limitar la descripción a tres líneas (FIX anterior mantenido) */
+    /* Limitar la descripción a tres líneas (FIX) */
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -586,12 +588,9 @@ footer a {
     gap: 16px;
   }
   
-  /* El grid-3 ya usa minmax, así que no necesitamos una media query específica aquí, 
-     ya que se adaptará automáticamente a 2 o 1 columna según el espacio. */
-  
   .grid-2-rev {
-    /* Mantenemos el orden original para evitar confusión, pero reducimos gap */
-    grid-template-columns: 1fr; /* Forzamos a 1 columna para tablets */
+    /* Forzamos a 1 columna para tablets */
+    grid-template-columns: 1fr; 
     gap: 20px;
   }
 }
