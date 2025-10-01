@@ -137,7 +137,14 @@ p{margin:0 0 10px}
 .article a.more{margin-top:auto;color:var(--teal);font-weight:700}
 
 /* ========= Credenciales (Badges) ========= */
-.strip{display:flex;gap:26px;flex-wrap:wrap;align-items:center;justify-content:center}
+/* *** AJUSTE CLAVE DE COMPACTACIÓN HORIZONTAL (ESCRITORIO) *** */
+.strip{
+  display:flex;
+  gap:12px; /* Reducido de 26px a 12px */
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center
+}
 .strip img{height:62px}
 /* #badges: Espacio inferior a CERO. Se basa en el padding superior de .section */
 #badges {
