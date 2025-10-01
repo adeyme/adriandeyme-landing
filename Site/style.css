@@ -69,12 +69,18 @@ p{margin:0 0 10px}
   gap:22px; align-items:center;
 }
 .hero h1{
-  margin:0 0 12px 0;
+  /* AJUSTE: Reduce el margen inferior del título */
+  margin:0 0 8px 0;
   font-weight:800; letter-spacing:-.02em; line-height:1.12;
   font-size:clamp(1.9rem, 2.1vw + 1rem, 3.0rem);
   max-width:22ch;
 }
-.lead{color:var(--ink-600);margin:0 0 14px 0;font-size:clamp(1rem,.25vw + .95rem,1.1rem)}
+.lead{
+  color:var(--ink-600);
+  /* AJUSTE: Reduce el margen inferior del texto principal */
+  margin:0 0 10px 0;
+  font-size:clamp(1rem,.25vw + .95rem,1.1rem)
+}
 .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 16px}
 .badges-row{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
 .badge-hero{height:54px;filter:drop-shadow(0 1px 0 rgba(2,32,43,.02))}
@@ -135,7 +141,7 @@ p{margin:0 0 10px}
 .strip img{height:62px}
 /* AJUSTE: Reducción de padding vertical para la sección de badges en ESCRITORIO */
 #badges {
-    padding: 20px 0;
+    padding: 16px 0; /* Más compacto que 20px 0 */
 }
 
 
@@ -260,6 +266,8 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
   }
   .hero h1 {
     font-size: clamp(1.8rem, 5vw + 0.5rem, 2.2rem);
+    /* AJUSTE: Reducción de margin inferior del título en móvil */
+    margin-bottom: 6px; 
   }
   
   /* Nuevo: Botones del HERO más compactos */
@@ -318,8 +326,8 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
   
   /* Espaciado Vertical de secciones pequeñas (ajustadas para reducir el exceso de espacio) */
   #badges {
-    padding-top: 16px; /* Reducción en móvil */
-    padding-bottom: 10px; 
+    padding-top: 16px; /* Mismo que escritorio */
+    padding-bottom: 8px; /* Menos que 10px para compactar */
   }
   
   #contacto {
