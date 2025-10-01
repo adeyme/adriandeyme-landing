@@ -42,6 +42,9 @@ a:hover { color: var(--ink-900); }
 .section-pad {
   padding: 80px 0;
 }
+.section-pad-small {
+  padding: 50px 0; /* Nuevo padding más pequeño para el strip de certificaciones */
+}
 
 
 /* ========= Tipografía ========= */
@@ -221,9 +224,9 @@ h3 {
   gap: 12px;
 }
 
-/* --- CORRECCIÓN DEL TAMAÑO DEL LOGO --- */
+/* --- TAMAÑO DEL LOGO --- */
 .logo-box .logo {
-  height: 48px; /* TAMAÑO FIJO PARA QUE NO SEA GIGANTE */
+  height: 48px; 
   width: auto;
   border-radius: var(--radius-md);
   transition: transform 0.3s;
@@ -307,8 +310,8 @@ h3 {
   box-shadow: var(--shadow-2);
 }
 
-/* Badges strip */
-#badges {
+/* Badges - Fila de Coaching (SUPERIOR) */
+#badges-coaching {
   padding: 30px 0;
   border-top: 1px solid var(--pill);
   border-bottom: 1px solid var(--pill);
@@ -318,7 +321,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 40px; /* Separación cómoda para 4 logos */
   flex-wrap: wrap;
 }
 .badges-row img {
@@ -328,6 +331,31 @@ h3 {
   transition: filter 0.3s;
 }
 .badges-row img:hover {
+  filter: grayscale(0%) opacity(1);
+}
+
+/* Badges - Fila de Metodologías (INFERIOR - debajo de Servicios) */
+#credenciales {
+    border-top: 1px solid var(--pill);
+    background-color: var(--card);
+}
+.credenciales-title {
+    margin-bottom: 30px;
+}
+.badges-strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Menos espacio para 5 logos */
+  flex-wrap: wrap;
+}
+.badges-strip img {
+  height: 40px; /* Ligeramente más pequeños para que quepan */
+  width: auto;
+  filter: grayscale(70%) opacity(0.7);
+  transition: filter 0.3s;
+}
+.badges-strip img:hover {
   filter: grayscale(0%) opacity(1);
 }
 
@@ -602,6 +630,9 @@ footer {
   .section-pad {
     padding: 50px 0;
   }
+  .section-pad-small {
+      padding: 30px 0; /* Ajuste para el nuevo strip de certificaciones */
+  }
   .wrapper {
     padding: 0 15px;
   }
@@ -640,12 +671,17 @@ footer {
     margin-bottom: 10px;
   }
   
-  /* Badges */
-  .badges-row {
+  /* Badges - Ambas Filas */
+  .badges-row, .badges-strip {
     gap: 15px;
+    /* Centrar y envolver */
+    justify-content: center;
   }
   .badges-row img {
-    height: 35px; 
+    height: 35px; /* Ajuste para el strip superior (Coaching) */
+  }
+  .badges-strip img {
+    height: 35px; /* Ajuste para el strip inferior (Metodologías) */
   }
 
   /* Grid (Quién Soy / Servicios) */
