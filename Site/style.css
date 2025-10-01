@@ -205,12 +205,12 @@ header .content{
     align-items: baseline;
     text-decoration: none;
 }
-/* FIX CRÍTICO: Aseguramos que la navegación sea visible en escritorio */
+/* Aseguramos que la navegación sea visible en escritorio */
 nav a{
   margin-left: 20px;
   font-weight: 500;
   color: var(--ink-700);
-  display: inline-block; /* Re-asegura visibilidad */
+  display: inline-block;
 }
 nav a:hover{
   color: var(--teal);
@@ -228,9 +228,9 @@ nav a:hover{
     gap: 40px;
 }
 
-/* FIX CRÍTICO: Reducimos el tamaño de fuente que causaba el problema */
+/* FIX CRÍTICO: Reducimos el tamaño de fuente para evitar el desborde */
 .hero-title {
-    font-size: 3.5rem; /* Ajustado de 4rem a 3.5rem */
+    font-size: 3.2rem; /* TAMAÑO OPTIMIZADO PARA ESCRITORIO */
     margin-bottom: 10px;
     line-height: 1.1;
     font-weight: 800;
@@ -496,7 +496,7 @@ nav a:hover{
     color: var(--ink-500);
     text-align: center;
     border: 1px solid #ddd;
-    grid-column: 1 / -1; /* CRITICAL FIX: Ensures it spans all columns */
+    grid-column: 1 / -1; /* Asegura que ocupe todas las columnas */
 }
 
 
@@ -586,9 +586,9 @@ footer a {
   .hero-copy {
     text-align: center;
   }
-  /* FIX: Ajuste para móvil para el título */
+  /* FIX CRÍTICO MÓVIL: Ajuste el tamaño del título para móvil */
   .hero-title {
-    font-size: 2.8rem;
+    font-size: 2.5rem; /* TAMAÑO OPTIMIZADO PARA MÓVIL */
   }
   .hero-subtitle {
     font-size: 1.3rem;
@@ -604,7 +604,7 @@ footer a {
   }
 
   /* Navegación y Header */
-  /* FIX CRÍTICO: Ocultamos los enlaces de menú en móvil y dejamos solo el logo y el botón de CTA */
+  /* Ocultamos los enlaces de menú en móvil y dejamos solo el logo y el botón de CTA */
   header nav {
     display: none; 
   }
