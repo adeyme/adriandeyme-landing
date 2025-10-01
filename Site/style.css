@@ -217,9 +217,8 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
   .container {
     padding: 16px 14px;
   }
-  /* Importante: Mantener el padding de la sección general */
   .section {
-    padding: 30px 0; /* Espacio vertical reducido para móvil */
+    padding: 30px 0;
   }
   
   /* Header: Ajustes para que quepa el logo */
@@ -232,10 +231,9 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
     grid-template-columns: 1fr;
     gap: 18px;
   }
-  /* La tarjeta del retrato va antes del texto en móvil (mejor UX) */
   .portrait-card {
     order: -1; 
-    max-width: 100%; /* Asegura que no haya overflow horizontal en móvil */
+    max-width: 100%; /* Ajuste a 100% para evitar overflow */
     border-radius: 14px;
   }
   .hero h1 {
@@ -244,35 +242,41 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
   
   /* Nuevo: Botones del HERO más compactos */
   .hero-copy .btn {
-    padding: 0.75rem 1rem; /* Botones más chicos */
+    padding: 0.75rem 1rem; 
     font-size: 0.95rem; 
   }
 
-  /* Nuevo: Badges y Credenciales FINAL (tamaño sutil) */
+  /*
+  ---
+  CORRECCIÓN 1: Badges del HERO (Restaurados a su tamaño original móvil)
+  ---
+  */
   .badges-row img {
-    height: 42px; 
-    margin: 0 8px; 
+    height: 42px; /* Tamaño móvil de badges del HERO */
+    margin: 0 8px; /* Margen móvil de badges del HERO */
   }
-  
-  /* Nuevo: Compactar la fila de Badges del HERO */
   .badges-row {
     gap: 0;
     justify-content: center;
   }
 
-  /* SOLUCIÓN DISPERSIÓN (BADGES INFERIORES) */
+  /*
+  ---
+  CORRECCIÓN 2: Badges INFERIORES (#credenciales / .strip)
+  ---
+  */
   .strip {
-    /* CORRECCIÓN FINAL: Reducir gap del contenedor a 8px */
-    gap: 8px; 
+    gap: 4px; /* Reducimos el GAP del contenedor al mínimo */
     flex-wrap: wrap; 
     justify-content: center;
   }
   
-  /* CORRECCIÓN FINAL: Reducir el margen horizontal de las imágenes dentro de .strip */
+  /* Selector Específico para imágenes en .strip (Credenciales) */
   .strip img {
-    height: 42px; /* Mantenemos el tamaño */
-    margin: 0 2px; /* Reducimos el margen a 2px para compactar */
+    height: 42px; 
+    margin: 0 1px; /* ¡CLAVE! Reducimos el margen lateral al mínimo (1px) */
   }
+
 
   /* Columnas: Convierte todas las cuadrículas en 1 columna */
   .grid-3, .grid-2 {
@@ -290,15 +294,12 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
     gap: 14px; 
   }
   
-  /* CORRECCIÓN DE ESPACIADO VERTICAL (entre secciones) */
-  
-  /* 1. Reduce el padding de la sección de Credenciales */
+  /* Espaciado Vertical */
   #badges {
     padding-top: 20px;
     padding-bottom: 10px; 
   }
   
-  /* 2. Reduce el padding superior de la sección de Contacto para unirla */
   #contacto {
     padding-top: 20px; 
   }
