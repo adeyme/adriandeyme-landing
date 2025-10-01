@@ -1,3 +1,6 @@
+<!doctype html>
+<html lang="es">
+<head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
 <script>
@@ -11,7 +14,7 @@
   <title>Adrián Deyme · Ejecución Sistémica, OKRs y Coaching de Liderazgo</title>
  <meta name="description" content="Alineo estrategia y ejecución con Coaching Sistémico, OKRs y Kanban. Para líderes y equipos que necesitan previsibilidad, alto foco y crecimiento sostenible.">
   <link rel="icon" href="assets/brand/logo-ad-favicon-32.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style (para GEMINI).css">
   <link rel="canonical" href="https://www.adriandeyme.com/">
 
 <meta property="og:type" content="website">
@@ -305,6 +308,7 @@
           let htmlContent = '';
 
           if (articlesToShow.length === 0) {
+              // Asegura que el mensaje ocupe las 3 columnas
               ARTICLES_CONTAINER.innerHTML = '<p style="text-align:center; color:var(--ink-600); grid-column: 1 / -1;">Pronto publicaré nuevos artículos de Liderazgo.</p>';
               return;
           }
@@ -312,8 +316,9 @@
           articlesToShow.forEach(item => {
             const title = item.title;
             const link = item.link;
-            const description = item.summary.substring(0, 100) + '...'; // Usar el campo summary
-            // Nota: Aquí se usa una imagen genérica. En producción, usarías una imagen específica para cada artículo.
+            // Usando la lógica de limpieza de HTML original del archivo que subiste
+            const description = (item.content || item.summary).replace(/<[^>]*>?/gm, '').substring(0, 100) + '...'; 
+            // Usando un placeholder remoto seguro para la imagen
             const imagePlaceholder = 'https://placehold.co/600x400/0E4C5A/FFFFFF?text=AD'; 
 
             htmlContent += `
@@ -332,6 +337,7 @@
         })
         .catch(error => {
           console.error('Error al cargar feed:', error);
+          // Asegura que el mensaje de error ocupe las 3 columnas
           ARTICLES_CONTAINER.innerHTML = '<p style="text-align:center; color:red; grid-column: 1 / -1;">Error al cargar publicaciones.</p>';
         });
     });
