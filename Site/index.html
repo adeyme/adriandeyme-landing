@@ -14,7 +14,7 @@
   <title>Adrián Deyme · Ejecución Sistémica, OKRs y Coaching de Liderazgo</title>
  <meta name="description" content="Alineo estrategia y ejecución con Coaching Sistémico, OKRs y Kanban. Para líderes y equipos que necesitan previsibilidad, alto foco y crecimiento sostenible.">
   
-  <!-- Verifica: El icono debe estar en /assets/brand/ -->
+  <!-- VERIFICAR RUTA: assets/brand/logo-ad-favicon-32.png -->
   <link rel="icon" href="assets/brand/logo-ad-favicon-32.png">
   
   <!-- IMPORTANTE: El archivo style.css debe estar en la misma carpeta que este index.html -->
@@ -37,7 +37,7 @@
   <header class="site-header">
     <div class="container nav">
       <a href="/" class="nav-brand">
-        <!-- RUTA CONFIRMADA: /assets/brand/logo-ad-32.png -->
+        <!-- RUTA: assets/brand/logo-ad-32.png -->
         <img src="assets/brand/logo-ad-32.png" alt="Logo AD" onerror="this.onerror=null; this.src='https://placehold.co/32x32/0e4950/ffffff?text=AD';" >
         Adrián Deyme
       </a>
@@ -69,7 +69,7 @@
         
         <div class="badges-row">
           <p class="muted">Confían en mi experiencia:</p>
-          <!-- RUTAS CONFIRMADAS: /assets/trust/ -->
+          <!-- RUTAS: assets/trust/logo-*.svg -->
           <img src="assets/trust/logo-scrum-org.svg" alt="Logo Scrum.org" class="badge-hero" onerror="this.onerror=null; this.src='https://placehold.co/80x40/f7f9fa/9db2b8?text=Scrum'">
           <img src="assets/trust/logo-kanban.svg" alt="Logo Kanban" class="badge-hero" onerror="this.onerror=null; this.src='https://placehold.co/80x40/f7f9fa/9db2b8?text=Kanban'">
           <img src="assets/trust/logo-okr.svg" alt="Logo OKR" class="badge-hero" onerror="this.onerror=null; this.src='https://placehold.co/80x40/f7f9fa/9db2b8?text=OKR'">
@@ -79,8 +79,13 @@
       <div class="hero-portrait">
         <!-- Tarjeta de Contenedor de la Foto -->
         <div class="portrait-card">
-          <!-- RUTA CONFIRMADA: /assets/adrian-deyme-perfil.jpg. Se añade fallback. -->
-          <img src="assets/adrian-deyme-perfil.jpg" alt="Adrián Deyme, Coach de Liderazgo Sistémico" loading="eager" onerror="this.onerror=null; this.src='https://placehold.co/350x350/0e4950/ffffff?text=Tu+Foto+Aquí';">
+          <!-- RUTA CLAVE: assets/adrian-deyme-perfil.jpg -->
+          <img 
+            src="assets/adrian-deyme-perfil.jpg" 
+            alt="Adrián Deyme, Coach de Liderazgo Sistémico" 
+            loading="eager" 
+            onerror="console.error('DEBUG: La imagen de perfil no se encontró en assets/adrian-deyme-perfil.jpg. Verifique el nombre y subcarpeta.'); this.onerror=null; this.src='https://placehold.co/350x350/0e4950/ffffff?text=Tu+Foto+Aquí';"
+          >
           <p style="text-align:center; margin-top:10px;">
             **Adrián Deyme**<br>
             <span class="muted">Coach Ejecutivo & Arquitecto Organizacional</span>
@@ -154,7 +159,7 @@
   <section class="section" id="badges">
     <div class="container">
       <div class="strip">
-        <!-- RUTAS CONFIRMADAS: /assets/creds/ -->
+        <!-- RUTAS: assets/creds/cred-*.svg -->
         <img src="assets/creds/cred-csm.svg" alt="Certified ScrumMaster (CSM)" onerror="this.onerror=null; this.src='https://placehold.co/80x40/e8f2f4/0e4950?text=CSM'">
         <img src="assets/creds/cred-pcc.svg" alt="Professional Certified Coach (PCC)" onerror="this.onerror=null; this.src='https://placehold.co/80x40/e8f2f4/0e4950?text=PCC'">
         <img src="assets/creds/cred-kmp.svg" alt="Kanban Management Professional (KMP)" onerror="this.onerror=null; this.src='https://placehold.co/80x40/e8f2f4/0e4950?text=KMP'">
@@ -250,8 +255,10 @@
             const title = item.title;
             const link = item.link;
             // Usa 'summary' o extrae el texto de 'content', limitado a 100 caracteres.
-            const description = (item.summary || item.content.replace(/<[^>]*>?/gm, '')).substring(0, 100) + '...'; 
-            // RUTA CONFIRMADA: /assets/placeholder-article.jpg
+            const rawDescription = item.summary || (item.content ? item.content.replace(/<[^>]*>?/gm, '') : 'Sin descripción.');
+            const description = rawDescription.substring(0, 100) + (rawDescription.length > 100 ? '...' : '');
+
+            // RUTA: assets/placeholder-article.jpg
             const imagePlaceholder = 'assets/placeholder-article.jpg'; 
             
             let dateSpan = '';
@@ -264,7 +271,11 @@
 
             htmlContent += `
               <a href="${link}" target="_blank" class="article">
-                <img src="${imagePlaceholder}" alt="Artículo: ${title}" onerror="this.onerror=null; this.src='https://placehold.co/400x180/e8f2f4/0e4950?text=Artículo+Nuevo';">
+                <img 
+                  src="${imagePlaceholder}" 
+                  alt="Artículo: ${title}" 
+                  onerror="console.warn('DEBUG: No se encontró el placeholder de artículo en assets/placeholder-article.jpg. Reemplazando con Placehold.'); this.onerror=null; this.src='https://placehold.co/400x180/e8f2f4/0e4950?text=Artículo+Nuevo';"
+                >
                 <div class="pad">
                   <h4>${title}</h4>
                   ${dateSpan}
