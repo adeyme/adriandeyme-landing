@@ -1,16 +1,16 @@
 /* ========= Design Tokens (Variables Globales) ========= */
 :root{
   /* Colores según Guía de Identidad Visual */
-  --bg: #f7f9fa;               /* Gris Claro (Fondo Neutro) - F5F5F5, ajustado a un blanco roto */
+  --bg: #f5f5f5;               /* Gris Claro (Fondo Neutro) - Ajustado a F5F5F5 de la guía */
   --card: #ffffff;             /* Blanco (Contraste) */
-  --ink-900: #062f36;          /* Azul Oscuro (Profundo) - Usado para textos principales */
+  --ink-900: #062F36;          /* Azul Oscuro (Profundo) */
   --ink-800: #0e4c5a;          /* Azul Petróleo (Principal) - Usado para headings y acentos fuertes */
   --ink-700: #2b4a53;
   --ink-600: #48656e;
   --ink-500: #6a8790;
   --muted: #9db2b8;            /* Texto secundario/desactivado */
-  --teal: #0e4c5a;             /* Azul Petróleo (Principal) - Botón principal */
-  --teal-2: #0a3b40;           /* Variante de Azul Petróleo para hover */
+  --teal: #0E4C5A;             /* Azul Petróleo (Principal) - Botón principal */
+  --teal-2: #0A3B40;           /* Variante de Azul Petróleo para hover */
   --pill: #e8f2f4;             /* Color suave para chips/tags */
 
   /* Colores funcionales */
@@ -138,7 +138,7 @@ section {
 }
 
 
-/* ========= HEADER / NAV (Ajustado para el logo grande) ========= */
+/* ========= HEADER / NAV (Ajustado para el logo pequeño) ========= */
 header {
     background-color: var(--card);
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -154,15 +154,15 @@ header {
     padding: 15px 0;
 }
 
-/* Estilos del Logo (ADRIAN DEYME) */
+/* Estilos del Logo (ADRIAN DEYME) - REDUCIDO */
 .logo a {
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* TAMAÑO AJUSTADO: Más discreto en el navbar */
     color: var(--ink-800);
     text-transform: uppercase;
     letter-spacing: -1px;
-    padding-left: 0; /* Asegura que el logo esté pegado a la izquierda */
+    padding-left: 0; 
 }
 
 /* Links de navegación */
