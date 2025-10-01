@@ -1,26 +1,18 @@
 /* ========= Design Tokens (Variables Globales) ========= */
 :root{
-  /* Colores ajustados según la Guía de Identidad Visual (PDF) */
-  --bg: #F5F5F5;            /* Gris Claro (Fondo Neutro) - Ajustado según PDF */
-  --card: #FFFFFF;          /* Blanco (Contraste) - Ajustado según PDF */
-  
-  /* Azul Petróleo (Principal) - HEX #0E4C5A. Usado para botones y acentos (--teal) */
-  --teal: #0E4C5A;          /* Azul Petróleo Principal */
-  /* Azul Oscuro (Profundo) - HEX #062F36. Usado para hover/acento fuerte (--teal-2) */
-  --teal-2: #062F36;        /* Azul Oscuro Profundo */
-
-  /* Colores de texto y otros (manteniendo la escala cromática original para consistencia) */
-  --ink-900: #0c1a1e;       
-  --ink-800: #122a30;
-  --ink-700: #2b4a53;
-  --ink-600: #48656e;
-  --ink-500: #6a8790;
-  --muted: #9db2b8;
-  
-  --pill: #e8f2f4;          /* chips / x-strip (mantenido) */
-  --ok: #0e844f;            /* Color de OK/Éxito (mantenido) */
-
-  /* Radios y Sombras (Mantenidos) */
+  --bg:#f7f9fa;
+  --card:#ffffff;
+  --ink-900:#0c1a1e;
+  --ink-800:#122a30;
+  --ink-700:#2b4a53;
+  --ink-600:#48656e;
+  --ink-500:#6a8790;
+  --ink-500:#6a8790;
+  --muted:#9db2b8;
+  --teal:#0e4950;        /* botón principal */
+  --teal-2:#0a3b40;
+  --pill:#e8f2f4;        /* chips / x-strip */
+  --ok:#0e844f;
   --radius-xl:24px;
   --radius-lg:18px;
   --radius-md:14px;
@@ -129,6 +121,17 @@ img{
   box-shadow:var(--shadow-1);
 }
 
+/* Pill de información */
+.info-pill{
+    display:inline-block;
+    padding:4px 10px;
+    background:var(--pill);
+    color:var(--ink-900);
+    border-radius:var(--radius-sm);
+    font-size:0.8rem;
+    font-weight:600;
+}
+
 /* ========= Header (Navegación) ========= */
 .header{
   padding:16px 0;
@@ -178,9 +181,14 @@ img{
   min-height:450px;
 }
 
+.hero-content{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
 .hero-copy{
   flex:1;
-  padding-right:40px;
 }
 
 .hero-image-container{
@@ -239,12 +247,42 @@ img{
   gap:24px;
 }
 
+/* Quién Soy - Bloque */
+.about-block{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-block ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 16px 0;
+}
+.about-block ul li{
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+    color: var(--ink-700);
+}
+.about-block ul li::before{
+    content: "✓";
+    color: var(--ok);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+}
+
+
 /* Cards de Servicios */
 .service-card{
   background:var(--pill);
   padding:30px;
   border-radius:var(--radius-lg);
   border-left:5px solid var(--teal);
+  min-height: 200px; /* Asegura un mínimo de altura */
+  display: flex;
+  flex-direction: column;
 }
 .service-card h3{
   color:var(--teal-2);
@@ -264,6 +302,7 @@ img{
     font-size: 0.9rem;
     font-weight: 800;
     margin-right: 12px;
+    flex-shrink: 0;
 }
 .service-card p{
   font-size:0.95rem;
@@ -273,12 +312,13 @@ img{
 .strip{
   padding:20px 0;
   display:flex;
-  justify-content:center;
+  justify-content:space-around;
   align-items:center;
   gap:20px;
   background:var(--card);
   box-shadow:0 4px 8px rgba(0,0,0,0.03);
   margin-top:20px;
+  border-radius: var(--radius-lg);
 }
 .strip img{
   height:40px;
@@ -334,12 +374,18 @@ img{
     font-size: 0.9rem;
     margin-bottom: 12px;
 }
+.article .pad{
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
 
 /* Sección de Descarga (Lead Magnet) */
 .download-section{
   background:var(--teal-2); /* Azul Oscuro */
   color:var(--card);
-  padding:60px 0;
+  padding:60px;
   text-align:center;
   border-radius:var(--radius-xl);
   margin-bottom:40px;
@@ -358,7 +404,7 @@ img{
   background:var(--ok); /* Color de éxito/positivo */
 }
 .download-section .btn:hover{
-  background:darken(var(--ok), 10%); /* Oscurecer un poco el verde */
+  background:var(--teal); /* Oscurecer un poco el verde */
 }
 
 /* ========= Footer ========= */
@@ -392,10 +438,13 @@ img{
   
   /* Hero Section: Apilamos la imagen y el texto */
   .hero-section{
-    flex-direction: column;
     padding-top: 40px; 
     min-height: auto; 
-    text-align: center; 
+  }
+
+  .hero-content{
+      flex-direction: column-reverse;
+      text-align: center; 
   }
 
   .hero-copy{
@@ -408,43 +457,52 @@ img{
     margin-bottom: 6px; 
   }
   
-  /* Nuevo: Botones del HERO más compactos */
-  .hero-copy .btn {
-    padding: 0.75rem 1rem; 
-    font-size: 0.95rem; 
+  .hero-cta{
+      justify-content: center;
   }
 
   /*
   ---
-  CORRECCIÓN 2: Badges del HERO (Superior) - MANTENIDOS
+  Badges del HERO (Superior)
   ---
   */
   .badges-row {
-    gap: 0;
+    gap: 8px;
     justify-content: center;
+    border-bottom: none;
+    padding-bottom: 0;
+    padding-top: 10px;
   }
 
   .badges-row img {
     height: 38px; 
     margin: 0 4px; 
   }
+  
+  /* Bloque "Quién Soy" */
+  .about-block{
+      flex-direction: column;
+      text-align: center;
+      gap: 30px;
+  }
+  .about-block ul{
+      text-align: left;
+  }
 
 
   /*
   ---
-  CORRECCIÓN 3: Badges INFERIORES (#credenciales / .strip) - MANTENIDOS
+  Strip de Credenciales / Confianza (#credenciales / .strip)
   ---
   */
   .strip {
-    /* AJUSTE EXTREMO MÓVIL: Reducción de gap a 1px */
-    gap: 1px; 
+    gap: 10px; 
     flex-wrap: wrap; 
     justify-content: center;
   }
   
   .strip img {
     height: 35px; 
-    /* AJUSTE EXTREMO MÓVIL: Eliminamos el margin lateral */
     margin: 0 0; 
   }
 
@@ -482,8 +540,5 @@ img{
   .download-section{
       padding: 40px 20px;
       border-radius: var(--radius-lg);
-  }
-  .hero-cta{
-      justify-content: center;
   }
 }
