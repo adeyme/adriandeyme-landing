@@ -1,38 +1,24 @@
 /* ========= Design Tokens (Variables Globales) ========= */
 :root{
-  /* Colores según Guía de Identidad Visual */
-  --bg: #f5f5f5;               /* Gris Claro (Fondo Neutro) - Ajustado a F5F5F5 de la guía */
-  --card: #ffffff;             /* Blanco (Contraste) */
-  --ink-900: #062F36;          /* Azul Oscuro (Profundo) */
-  --ink-800: #0e4c5a;          /* Azul Petróleo (Principal) - Usado para headings y acentos fuertes */
-  --ink-700: #2b4a53;
-  --ink-600: #48656e;
-  --ink-500: #6a8790;
-  --muted: #9db2b8;            /* Texto secundario/desactivado */
-  --teal: #0E4C5A;             /* Azul Petróleo (Principal) - Botón principal */
-  --teal-2: #0A3B40;           /* Variante de Azul Petróleo para hover */
-  --pill: #e8f2f4;             /* Color suave para chips/tags */
-
-  /* Colores funcionales */
-  --ok: #0e844f;               /* Verde para éxito/OK */
-
-  /* Border Radius */
-  --radius-xl: 24px;
-  --radius-lg: 18px;
-  --radius-md: 14px;
-  --radius-sm: 10px;
-
-  /* Sombras */
-  --shadow-1: 0 8px 18px rgba(2,32,43,.08);
-  --shadow-2: 0 12px 30px rgba(2,32,43,.12);
-
-  /* Tipografía */
-  --font-display: 'Poppins', sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+  --bg:#f7f9fa;
+  --card:#ffffff;
+  --ink-900:#0c1a1e;
+  --ink-800:#122a30;
+  --ink-700:#2b4a53;
+  --ink-600:#48656e;
+  --ink-500:#6a8790;
+  --muted:#9db2b8;
+  --teal:#0e4950;        /* botón principal */
+  --teal-2:#0a3b40;
+  --pill:#e8f2f4;        /* chips / x-strip */
+  --ok:#0e844f;
+  --radius-xl:24px;
+  --radius-lg:18px;
+  --radius-md:14px;
+  --radius-sm:10px;
+  --shadow-1:0 8px 18px rgba(2,32,43,.08);
+  --shadow-2:0 12px 30px rgba(2,32,43,.12);
 }
-
-/* Importar fuentes */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Poppins:wght@700;800&display=swap');
 
 /* ========= Base ========= */
 *{box-sizing:border-box}
@@ -40,593 +26,683 @@ html,body{margin:0;padding:0}
 body{
   background:var(--bg);
   color:var(--ink-900);
-  font:16px/1.55 var(--font-body);
+  font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  min-height: 100vh;
 }
+p, h1, h2, h3, h4, h5, h6 { margin-top: 0; }
+a { color: var(--teal); text-decoration: none; transition: color 0.2s, background-color 0.2s; }
+a:hover { color: var(--ink-900); }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  line-height: 1.25;
-  color: var(--ink-800);
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-h1 { font-size: 2.8rem; }
-h2 { font-size: 2.1rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.2rem; }
-
-p {
-    margin-top: 0;
-    margin-bottom: 1.2em;
-}
-
-a {
-  color: var(--teal);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-a:hover {
-  color: var(--teal-2);
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Contenedor principal de la página */
-.container {
+/* Contenedor principal de ancho limitado */
+.wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
-
-section {
-    padding: 60px 0;
+.section-pad {
+  padding: 80px 0;
 }
 
-/* Estilos para el texto de negrita dentro de párrafos o spans */
-.bolder {
-    font-weight: 700;
-    color: var(--ink-800);
-}
 
-/* Botones (Globales) */
-.btn {
-  display: inline-block;
-  padding: 1rem 1.5rem;
+/* ========= Tipografía ========= */
+
+/* Títulos grandes: Usamos Poppins para dar un toque moderno y profesional */
+.hero-title, .title-bg {
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.2s ease;
+  line-height: 1.1;
+  color: var(--ink-900);
+}
+.hero-title {
+  font-size: 3.2rem;
+  margin-bottom: 20px;
 }
 
+/* Subtítulos de sección */
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--ink-700);
+  margin-top: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+/* Títulos de sección con fondo visual */
+.section-title-box {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.title-bg {
+  font-size: 2.5rem;
+  position: relative;
+  display: inline-block;
+  /* Efecto de fondo sutil */
+}
+.title-bg::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 400px;
+  height: 12px;
+  background-color: var(--pill);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+h3 {
+  font-size: 1.8rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+
+/* Chips/Pills */
+.pill {
+  display: inline-block;
+  background-color: var(--pill);
+  color: var(--teal-2);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+
+/* ========= Botones ========= */
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-md);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid transparent;
+}
+
+.btn.large {
+  padding: 1rem 1.8rem;
+  font-size: 1.1rem;
+}
+.btn.small {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+}
+
+/* Botón Primario (Teal) */
 .btn-primary {
   background-color: var(--teal);
   color: var(--card);
-  border: 2px solid var(--teal);
-  box-shadow: var(--shadow-1);
 }
-
 .btn-primary:hover {
   background-color: var(--teal-2);
-  border-color: var(--teal-2);
-  box-shadow: var(--shadow-2);
+  color: var(--card);
 }
 
+/* Botón Secundario (Outline) */
 .btn-secondary {
   background-color: transparent;
   color: var(--teal);
-  border: 2px solid var(--teal);
+  border-color: var(--teal);
 }
-
 .btn-secondary:hover {
-  background-color: var(--pill);
-  color: var(--teal-2);
-  border-color: var(--teal-2);
+  background-color: var(--teal);
+  color: var(--card);
 }
 
-/* Contenedores de tarjetas/funcionalidad */
-.card {
-    background-color: var(--card);
-    padding: 30px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-1);
-    height: 100%; /* Asegura que las tarjetas en grid tengan la misma altura */
+/* Botón Terciario (Link Style) */
+.btn-tertiary {
+  background-color: transparent;
+  color: var(--ink-700);
+  border: none;
+}
+.btn-tertiary:hover {
+  color: var(--ink-900);
 }
 
-
-/* ========= HEADER / NAV (Ajustado para el logo pequeño) ========= */
-header {
-    background-color: var(--card);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.shadow-button {
+  box-shadow: 0 10px 20px rgba(14, 73, 80, 0.3); /* Sombra basada en --teal */
+}
+.shadow-button:hover {
+  box-shadow: 0 15px 30px rgba(10, 59, 64, 0.4); /* Sombra más intensa al pasar el mouse */
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
+.btn-text {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--teal);
+  margin-top: 15px;
 }
 
-/* Estilos del Logo (ADRIAN DEYME) - REDUCIDO */
-.logo a {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.3rem; /* TAMAÑO AJUSTADO: Más discreto en el navbar */
-    color: var(--ink-800);
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    padding-left: 0; 
-}
+/* ========= Layouts ========= */
 
-/* Links de navegación */
-.nav-links a {
-    margin-left: 20px;
-    font-weight: 500;
-    color: var(--ink-700);
-}
-
-.nav-links a:hover {
-    color: var(--teal);
-}
-
-/* Ocultar botón de diagnóstico en desktop para la barra de navegación (se moverá al HERO) */
-.navbar .btn {
-    display: none;
-}
-
-
-/* ========= HERO / PORTADA (Ajustado al diseño de la imagen) ========= */
-
-#hero {
-    background-color: var(--card); /* Fondo blanco para la sección de portada */
-    padding: 40px 0 0; /* Menos padding arriba para que el hero comience antes */
-}
-
-.hero-content {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start; /* Alineación arriba para el contenido */
-    gap: 40px;
-}
-
-/* Contenedor Izquierdo: Copy y Botones */
-.hero-copy {
-    flex: 1;
-    padding-top: 40px; /* Separación vertical */
-    max-width: 650px;
-}
-
-/* Título EJECUCIÓN SISTÉMICA - Usando el estilo de la imagen */
-.hero-copy .subtitle-top {
-    font-family: var(--font-body);
-    font-weight: 800;
-    font-size: 1.1rem;
-    color: var(--teal);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    display: block;
-}
-
-/* Título Principal */
-.hero-copy h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-}
-
-/* Subtítulo/Párrafo descriptivo */
-.hero-copy p {
-    font-size: 1.15rem;
-    color: var(--ink-700);
-    margin-bottom: 30px;
-}
-
-/* Fila de botones */
-.hero-actions {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 50px; /* Separación grande con la siguiente sección */
-}
-
-.hero-copy .btn {
-    margin: 0;
-    padding: 0.9rem 1.4rem;
-}
-
-
-/* Contenedor Derecho: Imagen del Perfil */
-.hero-image {
-    flex: 1;
-    text-align: right; /* Alinea la imagen a la derecha */
-    min-width: 300px;
-}
-
-.hero-image img {
-    /* La imagen debe ser el recurso subido por el usuario */
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-2);
-    width: 100%;
-    max-width: 450px; /* Controla el tamaño máximo en desktop */
-    height: auto;
-    margin-top: -40px; /* Para que la parte superior de la imagen se solape con el nav */
-}
-
-
-/* ========= SECCIONES GENERALES / LAYOUTS (No modificadas) ========= */
-
-/* Patrón Grid para contenido en columnas */
 .grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
 }
 
 .grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.section-subtitle {
-    font-size: 1.15rem;
-    color: var(--ink-600);
-    max-width: 700px;
-    margin: 0 auto 50px auto;
-}
-
-/* Estilo para las tarjetas de "Mi Oferta de Valor" */
-#oferta-valor .card {
-    padding: 40px 30px;
-    text-align: center;
-    border-radius: var(--radius-xl);
-    border-top: 5px solid var(--teal);
-}
-
-#oferta-valor .card h4 {
-    color: var(--teal);
-    font-weight: 700;
-    font-size: 1.6rem;
-    margin-top: 15px;
-    margin-bottom: 5px;
-}
-
-#oferta-valor .card h4 span {
-    display: block;
-    font-size: 0.9rem;
-    color: var(--ink-700);
-    font-weight: 500;
-    margin-top: 5px;
-}
-
-#oferta-valor .card p {
-    color: var(--ink-700);
-    margin-bottom: 0;
-}
-
-/* Iconos de número para la oferta de valor */
-.card-icon-number {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 20px auto;
-    background-color: var(--teal);
-    color: var(--card);
-    font-size: 2rem;
-    font-weight: 800;
-    border-radius: 50%;
-    box-shadow: var(--shadow-1);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
 
-/* SECCIÓN DE CREDENCIALES (Strip) */
-#credenciales {
-    background-color: var(--ink-900);
-    padding: 30px 0;
+/* ========= 1. HEADER & HERO SECTION ========= */
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--pill);
+  position: sticky;
+  top: 0;
+  background-color: var(--bg);
+  z-index: 1000;
 }
 
-.strip {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.strip img {
-    height: 40px;
-    opacity: 0.9;
-    filter: brightness(0) invert(1); /* Poner las insignias en blanco */
-    margin: 0 10px;
-    transition: transform 0.3s ease;
+/* --- CORRECCIÓN DEL TAMAÑO DEL LOGO --- */
+.logo-box .logo {
+  height: 48px; /* TAMAÑO FIJO PARA QUE NO SEA GIGANTE */
+  width: auto;
+  border-radius: var(--radius-md);
+  transition: transform 0.3s;
+}
+.logo-box .logo:hover {
+  transform: scale(1.05);
 }
 
-.strip img:hover {
-    transform: scale(1.05);
+.brand-text {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.2;
 }
 
-/* SECCIÓN QUIÉN SOY/ACERCA DE */
-#quien-soy {
-    padding-bottom: 0; /* Para que la sección de enfoque se pegue */
-    background-color: var(--bg); /* Asegura el fondo gris */
+.brand-text .first {
+  display: block;
+  color: var(--ink-700);
+  font-size: 0.9em;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-#quien-soy .grid-2 {
-    align-items: flex-start;
+.brand-text .second {
+  display: block;
+  color: var(--teal); 
+  font-size: 1.2em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+/* -------------------------------------- */
+
+
+#header nav a {
+  margin-left: 20px;
+  color: var(--ink-700);
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+#header nav a:hover {
+  color: var(--teal);
 }
 
-.quien-soy-copy h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+/* Hero Section */
+#hero {
+  padding: 60px 20px 0 20px;
+  text-align: center; /* Centrado en móvil */
 }
 
-.quien-soy-copy p {
-    color: var(--ink-700);
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+  text-align: left; /* Alineación izquierda en desktop */
+  max-width: 1000px; /* Contenedor interno */
+  margin: 0 auto;
 }
 
-/* SECCIÓN MI ENFOQUE */
-#enfoque {
-    padding-top: 40px;
-    padding-bottom: 60px;
-    background-color: var(--bg); /* Asegura el fondo gris */
+.hero-subtitle {
+  font-size: 1.35rem;
+  color: var(--ink-600);
+  margin-bottom: 30px;
 }
 
-.enfoque-card {
-    background-color: var(--card);
-    padding: 40px;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-2);
-    border-left: 5px solid var(--teal);
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap; /* Soporte para envolver en móvil */
 }
 
-.enfoque-card h3 {
-    color: var(--teal);
-    font-weight: 700;
-    margin-bottom: 10px;
+.hero-image {
+  text-align: center;
 }
 
-.enfoque-card p {
-    color: var(--ink-700);
-    margin-bottom: 0;
+.hero-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: var(--radius-xl);
+  object-fit: cover;
+  box-shadow: var(--shadow-2);
 }
 
-/* SECCIÓN RECURSOS / ARTÍCULOS */
-#recursos {
-    background-color: var(--bg);
+/* Badges strip */
+#badges {
+  padding: 30px 0;
+  border-top: 1px solid var(--pill);
+  border-bottom: 1px solid var(--pill);
+  background-color: var(--card);
+}
+.badges-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.badges-row img {
+  height: 45px;
+  width: auto;
+  filter: grayscale(80%) opacity(0.8);
+  transition: filter 0.3s;
+}
+.badges-row img:hover {
+  filter: grayscale(0%) opacity(1);
 }
 
-.article-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+
+/* ========= 2. QUIÉN SOY & MI ENFOQUE ========= */
+
+.card {
+  background-color: var(--card);
+  padding: 30px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-1);
+}
+
+.profile-card {
+  text-align: center;
+}
+
+.profile-photo-box {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--teal);
+  box-shadow: var(--shadow-1);
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-text h4 {
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 10px;
+  color: var(--teal-2);
+}
+
+.profile-text ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-top: 20px;
+}
+.profile-text ul li {
+  padding: 5px 0 5px 25px;
+  position: relative;
+  color: var(--ink-700);
+}
+.profile-text ul li::before {
+  content: "✓";
+  color: var(--teal);
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+}
+.profile-text .btn-secondary {
+  margin-top: 20px;
+}
+
+
+/* ========= 3. MI OFERTA DE VALOR (SERVICIOS) ========= */
+
+.bg-white {
+  background-color: var(--card);
+}
+
+.service-card {
+  background-color: var(--bg);
+  padding: 30px;
+  border-radius: var(--radius-xl);
+  border-left: 5px solid var(--teal);
+  box-shadow: var(--shadow-1);
+  transition: all 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-2);
+}
+
+.service-number {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: var(--teal);
+  color: var(--card);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.service-card h3 {
+  margin-top: 0;
+  color: var(--teal-2);
+}
+
+.service-focus {
+  font-style: italic;
+  color: var(--ink-600);
+}
+
+.services-cta-strip {
+  text-align: center;
+  margin-top: 50px;
+  background-color: var(--pill);
+  padding: 25px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.services-cta-strip p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--ink-800);
+}
+
+
+/* ========= 4. RECURSOS Y ARTÍCULOS ========= */
+
+.resource-cta-card {
+  background-color: var(--teal);
+  color: var(--card);
+  padding: 40px;
+  border-radius: var(--radius-xl);
+}
+.resource-cta-card h3 {
+  color: var(--card);
+  margin-top: 0;
+  font-size: 2rem;
+}
+.resource-cta-card p {
+  color: rgba(255, 255, 255, 0.9);
+}
+.resource-cta-card .disclaimer {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+.download-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.download-form input[type="email"] {
+  padding: 10px 15px;
+  border: none;
+  border-radius: var(--radius-md);
+  flex-grow: 1;
+  font-size: 1rem;
+}
+
+.articles-block h3 {
+  color: var(--teal-2);
+  margin-top: 0;
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--pill);
+  padding-bottom: 10px;
+}
+
+.articles-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .article {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--card);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    overflow: hidden;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 15px;
+  background-color: var(--card);
+  padding: 10px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+  color: var(--ink-900);
 }
-
 .article:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-2);
+  background-color: var(--bg);
+  box-shadow: var(--shadow-2);
 }
 
 .article img {
-    height: 200px;
-    object-fit: cover;
-    width: 100%;
-    border-top-left-radius: var(--radius-md);
-    border-top-right-radius: var(--radius-md);
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
 }
-
-.article .pad {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
 .article h4 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    flex-grow: 1;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--teal-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-
 .article p {
-    font-size: 0.95rem;
-    color: var(--ink-600);
-    margin-bottom: 15px;
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: var(--ink-600);
 }
-
 .article .more {
-    font-weight: 700;
-    color: var(--teal);
-    display: inline-block;
-    font-size: 0.95rem;
-}
-
-/* SECCIÓN CONTACTO / CTA */
-#cta {
-    background-color: var(--ink-800);
-    color: var(--card);
-    padding: 80px 0;
-}
-
-#cta h2 {
-    color: var(--card);
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-}
-
-#cta p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-#cta .btn {
-    background-color: var(--card);
-    color: var(--teal);
-    border-color: var(--card);
-}
-
-#cta .btn:hover {
-    background-color: var(--pill);
-    border-color: var(--pill);
+  font-size: 0.85rem;
 }
 
 
-/* FOOTER */
+/* ========= 5. CTA FINAL & CONTACTO ========= */
+
+.bg-teal-2 {
+  background-color: var(--teal-2);
+  color: var(--card);
+}
+.final-cta-wrapper {
+  text-align: center;
+}
+.cta-copy {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+}
+.cta-copy h2 {
+  font-size: 3rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--card);
+  margin-bottom: 20px;
+}
+.cta-copy p {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* ========= 6. FOOTER ========= */
+
 footer {
-    background-color: var(--ink-900);
-    color: var(--muted);
-    padding: 20px 0;
-    font-size: 0.9rem;
+  background-color: var(--ink-800);
+  color: var(--muted);
+  padding: 30px 0;
+  font-size: 0.9rem;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: var(--muted);
+  margin-left: 20px;
+}
+.footer-links a:hover {
+  color: var(--card);
+}
+
+
+/* ========= Responsive (Mobile) ========= */
+
+@media (max-width: 900px) {
+
+  /* Ajuste General */
+  .section-pad {
+    padding: 50px 0;
+  }
+  .wrapper {
+    padding: 0 15px;
+  }
+  
+  /* Hero Section */
+  .hero-content {
+    grid-template-columns: 1fr; /* Columna única en móvil */
+    gap: 30px;
+    text-align: center; /* Centrar todo en móvil */
+  }
+
+  .hero-copy {
+    order: 2; /* Coloca la copia debajo de la imagen */
+  }
+
+  .hero-image {
+    order: 1; /* Coloca la imagen arriba */
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    /* Reducción de margin inferior del título en móvil */
+    margin-bottom: 15px; 
+  }
+  
+  .hero-subtitle {
+    font-size: 1.15rem;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-copy .btn.large {
+    width: 100%; /* Botones grandes ocupan todo el ancho */
+    margin-bottom: 10px;
+  }
+  
+  /* Badges */
+  .badges-row {
+    gap: 15px;
+  }
+  .badges-row img {
+    height: 35px; 
+  }
+
+  /* Grid (Quién Soy / Servicios) */
+  .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .reverse-on-mobile {
+    display: flex;
+    flex-direction: column-reverse; /* Pone la tarjeta de perfil arriba */
+  }
+  
+  /* Services */
+  .services-cta-strip {
+    flex-direction: column;
     text-align: center;
-}
+  }
+  
+  /* Recursos */
+  .resource-cta-card h3 {
+    font-size: 1.7rem;
+  }
+  .download-form {
+    flex-direction: column;
+  }
+  .download-form button {
+    width: 100%;
+  }
+  
+  /* Artículos */
+  .article {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .article img {
+    height: auto;
+    max-height: 120px;
+  }
+  .article .pad {
+    padding: 10px 0 0 0;
+  }
 
-footer a {
-    color: var(--muted);
-}
-footer a:hover {
-    color: var(--card);
-}
-
-/* MOBILE NAV (Para ocultar en desktop) */
-.menu-toggle, .mobile-nav-links {
-    display: none;
-}
-
-
-/* ======================================= */
-/* ========= MEDIA QUERIES (RESPONSIVE) ========= */
-/* ======================================= */
-
-@media (max-width: 992px) {
-    /* Ajustes generales para tablets y pantallas medianas */
-    .container {
-        padding: 0 25px;
-    }
-
-    h1 { font-size: 2.4rem; }
-    h2 { font-size: 1.8rem; }
-    .section-title { font-size: 2.2rem; }
-
-    /* Hero */
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 0; /* Resetear el padding */
-    }
-    .hero-copy {
-        max-width: none;
-        padding-top: 0;
-    }
-    .hero-image {
-        order: -1; /* Mueve la imagen arriba en móvil */
-        margin-bottom: 30px;
-    }
-    .hero-image img {
-        margin-top: 0; /* Resetear el margen negativo en móvil */
-    }
-    .hero-actions {
-        justify-content: center;
-    }
-
-    /* Grids */
-    .grid-2, .grid-3, .article-list {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-
-    /* Quien Soy */
-    #quien-soy .quien-soy-copy {
-        order: 1;
-    }
-    #quien-soy .hero-image {
-        order: -1;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Ajustes para dispositivos móviles */
-    section {
-        padding: 40px 0;
-    }
-    .card {
-        padding: 20px;
-        border-radius: var(--radius-md);
-    }
-
-    /* Tipografía en móvil */
-    h1 { font-size: 2.1rem; }
-    h2 { font-size: 1.6rem; }
-    h3 { font-size: 1.3rem; }
-    .section-title { font-size: 1.8rem; }
-    .hero-copy p { font-size: 1rem; }
-
-    /* HERO */
-    .hero-copy h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-    }
-    .hero-actions {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .hero-copy .btn {
-      padding: 0.75rem 1rem;
-      font-size: 0.95rem;
-      width: 100%;
-    }
-    .hero-image img {
-        max-width: 300px;
-        margin: 0 auto;
-    }
-
-    /* Credenciales Strip */
-    .strip {
-        gap: 1px;
-    }
-    .strip img {
-        height: 30px;
-        margin: 0 0;
-    }
-
-    /* Navbar/Mobile Menu (Hamburger) */
-    .navbar {
-        padding: 10px 0;
-    }
-    .nav-links {
-        display: none;
-    }
-    .navbar .btn {
-        display: inline-block; /* Mostrar el botón de diagnóstico en el nav en móvil */
-    }
-
+  /* CTA Final */
+  .cta-copy h2 {
+    font-size: 2.2rem;
+  }
+  .cta-copy p {
+    font-size: 1.2rem;
+  }
+  
+  /* Footer */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  .footer-links a {
+    margin: 0 10px;
+  }
 }
