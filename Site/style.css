@@ -34,7 +34,7 @@ body{
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 .container{max-width:1180px;margin-inline:auto;padding:24px 20px}
-/* AJUSTE CLAVE (MÁS AGRESIVO): Reducción de espaciado vertical global de 24px a 20px */
+/* AJUSTE CLAVE (MÁS AGRESIVO): Reducción de espaciado vertical global a 20px */
 .section{padding:20px 0} 
 h2{font-size:clamp(1.4rem,1vw + 1rem,1.9rem);line-height:1.2;margin:0 0 12px}
 p{margin:0 0 10px}
@@ -136,26 +136,27 @@ p{margin:0 0 10px}
 .article p{color:var(--ink-700)}
 .article a.more{margin-top:auto;color:var(--teal);font-weight:700}
 
-/* ========= Credenciales ========= */
+/* ========= Credenciales (Badges) ========= */
 .strip{display:flex;gap:26px;flex-wrap:wrap;align-items:center;justify-content:center}
 .strip img{height:62px}
-/* AJUSTE FINAL: Reducción de padding vertical para la sección de badges. */
+/* #badges: Espacio inferior a CERO, superior pequeño (16px) */
 #badges {
     padding-top: 16px; 
-    padding-bottom: 0; /* CLAVE: Elimina el espacio blanco extra debajo de los badges */
+    padding-bottom: 0; 
 }
 
-/* La sección de recursos usa el padding-top de la clase .section (20px). */
+/* ========= Recursos (`#recursos`) ========= */
+/* AJUSTE FINO: Reducir el padding-top para compactar la separación con #badges */
 #recursos {
-    /* No se necesita un ajuste específico, se basa en .section (20px) */
+    padding-top: 16px; /* Reducido de 20px a 16px */
 }
 
 
 /* ========= Contacto / Footer ========= */
 .cta{background:var(--card);border:1px solid rgba(2,32,43,.08);border-radius:var(--radius-xl);padding:22px;text-align:center;box-shadow:var(--shadow-1)}
-/* AJUSTE: Reducir el padding superior de la CTA de contacto */
+/* AJUSTE FINO: Reducir el padding superior de la CTA de contacto */
 #contacto {
-    padding-top: 12px;
+    padding-top: 10px; /* Reducido de 12px a 10px */
 }
 footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08)}
 .foot{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;text-align:center}
@@ -340,9 +341,14 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
     padding-bottom: 0; /* CLAVE: Elimina el espacio blanco extra debajo de los badges */
   }
   
+  /* AJUSTE FINO MÓVIL: Reducir el padding-top para compactar la separación con #badges */
+  #recursos {
+    padding-top: 12px; /* Reducido de 16px a 12px para móvil */
+  }
+
   /* Ajuste de Contacto en móvil */
   #contacto {
-    padding-top: 10px; 
+    padding-top: 8px; /* Reducido de 10px a 8px */
   }
   
   /* ¡Cierre del media query! */
