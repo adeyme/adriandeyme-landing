@@ -213,53 +213,53 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
 
 /* Optimización Móvil (menos de 640px) */
 @media (max-width: 640px) {
-  /* Base: Espaciado y relleno general */
-  .container {
-    padding: 16px 14px;
-  }
-  /* Importante: Mantener el padding de la sección general */
-  .section {
-    padding: 30px 0; /* Espacio vertical reducido para móvil */
-  }
-  
-  /* Header: Ajustes para que quepa el logo */
-  .site-header .nav-brand {
-    font-size: 1.1rem;
-  }
+  /* Base: Espaciado y relleno general */
+  .container {
+    padding: 16px 14px;
+  }
+  /* Importante: Mantener el padding de la sección general */
+  .section {
+    padding: 30px 0; /* Espacio vertical reducido para móvil */
+  }
+  
+  /* Header: Ajustes para que quepa el logo */
+  .site-header .nav-brand {
+    font-size: 1.1rem;
+  }
 
-  /* HERO: Reestructura el layout a una sola columna */
-  .hero-wrap {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-  /* La tarjeta del retrato va antes del texto en móvil (mejor UX) */
-  .portrait-card {
-    order: -1; 
-    max-width: 260px; 
-    border-radius: 14px;
-  }
-  .hero h1 {
-    font-size: clamp(1.8rem, 5vw + 0.5rem, 2.2rem);
-  }
-  
-  /* Nuevo: Botones del HERO más compactos */
-  .hero-copy .btn {
-    padding: 0.75rem 1rem; /* Botones más chicos */
-    font-size: 0.95rem; 
-  }
+  /* HERO: Reestructura el layout a una sola columna */
+  .hero-wrap {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  /* La tarjeta del retrato va antes del texto en móvil (mejor UX) */
+  .portrait-card {
+    order: -1; 
+    max-width: 100%; /* Asegura que no haya overflow horizontal */
+    border-radius: 14px;
+  }
+  .hero h1 {
+    font-size: clamp(1.8rem, 5vw + 0.5rem, 2.2rem);
+  }
+  
+  /* Nuevo: Botones del HERO más compactos */
+  .hero-copy .btn {
+    padding: 0.75rem 1rem; /* Botones más chicos */
+    font-size: 0.95rem; 
+  }
 
-  /* Nuevo: Badges y Credenciales FINAL (tamaño sutil) */
-  .strip img,
-  .badges-row img {
-    height: 32px; /* Reducción a 32px (tamaño sutil final) */
-    margin: 0 4px; 
-  }
- 
-  /* Nuevo: Compactar la fila de Badges del HERO */
-  .badges-row {
-    gap: 0;
-    justify-content: center;
-  }
+  /* Nuevo: Badges y Credenciales FINAL (tamaño sutil) */
+  .strip img,
+  .badges-row img {
+    height: 32px; /* Reducción a 32px (tamaño sutil final) */
+    margin: 0 4px; 
+  }
+  
+  /* Nuevo: Compactar la fila de Badges del HERO */
+  .badges-row {
+    gap: 0;
+    justify-content: center;
+  }
 
   /* SOLUCIÓN DISPERSIÓN (BADGES INFERIORES) */
   .strip {
@@ -268,32 +268,34 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
     justify-content: center;
   }
 
-  /* Columnas: Convierte todas las cuadrículas en 1 columna */
-  .grid-3, .grid-2 {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  
-  /* Artículos: Estructura de recursos */
-  .resources-wrap {
-    grid-template-columns: 1fr;
-  }
-  .articles {
-    grid-template-columns: 1fr;
-  }
-  
-  /* CORRECCIÓN DE ESPACIADO VERTICAL (entre secciones) */
-  
-  /* 1. Reduce el padding de la sección de Credenciales */
-  #badges {
-    padding-top: 20px;
-    padding-bottom: 10px; /* SOLUCIONA el espacio vertical con CTA */
-  }
-  
-  /* 2. Reduce el padding superior de la sección de Contacto para unirla */
-  #contacto {
-    padding-top: 20px; /* SOLUCIONA el espacio vertical con Badges */
-  }
-  
-  /* ¡Cierre del media query! */
+  /* Columnas: Convierte todas las cuadrículas en 1 columna */
+  .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  
+  /* Artículos: Estructura de recursos */
+  .resources-wrap {
+    grid-template-columns: 1fr;
+    gap: 14px; /* CORRECCIÓN FINAL: Añadido gap para evitar el "desarme" */
+  }
+  .articles {
+    grid-template-columns: 1fr;
+    gap: 14px; /* CORRECCIÓN FINAL: Añadido gap para evitar el "desarme" */
+  }
+  
+  /* CORRECCIÓN DE ESPACIADO VERTICAL (entre secciones) */
+  
+  /* 1. Reduce el padding de la sección de Credenciales */
+  #badges {
+    padding-top: 20px;
+    padding-bottom: 10px; /* SOLUCIONA el espacio vertical con CTA */
+  }
+  
+  /* 2. Reduce el padding superior de la sección de Contacto para unirla */
+  #contacto {
+    padding-top: 20px; /* SOLUCIONA el espacio vertical con Badges */
+  }
+  
+  /* ¡Cierre del media query! */
 }
