@@ -212,6 +212,12 @@ nav{
   color:var(--teal);
   letter-spacing:1px;
 }
+/* CORRECCIÓN 1: Controla la altura del logo SVG */
+.logo-img{
+    height: 38px; /* Altura controlada para el logo */
+    width: auto;
+    display: block;
+}
 .nav-links a{
   margin-left:30px;
   color:var(--ink-700);
@@ -266,8 +272,13 @@ nav{
   margin-bottom:15px;
   align-items:center;
 }
+/* CORRECCIÓN 2: Asegura que los badges se vean mejor en fondo claro */
 .badges-row img{
-  height:40px;
+  height:45px; /* Ligeramente más grandes para mejor detalle */
+  opacity: 1; /* Quitamos la opacidad */
+  transition:opacity .3s;
+}
+.badges-row img:hover{
   opacity: 0.8;
 }
 
@@ -289,12 +300,35 @@ nav{
     border: 3px solid var(--teal);
     box-shadow: var(--shadow-1);
 }
-
-#quien-soy .image-col img{
+/* Estilo para la foto de perfil en la tarjeta */
+.profile-pic{
     width: 100%;
-    height: auto;
+    max-width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
     border-radius: var(--radius-xl);
+    margin: 0 auto 20px auto;
+    border: 5px solid var(--pill);
     box-shadow: var(--shadow-2);
+}
+.profile-card{
+    background-color:var(--card);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-1);
+    padding:30px;
+    border: 1px solid var(--pill);
+    text-align: center;
+}
+.badges-row-mobile{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+.badges-row-mobile img{
+    height: 40px;
+    opacity: 0.9;
 }
 
 
@@ -337,6 +371,17 @@ nav{
   align-items:center;
   justify-content:center;
 }
+.flow-step{
+    color: var(--teal);
+    font-weight: 600;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.flow-step svg{
+    stroke-width: 3;
+}
 .icon-circle{
     width: 55px;
     height: 55px;
@@ -351,6 +396,11 @@ nav{
 
 
 /* ============= Credenciales / Strip ============= */
+.strip-wrap{
+    padding: 30px 0;
+    border-top: 1px solid var(--pill);
+    border-bottom: 1px solid var(--pill);
+}
 .strip{
   display:flex;
   justify-content:space-between;
@@ -358,75 +408,71 @@ nav{
   gap:20px;
 }
 .strip img{
-  height:40px;
+  height:45px; /* Aumentado para mejor visibilidad */
   opacity:.8;
-  transition:opacity .3s;
+  transition:opacity .3s, filter .3s;
   margin:0 10px;
+}
+
+/* CORRECCIÓN 3: Solo aplica el filtro en la franja oscura inferior */
+#credenciales-bottom .strip img{
   filter: grayscale(100%) brightness(1.5); /* Iconos blancos para fondo oscuro */
 }
+
 .strip img:hover{
   opacity:1;
-  filter: grayscale(0%) brightness(1);
+  filter: grayscale(0%) brightness(1); /* Quitamos el filtro al hacer hover */
 }
 
 
 /* ============= Recursos / Publicaciones ============= */
-
-.download-article{
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 40px;
+.newsletter-box{
+    background-color: var(--teal-10);
     padding: 30px;
-    margin-bottom: 60px;
-    align-items: center;
-    border-color: var(--teal); /* Borde que marca el foco */
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--pill);
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    text-align: center;
 }
-
-.download-article img{
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-1);
-    justify-self: end;
+.newsletter-box h4{
+    font-size: 1.5rem;
+    color: var(--teal-2);
+    margin-bottom: 15px;
 }
-.download-article h3{
-    color: var(--teal);
-    font-size: 1.8rem;
-    font-weight: 700;
-}
-.download-article p{
+.newsletter-box p{
     color: var(--ink-700);
+    margin-bottom: 0;
 }
-#download-form{
+.newsletter-form{
     display: flex;
+    justify-content: center;
     gap: 10px;
     margin-top: 20px;
 }
-#download-form input[type="email"]{
-    flex-grow: 1;
+.newsletter-form input[type="email"]{
+    width: 300px;
     padding: 12px 18px;
     border: 1px solid var(--muted);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     font-size: 1rem;
-    transition: border-color .3s;
+    transition: border-color .3s, box-shadow .3s;
 }
-#download-form input[type="email"]:focus{
+.newsletter-form input[type="email"]:focus{
     border-color: var(--teal);
     outline: none;
     box-shadow: 0 0 0 3px rgba(14, 76, 90, 0.2);
 }
-.small-print{
+.legal-text{
     font-size: 0.8rem;
     color: var(--muted);
     margin-top: 10px;
 }
 
 /* Artículos del blog */
-.articles-container{
+.article-list{
     margin-top: 20px;
 }
-
 .article{
     background-color: var(--card);
     border-radius: var(--radius-lg);
@@ -435,6 +481,9 @@ nav{
     overflow: hidden;
     transition: transform .3s, box-shadow .3s, border-color .3s;
     border: 1px solid var(--pill);
+    height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+    display: flex;
+    flex-direction: column;
 }
 
 .article:hover{
@@ -443,38 +492,24 @@ nav{
     border-color: var(--teal);
 }
 
-.article .image-placeholder-box{
-    overflow: hidden;
-    height: 160px;
-}
 .article img{
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease;
-}
-.article:hover img{
-    transform: scale(1.05);
 }
 
 .article .pad{
     padding: 18px;
+    flex-grow: 1;
 }
 
 .article h4{
-    font-size: 1.2rem;
-    color: var(--teal-2);
+    font-size: 1.1rem;
+    color: var(--teal);
     margin-bottom: 8px;
     line-height: 1.3;
-}
-
-.article .date{
-    color:var(--muted); 
-    font-size:0.9rem; 
-    margin-top:4px; 
-    display:block;
-    font-weight: 400;
+    font-weight: 700;
 }
 
 .article p{
@@ -487,6 +522,33 @@ nav{
     font-weight:700;
     text-transform: uppercase;
     font-size: 0.9rem;
+    display: block;
+    margin-top: auto; /* Empuja el enlace hacia abajo */
+}
+.mt-40{
+    margin-top: 40px;
+}
+
+
+/* ============= CTA Final / Contacto ============= */
+.cta-section{
+    padding: 80px 0;
+    background-color: var(--teal-section);
+    color: var(--bg);
+    text-align: center;
+}
+.cta-section h2{
+    font-size: 3rem;
+    color: var(--card);
+}
+.cta-section p{
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    font-size: 1.2rem;
+    color: var(--muted);
+}
+.cta-box{
+    padding: 40px 20px;
 }
 
 
@@ -502,19 +564,20 @@ footer a{
 footer a:hover{
   color:var(--bg);
 }
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .social-links a{
   margin:0 10px;
   font-size: 0.95rem;
   font-weight: 500;
 }
-.social-links{
-    margin-top: 10px;
-}
-.link-muted{
-    color:var(--muted);
-}
-.link-muted:hover{
-    color:var(--bg);
+.social-links svg{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
 }
 
 
@@ -542,14 +605,12 @@ footer a:hover{
   h1{font-size:2.8rem;}
   h2{font-size:2rem;}
   .pad-lg{padding:60px 0;}
+  .cta-section h2{font-size: 2.5rem;}
+  .cta-section p{font-size: 1rem;}
 
   /* Navegación */
-  .nav-links, .cta-desktop{display:none;}
-  .cta-mobile{display:block;}
-  nav{
-      padding-top:15px;
-      padding-bottom:15px;
-  }
+  .nav-links, .btn-outline{display:none;} /* Ocultamos el CTA de desktop */
+  .burger-menu{display:block;}
 
   /* Hero */
   #hero .header-inner{
@@ -569,64 +630,54 @@ footer a:hover{
   }
 
   /* Quién Soy */
-  #quien-soy .split{
+  #quien-soy .grid-2{
       grid-template-columns: 1fr;
       text-align: center;
   }
-  #quien-soy .col{
-      text-align: center;
-  }
-  #quien-soy .section-title-left{
-      text-align: center;
-  }
-  #quien-soy .adrian-photo{
-      margin: 15px auto 0 auto;
-  }
+  .profile-copy{order: 2;}
+  .profile-card{order: 1;}
+  
   .list-check {
       display: inline-block;
       text-align: left;
   }
-  .image-col{
-      order: -1; /* Mueve la imagen arriba en móvil */
-  }
-
-
+  
   /* Servicios y Grids */
   .grid-3{
     grid-template-columns:1fr;
     gap:20px;
   }
   .service-card{padding:30px 20px; text-align: center;}
-  .service-card .icon-circle{margin: 0 auto 15px auto;}
   .step-number{top:0; right:0;}
   
   /* Credenciales */
+  .strip-wrap{
+    padding: 20px 0;
+  }
   .strip{
     gap:10px;
     flex-wrap:wrap;
     justify-content:center;
   }
   .strip img{
-    height:30px;
+    height:35px;
+    margin:0 5px;
   }
 
-  /* Recursos / Descarga */
-  .download-article{
-      grid-template-columns: 1fr;
-      padding: 25px;
-  }
-  .download-article img{
-      order: 1; /* Coloca la imagen arriba en móvil */
-      max-width: 150px;
-      justify-self: center;
-  }
-  .download-content{
-      order: 2;
-      text-align: center;
-  }
-  #download-form{
+  /* Recursos / Newsletter */
+  .newsletter-form{
       flex-direction: column;
       gap: 10px;
+  }
+  .newsletter-form input[type="email"]{
+      width: 100%;
+  }
+
+  /* Footer */
+  .footer-content{
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
   }
 }
 
@@ -647,5 +698,11 @@ footer a:hover{
     }
     .large-text{
         font-size: 1rem;
+    }
+    .grid-3, .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    .profile-pic{
+        height: 200px;
     }
 }
