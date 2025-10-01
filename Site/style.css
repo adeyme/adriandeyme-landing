@@ -233,7 +233,7 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
   }
   .portrait-card {
     order: -1; 
-    max-width: 100%; /* Ajuste a 100% para evitar overflow */
+    max-width: 100%; /* Asegura que no haya overflow horizontal en móvil */
     border-radius: 14px;
   }
   .hero h1 {
@@ -248,33 +248,35 @@ footer{padding:30px 0;color:var(--ink-600);border-top:1px solid rgba(2,32,43,.08
 
   /*
   ---
-  CORRECCIÓN 1: Badges del HERO (Restaurados a su tamaño original móvil)
+  CORRECCIÓN 1: Badges del HERO (Asegurar que quepan los 6 en una línea)
   ---
   */
-  .badges-row img {
-    height: 42px; /* Tamaño móvil de badges del HERO */
-    margin: 0 8px; /* Margen móvil de badges del HERO */
-  }
   .badges-row {
     gap: 0;
     justify-content: center;
   }
 
+  .badges-row img {
+    height: 38px; /* Reducción de 42px a 38px */
+    margin: 0 4px; /* Reducción del margen lateral para ganar espacio */
+  }
+
+
   /*
   ---
-  CORRECCIÓN 2: Badges INFERIORES (#credenciales / .strip)
+  CORRECCIÓN 2: Badges INFERIORES (#credenciales / .strip) (Forzar a 2 líneas o menos)
   ---
   */
   .strip {
-    gap: 4px; /* Reducimos el GAP del contenedor al mínimo */
+    gap: 4px; /* Mantenemos un gap mínimo entre ellos */
     flex-wrap: wrap; 
     justify-content: center;
   }
   
-  /* Selector Específico para imágenes en .strip (Credenciales) */
+  /* Selector Específico: Compactar al máximo las imágenes */
   .strip img {
     height: 42px; 
-    margin: 0 1px; /* ¡CLAVE! Reducimos el margen lateral al mínimo (1px) */
+    margin: 0 1px; /* ¡CLAVE! Eliminamos casi todo el margen lateral */
   }
 
 
