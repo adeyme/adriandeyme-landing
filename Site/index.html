@@ -133,7 +133,7 @@
         <!-- Sección de Reflexiones (Blog de Medium) -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold text-profundo text-center mb-8 border-b-2 border-petroleo/50 pb-2">Mis Últimas Reflexiones</h2>
-            <!-- El contenedor de la grilla ahora incluye una clase max-w-lg para limitar el ancho y centrarse mejor en el caso de 1 post -->
+            <!-- El contenedor siempre tiene la grilla responsiva, SIN modificación de ancho/margen aquí -->
             <div id="medium-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Mensaje de carga inicial (Será borrado por el JS) -->
                 <p class="col-span-full text-center text-lg text-suave p-10">Cargando publicaciones de Medium...</p>
@@ -146,7 +146,7 @@
             </div>
         </section>
         
-        <!-- Sección de Contacto (Footer) - ESTO ES LO QUE NO SE VEÍA -->
+        <!-- Sección de Contacto (Footer) -->
         <footer class="text-center pt-10 border-t border-gray-300">
             <p class="text-sm text-gray-500 mb-4">&copy; 2024 Adrián Deyme | Ejecución Sistémica</p>
             <p class="text-sm text-gray-500">Conectemos para llevar tu estrategia a la máxima velocidad.</p>
@@ -154,7 +154,7 @@
 
     </div>
 
-    <!-- Script para cargar posts de Medium -->
+    <!-- Script para cargar posts de Medium (SOLO modifica la tarjeta, NO el contenedor) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const MEDIUM_USERNAME = 'adriandeyme'; 
@@ -179,7 +179,6 @@
                     console.log('2. Número de Posts (data.items.length):', data.items ? data.items.length : 'N/A');
                     
                     if (data.status !== 'ok' || !data.items || data.items.length === 0) {
-                        // Si falla, mostramos el error PERO NO afectamos el layout
                         container.innerHTML = `<p class="col-span-full text-center text-lg text-suave p-10">No se pudieron cargar publicaciones de Medium.</p>`;
                         return;
                     }
@@ -189,26 +188,22 @@
                     const posts = data.items.slice(0, 3);
                     const totalPosts = posts.length;
                     
-                    // Solo si hay 1 post, lo forzamos a centrarse en la columna 2
-                    if (totalPosts === 1) {
-                         // Centramos la grilla si solo hay 1 post (en pantallas grandes)
-                        container.className = 'grid grid-cols-1 lg:grid-cols-3 gap-8 mx-auto max-w-4xl';
-                    } else {
-                        // Para 2 o 3 posts, usamos la grilla completa
-                        container.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8';
-                    }
+                    // IMPORTANTE: Mantenemos el grid original del HTML (grid-cols-1 md:grid-cols-2 lg:grid-cols-3)
 
                     posts.forEach((post, index) => {
                         const title = post.title;
                         
+                        // Limpiar y cortar el contenido (eliminamos HTML)
                         let rawContent = post.content || post.description;
                         const content = rawContent.replace(/<[^>]*>/g, '').substring(0, 150).trim() + '...'; 
                         
                         const date = new Date(post.pubDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
                         
-                        // Si hay 1 post, lo forzamos a empezar en la segunda columna y ocupar 1 columna
-                        const centeringClass = (totalPosts === 1) ? 'lg:col-start-2 lg:col-span-1' : '';
+                        // CLASE DE CENTRADO DEFINITIVA: 
+                        // Si hay 1 post, lo forzamos a la columna 2 para centrarlo en pantallas medianas y grandes.
+                        const centeringClass = (totalPosts === 1) ? 'md:col-start-2 col-span-1' : '';
                         
+                        // Estructura de la tarjeta con enlace simple (target="_blank")
                         const postHTML = `
                             <article class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col justify-between ${centeringClass}">
                                 <div>
@@ -228,7 +223,6 @@
                 })
                 .catch(error => {
                     console.error('Error al intentar obtener los posts de Medium (Fallo de Fetch/Red):', error);
-                    // Aseguramos que el mensaje de error ocupe el espacio y se vea, sin bloquear el resto.
                     container.innerHTML = `<p class="col-span-full text-center text-lg text-red-500 p-10">No se pudieron cargar las publicaciones. Por favor, verifica tu conexión.</p>`;
                 });
         });
