@@ -26,9 +26,11 @@
 
     <!-- Configuración de color y estilos personalizados -->
     <style>
+        /* FIX CLS: Añadido min-height: 100vh al body para forzar la altura y evitar que el contenido inferior desaparezca */
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #f7f7f7; /* Gris muy claro para el fondo */
+            min-height: 100vh; /* FUERZA LA ALTURA MINIMA DE LA PÁGINA */
         }
         .text-profundo { color: #2C3E50; } /* Azul oscuro, casi negro */
         .bg-profundo { background-color: #2C3E50; }
@@ -133,20 +135,21 @@
         <!-- Sección de Reflexiones (Blog de Medium) -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold text-profundo text-center mb-8 border-b-2 border-petroleo/50 pb-2">Mis Últimas Reflexiones</h2>
-            <!-- El contenedor siempre tiene la grilla responsiva, SIN modificación de ancho/margen aquí -->
+            <!-- El contenedor siempre tiene la grilla responsiva -->
             <div id="medium-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Mensaje de carga inicial (Será borrado por el JS) -->
                 <p class="col-span-full text-center text-lg text-suave p-10">Cargando publicaciones de Medium...</p>
             </div>
             
             <div class="text-center mt-10">
+                <!-- Este es el botón que no se veía -->
                 <a href="https://medium.com/@adriandeyme" target="_blank" class="inline-block bg-profundo text-contraste font-semibold py-3 px-8 rounded-full shadow-md hover:bg-petroleo transition duration-300">
                     Ver todos los artículos en Medium
                 </a>
             </div>
         </section>
         
-        <!-- Sección de Contacto (Footer) -->
+        <!-- Sección de Contacto (Footer) - ESTO TAMBIÉN DEBÍA SER VISIBLE -->
         <footer class="text-center pt-10 border-t border-gray-300">
             <p class="text-sm text-gray-500 mb-4">&copy; 2024 Adrián Deyme | Ejecución Sistémica</p>
             <p class="text-sm text-gray-500">Conectemos para llevar tu estrategia a la máxima velocidad.</p>
@@ -160,6 +163,7 @@
             const MEDIUM_USERNAME = 'adriandeyme'; 
             const MEDIUM_HANDLE = MEDIUM_USERNAME.startsWith('@') ? MEDIUM_USERNAME : `@${MEDIUM_USERNAME}`; 
             
+            // Usamos un query param aleatorio para forzar la no-cache y ver siempre el resultado real
             const MEDIUM_FEED_URL = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${MEDIUM_HANDLE}&t=${Date.now()}`;
 
             const container = document.getElementById('medium-posts-container');
@@ -188,8 +192,6 @@
                     const posts = data.items.slice(0, 3);
                     const totalPosts = posts.length;
                     
-                    // IMPORTANTE: Mantenemos el grid original del HTML (grid-cols-1 md:grid-cols-2 lg:grid-cols-3)
-
                     posts.forEach((post, index) => {
                         const title = post.title;
                         
@@ -199,9 +201,9 @@
                         
                         const date = new Date(post.pubDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
                         
-                        // CLASE DE CENTRADO DEFINITIVA: 
-                        // Si hay 1 post, lo forzamos a la columna 2 para centrarlo en pantallas medianas y grandes.
-                        const centeringClass = (totalPosts === 1) ? 'md:col-start-2 col-span-1' : '';
+                        // Centrado condicional para 1 post: usa la columna 2 en pantallas medianas y grandes
+                        // Usamos lg:col-start-2 para centrar en desktop
+                        const centeringClass = (totalPosts === 1) ? 'lg:col-start-2 lg:col-span-1' : '';
                         
                         // Estructura de la tarjeta con enlace simple (target="_blank")
                         const postHTML = `
