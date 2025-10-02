@@ -73,8 +73,9 @@
         <!-- Sección de Encabezado y Perfil (Header) -->
         <header class="text-center mb-16 pt-10">
             <div class="w-32 h-32 rounded-full mx-auto overflow-hidden shadow-xl mb-4 border-4 border-petroleo">
-                <!-- Imagen de perfil -->
-                <img src="uploaded:image_be5b65.png-65e7f3a8-ebea-401b-9d32-1d5de879ffd2" alt="Foto de Perfil de Adrián Deyme" class="w-full h-full object-cover profile-clip">
+                <!-- TEMPORAL: Usando un placeholder para evitar el error ERR_UNKNOWN_URL_SCHEME.
+                     Proporciona una URL pública para tu foto de perfil. -->
+                <img src="https://placehold.co/128x128/2C3E50/FFFFFF?text=AD" alt="Foto de Perfil de Adrián Deyme" class="w-full h-full object-cover profile-clip">
             </div>
             <h1 class="text-5xl font-extrabold text-profundo mb-2">Adrián Deyme</h1>
             <p class="text-2xl text-profundo font-light mb-6">Ejecución Sistémica | Liderazgo Ágil | **unFIX**</p>
@@ -131,8 +132,8 @@
         <!-- Sección de Reflexiones (Blog de Medium) -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold text-profundo text-center mb-8 border-b-2 border-petroleo/50 pb-2">Mis Últimas Reflexiones</h2>
-            <div id="medium-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- El mensaje de "Cargando" ahora ocupa las 3 columnas -->
+            <!-- Este contenedor tendrá sus clases ajustadas por JS para centrar o usar la grilla -->
+            <div id="medium-posts-container">
                 <p class="col-span-full text-center text-lg text-suave p-10">Cargando publicaciones de Medium...</p>
             </div>
             
@@ -151,7 +152,7 @@
 
     </div>
 
-    <!-- Script para cargar posts de Medium (Lógica simplificada para el post único) -->
+    <!-- Script para cargar posts de Medium (Ajuste de centrado usando Flexbox para 1 post) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const MEDIUM_USERNAME = 'adriandeyme'; 
@@ -189,26 +190,30 @@
                     const posts = data.items.slice(0, 3);
                     const totalPosts = posts.length;
                     
-                    // Restauramos la clase base del contenedor por si fue alterada previamente.
-                    container.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'; 
+                    // Ajuste de Layout: Flexbox para 1 item, Grid para 2 o 3.
+                    if (totalPosts === 1) {
+                        // Si solo hay un post, usamos Flexbox para centrarlo.
+                        container.className = 'flex justify-center'; 
+                    } else {
+                        // Si hay 2 o 3, usamos la grilla normal.
+                        container.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'; 
+                    }
 
                     posts.forEach((post, index) => {
                         const title = post.title;
                         
                         // Limpiar y cortar el contenido
                         let rawContent = post.content || post.description;
-                        // Eliminamos etiquetas HTML y limitamos a 150 caracteres
                         const content = rawContent.replace(/<[^>]*>/g, '').substring(0, 150).trim() + '...'; 
                         
                         const date = new Date(post.pubDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
                         
-                        // CLASE DE CENTRADO SIMPLIFICADA
-                        // Si hay 1 post, lo forzamos a empezar en la columna 2 para centrarlo visualmente en desktop.
-                        const centeringClass = (totalPosts === 1) ? 'md:col-start-2' : '';
+                        // Si usamos Flexbox (solo 1 post), limitamos el ancho de la tarjeta.
+                        const widthClass = (totalPosts === 1) ? 'max-w-xl w-full' : 'w-full';
                         
-                        // Estructura de la tarjeta con enlace simple (target="_blank")
+                        // Estructura de la tarjeta
                         const postHTML = `
-                            <article class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col justify-between ${centeringClass}">
+                            <article class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col justify-between ${widthClass}">
                                 <div>
                                     <p class="text-sm text-suave mb-2">${date}</p>
                                     <h3 class="text-xl font-bold mb-3 text-profundo hover:text-petroleo transition duration-300">
