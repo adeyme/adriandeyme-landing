@@ -134,6 +134,7 @@
         <section class="mb-16">
             <h2 class="text-3xl font-bold text-profundo text-center mb-8 border-b-2 border-petroleo/50 pb-2">Mis Últimas Reflexiones</h2>
             <!-- El contenedor de posts tiene un grid de 3 columnas para desktop/lg. -->
+            <!-- CLAVE: Mantenemos el grid-cols-3 fijo para evitar el colapso de la altura del contenedor -->
             <div id="medium-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Mensaje de carga inicial (Será borrado por el JS) -->
                 <p class="col-span-full text-center text-lg text-suave p-10">Cargando publicaciones de Medium...</p>
@@ -154,7 +155,7 @@
 
     </div>
 
-    <!-- Script para cargar posts de Medium (Asegura el centrado si solo hay 1 post) -->
+    <!-- Script para cargar posts de Medium (Ahora sin lógica de centrado condicional) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const MEDIUM_USERNAME = 'adriandeyme'; 
@@ -176,8 +177,6 @@
                 })
                 .then(data => {
                     console.log('--- DIAGNÓSTICO DE DATOS DE MEDIUM ---');
-                    console.log('1. Status del Proxy:', data.status);
-                    console.log('2. Número de Posts (data.items.length):', data.items ? data.items.length : 'N/A');
                     
                     if (data.status !== 'ok' || !data.items || data.items.length === 0) {
                         // Usamos col-span-full para que el mensaje ocupe todo el ancho del grid
@@ -189,9 +188,8 @@
                     
                     // Solo tomamos un máximo de 3 posts
                     const posts = data.items.slice(0, 3);
-                    const totalPosts = posts.length;
                     
-                    posts.forEach((post, index) => {
+                    posts.forEach((post) => {
                         const title = post.title;
                         
                         // Limpiar HTML y cortar el contenido para la vista previa
@@ -200,12 +198,10 @@
                         
                         const date = new Date(post.pubDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
                         
-                        // LÓGICA DE CENTRADO (SOLO SE APLICA A LA TARJETA, NO AL CONTENEDOR)
-                        // Si solo hay 1 post, lo centramos usando la columna 2 del grid de 3 columnas
-                        const centeringClass = (totalPosts === 1) ? 'lg:col-start-2 lg:col-span-1' : '';
-                        
+                        // CLAVE: La clase de centrado condicional ('centeringClass') ha sido ELIMINADA.
+                        // El post simplemente se posicionará en la primera columna si es único.
                         const postHTML = `
-                            <article class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col justify-between ${centeringClass}">
+                            <article class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col justify-between">
                                 <div>
                                     <p class="text-sm text-suave mb-2">${date}</p>
                                     <h3 class="text-xl font-bold mb-3 text-profundo hover:text-petroleo transition duration-300">
