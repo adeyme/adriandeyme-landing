@@ -157,7 +157,7 @@
 
             const container = document.getElementById('medium-posts-container');
             
-            console.log('Iniciando carga de Medium desde:', MEDIUM_FEED_URL); // Diagnóstico 1
+            console.log('Iniciando carga de Medium desde:', MEDIUM_FEED_URL);
 
             fetch(MEDIUM_FEED_URL)
                 .then(response => {
@@ -167,11 +167,17 @@
                     return response.json();
                 })
                 .then(data => {
-                    console.log('Datos recibidos de Medium:', data); // Diagnóstico 2
-                    
+                    // --- DIAGNÓSTICO DETALLADO ---
+                    console.log('--- DIAGNÓSTICO DE DATOS DE MEDIUM ---');
+                    console.log('1. Status del Proxy:', data.status);
+                    // Verificamos si data.items existe antes de obtener la longitud
+                    console.log('2. Número de Posts (data.items.length):', data.items ? data.items.length : 'N/A');
+                    // --- FIN DIAGNÓSTICO DETALLADO ---
+
+                    // Si la condición de abajo falla, es por data.status o por data.items.length
                     if (data.status !== 'ok' || !data.items || data.items.length === 0) {
-                        console.error('La respuesta del proxy de Medium es inválida o está vacía.', data); // Diagnóstico 3
-                        container.innerHTML = `<p class="col-span-3 text-center text-lg text-suave p-10">No se pudieron cargar publicaciones de Medium. Por favor, verifica el nombre de usuario.</p>`;
+                        console.error('La respuesta del proxy de Medium es inválida o está vacía.', data);
+                        container.innerHTML = `<p class="col-span-3 text-center text-lg text-suave p-10">No se pudieron cargar publicaciones de Medium. Por favor, verifica el nombre de usuario o la disponibilidad del feed.</p>`;
                         return;
                     }
                     
@@ -208,7 +214,7 @@
                     });
                 })
                 .catch(error => {
-                    console.error('Error al intentar obtener los posts de Medium (Fallo de Fetch/Red):', error); // Diagnóstico 4
+                    console.error('Error al intentar obtener los posts de Medium (Fallo de Fetch/Red):', error);
                     container.innerHTML = `<p class="col-span-3 text-center text-lg text-red-500">No se pudieron cargar las publicaciones. (Error de red o CORS).</p>`;
                 });
         });
