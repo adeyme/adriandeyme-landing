@@ -1,91 +1,129 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
+  <!-- Google Analytics (GA4) - ¡Perfecto! -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-NTWMC2JYYY');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NTWMC2JYYY');
 </script>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Agendar reunión · Adrián Deyme</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Agendar reunión · Adrián Deyme</title>
 
-  <!-- Calendly embed (free) -->
-  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <!-- Calendly embed (free) -->
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-  <style>
-    :root{
-      --brand:#0F3F49;       /* azul petróleo */
-      --ink:#0A1A1C;         /* texto principal */
-      --muted:#4B5B60;
-      --bg:#F5F7F8;          /* gris claro fondo */
-      --card:#FFFFFF;
-      --radius:20px;
+    <!-- Fuente Montserrat para consistencia con la landing page -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+
+  <style>
+    :root{
+      /* Usando los valores de tu Guía de Identidad Visual */
+      --petroleo:#0E4C5A;       /* Azul Petróleo (Principal) */
+      --profundo:#062F36;      /* Azul Oscuro (Texto Principal) */
+      --suave:#4D7C87;         /* Azul Claro (Muted) */
+      --neutro:#F5F5F5;        /* Gris Claro (Fondo) */
+      --card:#FFFFFF;
+      --radius:20px;
+    }
+    body{
+      margin:0; 
+        /* Usando Montserrat */
+        font-family: 'Montserrat', sans-serif;
+      color:var(--profundo); 
+        background:var(--neutro);
+    }
+    header{
+      max-width:1120px; margin:24px auto 0; padding:0 20px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700; color:var(--profundo);}
+    /* Añadido un pequeño shadow para que el logo se vea mejor */
+    .brand img{height:28px; width:28px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);}
+    .wrap{
+      max-width:1120px; margin:24px auto 60px; padding:0 20px;
+    }
+    .card{
+      background:var(--card); border-radius:var(--radius); box-shadow:0 8px 30px rgba(0,0,0,.08);
+      padding:24px; overflow:hidden;
+    }
+    h1{font-size:28px; line-height:1.15; margin:0 0 8px; font-weight:800; color:var(--petroleo);}
+    p.lead{color:var(--suave); margin:0 0 20px; font-size:18px;}
+    .cal-wrap{min-height:860px;}
+    .fallback{
+      margin-top:14px; font-size:14px; color:var(--suave);
+    }
+    .fallback a{color:var(--petroleo); font-weight:600; text-decoration:none; transition: color 0.3s;}
+    .fallback a:hover{color:var(--profundo);}
+
+    /* Estilo del botón "Volver" */
+    .btn-volver {
+        color:var(--suave); 
+        text-decoration:none; 
+        font-weight:600;
+        padding: 8px 16px;
+        border: 1px solid var(--suave);
+        border-radius: 8px;
+        transition: all 0.3s;
     }
-    body{
-      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      color:var(--ink); background:var(--bg);
+    .btn-volver:hover {
+        color: var(--card);
+        background-color: var(--petroleo);
+        border-color: var(--petroleo);
     }
-    header{
-      max-width:1120px; margin:24px auto 0; padding:0 20px;
-      display:flex; align-items:center; justify-content:space-between;
-    }
-    .brand{display:flex; align-items:center; gap:12px; font-weight:700; color:var(--brand);}
-    .brand img{height:28px; width:28px;}
-    .wrap{
-      max-width:1120px; margin:24px auto 60px; padding:0 20px;
-    }
-    .card{
-      background:var(--card); border-radius:var(--radius); box-shadow:0 8px 30px rgba(0,0,0,.06);
-      padding:24px; overflow:hidden;
-    }
-    h1{font-size:28px; line-height:1.15; margin:0 0 8px;}
-    p.lead{color:var(--muted); margin:0 0 20px;}
-    .cal-wrap{min-height:860px;}
-    .fallback{
-      margin-top:14px; font-size:14px; color:var(--muted);
-    }
-    .fallback a{color:var(--brand); font-weight:600; text-decoration:none;}
-  </style>
+  </style>
 </head>
 <body>
 
-  <header>
-    <div class="brand">
-      <img src="assets/brand/logo-ad-favicon-32.png" alt="AD" />
-      <span>Adrián Deyme</span>
-    </div>
-    <a href="index.html" style="color:var(--muted); text-decoration:none; font-weight:600;">Volver</a>
-  </header>
+  <header>
+    <div class="brand">
+        <!-- RUTA CONSISTENTE: Usando la ruta absoluta de GitHub -->
+      <img 
+            src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/brand/ad-favicon.png?raw=true" 
+            alt="AD" 
+            onerror="this.onerror=null; this.src='https://placehold.co/32x32/0E4C5A/FFFFFF?text=AD';" 
+        />
+      <span>Adrián Deyme</span>
+    </div>
+    <!-- Aplicando la clase para el hover del botón "Volver" -->
+    <a href="index.html" class="btn-volver">← Volver al Inicio</a>
+  </header>
 
-  <main class="wrap">
-    <div class="card">
-      <h1>Agenda tu reunión exploratoria de 30'</h1>
-      <p class="lead">Elige el horario que mejor te quede. Al confirmar, te llevaré a una página con los siguientes pasos.</p>
+  <main class="wrap">
+    <div class="card">
+      <h1>Agenda tu reunión exploratoria de 30'</h1>
+      <p class="lead">Elige el horario que mejor te quede. Al confirmar, te llevaremos automáticamente a la página de siguientes pasos.</p>
 
-      <!-- Calendly inline embed -->
-      <div class="cal-wrap">
-        <div class="calendly-inline-widget"
-             data-url="https://calendly.com/adrian-deyme/reunion-exploratoria?hide_gdpr_banner=1"
-             style="min-width:320px;height:860px;"></div>
-      </div>
+      <!-- Calendly inline embed -->
+      <div class="cal-wrap">
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/adrian-deyme/reunion-exploratoria?hide_gdpr_banner=1"
+             style="min-width:320px;height:860px;"></div>
+      </div>
 
-      <p class="fallback">¿No te redirige automáticamente tras agendar? <a href="gracias.html">Haz clic aquí</a>.</p>
-    </div>
-  </main>
+      <p class="fallback">
+            Si no te redirige automáticamente tras agendar, por favor, 
+            <a href="gracias.html">haz clic aquí para ir a la página de gracias</a>.
+        </p>
+    </div>
+  </main>
 
-  <script>
-    // Redirección GRATIS tras reservar, usando el evento del embed
-    window.addEventListener("message", function(e){
-      // Aceptamos mensajes del dominio de Calendly y comprobamos el evento
-      if (e?.origin?.includes("calendly.com") && e?.data?.event === "calendly.event_scheduled") {
-        // Redirige a tu página de gracias
-        window.location.href = "/gracias.html";
-      }
-    });
-  </script>
+  <script>
+    // Redirección a la página de gracias tras reservar, usando el evento del embed de Calendly
+    window.addEventListener("message", function(e){
+      // Aceptamos mensajes del dominio de Calendly y comprobamos el evento de agendamiento
+      if (e?.origin?.includes("calendly.com") && e?.data?.event === "calendly.event_scheduled") {
+        // Redirige a tu página de gracias (usando una ruta absoluta para mayor fiabilidad)
+        window.location.href = "/gracias.html"; 
+      }
+    });
+  </script>
 </body>
 </html>
