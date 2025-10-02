@@ -85,16 +85,17 @@
         }
         /* Estilo para los Badges de HERRAMIENTAS - SECCIÓN INFERIOR */
         .badge-tool-container {
-             /* Tamaño base para móvil (más pequeño) */
-             width: 70px; 
-             height: 70px;
-             border-radius: 16px;
+             /* Reducido a 50px para móvil */
+             width: 50px; 
+             height: 50px;
+             border-radius: 12px;
         }
         /* Aumentar el tamaño de los badges de herramientas en pantallas grandes (desktop) */
         @media (min-width: 768px) {
             .badge-tool-container {
                  width: 100px; 
                  height: 100px;
+                 border-radius: 16px;
             }
         }
 
@@ -102,7 +103,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            padding: 4px; /* Espaciado interno */
+            padding: 2px; /* Reducción de padding para que el contenido sea más grande */
         }
         /* Aumento de tamaño del contenedor de la foto de perfil */
         .profile-pic {
@@ -404,7 +405,7 @@
                 <!-- Sub-sección de Badges (Herramientas de Arquitectura) -->
                 <div class="pt-8">
                     <h3 class="text-2xl font-bold text-center mb-8 text-petroleo">Las Herramientas que Arquitectan tu Sistema</h3>
-                    <!-- AQUI el flex-wrap y el gap se ajustan para móvil -->
+                    <!-- AQUI el flex-wrap se mantiene, gap-3 para móvil y gap-6 para desktop -->
                     <div class="flex flex-wrap justify-center gap-3 md:gap-6">
                         
                         <!-- Badge 1: OKR Coach Professional -->
