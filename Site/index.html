@@ -70,7 +70,7 @@
                 </a>
                 <!-- Medium (Se actualizará con el script) -->
                 <a href="#" id="medium-profile-link" target="_blank" aria-label="Medium" class="contact-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucude-rss"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
                 </a>
                 <!-- Email -->
                 <a href="mailto:tu-email@ejemplo.com" aria-label="Email" class="contact-icon">
@@ -129,7 +129,7 @@
 
     </div>
 
-    <!-- Script para cargar posts de Medium - SOLUCIÓN FORZADA CON window.open() -->
+    <!-- Script para cargar posts de Medium - SOLUCIÓN EXTREMA CON window.top.location.href -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const MEDIUM_USERNAME = 'adriandeyme'; 
@@ -211,9 +211,23 @@
                     posts.forEach((post, index) => {
                         const cardElement = document.getElementById(`medium-card-${index}`);
                         if (cardElement) {
-                            cardElement.addEventListener('click', () => {
-                                // Esto fuerza al navegador a abrir la URL en una nueva pestaña, sin importar el sandboxing del iFrame.
-                                window.open(post.link, '_blank');
+                            cardElement.addEventListener('click', (e) => {
+                                // Evita que cualquier acción por defecto se ejecute
+                                e.preventDefault(); 
+                                
+                                // Solución 1: Intentar cambiar la ubicación de la ventana superior (saliendo del iFrame)
+                                try {
+                                    if (window.top !== window.self) {
+                                        window.top.location.href = post.link;
+                                    } else {
+                                        // Solución 2 (Fallback): Si no está en un iFrame, simplemente abrir una pestaña nueva
+                                        window.open(post.link, '_blank');
+                                    }
+                                } catch (e) {
+                                    // Solución 3 (Fallback más seguro): Si la navegación superior está bloqueada, abre directamente en la pestaña actual
+                                    window.location.href = post.link;
+                                    console.error("Acceso a window.top.location.href denegado o fallido. Usando window.location.href como fallback.", e);
+                                }
                             });
                         }
                     });
