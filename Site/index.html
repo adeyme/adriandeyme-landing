@@ -136,7 +136,7 @@
                 </span>
             </div>
 
-            <!-- Navegación Principal -->
+            <!-- Navegación Principal (Desktop) -->
             <nav class="hidden md:flex space-x-8 text-lg font-medium items-center">
                 <a href="#valor" class="hover:text-petroleo transition duration-300">Mi Valor</a>
                 <a href="#pilares" class="hover:text-petroleo transition duration-300">Pilares</a>
@@ -147,12 +147,24 @@
                 </a>
             </nav>
 
-            <!-- Botón de Menú para Móviles (Se mantiene la estructura para un futuro JavaScript) -->
-            <button class="md:hidden p-2 rounded-lg hover:bg-neutro transition duration-200" aria-label="Menu">
+            <!-- Botón de Menú para Móviles (Hamburguesa) -->
+            <button id="menu-button" class="md:hidden p-2 rounded-lg hover:bg-neutro transition duration-200" aria-label="Menu">
                 <svg class="w-6 h-6 text-petroleo" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
     </header>
+
+    <!-- MENÚ DESPLEGABLE MÓVIL (Inicialmente oculto) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-contraste shadow-lg py-4 transition-all duration-300 ease-in-out">
+        <div class="flex flex-col space-y-3 px-6 text-lg font-medium">
+            <a href="#valor" class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Mi Valor</a>
+            <a href="#pilares" class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Pilares</a>
+            <a href="#servicios" class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Servicios</a>
+            <a href="agenda.html" class="block text-center mt-4 bg-petroleo hover:bg-profundo text-contraste font-bold py-2 rounded-lg shadow-md transition duration-300">
+                Agenda un Diagnóstico
+            </a>
+        </div>
+    </div>
 
     <main>
         <!-- SECCIÓN HERO (Banner Principal con Foto y Narrativa Ajustada) -->
@@ -541,5 +553,31 @@
         </div>
     </footer>
 
+    <!-- Script para la funcionalidad del Menú Móvil -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuLinks = mobileMenu.querySelectorAll('a');
+
+            // Función para alternar la visibilidad del menú
+            const toggleMenu = () => {
+                mobileMenu.classList.toggle('hidden');
+            };
+
+            // Evento para el botón hamburguesa
+            menuButton.addEventListener('click', toggleMenu);
+
+            // Evento para cerrar el menú al hacer clic en un enlace (navegación a sección)
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // Esperamos un breve momento para que la navegación se complete antes de cerrar el menú
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 100); 
+                });
+            });
+        });
+    </script>
 </body>
 </html>
