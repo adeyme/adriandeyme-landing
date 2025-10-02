@@ -46,6 +46,11 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
+        
+        /* Asegura el clip-path para el recorte de imagen */
+        .profile-clip {
+            clip-path: circle(50% at 50% 50%);
+        }
 
         /* Estilo para el icono de contacto */
         .contact-icon {
@@ -68,8 +73,8 @@
         <!-- Sección de Encabezado y Perfil (Header) -->
         <header class="text-center mb-16 pt-10">
             <div class="w-32 h-32 rounded-full mx-auto overflow-hidden shadow-xl mb-4 border-4 border-petroleo">
-                <!-- Placeholder de Imagen de perfil: Si tienes una URL, úsala aquí. -->
-                <img src="https://placehold.co/128x128/3498DB/FFFFFF?text=AD" alt="Foto de Perfil de Adrián Deyme" class="w-full h-full object-cover">
+                <!-- Imagen de perfil actualizada con image_be5b65.png -->
+                <img src="uploaded:image_be5b65.png-65e7f3a8-ebea-401b-9d32-1d5de879ffd2" alt="Foto de Perfil de Adrián Deyme" class="w-full h-full object-cover profile-clip">
             </div>
             <h1 class="text-5xl font-extrabold text-profundo mb-2">Adrián Deyme</h1>
             <p class="text-2xl text-profundo font-light mb-6">Ejecución Sistémica | Liderazgo Ágil | **unFIX**</p>
@@ -89,8 +94,8 @@
                 <a href="https://medium.com/@adriandeyme" target="_blank" aria-label="Medium" class="contact-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
                 </a>
-                <!-- Email -->
-                <a href="mailto:tu-email@ejemplo.com" aria-label="Email" class="contact-icon">
+                <!-- Email (Actualizado) -->
+                <a href="mailto:adeyme@adeyme.com" aria-label="Email" class="contact-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 </a>
             </nav>
@@ -128,7 +133,7 @@
             <h2 class="text-3xl font-bold text-profundo text-center mb-8 border-b-2 border-petroleo/50 pb-2">Mis Últimas Reflexiones</h2>
             <div id="medium-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Las publicaciones se cargarán aquí. Mientras, mostramos un loader -->
-                <p class="col-span-3 text-center text-lg text-suave p-10">Cargando publicaciones de Medium...</p>
+                <p class="col-span-full text-center text-lg text-suave p-10">Cargando publicaciones de Medium...</p>
             </div>
             
             <div class="text-center mt-10">
@@ -167,23 +172,38 @@
                     return response.json();
                 })
                 .then(data => {
-                    // --- DIAGNÓSTICO DETALLADO ---
+                    // --- DIAGNÓSTICO DE DATOS DE MEDIUM ---
                     console.log('--- DIAGNÓSTICO DE DATOS DE MEDIUM ---');
                     console.log('1. Status del Proxy:', data.status);
                     // Verificamos si data.items existe antes de obtener la longitud
                     console.log('2. Número de Posts (data.items.length):', data.items ? data.items.length : 'N/A');
-                    // --- FIN DIAGNÓSTICO DETALLADO ---
+                    // --- FIN DIAGNÓSTICO DE DATOS DE MEDIUM ---
 
-                    // Si la condición de abajo falla, es por data.status o por data.items.length
                     if (data.status !== 'ok' || !data.items || data.items.length === 0) {
                         console.error('La respuesta del proxy de Medium es inválida o está vacía.', data);
-                        container.innerHTML = `<p class="col-span-3 text-center text-lg text-suave p-10">No se pudieron cargar publicaciones de Medium. Por favor, verifica el nombre de usuario o la disponibilidad del feed.</p>`;
+                        container.innerHTML = `<p class="col-span-full text-center text-lg text-suave p-10">No se pudieron cargar publicaciones de Medium. Por favor, verifica el nombre de usuario o la disponibilidad del feed.</p>`;
                         return;
                     }
                     
                     container.innerHTML = '';
                     // Mostrar solo los primeros 3 posts
                     const posts = data.items.slice(0, 3);
+                    
+                    // Ajustamos el centrado si hay pocos posts
+                    const totalPosts = posts.length;
+                    let layoutClass = 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8';
+                    
+                    if (totalPosts === 1) {
+                         // Centrar 1 columna en la grilla
+                        layoutClass = 'grid-cols-1 md:grid-cols-3 gap-8 justify-items-center';
+                    } else if (totalPosts === 2) {
+                        // Centrar 2 columnas en la grilla de 3, dejando vacío 1/3
+                        layoutClass = 'grid-cols-1 md:grid-cols-3 gap-8 md:col-start-1';
+                    } else {
+                        layoutClass = 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8';
+                    }
+                    
+                    container.className = `grid ${layoutClass}`;
                     
                     posts.forEach((post, index) => {
                         const title = post.title;
@@ -196,7 +216,7 @@
                         const date = new Date(post.pubDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 
                         // Estructura de la tarjeta con enlace simple (target="_blank")
-                        const postHTML = `
+                        let postHTML = `
                             <article class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col justify-between">
                                 <div>
                                     <p class="text-sm text-suave mb-2">${date}</p>
@@ -210,12 +230,18 @@
                                 </a>
                             </article>
                         `;
+                        
+                         // Para centrar un solo post en una grilla de 3:
+                        if (totalPosts === 1) {
+                            postHTML = `<div class="md:col-start-2">${postHTML}</div>`;
+                        }
+
                         container.innerHTML += postHTML;
                     });
                 })
                 .catch(error => {
                     console.error('Error al intentar obtener los posts de Medium (Fallo de Fetch/Red):', error);
-                    container.innerHTML = `<p class="col-span-3 text-center text-lg text-red-500">No se pudieron cargar las publicaciones. (Error de red o CORS).</p>`;
+                    container.innerHTML = `<p class="col-span-full text-center text-lg text-red-500">No se pudieron cargar las publicaciones. (Error de red o CORS).</p>`;
                 });
         });
     </script>
