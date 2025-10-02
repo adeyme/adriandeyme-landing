@@ -1,655 +1,359 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-NTWMC2JYYY');
-    </script>
-    
+    <!-- Los elementos de head globales deben estar lo más limpios posible. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adrian Deyme - Ejecución Sistémica y Coaching de Liderazgo</title>
-    <!-- Carga de Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Configuración de Fuentes (Montserrat y Pacifico) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap" rel="stylesheet">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/brand/ad-favicon.png?raw=true">
+    <!-- Usaremos un div contenedor para inyectar el contenido en un Shadow DOM -->
+    <div id="landing-page-root"></div>
+</head>
+<body>
 
-    <!-- Configuración de Colores y Tipografías -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'petroleo': '#0E4C5A', 
-                        'suave': '#4D7C87',     
-                        'profundo': '#062F36',  
-                        'neutro': '#F5F5F5',    
-                        'contraste': '#FFFFFF', 
-                    },
-                    fontFamily: {
-                        'sans': ['Montserrat', 'sans-serif'], 
-                        'script': ['Pacifico', 'cursive'],     
+<script>
+    // URL del feed RSS de Medium
+    const MEDIUM_RSS_FEED = "https://medium-rss.adeyme.workers.dev/";
+
+    // Función para convertir una URL a formato base64
+    // Esto es necesario si el entorno de ejecución no permite fetch() en el Shadow DOM
+    function base64ToArrayBuffer(base64) {
+        const binaryString = atob(base64);
+        const len = binaryString.length;
+        const bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binaryString.charCodeAt(i);
+        }
+        return bytes.buffer;
+    }
+
+    // --- Contenido HTML de la Landing Page que se inyectará en el Shadow DOM ---
+    const landingPageContent = `
+        <!-- Las fuentes, el CDN de Tailwind y los estilos se cargan dentro del Shadow DOM -->
+        <!-- para garantizar el aislamiento. -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap" rel="stylesheet">
+        
+        <!-- Carga de Tailwind CSS dentro del Shadow DOM -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <!-- Configuración de Fuentes y Colores de Tailwind -->
+        <style id="tailwind-config" type="text/tailwindcss">
+            @layer utilities {
+                .font-pacifico {
+                    font-family: 'Pacifico', cursive;
+                }
+                .card-hover-effect {
+                    transition: all 0.3s ease;
+                }
+                .card-hover-effect:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+                }
+            }
+            @tailwind base;
+            @tailwind components;
+            @tailwind utilities;
+        </style>
+
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            'profundo': '#0D0E12', // Negro muy oscuro / Azul Profundo
+                            'petroleo': '#0097A7', // Azul verdoso principal
+                            'contraste': '#F5F5F5', // Blanco roto / gris muy claro
+                            'suave': '#6B7280', // Gris para texto secundario
+                        },
+                        fontFamily: {
+                            sans: ['Montserrat', 'sans-serif'],
+                        },
                     }
                 }
             }
-        }
-    </script>
-    <style>
-        /* Estilos personalizados */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #F5F5F5; 
-        }
-        .adrian-name {
-            font-family: 'Pacifico', cursive;
-            color: #0E4C5A;
-        }
-        .card-hover-effect {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-hover-effect:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(14, 76, 90, 0.15); 
-        }
-        .service-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .service-list li::before {
-            content: '✓'; 
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: #4D7C87; 
-            font-weight: bold;
-        }
-        /* Estilo para el Badge (Credencial) - Sección HERO */
-        .badge-container {
-            width: 80px; 
-            height: 80px;
-            overflow: hidden;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        /* Estilo para los Badges de HERRAMIENTAS - SECCIÓN INFERIOR */
-        .badge-tool-container {
-             /* Reducido a 50px para móvil */
-             width: 50px; 
-             height: 50px;
-             border-radius: 12px;
-        }
-        /* Aumentar el tamaño de los badges de herramientas en pantallas grandes (desktop) */
-        @media (min-width: 768px) {
-            .badge-tool-container {
-                 width: 100px; 
-                 height: 100px;
-                 border-radius: 16px;
-            }
-        }
+        </script>
 
-        .badge-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 2px; /* Reducción de padding para que el contenido sea más grande */
-        }
-        /* Aumento de tamaño del contenedor de la foto de perfil */
-        .profile-pic {
-            object-fit: cover;
-            width: 320px; 
-            height: 320px;
-            border-radius: 50%;
-            border: 8px solid #F5F5F5; 
-            box-shadow: 0 10px 20px rgba(6, 47, 54, 0.2); 
-        }
-    </style>
-</head>
-<body class="text-profundo">
-
-    <!-- BARRA DE NAVEGACIÓN (HEADER) -->
-    <header class="bg-contraste shadow-md sticky top-0 z-10">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <main class="min-h-screen bg-contraste font-sans text-profundo">
             
-            <!-- Logo y Nombre -->
-            <div class="flex items-center space-x-3">
-                <img 
-                    src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/brand/ad-logo.webp?raw=true" 
-                    alt="Logo Adrian Deyme" 
-                    class="h-10 w-auto rounded-lg" 
-                    onerror="this.onerror=null; this.src='https://placehold.co/40x40/0E4C5A/FFFFFF?text=AD';"
-                >
-                <span class="text-2xl md:text-3xl font-bold tracking-tight">
-                    <span class="adrian-name">Adrian</span> 
-                    <span class="uppercase text-profundo">DEYME</span>
-                </span>
-            </div>
-
-            <!-- Navegación Principal (Desktop) -->
-            <nav class="hidden md:flex space-x-8 text-lg font-medium items-center">
-                <a href="#valor" class="hover:text-petroleo transition duration-300">Mi Valor</a>
-                <a href="#pilares" class="hover:text-petroleo transition duration-300">Pilares</a>
-                <a href="#servicios" class="hover:text-petroleo transition duration-300">Servicios</a>
-                <a href="#blog" class="hover:text-petroleo transition duration-300">Blog</a>
-                <!-- Botón de Agenda/Diagnóstico -->
-                <a href="agenda.html" class="inline-block bg-petroleo hover:bg-profundo text-contraste font-bold py-2 px-4 rounded-lg shadow-md transition duration-300">
-                    Agenda un Diagnóstico
-                </a>
-            </nav>
-
-            <!-- Botón de Menú para Móviles (Hamburguesa) -->
-            <button id="menu-button" class="md:hidden p-2 rounded-lg hover:bg-neutro transition duration-200" aria-label="Menu">
-                <svg class="w-6 h-6 text-petroleo" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </div>
-    </header>
-
-    <!-- MENÚ DESPLEGABLE MÓVIL (Inicialmente oculto) -->
-    <div id="mobile-menu" class="hidden md:hidden bg-contraste shadow-lg py-4 transition-all duration-300 ease-in-out">
-        <div class="flex flex-col space-y-3 px-6 text-lg font-medium">
-            <a href="#valor" class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Mi Valor</a>
-            <a href="#pilares" class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Pilares</a>
-            <a href="#servicios" class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Servicios</a>
-            <a href="#blog" class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Blog</a>
-            <a href="agenda.html" class="block text-center mt-4 bg-petroleo hover:bg-profundo text-contraste font-bold py-2 rounded-lg shadow-md transition duration-300">
-                Agenda un Diagnóstico
-            </a>
-        </div>
-    </div>
-
-    <main>
-        <!-- SECCIÓN HERO (Banner Principal con Foto y Narrativa Ajustada) -->
-        <section id="hero" class="relative bg-suave min-h-[85vh] flex items-center p-6 overflow-hidden">
-            <div class="container mx-auto max-w-6xl py-16 flex flex-col md:flex-row items-center justify-between z-10">
-                
-                <!-- Columna de Texto y CTA -->
-                <div class="md:w-3/5 text-center md:text-left text-contraste mb-10 md:mb-0">
-                    <div class="flex justify-center md:justify-start mb-6 md:hidden">
-                        <!-- Foto de Perfil Móvil (Optimización de imagen: se usa <picture> para futuros srcset) -->
-                        <picture>
-                            <img 
-                                src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/images/adrian-perfil.webp?raw=true" 
-                                alt="Foto de perfil de Adrian Deyme, Consultor Sistémico" 
-                                class="profile-pic w-32 h-32"
-                                onerror="this.onerror=null; this.src='https://placehold.co/120x120/4D7C87/FFFFFF?text=AD';"
-                            >
-                        </picture>
-                    </div>
-                    
-                    <p class="text-xl font-semibold mb-3 tracking-widest uppercase text-neutro opacity-80">
-                        Arquitectura Sistémica | Coaching de Liderazgo
-                    </p>
-                    <h1 class="text-5xl md:text-6xl font-extrabold mb-5 tracking-tight text-contraste leading-tight">
-                        Transformando la Estrategia en <span class="text-petroleo drop-shadow-lg">Ejecución Predecible</span>.
-                    </h1>
-                    <p class="text-lg md:text-xl font-light mb-8 italic max-w-xl md:max-w-none">
-                        Alineo el <strong>Liderazgo (Ser)</strong>, la <strong>Eficiencia (Flujo)</strong> y la <strong>Estructura</strong> de tu organización para construir una máquina de resultados sostenible.
-                    </p>
-                    
-                    <!-- Contenedor de Botones -->
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-10 justify-center md:justify-start">
-                        <a href="agenda.html" class="inline-block bg-petroleo hover:bg-profundo text-contraste font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
-                            Agenda un Diagnóstico Gratuito de 30 min
+            <!-- Encabezado (Sticky) -->
+            <header class="bg-profundo text-contraste shadow-lg sticky top-0 z-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+                    <a href="#hero" class="text-2xl font-pacifico font-bold text-petroleo">AD</a>
+                    <nav class="hidden md:flex space-x-8 text-sm font-semibold">
+                        <a href="#valor" class="hover:text-petroleo transition duration-300">Mi Valor</a>
+                        <a href="#servicios" class="hover:text-petroleo transition duration-300">Servicios</a>
+                        <a href="#blog" class="hover:text-petroleo transition duration-300">Blog</a>
+                        <a href="#contacto" class="px-4 py-2 bg-petroleo rounded-full text-profundo hover:bg-white transition duration-300 shadow-md">
+                            Agenda un Diagnóstico
                         </a>
-                        <a href="#servicios" class="inline-block bg-contraste text-petroleo hover:bg-neutro font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 border border-petroleo">
-                            Ver Servicios
-                        </a>
-                    </div>
-                    
-                    <!-- BADGES DE CREDENCIALES (Liderazgo) -->
-                    <div class="mt-8">
-                        <h4 class="text-sm font-semibold mb-3 text-neutro uppercase tracking-wider">Credenciales de Liderazgo y Coaching</h4>
-                        <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                            
-                            <!-- Badge 1: Miembro ICF -->
-                            <div class="badge-container flex justify-center items-center" title="Miembro ICF">
-                                <img 
-                                    src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/icf-member.webp?raw=true" 
-                                    alt="Miembro ICF" 
-                                    class="badge-img"
-                                    onerror="this.onerror=null; this.src='https://placehold.co/80x80/062F36/FFFFFF?text=ICF+Member';"
-                                >
-                            </div>
-                            <!-- Badge 2: Coach Ontológico ICF -->
-                            <div class="badge-container flex justify-center items-center" title="Coach Ontológico ICF (Level 2)">
-                                <img 
-                                    src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/icf-ce-level2.webp?raw=true" 
-                                    alt="Coach Ontológico ICF" 
-                                    class="badge-img"
-                                    onerror="this.onerror=null; this.src='https://placehold.co/80x80/0E4C5A/FFFFFF?text=ICF+L2';"
-                                >
-                            </div>
-                            <!-- Badge 3: Agile Coach -->
-                            <div class="badge-container flex justify-center items-center" title="ICP-ACC Agile Coach">
-                                <img 
-                                    src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/icp-acc.webp?raw=true" 
-                                    alt="Agile Coach" 
-                                    class="badge-img"
-                                    onerror="this.onerror=null; this.src='https://placehold.co/80x80/4D7C87/FFFFFF?text=ICP-ACC';"
-                                >
-                            </div>
-                            <!-- Badge 4: Agile System Coach -->
-                            <div class="badge-container flex justify-center items-center" title="ICP-SYS Agile System Coach">
-                                <img 
-                                    src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/icp-sys.webp?raw=true" 
-                                    alt="Agile System Coach" 
-                                    class="badge-img"
-                                    onerror="this.onerror=null; this.src='https://placehold.co/80x80/062F36/FFFFFF?text=ICP-SYS';"
-                                >
-                            </div>
+                    </nav>
+                    <!-- Menú móvil (Icono simple para ahorrar espacio) -->
+                    <button class="md:hidden text-2xl hover:text-petroleo transition duration-300">
+                        &#9776; <!-- Icono de Hamburguesa -->
+                    </button>
+                </div>
+            </header>
+
+            <!-- 1. Sección Hero / Transformación -->
+            <section id="hero" class="pt-20 pb-24 bg-profundo text-contraste relative overflow-hidden">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
+                    <!-- Contenido de Texto -->
+                    <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
+                        <p class="text-petroleo uppercase tracking-widest text-sm font-semibold mb-3">ARQUITECTURA SISTÉMICA | COACHING DE LIDERAZGO</p>
+                        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
+                            Transformando la<br> Estrategia en
+                            <span class="text-petroleo block">Ejecución Predecible</span>
+                        </h1>
+                        <p class="text-gray-300 text-lg mb-8 max-w-lg mx-auto md:mx-0">
+                            Alineo el Liderazgo (Ser), la Eficiencia (Flujo) y la Estructura de tu organización para construir una máquina de resultados sostenible.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                            <a href="#contacto" class="bg-petroleo text-profundo font-bold py-3 px-8 rounded-full shadow-xl hover:shadow-2xl hover:bg-white transition duration-300 transform hover:scale-105">
+                                Agenda un Diagnóstico Gratuito de 30 min
+                            </a>
+                            <a href="#servicios" class="bg-transparent border border-gray-500 text-contraste font-semibold py-3 px-8 rounded-full hover:bg-gray-800 transition duration-300">
+                                Ver Servicios
+                            </a>
                         </div>
                     </div>
+
+                    <!-- Imagen/Elemento Visual (Simulado con Placeholder) -->
+                    <div class="md:w-1/2 flex justify-center">
+                        <img src="https://placehold.co/400x400/0097A7/FFFFFF?text=AD" alt="Adrian Deyme, Ejecución Sistémica" class="rounded-full shadow-2xl border-4 border-petroleo opacity-80 animate-pulse-slow">
+                    </div>
                 </div>
+            </section>
 
-                <!-- Columna de Imagen de Perfil (Solo visible en Desktop, con mayor tamaño y <picture>) -->
-                <div class="hidden md:flex md:w-2/5 justify-center">
-                    <picture>
-                        <img 
-                            src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/images/adrian-perfil.webp?raw=true" 
-                            alt="Foto de perfil de Adrian Deyme, Consultor Sistémico" 
-                            class="profile-pic"
-                            onerror="this.onerror=null; this.src='https://placehold.co/320x320/4D7C87/FFFFFF?text=AD';"
-                        >
-                    </picture>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN MI VALOR -->
-        <section id="valor" class="py-20 md:py-24 px-6 bg-contraste">
-            <div class="container mx-auto max-w-5xl">
-                <h2 class="text-4xl font-extrabold text-center mb-16 text-profundo uppercase tracking-tight">
-                    Mi Valor: Soy un <span class="text-petroleo underline decoration-suave decoration-4">Arquitecto de Sistemas</span> para la Ejecución
-                </h2>
-                <div class="text-lg leading-relaxed text-profundo space-y-8">
-                    
-                    <p class="text-2xl font-bold text-center text-profundo">
-                        Mi misión es llevar a tu organización de la <strong>ilusión de la estrategia</strong> a la <strong>certeza de la ejecución</strong>, transformando la <strong>fricción operativa</strong> en resultados predecibles.
-                    </p>
-
-                    <p>
-                        He pasado mi carrera conectando los puntos: desde la <strong>Psicología</strong> y la <strong>Informática</strong> hasta el <strong>Project Management</strong> y el <strong>Coaching Ontológico</strong>. Esta mezcla multidisciplinaria me permitió ver la verdad fundamental: el éxito no reside en una única metodología (ni OKRs, ni Scrum), sino en la <strong>Arquitectura del Sistema</strong> completo.
-                    </p>
-
-                    <p>
-                        Cuando te enfocas solo en la herramienta, el problema regresa. Cuando me contratas, obtienes un <strong>Arquitecto Sistémico</strong> que repara la <strong>conexión profunda</strong> entre el Ser (el líder), el Flujo (la eficiencia) y la Estructura (la organización).
-                    </p>
-
-                    <p class="font-bold text-petroleo text-2xl italic pt-4 text-center">
-                        "Dejemos de apagar incendios. Empecemos a construir una máquina de resultados que se sostenga sola."
-                    </p>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN PILARES (La Tríada de Soluciones) -->
-        <section id="pilares" class="bg-neutro py-20 px-6">
-            <div class="container mx-auto max-w-6xl">
-                <h2 class="text-4xl font-extrabold text-center mb-5 text-profundo uppercase tracking-tight">
-                    La Tríada del Resultado: Los 3 Pilares
-                </h2>
-                <p class="text-xl text-center mb-12 text-suave max-w-3xl mx-auto">
-                    La ejecución predecible requiere un trabajo integral en la <strong>estructura, la eficiencia y el factor humano</strong>. Esto es lo que construimos juntos.
-                </p>
-                
-                <!-- Grid de 3 Pilares -->
-                <div class="grid md:grid-cols-3 gap-8 mb-16">
-
-                    <!-- Pilar 1: Lo Humano (Liderazgo) -->
-                    <div class="card-hover-effect bg-contraste p-8 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col items-center text-center">
-                        <div class="mb-4 p-4 rounded-full bg-suave/20 text-petroleo">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <!-- 2. Credenciales y Valor (Section 1 del PDF) -->
+            <section id="valor" class="py-20 bg-contraste">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-bold text-center text-profundo mb-12">
+                        MI VALOR: SOY UN ARQUITECTO DE SISTEMAS PARA LA EJECUCIÓN
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <!-- Texto de Misión -->
+                        <div>
+                            <p class="text-xl text-suave mb-6 leading-relaxed">
+                                Mi misión es llevar a tu organización de la **ilusión de la estrategia** a la **certeza de la ejecución**, transformando la fricción operativa en resultados predecibles.
+                            </p>
+                            <p class="text-gray-600 mb-6">
+                                He pasado mi carrera conectando los puntos desde la Psicología y la Informática hasta el Project Management y el Coaching Ontológico. Esta mezcla multidisciplinaria me permitió ver la verdad fundamental: el éxito no reside en una única metodología (ni OKRs, ni Scrum), sino en la **Arquitectura del Sistema completa**.
+                            </p>
+                            <p class="text-gray-600 italic mb-8 border-l-4 border-petroleo pl-4">
+                                "Cuando te enfocas solo en la herramienta, el problema regresa. Cuando me contratas obtienes un Arquitecto Sistémico que repara la conexión profunda entre el **Ser** (el líder), el **Flujo** (la eficiencia) y la **Estructura** (la organización)."
+                            </p>
+                            <blockquote class="text-2xl font-semibold text-profundo leading-snug">
+                                "Dejemos de apagar incendios. Empecemos a construir una máquina de resultados que se sostenga sola."
+                            </blockquote>
                         </div>
-                        <h3 class="text-2xl font-bold mb-0 text-profundo">Pilar 1: Lo Humano</h3>
-                        <p class="text-base font-semibold mb-3 text-suave mt-1">(El Ser)</p>
-                        <h4 class="text-xl font-semibold mb-3 text-petroleo">Coaching de Liderazgo Sistémico</h4>
-                        <p class="text-gray-600 flex-grow">
-                            Transformamos al líder en un <strong>catalizador del cambio</strong>. Trabajamos la delegación eficaz, la gestión de patrones culturales (silos) y la reducción de la fatiga para liberar el potencial del equipo.
-                        </p>
-                    </div>
-
-                    <!-- Pilar 2: La Eficiencia (Flujo) -->
-                    <div class="card-hover-effect bg-contraste p-8 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col items-center text-center">
-                        <div class="mb-4 p-4 rounded-full bg-suave/20 text-petroleo">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge"><path d="m12 14v4"/><path d="M3.34 10A8 8 0 1 1 5.76 19"/><path d="M20.7 10a8 8 0 1 0-7.79 6"/></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-0 text-profundo">Pilar 2: La Eficiencia</h3>
-                        <p class="text-base font-semibold mb-3 text-suave mt-1">(El Flujo)</p>
-                        <h4 class="text-xl font-semibold mb-3 text-petroleo">Flujo de Valor y Predictibilidad</h4>
-                        <p class="text-gray-600 flex-grow">
-                            Implementamos <strong>OKRs, Kanban y Scrum</strong> para crear el flujo de valor más predecible. Esto significa claridad de Objetivos, una gestión de flujo limpia y la eliminación de desperdicios.
-                        </p>
-                    </div>
-
-                    <!-- Pilar 3: La Estructura (Arquitectura) -->
-                    <div class="card-hover-effect bg-contraste p-8 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col items-center text-center">
-                        <div class="mb-4 p-4 rounded-full bg-suave/20 text-petroleo">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers"><path d="m12.83 2.18-.81.9a4 4 0 0 0-.23.63c-.15.42-.1.87.12 1.25L13.4 9.4c.2.35.2.77 0 1.12L10 16l-3-4.5"/><path d="m12.83 2.18-3.04 4.19"/><path d="M17.7 13.79 12 21l-5.7-7.21c-.42-.53-.8-.98-1.15-1.39C3.76 11.23 3.01 9.98 3 8.5V6.5c.01-1.48.76-2.73 2.15-4.59L12 11l6.85-9.09c1.39 1.86 2.15 3.11 2.15 4.59v2c-.01 1.48-.76 2.73-2.15 4.59L17.7 13.79Z"/></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-0 text-profundo">Pilar 3: La Estructura</h3>
-                        <p class="text-base font-semibold mb-3 text-suave mt-1">(La Arquitectura)</p>
-                        <h4 class="text-xl font-semibold mb-3 text-petroleo">Arquitectura Modular unFIX</h4>
-                        <p class="text-gray-600 flex-grow">
-                            Diseñamos la <strong>arquitectura modular de la organización</strong> utilizando frameworks de avanzada (como <strong>unFIX</strong>) y aplicamos <strong>Lean Change Management</strong> para una gestión del cambio iterativa y no traumática.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- SECCIÓN SERVICIOS (OFERTA DETALLADA) -->
-        <section id="servicios" class="py-20 md:py-24 px-6 bg-contraste">
-            <div class="container mx-auto max-w-6xl">
-                <h2 class="text-4xl font-extrabold text-center mb-5 text-petroleo uppercase tracking-tight">
-                    La Oferta de Servicios Detallada
-                </h2>
-                <p class="text-xl text-center mb-16 text-suave max-w-4xl mx-auto">
-                    Cada módulo ataca la raíz del problema de ejecución en una de las tres dimensiones clave.
-                </p>
-
-                <!-- Grid de Módulos de Servicio -->
-                <div class="grid md:grid-cols-3 gap-10">
-
-                    <!-- Servicio 1: Liderazgo del Ser -->
-                    <div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-petroleo">
-                        <span class="text-4xl font-extrabold text-suave">01</span>
-                        <h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Liderazgo del Ser</h3>
-                        <p class="mb-4 text-lg font-semibold text-petroleo">Coaching Ontológico y Agile para Líderes</p>
-                        <p class="text-gray-700 mb-6">
-                            El ser es el que co-crea el éxito. Trabajamos directamente en la mentalidad y las competencias del liderazgo para que puedan trascender los problemas del sistema.
-                        </p>
-                        <ul class="service-list text-gray-700 text-sm space-y-2">
-                            <li>Diagnóstico de estilo de Liderazgo y Cultura Organizacional.</li>
-                            <li>Sesiones de <strong>Coaching Ontológico</strong> (ICF) para ejecutivos.</li>
-                            <li>Taller de <strong>Coaching Sistémico</strong> para equipos.</li>
-                            <li>Estrategias para la reducción de silos y resistencia al cambio.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Servicio 2: Ingeniería de Flujo -->
-                    <div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-suave">
-                        <span class="text-4xl font-extrabold text-suave">02</span>
-                        <h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Ingeniería de Flujo</h3>
-                        <p class="mb-4 text-lg font-semibold text-petroleo">Implementación OKR, Kanban y Lean</p>
-                        <p class="text-gray-700 mb-6">
-                            Diseñamos la maquinaria operativa. Nos enfocamos en la predictibilidad, la eliminación de desperdicio y el alineamiento estratégico.
-                        </p>
-                        <ul class="service-list text-gray-700 text-sm space-y-2">
-                            <li>Diseño e Implementación de la Metodología <strong>OKR</strong> (Objetivos y Resultados Clave).</li>
-                            <li>Mapeo de Flujo de Valor (VSM) y optimización <strong>Lean</strong>.</li>
-                            <li>Instalación y Coaching de <strong>Kanban</strong> para la gestión del trabajo.</li>
-                            <li>Formación en Agilidad Avanzada (Scaled Agile, Scrum).</li>
-                        </ul>
-                    </div>
-
-                    <!-- Servicio 3: Arquitectura Empresarial -->
-                    <div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-profundo">
-                        <span class="text-4xl font-extrabold text-suave">03</span>
-                        <h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Arquitectura Empresarial</h3>
-                        <p class="mb-4 text-lg font-semibold text-petroleo">Modelado Modular y Gestión del Cambio</p>
-                        <p class="text-gray-700 mb-6">
-                            La estructura debe ser modular, adaptable y capaz de sostener el crecimiento. Transformamos la organización para que sea antifrágil.
-                        </p>
-                        <ul class="service-list text-gray-700 text-sm space-y-2">
-                            <li>Modelado de la Arquitectura Organizacional con <strong>unFIX</strong>.</li>
-                            <li>Diseño de la estructura para equipos y departamentos cross-funcionales.</li>
-                            <li>Adopción de <strong>Lean Change Management</strong> (cambio no traumático).</li>
-                            <li>Estrategia de adaptación y eliminación de cuellos de botella sistémicos.</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- SECCIÓN HERRAMIENTAS (Badges de Herramientas) -->
-        <section id="herramientas" class="bg-contraste pb-20 px-6">
-             <div class="container mx-auto max-w-6xl">
-                <!-- Sub-sección de Badges (Herramientas de Arquitectura) -->
-                <div class="pt-8">
-                    <h3 class="text-2xl font-bold text-center mb-8 text-petroleo">Las Herramientas que Arquitectan tu Sistema</h3>
-                    <!-- AQUI el flex-wrap se mantiene, gap-3 para móvil y gap-6 para desktop -->
-                    <div class="flex flex-wrap justify-center gap-3 md:gap-6">
                         
-                        <!-- Badge 1: OKR Coach Professional -->
-                        <div class="badge-container badge-tool-container flex justify-center items-center" title="OKR Coach Professional">
-                            <img 
-                                src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/okr-coach-badge.webp?raw=true" 
-                                alt="OKR Coach Professional" 
-                                class="badge-img"
-                                onerror="this.onerror=null; this.src='https://placehold.co/100x100/0E4C5A/FFFFFF?text=OKR';"
-                            >
+                        <!-- La Tríada del Resultado (3 Pilares) -->
+                        <div class="space-y-6">
+                            <h3 class="text-2xl font-bold text-profundo mb-4 border-b pb-2">LA TRÍADA DEL RESULTADO: LOS 3 PILARES</h3>
+                            
+                            <div class="flex items-start p-4 bg-white rounded-xl shadow-lg border-l-4 border-petroleo">
+                                <span class="text-3xl text-petroleo mr-4">💡</span>
+                                <div>
+                                    <h4 class="font-bold text-lg text-profundo">Liderazgo y Cultura (El Ser)</h4>
+                                    <p class="text-sm text-suave">Facilito el desarrollo de líderes que entienden su organización como un sistema, promoviendo una cultura de responsabilidad y mejora continua.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start p-4 bg-white rounded-xl shadow-lg border-l-4 border-petroleo">
+                                <span class="text-3xl text-petroleo mr-4">⚙️</span>
+                                <div>
+                                    <h4 class="font-bold text-lg text-profundo">Eficiencia de Flujo (El Flujo)</h4>
+                                    <p class="text-sm text-suave">Optimizamos la gestión del trabajo y los mapas de flujo de valor para acelerar la entrega de resultados de manera predecible.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start p-4 bg-white rounded-xl shadow-lg border-l-4 border-petroleo">
+                                <span class="text-3xl text-petroleo mr-4">🏗️</span>
+                                <div>
+                                    <h4 class="font-bold text-lg text-profundo">Diseño Modular (La Estructura | unFIX)</h4>
+                                    <p class="text-sm text-suave">Diseño estructuras que no solo soportan, sino que aceleran la ejecución de la estrategia, cerrando la brecha entre la visión y la realidad operativa.</p>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Badge 2: Kanban Coach Professional -->
-                        <div class="badge-container badge-tool-container flex justify-center items-center" title="Kanban Coach Professional">
-                             <img 
-                                src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/kcp-badge.webp?raw=true" 
-                                alt="Kanban Coach Professional" 
-                                class="badge-img"
-                                onerror="this.onerror=null; this.src='https://placehold.co/100x100/4D7C87/FFFFFF?text=KCP';"
-                            >
-                        </div>
-                        <!-- Badge 3: unFIX Architect -->
-                        <div class="badge-container badge-tool-container flex justify-center items-center" title="unFIX Architect">
-                            <img 
-                                src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/unfix.webp?raw=true" 
-                                alt="unFIX Architect" 
-                                class="badge-img"
-                                onerror="this.onerror=null; this.src='https://placehold.co/100x100/062F36/FFFFFF?text=unFIX';"
-                            >
-                        </div>
-                        <!-- Badge 4: Lean Change Management Explorer -->
-                         <div class="badge-container badge-tool-container flex justify-center items-center" title="Lean Change Management Explorer">
-                            <img 
-                                src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/lcm-explorer.webp?raw=true" 
-                                alt="Lean Change Management Explorer" 
-                                class="badge-img"
-                                onerror="this.onerror=null; this.src='https://placehold.co/100x100/4D7C87/FFFFFF?text=LCM';"
-                            >
-                        </div>
-                         <!-- Badge 5: Management 3.0 -->
-                         <div class="badge-container badge-tool-container flex justify-center items-center" title="Management 3.0">
-                            <img 
-                                src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/management30.webp?raw=true" 
-                                alt="Management 3.0" 
-                                class="badge-img"
-                                onerror="this.onerror=null; this.src='https://placehold.co/100x100/0E4C5A/FFFFFF?text=M3.0';"
-                            >
+                    </div>
+                    
+                    <!-- Credenciales (Simuladas) -->
+                    <div class="mt-16 text-center">
+                        <p class="text-lg font-semibold text-profundo mb-4">CREDENCIALES DE LIDERAZGO Y COACHING:</p>
+                        <div class="flex justify-center space-x-8 grayscale opacity-70">
+                            <!-- Logos Simulados -->
+                            <div class="w-16 h-16 bg-gray-300 rounded-lg flex items-center justify-center text-sm font-bold text-gray-600">ICF</div>
+                            <div class="w-16 h-16 bg-gray-300 rounded-lg flex items-center justify-center text-sm font-bold text-gray-600">SYS</div>
+                            <div class="w-16 h-16 bg-gray-300 rounded-lg flex items-center justify-center text-sm font-bold text-gray-600">unFIX</div>
                         </div>
                     </div>
                 </div>
+            </section>
+            
+            <!-- 3. Servicios (Mi Enfoque de Valor - Sección 2 del PDF) -->
+            <section id="servicios" class="py-20 bg-gray-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-extrabold text-center text-petroleo mb-16">
+                        Servicios: Las Herramientas que Arquitectan tu Sistema
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Servicio 1: Liderazgo y Cultura -->
+                        <div class="bg-white p-8 rounded-xl shadow-2xl border-t-8 border-petroleo flex flex-col items-center text-center transform hover:scale-[1.02] transition duration-300">
+                            <div class="text-5xl mb-4 text-petroleo">👑</div>
+                            <h3 class="text-2xl font-bold text-profundo mb-4">Coaching de Liderazgo Sistémico</h3>
+                            <p class="text-suave mb-4">Trabajo 1:1 con líderes para alinearlos con la estrategia. Enfoque en la Psicología Sistémica y Coaching Ontológico para reparar la raíz del problema (El Ser).</p>
+                            <ul class="text-left text-sm text-gray-600 space-y-2 mt-auto pt-4">
+                                <li>- Mentoring y Desarrollo Ejecutivo</li>
+                                <li>- Liderazgo 3.0 (Management 3.0)</li>
+                                <li>- Coaching de Equipos de Alto Rendimiento</li>
+                            </ul>
+                        </div>
 
-                <!-- CTA dentro de la sección de Herramientas -->
-                <div class="text-center mt-16 p-8 bg-suave/10 rounded-xl max-w-4xl mx-auto">
-                    <p class="text-xl font-bold text-profundo mb-4">¿No sabes por dónde empezar?</p>
-                    <p class="text-lg text-gray-700 mb-6">
-                        Si te sientes abrumado por la ilusión vs. la fricción de la ejecución, agenda tu diagnóstico. Te ayudaré a identificar la causa raíz (si es el <strong>Ser, el Flujo o la Estructura</strong>) para que inviertas tu presupuesto de forma precisa.
+                        <!-- Servicio 2: Eficiencia de Flujo -->
+                        <div class="bg-white p-8 rounded-xl shadow-2xl border-t-8 border-petroleo flex flex-col items-center text-center transform hover:scale-[1.02] transition duration-300">
+                            <div class="text-5xl mb-4 text-petroleo">🚀</div>
+                            <h3 class="text-2xl font-bold text-profundo mb-4">Ejecución Predecible (Flujo)</h3>
+                            <p class="text-suave mb-4">Instalación de la eficiencia operativa. Uso de Kanban y Lean Change Management para optimizar el flujo de valor y evitar el cambio traumático.</p>
+                            <ul class="text-left text-sm text-gray-600 space-y-2 mt-auto pt-4">
+                                <li>- Mapeo y Optimización de Flujo de Valor</li>
+                                <li>- Instalación y Configuración de Kanban</li>
+                                <li>- Formación en Agilismo Avanzado (Scaled Agile)</li>
+                            </ul>
+                        </div>
+
+                        <!-- Servicio 3: Diseño Modular (unFIX) -->
+                        <div class="bg-white p-8 rounded-xl shadow-2xl border-t-8 border-petroleo flex flex-col items-center text-center transform hover:scale-[1.02] transition duration-300">
+                            <div class="text-5xl mb-4 text-petroleo">🧩</div>
+                            <h3 class="text-2xl font-bold text-profundo mb-4">Arquitectura Empresarial (Estructura)</h3>
+                            <p class="text-suave mb-4">Implementación de modelos operativos modernos y flexibles (como **unFIX**) para crear una organización verdaderamente adaptativa y antifrágil.</p>
+                            <ul class="text-left text-sm text-gray-600 space-y-2 mt-auto pt-4">
+                                <li>- Diseño Modular y Gestión del Cambio</li>
+                                <li>- Transformación Anti-Burocracia (**unFIX**)</li>
+                                <li>- Transición a Estructuras Orientadas al Valor</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 4. Llamada a la Acción (CTA) de Diagnóstico -->
+            <section id="contacto" class="py-20 bg-profundo text-contraste text-center">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-bold text-petroleo mb-4">¿No sabes por dónde empezar?</h2>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Si te sientes abrumado por la ilusión vs la fricción de la ejecución, agenda tu diagnóstico. Te ayudaré a identificar la causa raíz (si es el Ser, el Flujo o la Estructura) para que inviertas tu presupuesto de forma precisa.
                     </p>
-                    <a href="agenda.html" class="inline-block bg-petroleo hover:bg-profundo text-contraste font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
+                    <a href="#" class="bg-petroleo text-profundo font-bold py-4 px-10 text-lg rounded-full shadow-xl hover:shadow-2xl hover:bg-white transition duration-300 transform hover:scale-105">
                         Agenda un Diagnóstico de Causas Raíz
                     </a>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- SECCIÓN BLOG AUTOMATIZADO -->
-        <section id="blog" class="py-20 md:py-24 px-6 bg-neutro">
-            <div class="container mx-auto max-w-6xl">
-                <h2 class="text-4xl font-extrabold text-center mb-5 text-profundo uppercase tracking-tight">
-                    Últimas Reflexiones
-                </h2>
-                <p class="text-xl text-center mb-12 text-suave max-w-3xl mx-auto">
-                    Explora mi perspectiva sistémica y de liderazgo en los artículos más recientes.
-                </p>
-                <!-- Contenedor donde se inyectarán los posts de Medium -->
-                <div id="medium-posts-container" class="grid md:grid-cols-3 gap-8">
-                    <!-- Los posts se cargarán aquí -->
-                    <p class="col-span-3 text-center text-lg text-suave">Cargando publicaciones de Medium...</p>
+            <!-- 5. Blog / Últimas Reflexiones -->
+            <section id="blog" class="py-20 bg-contraste">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-4xl font-extrabold text-center text-profundo mb-6">
+                        ÚLTIMAS REFLEXIONES
+                    </h2>
+                    <p class="text-center text-lg text-suave mb-12">
+                        Explora mi perspectiva sistémica y de liderazgo en los artículos más recientes de Medium.
+                    </p>
+
+                    <!-- Contenedor de Artículos (Inyectado por JS) -->
+                    <div id="medium-posts-container" class="grid md:grid-cols-3 gap-8">
+                        <p class="col-span-3 text-center text-lg text-suave">Cargando artículos...</p>
+                    </div>
+
+                    <div class="text-center mt-12">
+                        <a href="https://medium.com/@Adriandeyme" target="_blank" class="text-petroleo font-semibold hover:text-profundo transition duration-300 border-b-2 border-petroleo pb-1">
+                            Ver todos los artículos en Medium
+                        </a>
+                    </div>
                 </div>
-                <div class="text-center mt-12">
-                    <a id="medium-profile-link" href="https://medium.com/@adriandeyme" target="_blank" class="inline-block bg-suave hover:bg-profundo text-contraste font-bold py-3 px-8 rounded-full shadow-xl transition duration-300">
-                        Ver todos los artículos en Medium
-                    </a>
+            </section>
+
+            <!-- Pie de Página -->
+            <footer class="bg-profundo text-contraste py-10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <p class="text-lg font-semibold mb-4">Conectemos para llevar tu estrategia a la máxima velocidad.</p>
+                    <div class="flex justify-center space-x-6 text-2xl mb-6">
+                        <!-- Iconos de Redes Sociales (Simulados) -->
+                        <a href="#" target="_blank" class="hover:text-petroleo transition duration-300">🔗</a> <!-- LinkedIn -->
+                        <a href="https://medium.com/@Adriandeyme" target="_blank" class="hover:text-petroleo transition duration-300">✍️</a> <!-- Medium -->
+                        <a href="#" target="_blank" class="hover:text-petroleo transition duration-300">🐦</a> <!-- X/Twitter -->
+                    </div>
+                    <p class="text-sm text-suave">2024 Adrián Deyme | Ejecución Sistémica</p>
                 </div>
-            </div>
-        </section>
+            </footer>
+        </main>
+    `;
 
+    // --- Script Principal para el Shadow DOM ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const rootElement = document.getElementById('landing-page-root');
+        
+        // 1. Crear el Shadow DOM
+        const shadowRoot = rootElement.attachShadow({ mode: 'open' });
+        
+        // 2. Inyectar el contenido HTML
+        shadowRoot.innerHTML = landingPageContent;
 
-        <!-- SECCIÓN CONTACTO (Call to Action Final, con enlace de correo y URL de Calendly) -->
-        <section id="contacto" class="min-h-[30vh] bg-petroleo py-20 flex items-center">
-            <div class="container mx-auto max-w-3xl px-4 text-center">
-                <h2 class="text-4xl font-extrabold mb-4 text-contraste">Listo para construir una máquina de resultados?</h2>
-                <p class="text-xl mb-10 text-suave">
-                    Para agendar tu <strong>Reunión Exploratoria</strong> de inmediato, haz click en el enlace de Calendly o conéctate en LinkedIn. Si tienes una consulta general, contáctame por correo.
-                </p>
-
-                <!-- Contenedor de Botones de Contacto -->
-                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-                    
-                    <!-- CTA 1: Calendly -->
-                    <a href="https://calendly.com/adrian-deyme/reunion-exploratoria" target="_blank" class="inline-block bg-contraste text-profundo hover:bg-neutro font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 border border-profundo text-lg">
-                        Ir a Calendly
-                    </a>
-                    
-                    <!-- CTA 2: LinkedIn -->
-                    <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" target="_blank" class="inline-block bg-[#0077B5] text-contraste hover:bg-[#005582] font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 border border-contraste text-lg">
-                        Conectar en LinkedIn
-                    </a>
-                </div>
-                
-                <!-- CTA 3: Correo Electrónico -->
-                <a href="mailto:contacto@adriandeyme.com" class="inline-block text-contraste hover:text-neutro font-bold py-3 px-8 transition duration-300 text-lg border-b-2 border-transparent hover:border-contraste">
-                    Enviar un Email a contacto@adriandeyme.com
-                </a>
-
-            </div>
-        </section>
-
-    </main>
-    
-    <!-- PIE DE PÁGINA (FOOTER) - MEJORADO con enlaces legales -->
-    <footer class="bg-profundo text-neutro py-10">
-        <div class="container mx-auto px-6">
+        // 3. Ejecutar scripts *dentro* del Shadow DOM
+        const scripts = Array.from(shadowRoot.querySelectorAll('script'));
+        scripts.forEach(oldScript => {
+            const newScript = document.createElement('script');
+            // Cargar el CDN de Tailwind (debe hacerse después de que el elemento esté en el DOM)
+            if (oldScript.src.includes('cdn.tailwindcss.com')) {
+                newScript.src = oldScript.src;
+                newScript.onload = () => {
+                    // Ejecutar el script de configuración de Tailwind después de que el CDN cargue
+                    const configScript = shadowRoot.getElementById('tailwind-config').nextElementSibling;
+                    if (configScript) {
+                        eval(configScript.textContent);
+                    }
+                    // Ahora se puede inicializar la carga de posts de Medium
+                    fetchMediumPosts(shadowRoot);
+                };
+                shadowRoot.appendChild(newScript);
+            } else if (!oldScript.src) {
+                // Script de configuración (se evalúa en el onload del CDN)
+                // Omitir por ahora, ya que se manejará en el onload del CDN
+            }
             
-            <div class="flex flex-col md:flex-row justify-between items-center border-b border-suave/30 pb-6 mb-6">
-                
-                <!-- Logo y Nombre -->
-                <div class="flex items-center mb-4 md:mb-0">
-                     <img 
-                        src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/brand/ad-logo.webp?raw=true" 
-                        alt="Logo Adrian Deyme" 
-                        class="h-8 w-auto rounded-lg mr-3 opacity-90" 
-                        onerror="this.onerror=null; this.src='https://placehold.co/32x32/0E4C5A/FFFFFF?text=AD';">
-                    <span class="text-xl font-bold tracking-tight text-contraste">Adrian DEYME</span>
-                </div>
-                
-                <!-- Iconos de Redes Sociales -->
-                <div class="flex space-x-6">
-                    <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" target="_blank" class="text-suave hover:text-contraste transition duration-300" title="Perfil de LinkedIn">
-                        <!-- Icono de LinkedIn SVG -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.51-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.769 7 2.476v6.759z"/></svg>
-                    </a>
-                    <!-- Puedes añadir más iconos aquí, ej: Twitter, Facebook, etc. -->
-                </div>
-            </div>
-            
-            <!-- Enlaces Legales y Copyright -->
-            <div class="text-center md:flex md:justify-between md:items-center text-sm">
-                <p class="mb-4 md:mb-0 text-suave">&copy; 2025 Adrian Deyme. Todos los derechos reservados.</p>
-                <div class="flex justify-center space-x-4">
-                    <!-- Estos enlaces son placeholders; debes crear estas páginas por separado. -->
-                    <a href="#" class="hover:text-contraste transition duration-300 text-suave/80 hover:underline">Términos y Condiciones</a>
-                    <a href="#" class="hover:text-contraste transition duration-300 text-suave/80 hover:underline">Política de Privacidad</a>
-                </div>
-            </div>
-
-        </div>
-    </footer>
-
-    <!-- Script para la funcionalidad del Menú Móvil -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuButton = document.getElementById('menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuLinks = mobileMenu.querySelectorAll('a');
-
-            // Función para alternar la visibilidad del menú
-            const toggleMenu = () => {
-                mobileMenu.classList.toggle('hidden');
-            };
-
-            // Evento para el botón hamburguesa
-            menuButton.addEventListener('click', toggleMenu);
-
-            // Evento para cerrar el menú al hacer clic en un enlace (navegación a sección)
-            menuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    // Esperamos un breve momento para que la navegación se complete antes de cerrar el menú
-                    setTimeout(() => {
-                        mobileMenu.classList.add('hidden');
-                    }, 100); 
-                });
-            });
+            // Eliminar el script original ya que eval() ya lo procesará o el newScript lo reemplazará
+            oldScript.remove();
         });
-    </script>
 
-    <!-- Script para cargar posts de Medium -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // *** USUARIO DE MEDIUM CONFIGURADO ***
-            const MEDIUM_USERNAME = 'adriandeyme'; 
+        // 4. Función de Carga de Posts de Medium adaptada al Shadow DOM
+        function fetchMediumPosts(root) {
+            const container = root.getElementById('medium-posts-container');
+            if (!container) return;
             
-            // Si tu usuario empieza con @, el feed RSS lo necesita.
-            const MEDIUM_HANDLE = MEDIUM_USERNAME.startsWith('@') ? MEDIUM_USERNAME : `@${MEDIUM_USERNAME}`; 
-            
-            // API de proxy para transformar el RSS de Medium a JSON (Supera problemas de CORS)
-            // URL de Medium RSS: https://medium.com/feed/@adriandeyme
-            const MEDIUM_FEED_URL = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${MEDIUM_HANDLE}`;
-            const container = document.getElementById('medium-posts-container');
-            const profileLink = document.getElementById('medium-profile-link');
-            
-            // Actualiza el enlace del botón a tu perfil real
-            profileLink.href = `https://medium.com/${MEDIUM_HANDLE}`;
-
-            fetch(MEDIUM_FEED_URL)
-                .then(response => response.json())
+            fetch(MEDIUM_RSS_FEED)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
-                    // Verifica si hay error o si no hay posts
-                    if (data.status !== 'ok' || !data.items || data.items.length === 0) {
-                        container.innerHTML = `<p class="col-span-3 text-center text-lg text-red-500">Error al cargar o no hay publicaciones disponibles. El usuario ${MEDIUM_HANDLE} puede no tener posts aún.</p>`;
+                    container.innerHTML = ''; // Limpiar el mensaje de carga
+                    const posts = data.items.slice(0, 3); // Obtener solo los 3 primeros
+                    
+                    if (posts.length === 0) {
+                        container.innerHTML = `<p class="col-span-3 text-center text-lg text-suave">No hay publicaciones recientes disponibles.</p>`;
                         return;
                     }
-                    
-                    // Limpia el mensaje de "cargando"
-                    container.innerHTML = '';
-                    
-                    // Toma solo los primeros 3 posts
-                    const posts = data.items.slice(0, 3);
-                    
+
                     posts.forEach(post => {
-                        // Limpia el título
                         const title = post.title;
-                        
-                        // Extrae el contenido sin las etiquetas HTML y limita la longitud
-                        let rawContent = post.content || post.description;
-                        const content = rawContent.replace(/<[^>]*>/g, '').substring(0, 150).trim() + '...'; 
-                        
-                        // Formatea la fecha
-                        const date = new Date(post.pubDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+                        // Limitar el contenido a una breve descripción
+                        const content = post.content_html.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
+                        const pubDate = new Date(post.pubDate);
+                        const date = pubDate.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 
                         const postHTML = `
                             <article class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col justify-between">
@@ -672,7 +376,14 @@
                     console.error('Error fetching Medium posts:', error);
                     container.innerHTML = `<p class="col-span-3 text-center text-lg text-red-500">No se pudieron cargar las publicaciones. (Error de red o CORS).</p>`;
                 });
-        });
-    </script>
+        }
+
+        // Si el CDN de Tailwind no se cargó inmediatamente (porque es asíncrono),
+        // llama a la función de posts de Medium directamente si no hay conflictos.
+        // En este caso, la llamada está anidada en el 'onload' del CDN para garantizar
+        // que los estilos se apliquen antes de inyectar el contenido dinámico.
+    });
+
+</script>
 </body>
 </html>
