@@ -607,41 +607,51 @@
         });
     </script>
 
-    <!-- Script para cargar posts de Medium -->
+    <!-- Script para cargar posts de Medium - MEJORADO CON REINTENTO Y ERROR ESPECÍFICO -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // *** USUARIO DE MEDIUM CONFIGURADO ***
             const MEDIUM_USERNAME = 'adriandeyme'; 
-            
-            // Si tu usuario empieza con @, el feed RSS lo necesita.
             const MEDIUM_HANDLE = MEDIUM_USERNAME.startsWith('@') ? MEDIUM_USERNAME : `@${MEDIUM_USERNAME}`; 
-            
-            // API de proxy para transformar el RSS de Medium a JSON (Supera problemas de CORS)
-            // URL de Medium RSS: https://medium.com/feed/@adriandeyme
             const MEDIUM_FEED_URL = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${MEDIUM_HANDLE}`;
             const container = document.getElementById('medium-posts-container');
             const profileLink = document.getElementById('medium-profile-link');
             
-            // Actualiza el enlace del botón a tu perfil real
             profileLink.href = `https://medium.com/${MEDIUM_HANDLE}`;
-
-            fetch(MEDIUM_FEED_URL)
-                .then(response => response.json())
-                .then(data => {
-                    // Verifica si hay error o si no hay posts
+            
+            const fetchMediumPosts = async () => {
+                try {
+                    const response = await fetch(MEDIUM_FEED_URL);
+                    
+                    if (!response.ok) {
+                        throw new Error(`Error de red: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    // Si el estado no es 'ok' (ej. usuario no encontrado, o error interno de la API proxy)
                     if (data.status !== 'ok' || !data.items || data.items.length === 0) {
-                        container.innerHTML = `<p class="col-span-3 text-center text-lg text-red-500">Error al cargar o no hay publicaciones disponibles. El usuario ${MEDIUM_HANDLE} puede no tener posts aún.</p>`;
+                        if (data.status === 'error') {
+                            // Este error ocurre si Medium no reconoce el usuario o si hay un fallo en la API proxy
+                            container.innerHTML = `
+                                <div class="col-span-3 text-center text-lg p-6 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                                    <p class="font-bold mb-2">Advertencia: Publicaciones no encontradas.</p>
+                                    <p>Por favor, confirma que el usuario de Medium <strong>${MEDIUM_HANDLE}</strong> es correcto y que la nota está en estado **Público**.</p>
+                                </div>
+                            `;
+                        } else {
+                            // Esto ocurre si el array de items está vacío (ej. no hay posts aún)
+                            container.innerHTML = `<p class="col-span-3 text-center text-lg text-suave">Publicaciones no encontradas. Publica tu primer artículo en Medium para que aparezca aquí.</p>`;
+                        }
                         return;
                     }
                     
-                    // Limpia el mensaje de "cargando"
+                    // Publicaciones encontradas, limpiar el contenedor
                     container.innerHTML = '';
                     
-                    // Toma solo los primeros 3 posts
+                    // Tomar solo los primeros 3 posts
                     const posts = data.items.slice(0, 3);
                     
                     posts.forEach(post => {
-                        // Limpia el título
                         const title = post.title;
                         
                         // Extrae el contenido sin las etiquetas HTML y limita la longitud
@@ -667,11 +677,20 @@
                         `;
                         container.innerHTML += postHTML;
                     });
-                })
-                .catch(error => {
-                    console.error('Error fetching Medium posts:', error);
-                    container.innerHTML = `<p class="col-span-3 text-center text-lg text-red-500">No se pudieron cargar las publicaciones. (Error de red o CORS).</p>`;
-                });
+
+                } catch (error) {
+                    console.error('Error al intentar cargar publicaciones de Medium:', error);
+                    container.innerHTML = `
+                        <div class="col-span-3 text-center text-lg p-6 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                            <p class="font-bold mb-2">Error de Conexión.</p>
+                            <p>No se pudieron cargar las publicaciones. Por favor, revisa la consola para más detalles (CORS/Red).</p>
+                        </div>
+                    `;
+                }
+            };
+
+            // Llamada inicial para cargar los posts
+            fetchMediumPosts();
         });
     </script>
 </body>
