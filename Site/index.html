@@ -23,6 +23,7 @@
         /* Efecto de hover para tarjetas */
         .card-hover-effect {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer; /* Indica que la tarjeta es clickeable */
         }
         .card-hover-effect:hover {
             transform: translateY(-5px);
@@ -39,7 +40,7 @@
             transform: scale(1.1);
         }
     </style>
-    <!-- Carga de íconos Lucide (para React, pero la incluiremos aquí como SVG simple si es necesario) -->
+    <!-- Carga de íconos Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -128,7 +129,7 @@
 
     </div>
 
-    <!-- Script para cargar posts de Medium - CORREGIDO target="_blank" -->
+    <!-- Script para cargar posts de Medium - SOLUCIÓN FORZADA CON window.open() -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const MEDIUM_USERNAME = 'adriandeyme'; 
@@ -174,7 +175,7 @@
                     // Tomar solo los primeros 3 posts
                     const posts = data.items.slice(0, 3);
                     
-                    posts.forEach(post => {
+                    posts.forEach((post, index) => {
                         const title = post.title;
                         
                         // Extrae el contenido sin las etiquetas HTML y limita la longitud
@@ -184,24 +185,39 @@
                         // Formatea la fecha
                         const date = new Date(post.pubDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 
+                        // Usamos un ID de tarjeta único para adjuntar el event listener
+                        const cardId = `medium-card-${index}`;
+
                         const postHTML = `
-                            <article class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col justify-between">
-                                <div>
+                            <article id="${cardId}" data-link="${post.link}" class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col justify-between">
+                                <div class="pointer-events-none"> <!-- Deshabilitamos eventos de clic en el contenido para que el listener se encargue -->
                                     <p class="text-sm text-suave mb-2">${date}</p>
-                                    <!-- AÑADIDO target="_blank" AQUÍ -->
-                                    <h3 class="text-xl font-bold mb-3 text-profundo hover:text-petroleo transition duration-300">
-                                        <a href="${post.link}" target="_blank">${title}</a>
+                                    <h3 class="text-xl font-bold mb-3 text-profundo">
+                                        ${title}
                                     </h3>
                                     <p class="text-gray-600 mb-4">${content}</p>
                                 </div>
-                                <!-- AÑADIDO target="_blank" AQUÍ -->
-                                <a href="${post.link}" target="_blank" class="text-petroleo font-semibold hover:text-profundo transition duration-300">
-                                    Leer artículo completo →
-                                </a>
+                                <div class="pointer-events-none">
+                                    <span class="text-petroleo font-semibold">
+                                        Leer artículo completo →
+                                    </span>
+                                </div>
                             </article>
                         `;
                         container.innerHTML += postHTML;
                     });
+
+                    // Añadir el Event Listener a cada tarjeta para forzar window.open()
+                    posts.forEach((post, index) => {
+                        const cardElement = document.getElementById(`medium-card-${index}`);
+                        if (cardElement) {
+                            cardElement.addEventListener('click', () => {
+                                // Esto fuerza al navegador a abrir la URL en una nueva pestaña, sin importar el sandboxing del iFrame.
+                                window.open(post.link, '_blank');
+                            });
+                        }
+                    });
+
 
                 } catch (error) {
                     console.error('Error al intentar cargar publicaciones de Medium:', error);
