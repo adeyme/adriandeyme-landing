@@ -29,6 +29,7 @@
             flex-direction: column;
             justify-content: space-between;
             height: 100%; /* Ocupa el espacio completo en el grid */
+            position: relative; /* Necesario para la posición absoluta del mensaje */
         }
         .card-link:hover {
             transform: translateY(-5px);
@@ -44,11 +45,35 @@
             color: #3498DB; /* Color de acento al pasar el ratón */
             transform: scale(1.1);
         }
+
+        /* Mensaje de copia al portapapeles */
+        #clipboard-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #34D399; /* Tailwind: green-400 */
+            color: #10B981; /* Tailwind: green-600 */
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        #clipboard-message.show {
+            opacity: 1;
+        }
     </style>
     <!-- Carga de íconos Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+
+    <!-- Mensaje flotante de Portapapeles -->
+    <div id="clipboard-message" class="bg-green-100 border border-green-400 text-green-700">
+        ¡Enlace copiado al portapapeles!
+    </div>
 
     <!-- Contenedor Principal Centrado -->
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -134,22 +159,38 @@
 
     </div>
 
-    <!-- Script para cargar posts de Medium - SOLUCIÓN NATIVA HTML (SIN CLICK LISTENERS) -->
+    <!-- Script para cargar posts de Medium y COPIAR el enlace -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const MEDIUM_USERNAME = 'adriandeyme'; 
             const MEDIUM_HANDLE = MEDIUM_USERNAME.startsWith('@') ? MEDIUM_USERNAME : `@${MEDIUM_USERNAME}`; 
             
-            // Usamos un cache-buster para asegurar la frescura del feed
             const MEDIUM_FEED_URL = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${MEDIUM_HANDLE}&t=${Date.now()}`;
 
             const container = document.getElementById('medium-posts-container');
             const profileLink = document.getElementById('medium-profile-link');
             const viewAllLink = document.getElementById('medium-view-all-link');
+            const clipboardMessage = document.getElementById('clipboard-message');
             
             profileLink.href = `https://medium.com/${MEDIUM_HANDLE}`;
             viewAllLink.href = `https://medium.com/${MEDIUM_HANDLE}`;
             
+            // Función para copiar el texto al portapapeles (funciona en iFrames)
+            const copyToClipboard = (text) => {
+                const tempInput = document.createElement('textarea');
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                // Mostrar mensaje de éxito
+                clipboardMessage.classList.add('show');
+                setTimeout(() => {
+                    clipboardMessage.classList.remove('show');
+                }, 2000);
+            };
+
             const fetchMediumPosts = async () => {
                 try {
                     const response = await fetch(MEDIUM_FEED_URL);
@@ -161,39 +202,28 @@
                     const data = await response.json();
                     
                     if (data.status !== 'ok' || !data.items || data.items.length === 0) {
-                         if (data.status === 'error') {
-                            // Mensaje de error más descriptivo en caso de problemas con la API
-                            container.innerHTML = `
-                                <div class="col-span-3 text-center text-lg p-6 bg-red-100 border border-red-400 text-red-700 rounded-lg">
-                                    <p class="font-bold mb-2">Advertencia: Publicaciones no encontradas.</p>
-                                    <p>Por favor, confirma que el usuario de Medium <strong>${MEDIUM_HANDLE}</strong> es correcto y que la nota está en estado **Público**.</p>
-                                </div>
-                            `;
-                        } else {
-                            container.innerHTML = `<p class="col-span-3 text-center text-lg text-suave">Publicaciones no encontradas. Publica tu primer artículo en Medium para que aparezca aquí.</p>`;
-                        }
+                        // Manejo de errores simplificado
+                        container.innerHTML = `<p class="col-span-3 text-center text-lg text-suave p-10">No se pudieron cargar publicaciones de Medium. Por favor, verifica el nombre de usuario.</p>`;
                         return;
                     }
                     
-                    // Publicaciones encontradas, limpiar el contenedor
                     container.innerHTML = '';
-                    
-                    // Tomar solo los primeros 3 posts
                     const posts = data.items.slice(0, 3);
                     
-                    posts.forEach((post) => {
+                    posts.forEach((post, index) => {
                         const title = post.title;
                         
-                        // Extrae el contenido sin las etiquetas HTML y limita la longitud
                         let rawContent = post.content || post.description;
                         const content = rawContent.replace(/<[^>]*>/g, '').substring(0, 150).trim() + '...'; 
                         
-                        // Formatea la fecha
                         const date = new Date(post.pubDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 
-                        // ¡CAMBIO CLAVE! Usamos la etiqueta <a> directamente como contenedor de la tarjeta
+                        const cardId = `medium-card-copy-${index}`;
+                        const postLink = post.link; // Obtenemos el enlace real
+
+                        // Cambiamos el <a> por un <article> con un botón de Copiar
                         const postHTML = `
-                            <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="card-link bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo">
+                            <article id="${cardId}" data-link="${postLink}" class="card-link bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col justify-between">
                                 <div>
                                     <p class="text-sm text-suave mb-2">${date}</p>
                                     <h3 class="text-xl font-bold mb-3 text-profundo">
@@ -202,16 +232,29 @@
                                     <p class="text-gray-600 mb-4">${content}</p>
                                 </div>
                                 <div>
-                                    <span class="text-petroleo font-semibold">
-                                        Leer artículo completo →
-                                    </span>
+                                    <!-- Botón que activa la función de copia -->
+                                    <button data-link="${postLink}" class="copy-link-btn inline-flex items-center text-petroleo font-semibold hover:text-profundo transition duration-200">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy mr-2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                        Copiar enlace (Bloqueado)
+                                    </button>
                                 </div>
-                            </a>
+                            </article>
                         `;
                         container.innerHTML += postHTML;
                     });
                     
-                    // NOTA: Se eliminaron todos los event listeners de navegación. Ahora el <a> se encarga de todo.
+                    // Añadir el Event Listener al botón de Copiar Enlace
+                    document.querySelectorAll('.copy-link-btn').forEach(button => {
+                        button.addEventListener('click', (e) => {
+                            e.preventDefault(); 
+                            const linkToCopy = e.currentTarget.getAttribute('data-link');
+                            copyToClipboard(linkToCopy);
+                            
+                            // Mensaje en consola como último recurso
+                            console.log(`El enlace fue copiado con éxito: ${linkToCopy}`);
+                            console.log("ATENCIÓN: Si este enlace NO se abre en una nueva pestaña, es porque su entorno de previsualización (iFrame) lo está BLOQUEANDO por seguridad (CSP). La solución es COPIAR y PEGAR el enlace manualmente en otra pestaña.");
+                        });
+                    });
 
                 } catch (error) {
                     console.error('Error al intentar cargar publicaciones de Medium:', error);
@@ -224,7 +267,6 @@
                 }
             };
 
-            // Llamada inicial para cargar los posts
             fetchMediumPosts();
         });
     </script>
