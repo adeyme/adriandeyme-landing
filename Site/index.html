@@ -20,12 +20,17 @@
         .bg-contraste { background-color: #FFFFFF; } /* Blanco para tarjetas */
         .text-suave { color: #95A5A6; } /* Gris suave para texto secundario */
 
-        /* Efecto de hover para tarjetas */
-        .card-hover-effect {
+        /* Estilo de la tarjeta que ahora es un <a> */
+        .card-link {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer; /* Indica que la tarjeta es clickeable */
+            cursor: pointer;
+            text-decoration: none; /* Quita el subrayado del enlace */
+            display: flex; /* Asegura que la tarjeta sea un bloque flexible */
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%; /* Ocupa el espacio completo en el grid */
         }
-        .card-hover-effect:hover {
+        .card-link:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
@@ -52,7 +57,7 @@
         <header class="text-center mb-16 pt-10">
             <div class="w-32 h-32 rounded-full mx-auto overflow-hidden shadow-xl mb-4 border-4 border-petroleo">
                 <!-- Imagen de perfil: usando un placeholder temporal -->
-                <img src="https://placehold.co/128x128/95A5A6/FFFFFF?text=AD" alt="Foto de Perfil de Adrián Deyme" class="w-full h-full object-cover">
+                <img src="https://placehold.co/128x128/3498DB/FFFFFF?text=AD" alt="Foto de Perfil de Adrián Deyme" class="w-full h-full object-cover">
             </div>
             <h1 class="text-5xl font-extrabold text-profundo mb-2">Adrián Deyme</h1>
             <p class="text-2xl text-profundo font-light mb-6">Ejecución Sistémica | Liderazgo Ágil | **unFIX**</p>
@@ -84,21 +89,21 @@
             <h2 class="text-3xl font-bold text-profundo text-center mb-8 border-b-2 border-petroleo/50 pb-2">Mi Enfoque de Valor</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Tarjeta 1: Alineación Estratégica -->
-                <div class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo">
+                <div class="card-link bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo">
                     <div class="text-petroleo mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-goal"><path d="M12 10a4 4 0 0 0-4 4v2"/><path d="M16 10a4 4 0 0 1 4 4v2"/><path d="M7 16l-3 4"/><path d="M20 16l3 4"/><path d="M18 10a6 6 0 0 0-12 0"/><path d="M12 21a2 2 0 0 0 2-2"/></svg></div>
                     <h3 class="text-xl font-bold text-profundo mb-3">Alineación Estratégica</h3>
                     <p class="text-gray-600">Diseño estructuras que no solo soportan, sino que aceleran la ejecución de la estrategia de la organización, cerrando la brecha entre la visión y la realidad operativa.</p>
                 </div>
                 
                 <!-- Tarjeta 2: Diseño Organizacional (unFIX) -->
-                <div class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo">
+                <div class="card-link bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo">
                     <div class="text-petroleo mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-puzzle"><path d="M19.439 7.854a2 2 0 0 0-2.83-2.828c-.37.37-.893.65-1.5.8L12 9l-3.111-3.174c-.607-.15-1.13-.43-1.5-.8a2 2 0 0 0-2.83 2.828c.37.37.65.893.8 1.5L9 12l-3.174 3.111c-.43.607-.8 1.13-.8 1.5a2 2 0 0 0 2.828 2.83c.37-.37.893-.65 1.5-.8L12 15l3.174 3.111c.607.43 1.13.8 1.5.8a2 2 0 0 0 2.83-2.828c-.37-.37-.65-.893-.8-1.5L15 12l3.111-3.174c.43-.607.8-1.13.8-1.5z"/></svg></div>
                     <h3 class="text-xl font-bold text-profundo mb-3">Diseño Modular (**unFIX**)</h3>
                     <p class="text-gray-600">Implementación de modelos operativos modernos y flexibles (como unFIX) para crear una organización verdaderamente adaptativa, centrada en el valor y la velocidad.</p>
                 </div>
                 
                 <!-- Tarjeta 3: Liderazgo y Coaching Sistémico -->
-                <div class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo">
+                <div class="card-link bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo">
                     <div class="text-petroleo mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users-2"><path d="M14 19a6 6 0 0 0-12 0"/><circle cx="8" cy="10" r="4"/><circle cx="17" cy="5" r="3"/><path d="M17 9.4V11"/></svg></div>
                     <h3 class="text-xl font-bold text-profundo mb-3">Liderazgo y Cultura</h3>
                     <p class="text-gray-600">Facilito el desarrollo de líderes que entienden su organización como un sistema, promoviendo una cultura de responsabilidad, experimentación y mejora continua.</p>
@@ -129,13 +134,13 @@
 
     </div>
 
-    <!-- Script para cargar posts de Medium - SOLUCIÓN EXTREMA CON window.top.location.href -->
+    <!-- Script para cargar posts de Medium - SOLUCIÓN NATIVA HTML (SIN CLICK LISTENERS) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const MEDIUM_USERNAME = 'adriandeyme'; 
             const MEDIUM_HANDLE = MEDIUM_USERNAME.startsWith('@') ? MEDIUM_USERNAME : `@${MEDIUM_USERNAME}`; 
             
-            // CAMBIO CLAVE: Añadir el parámetro de caché (t=timestamp) a la URL.
+            // Usamos un cache-buster para asegurar la frescura del feed
             const MEDIUM_FEED_URL = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${MEDIUM_HANDLE}&t=${Date.now()}`;
 
             const container = document.getElementById('medium-posts-container');
@@ -156,7 +161,8 @@
                     const data = await response.json();
                     
                     if (data.status !== 'ok' || !data.items || data.items.length === 0) {
-                        if (data.status === 'error') {
+                         if (data.status === 'error') {
+                            // Mensaje de error más descriptivo en caso de problemas con la API
                             container.innerHTML = `
                                 <div class="col-span-3 text-center text-lg p-6 bg-red-100 border border-red-400 text-red-700 rounded-lg">
                                     <p class="font-bold mb-2">Advertencia: Publicaciones no encontradas.</p>
@@ -175,7 +181,7 @@
                     // Tomar solo los primeros 3 posts
                     const posts = data.items.slice(0, 3);
                     
-                    posts.forEach((post, index) => {
+                    posts.forEach((post) => {
                         const title = post.title;
                         
                         // Extrae el contenido sin las etiquetas HTML y limita la longitud
@@ -185,53 +191,27 @@
                         // Formatea la fecha
                         const date = new Date(post.pubDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 
-                        // Usamos un ID de tarjeta único para adjuntar el event listener
-                        const cardId = `medium-card-${index}`;
-
+                        // ¡CAMBIO CLAVE! Usamos la etiqueta <a> directamente como contenedor de la tarjeta
                         const postHTML = `
-                            <article id="${cardId}" data-link="${post.link}" class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col justify-between">
-                                <div class="pointer-events-none"> <!-- Deshabilitamos eventos de clic en el contenido para que el listener se encargue -->
+                            <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="card-link bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo">
+                                <div>
                                     <p class="text-sm text-suave mb-2">${date}</p>
                                     <h3 class="text-xl font-bold mb-3 text-profundo">
                                         ${title}
                                     </h3>
                                     <p class="text-gray-600 mb-4">${content}</p>
                                 </div>
-                                <div class="pointer-events-none">
+                                <div>
                                     <span class="text-petroleo font-semibold">
                                         Leer artículo completo →
                                     </span>
                                 </div>
-                            </article>
+                            </a>
                         `;
                         container.innerHTML += postHTML;
                     });
-
-                    // Añadir el Event Listener a cada tarjeta para forzar window.open()
-                    posts.forEach((post, index) => {
-                        const cardElement = document.getElementById(`medium-card-${index}`);
-                        if (cardElement) {
-                            cardElement.addEventListener('click', (e) => {
-                                // Evita que cualquier acción por defecto se ejecute
-                                e.preventDefault(); 
-                                
-                                // Solución 1: Intentar cambiar la ubicación de la ventana superior (saliendo del iFrame)
-                                try {
-                                    if (window.top !== window.self) {
-                                        window.top.location.href = post.link;
-                                    } else {
-                                        // Solución 2 (Fallback): Si no está en un iFrame, simplemente abrir una pestaña nueva
-                                        window.open(post.link, '_blank');
-                                    }
-                                } catch (e) {
-                                    // Solución 3 (Fallback más seguro): Si la navegación superior está bloqueada, abre directamente en la pestaña actual
-                                    window.location.href = post.link;
-                                    console.error("Acceso a window.top.location.href denegado o fallido. Usando window.location.href como fallback.", e);
-                                }
-                            });
-                        }
-                    });
-
+                    
+                    // NOTA: Se eliminaron todos los event listeners de navegación. Ahora el <a> se encarga de todo.
 
                 } catch (error) {
                     console.error('Error al intentar cargar publicaciones de Medium:', error);
