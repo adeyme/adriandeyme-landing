@@ -128,21 +128,18 @@
 
     </div>
 
-    <!-- Script para cargar posts de Medium - MEJORADO CON REINTENTO Y ERROR ESPECÍFICO -->
+    <!-- Script para cargar posts de Medium - CORREGIDO target="_blank" -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const MEDIUM_USERNAME = 'adriandeyme'; 
             const MEDIUM_HANDLE = MEDIUM_USERNAME.startsWith('@') ? MEDIUM_USERNAME : `@${MEDIUM_USERNAME}`; 
             
-            // ************************************************
             // CAMBIO CLAVE: Añadir el parámetro de caché (t=timestamp) a la URL.
-            // Esto asegura que el proxy y el navegador pidan la versión MÁS RECIENTE de Medium.
-            // ************************************************
             const MEDIUM_FEED_URL = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${MEDIUM_HANDLE}&t=${Date.now()}`;
 
             const container = document.getElementById('medium-posts-container');
             const profileLink = document.getElementById('medium-profile-link');
-            const viewAllLink = document.getElementById('medium-view-all-link'); // Nuevo enlace para "Ver todos"
+            const viewAllLink = document.getElementById('medium-view-all-link');
             
             profileLink.href = `https://medium.com/${MEDIUM_HANDLE}`;
             viewAllLink.href = `https://medium.com/${MEDIUM_HANDLE}`;
@@ -157,10 +154,8 @@
                     
                     const data = await response.json();
                     
-                    // Si el estado no es 'ok' (ej. usuario no encontrado, o error interno de la API proxy)
                     if (data.status !== 'ok' || !data.items || data.items.length === 0) {
                         if (data.status === 'error') {
-                            // Este error ocurre si Medium no reconoce el usuario o si hay un fallo en la API proxy
                             container.innerHTML = `
                                 <div class="col-span-3 text-center text-lg p-6 bg-red-100 border border-red-400 text-red-700 rounded-lg">
                                     <p class="font-bold mb-2">Advertencia: Publicaciones no encontradas.</p>
@@ -168,7 +163,6 @@
                                 </div>
                             `;
                         } else {
-                            // Esto ocurre si el array de items está vacío (ej. no hay posts aún)
                             container.innerHTML = `<p class="col-span-3 text-center text-lg text-suave">Publicaciones no encontradas. Publica tu primer artículo en Medium para que aparezca aquí.</p>`;
                         }
                         return;
@@ -194,11 +188,13 @@
                             <article class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col justify-between">
                                 <div>
                                     <p class="text-sm text-suave mb-2">${date}</p>
+                                    <!-- AÑADIDO target="_blank" AQUÍ -->
                                     <h3 class="text-xl font-bold mb-3 text-profundo hover:text-petroleo transition duration-300">
                                         <a href="${post.link}" target="_blank">${title}</a>
                                     </h3>
                                     <p class="text-gray-600 mb-4">${content}</p>
                                 </div>
+                                <!-- AÑADIDO target="_blank" AQUÍ -->
                                 <a href="${post.link}" target="_blank" class="text-petroleo font-semibold hover:text-profundo transition duration-300">
                                     Leer artículo completo →
                                 </a>
