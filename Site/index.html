@@ -133,8 +133,9 @@
         <!-- Sección de Reflexiones (Blog de Medium) -->
         <section class="mb-16">
             <h2 class="text-3xl font-bold text-profundo text-center mb-8 border-b-2 border-petroleo/50 pb-2">Mis Últimas Reflexiones</h2>
-            <!-- El contenedor siempre tiene la grilla, el JS añade la clase de centrado al artículo si solo hay 1 -->
+            <!-- El contenedor de la grilla ahora incluye una clase max-w-lg para limitar el ancho y centrarse mejor en el caso de 1 post -->
             <div id="medium-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Mensaje de carga inicial (Será borrado por el JS) -->
                 <p class="col-span-full text-center text-lg text-suave p-10">Cargando publicaciones de Medium...</p>
             </div>
             
@@ -145,7 +146,7 @@
             </div>
         </section>
         
-        <!-- Sección de Contacto (Footer) -->
+        <!-- Sección de Contacto (Footer) - ESTO ES LO QUE NO SE VEÍA -->
         <footer class="text-center pt-10 border-t border-gray-300">
             <p class="text-sm text-gray-500 mb-4">&copy; 2024 Adrián Deyme | Ejecución Sistémica</p>
             <p class="text-sm text-gray-500">Conectemos para llevar tu estrategia a la máxima velocidad.</p>
@@ -153,13 +154,12 @@
 
     </div>
 
-    <!-- Script para cargar posts de Medium (Ajuste de centrado de nuevo) -->
+    <!-- Script para cargar posts de Medium -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const MEDIUM_USERNAME = 'adriandeyme'; 
             const MEDIUM_HANDLE = MEDIUM_USERNAME.startsWith('@') ? MEDIUM_USERNAME : `@${MEDIUM_USERNAME}`; 
             
-            // Usamos un proxy para evitar problemas de CORS y obtener JSON
             const MEDIUM_FEED_URL = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${MEDIUM_HANDLE}&t=${Date.now()}`;
 
             const container = document.getElementById('medium-posts-container');
@@ -174,41 +174,41 @@
                     return response.json();
                 })
                 .then(data => {
-                    // --- DIAGNÓSTICO DE DATOS DE MEDIUM ---
                     console.log('--- DIAGNÓSTICO DE DATOS DE MEDIUM ---');
                     console.log('1. Status del Proxy:', data.status);
                     console.log('2. Número de Posts (data.items.length):', data.items ? data.items.length : 'N/A');
-                    // --- FIN DIAGNÓSTICO DE DATOS DE MEDIUM ---
-
+                    
                     if (data.status !== 'ok' || !data.items || data.items.length === 0) {
-                        console.error('La respuesta del proxy de Medium es inválida o está vacía.', data);
-                        container.innerHTML = `<p class="col-span-full text-center text-lg text-suave p-10">No se pudieron cargar publicaciones de Medium. Por favor, verifica el nombre de usuario o la disponibilidad del feed.</p>`;
+                        // Si falla, mostramos el error PERO NO afectamos el layout
+                        container.innerHTML = `<p class="col-span-full text-center text-lg text-suave p-10">No se pudieron cargar publicaciones de Medium.</p>`;
                         return;
                     }
                     
-                    container.innerHTML = '';
-                    // Mostrar solo los primeros 3 posts
+                    container.innerHTML = ''; // Limpiamos el mensaje de "Cargando..."
+                    
                     const posts = data.items.slice(0, 3);
                     const totalPosts = posts.length;
                     
-                    // Restauramos la clase base del contenedor (ya está en el HTML, pero es buena práctica)
-                    container.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'; 
+                    // Solo si hay 1 post, lo forzamos a centrarse en la columna 2
+                    if (totalPosts === 1) {
+                         // Centramos la grilla si solo hay 1 post (en pantallas grandes)
+                        container.className = 'grid grid-cols-1 lg:grid-cols-3 gap-8 mx-auto max-w-4xl';
+                    } else {
+                        // Para 2 o 3 posts, usamos la grilla completa
+                        container.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8';
+                    }
 
                     posts.forEach((post, index) => {
                         const title = post.title;
                         
-                        // Limpiar y cortar el contenido
                         let rawContent = post.content || post.description;
-                        // Eliminamos etiquetas HTML y limitamos a 150 caracteres
                         const content = rawContent.replace(/<[^>]*>/g, '').substring(0, 150).trim() + '...'; 
                         
                         const date = new Date(post.pubDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
                         
-                        // CLASE DE CENTRADO DEFINITIVA: 
-                        // Si hay 1 post, lo forzamos a la segunda columna (centrado) y que ocupe solo 1 columna.
+                        // Si hay 1 post, lo forzamos a empezar en la segunda columna y ocupar 1 columna
                         const centeringClass = (totalPosts === 1) ? 'lg:col-start-2 lg:col-span-1' : '';
                         
-                        // Estructura de la tarjeta con enlace simple (target="_blank")
                         const postHTML = `
                             <article class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col justify-between ${centeringClass}">
                                 <div>
@@ -228,7 +228,8 @@
                 })
                 .catch(error => {
                     console.error('Error al intentar obtener los posts de Medium (Fallo de Fetch/Red):', error);
-                    container.innerHTML = `<p class="col-span-full text-center text-lg text-red-500">No se pudieron cargar las publicaciones. (Error de red o CORS).</p>`;
+                    // Aseguramos que el mensaje de error ocupe el espacio y se vea, sin bloquear el resto.
+                    container.innerHTML = `<p class="col-span-full text-center text-lg text-red-500 p-10">No se pudieron cargar las publicaciones. Por favor, verifica tu conexión.</p>`;
                 });
         });
     </script>
