@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,18 +12,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adrian Deyme - Ejecución Sistémica y Coaching de Liderazgo</title>
-    <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Configuración de Fuentes (Montserrat y Pacifico) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap" rel="stylesheet">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/brand/ad-favicon.png?raw=true">
 
-    <!-- Configuración de Colores y Tipografías -->
     <script>
         tailwind.config = {
             theme: {
@@ -118,11 +113,9 @@
 </head>
 <body class="text-profundo">
 
-    <!-- BARRA DE NAVEGACIÓN (HEADER) -->
     <header class="bg-contraste shadow-md sticky top-0 z-10">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             
-            <!-- Logo y Nombre -->
             <div class="flex items-center space-x-3">
                 <img 
                     src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/brand/ad-logo.webp?raw=true" 
@@ -136,25 +129,21 @@
                 </span>
             </div>
 
-            <!-- Navegación Principal (Desktop) -->
             <nav class="hidden md:flex space-x-8 text-lg font-medium items-center">
                 <a href="#valor" class="hover:text-petroleo transition duration-300">Mi Valor</a>
                 <a href="#pilares" class="hover:text-petroleo transition duration-300">Pilares</a>
                 <a href="#servicios" class="hover:text-petroleo transition duration-300">Servicios</a>
-                <!-- Botón de Agenda/Diagnóstico -->
                 <a href="agenda.html" class="inline-block bg-petroleo hover:bg-profundo text-contraste font-bold py-2 px-4 rounded-lg shadow-md transition duration-300">
                     Agenda un Diagnóstico
                 </a>
             </nav>
 
-            <!-- Botón de Menú para Móviles (Hamburguesa) -->
             <button id="menu-button" class="md:hidden p-2 rounded-lg hover:bg-neutro transition duration-200" aria-label="Menu">
                 <svg class="w-6 h-6 text-petroleo" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
     </header>
 
-    <!-- MENÚ DESPLEGABLE MÓVIL (Inicialmente oculto) -->
     <div id="mobile-menu" class="hidden md:hidden bg-contraste shadow-lg py-4 transition-all duration-300 ease-in-out">
         <div class="flex flex-col space-y-3 px-6 text-lg font-medium">
             <a href="#valor" class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Mi Valor</a>
@@ -167,14 +156,11 @@
     </div>
 
     <main>
-        <!-- SECCIÓN HERO (Banner Principal con Foto y Narrativa Ajustada) -->
         <section id="hero" class="relative bg-suave min-h-[85vh] flex items-center p-6 overflow-hidden">
             <div class="container mx-auto max-w-6xl py-16 flex flex-col md:flex-row items-center justify-between z-10">
                 
-                <!-- Columna de Texto y CTA -->
                 <div class="md:w-3/5 text-center md:text-left text-contraste mb-10 md:mb-0">
                     <div class="flex justify-center md:justify-start mb-6 md:hidden">
-                        <!-- Foto de Perfil Móvil (Optimización de imagen: se usa <picture> para futuros srcset) -->
                         <picture>
                             <img 
                                 src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/images/adrian-perfil.webp?raw=true" 
@@ -195,7 +181,6 @@
                         Alineo el <strong>Liderazgo (Ser)</strong>, la <strong>Eficiencia (Flujo)</strong> y la <strong>Estructura</strong> de tu organización para construir una máquina de resultados sostenible.
                     </p>
                     
-                    <!-- Contenedor de Botones -->
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-10 justify-center md:justify-start">
                         <a href="agenda.html" class="inline-block bg-petroleo hover:bg-profundo text-contraste font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
                             Agenda un Diagnóstico Gratuito de 30 min
@@ -205,12 +190,10 @@
                         </a>
                     </div>
                     
-                    <!-- BADGES DE CREDENCIALES (Liderazgo) -->
                     <div class="mt-8">
                         <h4 class="text-sm font-semibold mb-3 text-neutro uppercase tracking-wider">Credenciales de Liderazgo y Coaching</h4>
                         <div class="flex flex-wrap justify-center md:justify-start gap-4">
                             
-                            <!-- Badge 1: Miembro ICF -->
                             <div class="badge-container flex justify-center items-center" title="Miembro ICF">
                                 <img 
                                     src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/icf-member.webp?raw=true" 
@@ -219,7 +202,6 @@
                                     onerror="this.onerror=null; this.src='https://placehold.co/80x80/062F36/FFFFFF?text=ICF+Member';"
                                 >
                             </div>
-                            <!-- Badge 2: Coach Ontológico ICF -->
                             <div class="badge-container flex justify-center items-center" title="Coach Ontológico ICF (Level 2)">
                                 <img 
                                     src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/icf-ce-level2.webp?raw=true" 
@@ -228,7 +210,6 @@
                                     onerror="this.onerror=null; this.src='https://placehold.co/80x80/0E4C5A/FFFFFF?text=ICF+L2';"
                                 >
                             </div>
-                            <!-- Badge 3: Agile Coach -->
                             <div class="badge-container flex justify-center items-center" title="ICP-ACC Agile Coach">
                                 <img 
                                     src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/icp-acc.webp?raw=true" 
@@ -237,7 +218,6 @@
                                     onerror="this.onerror=null; this.src='https://placehold.co/80x80/4D7C87/FFFFFF?text=ICP-ACC';"
                                 >
                             </div>
-                            <!-- Badge 4: Agile System Coach -->
                             <div class="badge-container flex justify-center items-center" title="ICP-SYS Agile System Coach">
                                 <img 
                                     src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/icp-sys.webp?raw=true" 
@@ -250,7 +230,6 @@
                     </div>
                 </div>
 
-                <!-- Columna de Imagen de Perfil (Solo visible en Desktop, con mayor tamaño y <picture>) -->
                 <div class="hidden md:flex md:w-2/5 justify-center">
                     <picture>
                         <img 
@@ -264,7 +243,6 @@
             </div>
         </section>
 
-        <!-- SECCIÓN MI VALOR -->
         <section id="valor" class="py-20 md:py-24 px-6 bg-contraste">
             <div class="container mx-auto max-w-5xl">
                 <h2 class="text-4xl font-extrabold text-center mb-16 text-profundo uppercase tracking-tight">
@@ -292,7 +270,6 @@
             </div>
         </section>
 
-        <!-- SECCIÓN PILARES (La Tríada de Soluciones) -->
         <section id="pilares" class="bg-neutro py-20 px-6">
             <div class="container mx-auto max-w-6xl">
                 <h2 class="text-4xl font-extrabold text-center mb-5 text-profundo uppercase tracking-tight">
@@ -302,39 +279,38 @@
                     La ejecución predecible requiere un trabajo integral en la <strong>estructura, la eficiencia y el factor humano</strong>. Esto es lo que construimos juntos.
                 </p>
                 
-                <!-- Grid de 3 Pilares -->
                 <div class="grid md:grid-cols-3 gap-8 mb-16">
 
-                    <!-- Pilar 1: Lo Humano (Liderazgo) -->
                     <div class="card-hover-effect bg-contraste p-8 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col items-center text-center">
                         <div class="mb-4 p-4 rounded-full bg-suave/20 text-petroleo">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-profundo">Pilar 1: Lo Humano (El Ser)</h3>
+                        <h3 class="text-2xl font-bold mb-0 text-profundo">Pilar 1: Lo Humano</h3>
+                        <p class="text-base font-semibold mb-3 text-suave mt-1">(El Ser)</p>
                         <h4 class="text-xl font-semibold mb-3 text-petroleo">Coaching de Liderazgo Sistémico</h4>
                         <p class="text-gray-600 flex-grow">
                             Transformamos al líder en un <strong>catalizador del cambio</strong>. Trabajamos la delegación eficaz, la gestión de patrones culturales (silos) y la reducción de la fatiga para liberar el potencial del equipo.
                         </p>
                     </div>
 
-                    <!-- Pilar 2: La Eficiencia (Flujo) -->
                     <div class="card-hover-effect bg-contraste p-8 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col items-center text-center">
                         <div class="mb-4 p-4 rounded-full bg-suave/20 text-petroleo">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge"><path d="m12 14v4"/><path d="M3.34 10A8 8 0 1 1 5.76 19"/><path d="M20.7 10a8 8 0 1 0-7.79 6"/></svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-profundo">Pilar 2: La Eficiencia (El Flujo)</h3>
+                        <h3 class="text-2xl font-bold mb-0 text-profundo">Pilar 2: La Eficiencia</h3>
+                        <p class="text-base font-semibold mb-3 text-suave mt-1">(El Flujo)</p>
                         <h4 class="text-xl font-semibold mb-3 text-petroleo">Flujo de Valor y Predictibilidad</h4>
                         <p class="text-gray-600 flex-grow">
                             Implementamos <strong>OKRs, Kanban y Scrum</strong> para crear el flujo de valor más predecible. Esto significa claridad de Objetivos, una gestión de flujo limpia y la eliminación de desperdicios.
                         </p>
                     </div>
 
-                    <!-- Pilar 3: La Estructura (Arquitectura) -->
                     <div class="card-hover-effect bg-contraste p-8 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col items-center text-center">
                         <div class="mb-4 p-4 rounded-full bg-suave/20 text-petroleo">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers"><path d="m12.83 2.18-.81.9a4 4 0 0 0-.23.63c-.15.42-.1.87.12 1.25L13.4 9.4c.2.35.2.77 0 1.12L10 16l-3-4.5"/><path d="m12.83 2.18-3.04 4.19"/><path d="M17.7 13.79 12 21l-5.7-7.21c-.42-.53-.8-.98-1.15-1.39C3.76 11.23 3.01 9.98 3 8.5V6.5c.01-1.48.76-2.73 2.15-4.59L12 11l6.85-9.09c1.39 1.86 2.15 3.11 2.15 4.59v2c-.01 1.48-.76 2.73-2.15 4.59L17.7 13.79Z"/></svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-profundo">Pilar 3: La Estructura (La Arquitectura)</h3>
+                        <h3 class="text-2xl font-bold mb-0 text-profundo">Pilar 3: La Estructura</h3>
+                        <p class="text-base font-semibold mb-3 text-suave mt-1">(La Arquitectura)</p>
                         <h4 class="text-xl font-semibold mb-3 text-petroleo">Arquitectura Modular unFIX</h4>
                         <p class="text-gray-600 flex-grow">
                             Diseñamos la <strong>arquitectura modular de la organización</strong> utilizando frameworks de avanzada (como <strong>unFIX</strong>) y aplicamos <strong>Lean Change Management</strong> para una gestión del cambio iterativa y no traumática.
@@ -345,7 +321,6 @@
         </section>
 
 
-        <!-- SECCIÓN SERVICIOS (OFERTA DETALLADA) -->
         <section id="servicios" class="py-20 md:py-24 px-6 bg-contraste">
             <div class="container mx-auto max-w-6xl">
                 <h2 class="text-4xl font-extrabold text-center mb-5 text-petroleo uppercase tracking-tight">
@@ -355,10 +330,8 @@
                     Cada módulo ataca la raíz del problema de ejecución en una de las tres dimensiones clave.
                 </p>
 
-                <!-- Grid de Módulos de Servicio -->
                 <div class="grid md:grid-cols-3 gap-10">
 
-                    <!-- Servicio 1: Liderazgo del Ser -->
                     <div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-petroleo">
                         <span class="text-4xl font-extrabold text-suave">01</span>
                         <h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Liderazgo del Ser</h3>
@@ -374,7 +347,6 @@
                         </ul>
                     </div>
 
-                    <!-- Servicio 2: Ingeniería de Flujo -->
                     <div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-suave">
                         <span class="text-4xl font-extrabold text-suave">02</span>
                         <h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Ingeniería de Flujo</h3>
@@ -390,7 +362,6 @@
                         </ul>
                     </div>
 
-                    <!-- Servicio 3: Arquitectura Empresarial -->
                     <div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-profundo">
                         <span class="text-4xl font-extrabold text-suave">03</span>
                         <h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Arquitectura Empresarial</h3>
@@ -411,16 +382,12 @@
         </section>
 
 
-        <!-- SECCIÓN HERRAMIENTAS (Badges de Herramientas) -->
         <section id="herramientas" class="bg-contraste pb-20 px-6">
              <div class="container mx-auto max-w-6xl">
-                <!-- Sub-sección de Badges (Herramientas de Arquitectura) -->
                 <div class="pt-8">
                     <h3 class="text-2xl font-bold text-center mb-8 text-petroleo">Las Herramientas que Arquitectan tu Sistema</h3>
-                    <!-- AQUI el flex-wrap se mantiene, gap-3 para móvil y gap-6 para desktop -->
                     <div class="flex flex-wrap justify-center gap-3 md:gap-6">
                         
-                        <!-- Badge 1: OKR Coach Professional -->
                         <div class="badge-container badge-tool-container flex justify-center items-center" title="OKR Coach Professional">
                             <img 
                                 src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/okr-coach-badge.webp?raw=true" 
@@ -429,7 +396,6 @@
                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/0E4C5A/FFFFFF?text=OKR';"
                             >
                         </div>
-                        <!-- Badge 2: Kanban Coach Professional -->
                         <div class="badge-container badge-tool-container flex justify-center items-center" title="Kanban Coach Professional">
                              <img 
                                 src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/kcp-badge.webp?raw=true" 
@@ -438,7 +404,6 @@
                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/4D7C87/FFFFFF?text=KCP';"
                             >
                         </div>
-                        <!-- Badge 3: unFIX Architect -->
                         <div class="badge-container badge-tool-container flex justify-center items-center" title="unFIX Architect">
                             <img 
                                 src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/unfix.webp?raw=true" 
@@ -447,8 +412,7 @@
                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/062F36/FFFFFF?text=unFIX';"
                             >
                         </div>
-                        <!-- Badge 4: Lean Change Management Explorer -->
-                         <div class="badge-container badge-tool-container flex justify-center items-center" title="Lean Change Management Explorer">
+                        <div class="badge-container badge-tool-container flex justify-center items-center" title="Lean Change Management Explorer">
                             <img 
                                 src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/lcm-explorer.webp?raw=true" 
                                 alt="Lean Change Management Explorer" 
@@ -456,7 +420,6 @@
                                 onerror="this.onerror=null; this.src='https://placehold.co/100x100/4D7C87/FFFFFF?text=LCM';"
                             >
                         </div>
-                         <!-- Badge 5: Management 3.0 -->
                          <div class="badge-container badge-tool-container flex justify-center items-center" title="Management 3.0">
                             <img 
                                 src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/management30.webp?raw=true" 
@@ -468,7 +431,6 @@
                     </div>
                 </div>
 
-                <!-- CTA dentro de la sección de Herramientas -->
                 <div class="text-center mt-16 p-8 bg-suave/10 rounded-xl max-w-4xl mx-auto">
                     <p class="text-xl font-bold text-profundo mb-4">¿No sabes por dónde empezar?</p>
                     <p class="text-lg text-gray-700 mb-6">
@@ -482,7 +444,6 @@
         </section>
 
 
-        <!-- SECCIÓN CONTACTO (Call to Action Final, con enlace de correo y URL de Calendly) -->
         <section id="contacto" class="min-h-[30vh] bg-petroleo py-20 flex items-center">
             <div class="container mx-auto max-w-3xl px-4 text-center">
                 <h2 class="text-4xl font-extrabold mb-4 text-contraste">Listo para construir una máquina de resultados?</h2>
@@ -490,21 +451,17 @@
                     Para agendar tu <strong>Reunión Exploratoria</strong> de inmediato, haz click en el enlace de Calendly o conéctate en LinkedIn. Si tienes una consulta general, contáctame por correo.
                 </p>
 
-                <!-- Contenedor de Botones de Contacto -->
                 <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
                     
-                    <!-- CTA 1: Calendly -->
                     <a href="https://calendly.com/adrian-deyme/reunion-exploratoria" target="_blank" class="inline-block bg-contraste text-profundo hover:bg-neutro font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 border border-profundo text-lg">
                         Ir a Calendly
                     </a>
                     
-                    <!-- CTA 2: LinkedIn -->
                     <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" target="_blank" class="inline-block bg-[#0077B5] text-contraste hover:bg-[#005582] font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 border border-contraste text-lg">
                         Conectar en LinkedIn
                     </a>
                 </div>
                 
-                <!-- CTA 3: Correo Electrónico -->
                 <a href="mailto:contacto@adriandeyme.com" class="inline-block text-contraste hover:text-neutro font-bold py-3 px-8 transition duration-300 text-lg border-b-2 border-transparent hover:border-contraste">
                     Enviar un Email a contacto@adriandeyme.com
                 </a>
@@ -514,13 +471,11 @@
 
     </main>
     
-    <!-- PIE DE PÁGINA (FOOTER) - MEJORADO con enlaces legales -->
     <footer class="bg-profundo text-neutro py-10">
         <div class="container mx-auto px-6">
             
             <div class="flex flex-col md:flex-row justify-between items-center border-b border-suave/30 pb-6 mb-6">
                 
-                <!-- Logo y Nombre -->
                 <div class="flex items-center mb-4 md:mb-0">
                      <img 
                         src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/brand/ad-logo.webp?raw=true" 
@@ -530,21 +485,16 @@
                     <span class="text-xl font-bold tracking-tight text-contraste">Adrian DEYME</span>
                 </div>
                 
-                <!-- Iconos de Redes Sociales -->
                 <div class="flex space-x-6">
                     <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" target="_blank" class="text-suave hover:text-contraste transition duration-300" title="Perfil de LinkedIn">
-                        <!-- Icono de LinkedIn SVG -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.51-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.769 7 2.476v6.759z"/></svg>
                     </a>
-                    <!-- Puedes añadir más iconos aquí, ej: Twitter, Facebook, etc. -->
-                </div>
+                    </div>
             </div>
             
-            <!-- Enlaces Legales y Copyright -->
             <div class="text-center md:flex md:justify-between md:items-center text-sm">
                 <p class="mb-4 md:mb-0 text-suave">&copy; 2025 Adrian Deyme. Todos los derechos reservados.</p>
                 <div class="flex justify-center space-x-4">
-                    <!-- Estos enlaces son placeholders; debes crear estas páginas por separado. -->
                     <a href="#" class="hover:text-contraste transition duration-300 text-suave/80 hover:underline">Términos y Condiciones</a>
                     <a href="#" class="hover:text-contraste transition duration-300 text-suave/80 hover:underline">Política de Privacidad</a>
                 </div>
@@ -553,7 +503,6 @@
         </div>
     </footer>
 
-    <!-- Script para la funcionalidad del Menú Móvil -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuButton = document.getElementById('menu-button');
