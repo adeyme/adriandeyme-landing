@@ -20,7 +20,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Pacifico&amp;display=swap" rel="stylesheet"/>
 <!-- Favicon -->
-<link href="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/brand/ad-favicon.png?raw=true" rel="icon" type="image/png"/>
+<link href="/Site/assets/brand/ad-favicon.png" rel="icon" type="image/png"/>
 <!-- Configuración de Colores y Tipografías -->
 <script>
         tailwind.config = {
@@ -72,14 +72,7 @@
             font-weight: bold;
         }
         /* Estilo para el Badge (Credencial) - Sección HERO */
-        .badge-container {
-            width: 80px; 
-            height: 80px;
-            overflow: hidden;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+        .badge-container{width:80px;height:80px;overflow:hidden;border-radius:12px;}
         /* Estilo para los Badges de HERRAMIENTAS - SECCIÓN INFERIOR */
         .badge-tool-container {
              /* Reducido a 50px para móvil */
@@ -112,13 +105,13 @@
             box-shadow: 0 10px 20px rgba(6, 47, 54, 0.2); 
         }
     </style>
-<link href="https://www.adriandeyme.com/" rel="canonical"/><meta content="Transformo la estrategia en ejecución predecible integrando Liderazgo (Ser), Flujo (Eficiencia) y Estructura (Arquitectura Organizacional). Coaching, OKRs y Kanban." name="description"/><meta content="Adrian Deyme - Ejecución Sistémica y Coaching de Liderazgo" property="og:title"/><meta content="Transformo la estrategia en ejecución predecible integrando Liderazgo (Ser), Flujo (Eficiencia) y Estructura. Coaching, OKRs y Kanban." property="og:description"/><meta content="website" property="og:type"/><meta content="es_LA" property="og:locale"/><meta content="https://www.adriandeyme.com/" property="og:url"/><meta content="Adrián Deyme" property="og:site_name"/><meta content="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/images/adrian-perfil-1200x630.jpg?raw=true" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Marca personal de Adrián Deyme: coaching de liderazgo y ejecución sistémica" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Adrian Deyme - Ejecución Sistémica y Coaching de Liderazgo" name="twitter:title"/><meta content="Transformo la estrategia en ejecución predecible integrando Liderazgo (Ser), Flujo (Eficiencia) y Estructura. Coaching, OKRs y Kanban." name="twitter:description"/><meta content="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/images/adrian-perfil-1200x630.jpg?raw=true" name="twitter:image"/><script type="application/ld+json">{
+<link href="https://www.adriandeyme.com/" rel="canonical"/><meta content="Transformo la estrategia en ejecución predecible integrando Liderazgo (Ser), Flujo (Eficiencia) y Estructura (Arquitectura Organizacional). Coaching, OKRs y Kanban." name="description"/><meta content="Adrian Deyme - Ejecución Sistémica y Coaching de Liderazgo" property="og:title"/><meta content="Transformo la estrategia en ejecución predecible integrando Liderazgo (Ser), Flujo (Eficiencia) y Estructura. Coaching, OKRs y Kanban." property="og:description"/><meta content="website" property="og:type"/><meta content="es_LA" property="og:locale"/><meta content="https://www.adriandeyme.com/" property="og:url"/><meta content="Adrián Deyme" property="og:site_name"/><meta content="/Site/assets/images/adrian-perfil-1200x630.jpg" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Marca personal de Adrián Deyme: coaching de liderazgo y ejecución sistémica" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Adrian Deyme - Ejecución Sistémica y Coaching de Liderazgo" name="twitter:title"/><meta content="Transformo la estrategia en ejecución predecible integrando Liderazgo (Ser), Flujo (Eficiencia) y Estructura. Coaching, OKRs y Kanban." name="twitter:description"/><meta content="/Site/assets/images/adrian-perfil-1200x630.jpg" name="twitter:image"/><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Adrián Deyme",
   "url": "https://www.adriandeyme.com/",
   "jobTitle": "Coach Ejecutivo y Consultor en Ejecución Sistémica",
-  "sameAs": ["https://www.linkedin.com/in/adriangomezdeyme/"]
+  "sameAs": ["https://www.linkedin.com/in/adriandeyme-coach-ontologico/"]
 }</script><script type="application/ld+json">{
   "@context":"https://schema.org",
   "@type":"Organization",
@@ -127,10 +120,10 @@
 }</script><style>
 /* Badges: caja blanca + efecto hover sutil */
 img[src*="/assets/badges/"]{
-  background-color:#fff!important;
+  background-color:#00000000!important;
   border-radius:16px;
   padding:12px;
-  box-shadow:0 6px 18px rgba(0,0,0,.10);
+  box-shadow:0 6px 18px rgba(0,0,0,.00);
   transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
   will-change:transform, box-shadow, filter;
 }
@@ -170,14 +163,18 @@ img[src*="/assets/badges/"]:hover{
     el.addEventListener('mouseleave', reset);
     el.addEventListener('blur', reset);
   });
-})();</script></head>
+})();</script>
+  <meta name="theme-color" content="#0E4C5A">
+  <meta name="twitter:site" content="@adriandeyme">
+  <link rel="apple-touch-icon" href="/Site/assets/brand/apple-touch-icon.png">
+</head>
 <body class="text-profundo">
 <!-- BARRA DE NAVEGACIÓN (HEADER) -->
-<header class="bg-contraste shadow-md sticky top-0 z-10">
+<header class="backdrop-blur bg-contraste bg-white/85 shadow-md sticky supports-[backdrop-filter]:bg-white/70 top-0 z-10 z-20">
 <div class="container mx-auto px-6 py-4 flex justify-between items-center">
 <!-- Logo y Nombre -->
 <div class="flex items-center space-x-3">
-<img alt="Logo Adrian Deyme" class="h-10 w-auto rounded-lg" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/40x40/0E4C5A/FFFFFF?text=AD';" src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/brand/ad-logo.webp?raw=true"/>
+<img alt="Logo Adrian Deyme" class="h-10 w-auto rounded-lg" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/40x40/0E4C5A/FFFFFF?text=AD';" src="/Site/assets/brand/ad-logo.webp"/>
 <span class="text-2xl md:text-3xl font-bold tracking-tight">
 <span class="adrian-name">Adrian</span>
 <span class="uppercase text-profundo">DEYME</span>
@@ -185,7 +182,7 @@ img[src*="/assets/badges/"]:hover{
 </div>
 <!-- Navegación Principal (Desktop) -->
 <nav class="hidden md:flex space-x-8 text-lg font-medium items-center">
-<a class="hover:text-petroleo transition duration-300" href="#valor">Mi Valor</a>
+<a class="hover:text-petroleo transition duration-300" href="#estrategia">Estrategia</a>
 <a class="hover:text-petroleo transition duration-300" href="#pilares">Pilares</a>
 <a class="hover:text-petroleo transition duration-300" href="#servicios">Servicios</a>
 <a class="hover:text-petroleo transition duration-300" href="#blog">Blog</a>
@@ -203,7 +200,7 @@ img[src*="/assets/badges/"]:hover{
 <!-- MENÚ DESPLEGABLE MÓVIL (Inicialmente oculto) -->
 <div class="hidden md:hidden bg-contraste shadow-lg py-4 transition-all duration-300 ease-in-out" id="mobile-menu">
 <div class="flex flex-col space-y-3 px-6 text-lg font-medium">
-<a class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro" href="#valor">Mi Valor</a>
+<a class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro" href="#estrategia">Mi Valor</a>
 <a class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro" href="#pilares">Pilares</a>
 <a class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro" href="#servicios">Servicios</a>
 <a class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro" href="#blog">Blog</a>
@@ -213,6 +210,7 @@ img[src*="/assets/badges/"]:hover{
 </div>
 </div>
 <main>
+
 <!-- SECCIÓN HERO (Banner Principal con Foto y Narrativa Ajustada) -->
 <section class="relative bg-suave min-h-[85vh] flex items-center p-6 overflow-hidden" id="hero">
 <div class="container mx-auto max-w-6xl py-16 flex flex-col md:flex-row items-center justify-between z-10">
@@ -221,7 +219,7 @@ img[src*="/assets/badges/"]:hover{
 <div class="flex justify-center md:justify-start mb-6 md:hidden">
 <!-- Foto de Perfil Móvil (Optimización de imagen: se usa <picture> para futuros srcset) -->
 <picture>
-<img alt="Foto de perfil de Adrian Deyme, Consultor Sistémico" class="profile-pic w-32 h-32" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4D7C87/FFFFFF?text=AD';" src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/images/adrian-perfil.webp?raw=true"/>
+<img alt="Foto de perfil de Adrian Deyme, Consultor Sistémico" class="profile-pic w-32 h-32" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4D7C87/FFFFFF?text=AD';" src="/Site/assets/images/adrian-perfil.webp"/ width="320" height="320">
 </picture>
 </div>
 <p class="text-xl font-semibold mb-3 tracking-widest uppercase text-neutro opacity-80">
@@ -231,7 +229,7 @@ img[src*="/assets/badges/"]:hover{
                         Transformando la Estrategia en <span class="text-petroleo drop-shadow-lg">Ejecución Predecible</span>.
                     </h1>
 <p class="text-lg md:text-xl font-light mb-8 italic max-w-xl md:max-w-none">
-                        Alineo el <strong>Liderazgo (Ser)</strong>, la <strong>Eficiencia (Flujo)</strong> y la <strong>Estructura</strong> de tu organización para construir una máquina de resultados sostenible.
+                        Alineo el <strong>Liderazgo</strong>, la <strong>Ejecución</strong> y la <strong>Estructura</strong> de tu organización para construir una máquina de resultados sostenible.
                     </p>
 <!-- Contenedor de Botones -->
 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-10 justify-center md:justify-start">
@@ -248,19 +246,19 @@ img[src*="/assets/badges/"]:hover{
 <div class="flex flex-wrap justify-center md:justify-start gap-4">
 <!-- Badge 1: Miembro ICF -->
 <div class="badge-container flex justify-center items-center" title="Miembro ICF">
-<img alt="Miembro ICF" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/80x80/062F36/FFFFFF?text=ICF+Member';" src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/icf-member.png?raw=true"/>
+<img alt="Miembro ICF" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/80x80/062F36/FFFFFF?text=ICF+Member';" src="/Site/assets/badges/icf-member.png"/>
 </div>
 <!-- Badge 2: Coach Ontológico ICF -->
 <div class="badge-container flex justify-center items-center" title="Coach Ontológico ICF (Level 2)">
-<img alt="Coach Ontológico ICF" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/80x80/0E4C5A/FFFFFF?text=ICF+L2';" src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/icf-level2.png?raw=true"/>
+<img alt="Coach Ontológico ICF" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/80x80/0E4C5A/FFFFFF?text=ICF+L2';" src="/Site/assets/badges/icf-level2.png"/>
 </div>
 <!-- Badge 3: Agile Coach -->
 <div class="badge-container flex justify-center items-center" title="ICP-ACC Agile Coach">
-<img alt="Agile Coach" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/80x80/4D7C87/FFFFFF?text=ICP-ACC';" src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/icp-acc.png?raw=true"/>
+<img alt="Agile Coach" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/80x80/4D7C87/FFFFFF?text=ICP-ACC';" src="/Site/assets/badges/icp-acc.png"/>
 </div>
 <!-- Badge 4: Agile System Coach -->
 <div class="badge-container flex justify-center items-center" title="ICP-SYS Agile System Coach">
-<img alt="Agile System Coach" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/80x80/062F36/FFFFFF?text=ICP-SYS';" src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/icp-sys.png?raw=true"/>
+<img alt="Agile System Coach" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/80x80/062F36/FFFFFF?text=ICP-SYS';" src="/Site/assets/badges/icp-sys.png"/>
 </div>
 </div>
 </div>
@@ -268,192 +266,470 @@ img[src*="/assets/badges/"]:hover{
 <!-- Columna de Imagen de Perfil (Solo visible en Desktop, con mayor tamaño y <picture>) -->
 <div class="hidden md:flex md:w-2/5 justify-center">
 <picture>
-<img alt="Foto de perfil de Adrian Deyme, Consultor Sistémico" class="profile-pic" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/320x320/4D7C87/FFFFFF?text=AD';" src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/images/adrian-perfil.webp?raw=true"/>
+<img alt="Foto de perfil de Adrian Deyme, Consultor Sistémico" class="profile-pic" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/320x320/4D7C87/FFFFFF?text=AD';" src="/Site/assets/images/adrian-perfil.webp"/ width="320" height="320">
 </picture>
 </div>
 </div>
 </section>
-<!-- SECCIÓN MI VALOR -->
-<section class="py-20 md:py-24 px-6 bg-contraste" id="valor">
-<div class="container mx-auto max-w-5xl">
-<h2 class="text-4xl font-extrabold text-center mb-16 text-profundo uppercase tracking-tight">
-                    Mi Valor: Soy un <span class="text-petroleo underline decoration-suave decoration-4">Arquitecto de Sistemas</span> para la Ejecución
-                </h2>
-<div class="text-lg leading-relaxed text-profundo space-y-8">
-<p class="text-2xl font-bold text-center text-profundo">
-                        Mi misión es llevar a tu organización de la <strong>ilusión de la estrategia</strong> a la <strong>certeza de la ejecución</strong>, transformando la <strong>fricción operativa</strong> en resultados predecibles.
-                    </p>
-<p>
-                        He pasado mi carrera conectando los puntos: desde la <strong>Psicología</strong> y la <strong>Informática</strong> hasta el <strong>Project Management</strong> y el <strong>Coaching Ontológico</strong>. Esta mezcla multidisciplinaria me permitió ver la verdad fundamental: el éxito no reside en una única metodología (ni OKRs, ni Scrum), sino en la <strong>Arquitectura del Sistema</strong> completo.
-                    </p>
-<p>
-                        Cuando te enfocas solo en la herramienta, el problema regresa. Cuando me contratas, obtienes un <strong>Arquitecto Sistémico</strong> que repara la <strong>conexión profunda</strong> entre el Ser (el líder), el Flujo (la eficiencia) y la Estructura (la organización).
-                    </p>
-<p class="font-bold text-petroleo text-2xl italic pt-4 text-center">
-                        "Dejemos de apagar incendios. Empecemos a construir una máquina de resultados que se sostenga sola."
-                    </p>
+
+<!-- =================== PROBLEMA =================== -->
+<section class="mx-auto max-w-7xl px-5 py-6" id="estrategia">
+  <div class="rounded-[28px] bg-white/70 backdrop-blur p-8 md:p-12 shadow-card">
+    <h2 class="text-4xl font-extrabold text-center mb-5 text-petroleo uppercase tracking-tight">
+      De la estrategia … a la realidad (lo que hoy duele)
+    </h2>
+    <p class="text-xl text-center mb-12 text-suave max-w-3xl mx-auto">
+      Si tu estrategia es buena pero la ejecución se queda corta, suele verse así:
+    </p>
+
+    <ul class="mt-6 grid gap-3 text-lg md:text-xl text-petroleo/90">
+  <li class="flex items-start gap-3">
+    <svg class="mt-1 h-5 w-5 text-suave shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.704 5.29a1 1 0 0 1 0 1.42l-7.25 7.25a1 1 0 0 1-1.414 0L3.296 9.516a1 1 0 1 1 1.414-1.414l3.04 3.04 6.543-6.54a1 1 0 0 1 1.41 0z"/></svg>
+    <span><strong>Fechas que se mueven</strong> y proyectos que no cierran.</span>
+  </li>
+
+  <li class="flex items-start gap-3">
+    <svg class="mt-1 h-5 w-5 text-suave shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.704 5.29a1 1 0 0 1 0 1.42l-7.25 7.25a1 1 0 0 1-1.414 0L3.296 9.516a1 1 0 1 1 1.414-1.414l3.04 3.04 6.543-6.54a1 1 0 0 1 1.41 0z"/></svg>
+    <span><strong>Urgencia permanente</strong> y baja previsibilidad.</span>
+  </li>
+
+  <li class="flex items-start gap-3">
+    <svg class="mt-1 h-5 w-5 text-suave shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.704 5.29a1 1 0 0 1 0 1.42l-7.25 7.25a1 1 0 0 1-1.414 0L3.296 9.516a1 1 0 1 1 1.414-1.414l3.04 3.04 6.543-6.54a1 1 0 0 1 1.41 0z"/></svg>
+    <span><strong>Demasiado trabajo en curso</strong> y poco terminado.</span>
+  </li>
+
+  <li class="flex items-start gap-3">
+    <svg class="mt-1 h-5 w-5 text-suave shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.704 5.29a1 1 0 0 1 0 1.42l-7.25 7.25a1 1 0 0 1-1.414 0L3.296 9.516a1 1 0 1 1 1.414-1.414l3.04 3.04 6.543-6.54a1 1 0 0 1 1.41 0z"/></svg>
+    <span><strong>Reuniones sin decisión</strong>, acuerdos difusos y poco seguimiento.</span>
+  </li>
+
+  <li class="flex items-start gap-3">
+    <svg class="mt-1 h-5 w-5 text-suave shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.704 5.29a1 1 0 0 1 0 1.42l-7.25 7.25a1 1 0 0 1-1.414 0L3.296 9.516a1 1 0 1 1 1.414-1.414l3.04 3.04 6.543-6.54a1 1 0 0 1 1.41 0z"/></svg>
+    <span><strong>Líderes saturados</strong> y equipos siempre apagando incendios.</span>
+  </li>
+</ul>
+<!-- CTA: Diagnóstico -->
+<div class="mt-10">
+  <div class="rounded-2xl bg-petroleo text-contraste px-6 py-7 md:px-10 md:py-8 shadow-lg">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+      <div>
+        <p class="text-base md:text-lg opacity-90">Siguiente paso</p>
+        <h3 class="text-2xl md:text-3xl font-extrabold leading-tight">
+          Agenda tu diagnóstico de 30′ y ubicamos la causa raíz.
+        </h3>
+        <p class="mt-2 text-contraste/90 max-w-2xl">
+          En una sesión breve detectamos si el cuello de botella está en <b>liderazgo</b>, <b>flujo</b> o <b>estructura</b> y te doy una hoja de ruta mínima.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+        <a href="/agenda.html"
+           class="inline-flex items-center justify-center rounded-xl bg-contraste text-petroleo font-semibold px-5 py-3 hover:opacity-95 transition shadow-md">
+          Agendar diagnóstico (30′)
+        </a>
+        <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center justify-center rounded-xl bg-transparent text-contraste font-semibold px-5 py-3 border border-contraste/60 hover:bg-contraste hover:text-petroleo transition">
+          Conectar en LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+  <p class="text-center text-suave mt-3 text-sm">
+    Sin costo ni compromiso. Si no aplica, te lo diré con claridad.
+  </p>
 </div>
-</div>
+
+  </div>
 </section>
-<!-- SECCIÓN PILARES (La Tríada de Soluciones) -->
-<section class="bg-neutro py-20 px-6" id="pilares">
+
+<!-- CAUSAS DEL PROBLEMA -->
+<section class="mx-auto max-w-7xl px-5 py-6" id="pilares">
+<div class="rounded-[28px] bg-white/70 backdrop-blur p-8 md:p-12 shadow-card">
 <div class="container mx-auto max-w-6xl">
-<h2 class="text-4xl font-extrabold text-center mb-5 text-profundo uppercase tracking-tight">
-                    La Tríada del Resultado: Los 3 Pilares
+<h2 class="text-4xl font-extrabold text-center mb-5 text-petroleo uppercase tracking-tight">
+                    ¿Dónde está la brecha? Tres fuentes típicas
                 </h2>
 <p class="text-xl text-center mb-12 text-suave max-w-3xl mx-auto">
-                    La ejecución predecible requiere un trabajo integral en la <strong>estructura, la eficiencia y el factor humano</strong>. Esto es lo que construimos juntos.
+                    La falta de resultados predecibles <strong>suele nacer</strong> en uno o varios de estos pilares. En el diagnóstico ubicamos cuál es <strong>la causa raíz:</strong>
                 </p>
 <!-- Grid de 3 Pilares -->
 <div class="grid md:grid-cols-3 gap-8 mb-16">
-<!-- Pilar 1: Lo Humano (Liderazgo) -->
+<!-- Pilar 1: El Liderazgo -->
 <div class="card-hover-effect bg-contraste p-8 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col items-center text-center">
 <div class="mb-4 p-4 rounded-full bg-suave/20 text-petroleo">
 <svg class="lucide lucide-users" fill="none" height="48" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
 </div>
-<h3 class="text-2xl font-bold mb-0 text-profundo">Pilar 1: Lo Humano</h3>
-<p class="text-base font-semibold mb-3 text-suave mt-1">(El Ser)</p>
-<h4 class="text-xl font-semibold mb-3 text-petroleo">Coaching de Liderazgo Sistémico</h4>
-<p class="text-gray-600 flex-grow">
-                            Transformamos al líder en un <strong>catalizador del cambio</strong>. Trabajamos la delegación eficaz, la gestión de patrones culturales (silos) y la reducción de la fatiga para liberar el potencial del equipo.
-                        </p>
+<h3 class="text-2xl font-bold mb-0 text-profundo">Pilar 1: El Liderazgo</h3>
+<ul class="mt-6 w-full text-left space-y-3 text-lg md:text-xl text-petroleo/90 leading-relaxed">
+  <li class="flex items-start gap-3">
+    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo">
+      <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+        <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.707-9.707a1 1 0 0 0-1.414-1.414L9 10.172 7.707 8.879A1 1 0 1 0 6.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
+      </svg>
+    </span>
+    <span><strong>Decisión y delegación</strong> poco claras.</span>
+  </li>
+  <li class="flex items-start gap-3">
+    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo">
+      <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+        <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.707-9.707a1 1 0 0 0-1.414-1.414L9 10.172 7.707 8.879A1 1 0 1 0 6.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
+      </svg>
+    </span>
+    <span><strong>Patrones culturales</strong>: silos, coordinación frágil, stakeholders difusos.</span>
+  </li>
+  <li class="flex items-start gap-3">
+    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo">
+      <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+        <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.707-9.707a1 1 0 0 0-1.414-1.414L9 10.172 7.707 8.879A1 1 0 1 0 6.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
+      </svg>
+    </span>
+    <span><strong>Baja cadencia</strong> de conversaciones que cierran acuerdos.</span>
+  </li>
+</ul>
 </div>
-<!-- Pilar 2: La Eficiencia (Flujo) -->
+<!-- Pilar 2: La Ejecución -->
 <div class="card-hover-effect bg-contraste p-8 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col items-center text-center">
 <div class="mb-4 p-4 rounded-full bg-suave/20 text-petroleo">
 <svg class="lucide lucide-gauge" fill="none" height="48" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg"><path d="m12 14v4"></path><path d="M3.34 10A8 8 0 1 1 5.76 19"></path><path d="M20.7 10a8 8 0 1 0-7.79 6"></path></svg>
 </div>
-<h3 class="text-2xl font-bold mb-0 text-profundo">Pilar 2: La Eficiencia</h3>
-<p class="text-base font-semibold mb-3 text-suave mt-1">(El Flujo)</p>
-<h4 class="text-xl font-semibold mb-3 text-petroleo">Flujo de Valor y Predictibilidad</h4>
-<p class="text-gray-600 flex-grow">
-                            Implementamos <strong>OKRs, Kanban y Scrum</strong> para crear el flujo de valor más predecible. Esto significa claridad de Objetivos, una gestión de flujo limpia y la eliminación de desperdicios.
-                        </p>
+<h3 class="text-2xl font-bold mb-0 text-profundo">Pilar 2: La Ejecución</h3>
+<ul class="mt-6 w-full text-left space-y-3 text-lg md:text-xl text-petroleo/90 leading-relaxed">
+  <li class="flex items-start gap-3">
+    <span class="flex h-7 w-7 items-center justify-center rounded-md bg-suave/15 text-petroleo">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+        <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-2.293 7.293-6.364 6.364a1 1 0 0 1-1.414 0L6.293 12.02a1 1 0 0 1 1.414-1.414l2.121 2.12 5.657-5.656a1 1 0 1 1 1.414 1.414Z"/>
+      </svg>
+    </span>
+    <span><strong>Demasiado trabajo en progreso</strong> y prioridades invisibles.</span>
+  </li>
+  <li class="flex items-start gap-3">
+    <span class="flex h-7 w-7 items-center justify-center rounded-md bg-suave/15 text-petroleo">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+        <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-2.293 7.293-6.364 6.364a1 1 0 0 1-1.414 0L6.293 12.02a1 1 0 0 1 1.414-1.414l2.121 2.12 5.657-5.656a1 1 0 1 1 1.414 1.414Z"/>
+      </svg>
+    </span>
+    <span><strong>Tableros y métricas</strong> inexistentes o poco útiles para decidir.</span>
+  </li>
+  <li class="flex items-start gap-3">
+    <span class="flex h-7 w-7 items-center justify-center rounded-md bg-suave/15 text-petroleo">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+        <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-2.293 7.293-6.364 6.364a1 1 0 0 1-1.414 0L6.293 12.02a1 1 0 0 1 1.414-1.414l2.121 2.12 5.657-5.656a1 1 0 1 1 1.414 1.414Z"/>
+      </svg>
+    </span>
+    <span><strong>Rituales débiles</strong> que no sostienen el ritmo de entrega.</span>
+  </li>
+</ul>
 </div>
-<!-- Pilar 3: La Estructura (Arquitectura) -->
+<!-- Pilar 3: La Estructura -->
 <div class="card-hover-effect bg-contraste p-8 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col items-center text-center">
 <div class="mb-4 p-4 rounded-full bg-suave/20 text-petroleo">
 <svg class="lucide lucide-layers" fill="none" height="48" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg"><path d="m12.83 2.18-.81.9a4 4 0 0 0-.23.63c-.15.42-.1.87.12 1.25L13.4 9.4c.2.35.2.77 0 1.12L10 16l-3-4.5"></path><path d="m12.83 2.18-3.04 4.19"></path><path d="M17.7 13.79 12 21l-5.7-7.21c-.42-.53-.8-.98-1.15-1.39C3.76 11.23 3.01 9.98 3 8.5V6.5c.01-1.48.76-2.73 2.15-4.59L12 11l6.85-9.09c1.39 1.86 2.15 3.11 2.15 4.59v2c-.01 1.48-.76 2.73-2.15 4.59L17.7 13.79Z"></path></svg>
 </div>
 <h3 class="text-2xl font-bold mb-0 text-profundo">Pilar 3: La Estructura</h3>
-<p class="text-base font-semibold mb-3 text-suave mt-1">(La Arquitectura)</p>
-<h4 class="text-xl font-semibold mb-3 text-petroleo">Arquitectura Modular unFIX</h4>
-<p class="text-gray-600 flex-grow">
-                            Diseñamos la <strong>arquitectura modular de la organización</strong> utilizando frameworks de avanzada (como <strong>unFIX</strong>) y aplicamos <strong>Lean Change Management</strong> para una gestión del cambio iterativa y no traumática.
-                        </p>
+<ul class="mt-6 w-full text-left space-y-3 text-lg md:text-xl text-petroleo/90 leading-relaxed">
+  <li class="flex items-start gap-3">
+    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+        <path d="M12 2 4 5v6c0 5 3.8 9.4 8 11 4.2-1.6 8-6 8-11V5l-8-3Zm3.707 7.293a1 1 0 0 0-1.414-1.414L11 10.172l-1.293-1.293A1 1 0 1 0 8.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
+      </svg>
+    </span>
+    <span><strong>Roles y acuerdos</strong> sin diseño explícito.</span>
+  </li>
+  <li class="flex items-start gap-3">
+    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+        <path d="M12 2 4 5v6c0 5 3.8 9.4 8 11 4.2-1.6 8-6 8-11V5l-8-3Zm3.707 7.293a1 1 0 0 0-1.414-1.414L11 10.172l-1.293-1.293A1 1 0 1 0 8.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
+      </svg>
+    </span>
+    <span><strong>Estructura poco modular</strong> los cambios traban el work flow.</span>
+  </li>
+  <li class="flex items-start gap-3">
+    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+        <path d="M12 2 4 5v6c0 5 3.8 9.4 8 11 4.2-1.6 8-6 8-11V5l-8-3Zm3.707 7.293a1 1 0 0 0-1.414-1.414L11 10.172l-1.293-1.293A1 1 0 1 0 8.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
+      </svg>
+    </span>
+    <span><strong>Gestión del cambio</strong> improvisada o traumática.</span>
+  </li>
+</ul>
 </div>
+</div>
+<!-- CTA: Identificamos la causa y te doy plan de acción -->
+<div class="mt-10">
+  <div class="rounded-2xl bg-petroleo text-contraste px-6 py-7 md:px-10 md:py-8 shadow-lg">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+      <div>
+        <p class="text-base md:text-lg opacity-90">¿Cuál de los tres pilares está frenando tus resultados?</p>
+        <h3 class="text-2xl md:text-3xl font-extrabold leading-tight">
+          Hagamos un diagnóstico de 30′ y salís con un plan concreto.
+        </h3>
+        <p class="mt-2 text-contraste/90 max-w-2xl">
+          Revisamos <b>liderazgo</b>, <b>flujo</b> y <b>estructura</b>. Te marco la causa raíz y los <b>primeros pasos</b> para recuperar previsibilidad.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+        <a href="/agenda.html"
+           class="inline-flex items-center justify-center rounded-xl bg-contraste text-petroleo font-semibold px-5 py-3 hover:opacity-95 transition shadow-md">
+          Agendar diagnóstico (30′)
+        </a>
+        <a href="#servicios"
+           class="inline-flex items-center justify-center rounded-xl bg-transparent text-contraste font-semibold px-5 py-3 border border-contraste/60 hover:bg-contraste hover:text-petroleo transition">
+          Ver cómo lo soluciono
+        </a>
+      </div>
+    </div>
+  </div>
+  <p class="text-center text-suave mt-3 text-sm">
+    Sin costo ni compromiso. Si no aplica, te lo digo claro y te recomiendo alternativas.
+  </p>
 </div>
 </div>
 </section>
-<!-- SECCIÓN SERVICIOS (OFERTA DETALLADA) -->
-<section class="py-20 md:py-24 px-6 bg-contraste" id="servicios">
-<div class="container mx-auto max-w-6xl">
-<h2 class="text-4xl font-extrabold text-center mb-5 text-petroleo uppercase tracking-tight">
-                    La Oferta de Servicios Detallada
-                </h2>
-<p class="text-xl text-center mb-16 text-suave max-w-4xl mx-auto">
-                    Cada módulo ataca la raíz del problema de ejecución en una de las tres dimensiones clave.
-                </p>
-<!-- Grid de Módulos de Servicio -->
-<div class="grid md:grid-cols-3 gap-10">
-<!-- Servicio 1: Liderazgo del Ser -->
-<div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-petroleo">
-<span class="text-4xl font-extrabold text-suave">01</span>
-<h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Liderazgo del Ser</h3>
-<p class="mb-4 text-lg font-semibold text-petroleo">Coaching Ontológico y Agile para Líderes</p>
-<p class="text-gray-700 mb-6">
-                            El ser es el que co-crea el éxito. Trabajamos directamente en la mentalidad y las competencias del liderazgo para que puedan trascender los problemas del sistema.
-                        </p>
-<ul class="service-list text-gray-700 text-sm space-y-2">
-<li>Diagnóstico de estilo de Liderazgo y Cultura Organizacional.</li>
-<li>Sesiones de <strong>Coaching Ontológico</strong> (ICF) para ejecutivos.</li>
-<li>Taller de <strong>Coaching Sistémico</strong> para equipos.</li>
-<li>Estrategias para la reducción de silos y resistencia al cambio.</li>
-</ul>
+<!-- SOLUCIÓN DEL PROBLEMA - SERVICIO -->
+<section id="servicios" class="mx-auto max-w-7xl px-5 py-6" aria-labelledby="servicios-title">
+  <div class="rounded-[28px] bg-white/70 backdrop-blur p-8 md:p-12 shadow-card">
+    <div class="container mx-auto max-w-6xl">
+      <h2 id="servicios-title" class="text-4xl font-extrabold text-center mb-5 text-petroleo uppercase tracking-tight">
+        La solución: del diagnóstico a un sistema que entrega
+      </h2>
+      <p class="text-xl text-center mb-16 text-suave max-w-4xl mx-auto">
+        Trabajamos por módulos, atacando la causa raíz para instalar foco, cadencias y previsibilidad.
+      </p>
+
+      <!-- Grid de Módulos de Servicio -->
+      <div class="grid md:grid-cols-3 gap-10">
+
+        <!-- Servicio 1: Liderazgo del Ser -->
+        <div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-petroleo">
+          <span class="text-4xl font-extrabold text-suave">01</span>
+          <h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Coaching de Liderazgo</h3>
+
+          <ul class="mt-5 w-full text-left space-y-3 text-base md:text-lg text-petroleo/90 leading-relaxed">
+            <li class="flex items-start gap-3">
+              <!-- check círculo -->
+              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
+                <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                  <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.707-9.707a1 1 0 0 0-1.414-1.414L9 10.172 7.707 8.879A1 1 0 1 0 6.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
+                </svg>
+              </span>
+              <span><strong>Diagnóstico</strong> de estilo de liderazgo y cultura.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
+                <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                  <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.707-9.707a1 1 0 0 0-1.414-1.414L9 10.172 7.707 8.879A1 1 0 1 0 6.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
+                </svg>
+              </span>
+              <span><strong>Coaching Ontológico ICF</strong> para líderes.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
+                <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                  <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.707-9.707a1 1 0 0 0-1.414-1.414L9 10.172 7.707 8.879A1 1 0 1 0 6.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
+                </svg>
+              </span>
+              <span><strong>Agile Coaching</strong> para equipos.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
+                <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                  <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.707-9.707a1 1 0 0 0-1.414-1.414L9 10.172 7.707 8.879A1 1 0 1 0 6.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
+                </svg>
+              </span>
+              <span>Prácticas de <strong>delegación, acuerdos y sponsorship</strong>.</span>
+            </li>
+          </ul>
+
+          <p class="mt-6 pt-4 border-t border-slate-200/60 text-lg leading-relaxed">
+            <span class="font-extrabold text-slate-800">Resultado esperado:</span>
+            decisiones más nítidas, acuerdos que se cumplen, menor fricción cultural.
+          </p>
+        </div>
+
+        <!-- Servicio 2: Ingeniería de Flujo -->
+        <div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-suave">
+          <span class="text-4xl font-extrabold text-suave">02</span>
+          <h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Ingeniería de Flujo de Valor</h3>
+
+          <ul class="mt-5 w-full text-left space-y-3 text-base md:text-lg text-petroleo/90 leading-relaxed">
+            <li class="flex items-start gap-3">
+              <!-- check cuadrado -->
+              <span class="flex h-7 w-7 items-center justify-center rounded-md bg-suave/15 text-petroleo shrink-0">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                  <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-2.293 7.293-6.364 6.364a1 1 0 0 1-1.414 0L6.293 12.02a1 1 0 1 1 1.414-1.414l2.121 2.12 5.657-5.656a1 1 0 1 1 1.414 1.414Z"/>
+                </svg>
+              </span>
+              <span><strong>Mapeo de Flujo de Valor (VSM)</strong> y mejoras Lean.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex h-7 w-7 items-center justify-center rounded-md bg-suave/15 text-petroleo shrink-0">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                  <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-2.293 7.293-6.364 6.364a1 1 0 0 1-1.414 0L6.293 12.02a1 1 0 1 1 1.414-1.414l2.121 2.12 5.657-5.656a1 1 0 1 1 1.414 1.414Z"/>
+                </svg>
+              </span>
+              <span><strong>Kanban System</strong> con visibilización del flujo, WIP y cuellos de botella, con métricas claras.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex h-7 w-7 items-center justify-center rounded-md bg-suave/15 text-petroleo shrink-0">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                  <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-2.293 7.293-6.364 6.364a1 1 0 0 1-1.414 0L6.293 12.02a1 1 0 1 1 1.414-1.414l2.121 2.12 5.657-5.656a1 1 0 1 1 1.414 1.414Z"/>
+                </svg>
+              </span>
+              <span><strong>KPIs y OKRs</strong>: indicadores de desempeño y objetivos medibles.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex h-7 w-7 items-center justify-center rounded-md bg-suave/15 text-petroleo shrink-0">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                  <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-2.293 7.293-6.364 6.364a1 1 0 0 1-1.414 0L6.293 12.02a1 1 0 1 1 1.414-1.414l2.121 2.12 5.657-5.656a1 1 0 1 1 1.414 1.414Z"/>
+                </svg>
+              </span>
+              <span><strong>Formación en Agilidad</strong>.</span>
+            </li>
+          </ul>
+
+          <p class="mt-6 pt-4 border-t border-slate-200/60 text-lg leading-relaxed">
+            <span class="font-extrabold text-slate-800">Resultado esperado:</span>
+            menos trabajo en curso, más terminado y ritmo previsible de entrega.
+          </p>
+        </div>
+
+        <!-- Servicio 3: Arquitectura Empresarial -->
+        <div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-profundo">
+          <span class="text-4xl font-extrabold text-suave">03</span>
+          <h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Arquitectura Organizacional</h3>
+
+          <ul class="mt-5 w-full text-left space-y-3 text-base md:text-lg text-petroleo/90 leading-relaxed">
+            <li class="flex items-start gap-3">
+              <!-- check escudo -->
+              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                  <path d="M12 2 4 5v6c0 5 3.8 9.4 8 11 4.2-1.6 8-6 8-11V5l-8-3Zm3.707 7.293a1 1 0 0 0-1.414-1.414L11 10.172l-1.293-1.293A1 1 0 1 0 8.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
+                </svg>
+              </span>
+              <span><strong>System Coaching</strong> para analizar la estructura de comunicación (cultura) y adoptar mentalidad ágil.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                  <path d="M12 2 4 5v6c0 5 3.8 9.4 8 11 4.2-1.6 8-6 8-11V5l-8-3Zm3.707 7.293a1 1 0 0 0-1.414-1.414L11 10.172l-1.293-1.293A1 1 0 1 0 8.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
+                </svg>
+              </span>
+              <span>Diseño de <strong>roles, acuerdos y rituales</strong> que sostienen el cambio.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                  <path d="M12 2 4 5v6c0 5 3.8 9.4 8 11 4.2-1.6 8-6 8-11V5l-8-3Zm3.707 7.293a1 1 0 0 0-1.414-1.414L11 10.172l-1.293-1.293A1 1 0 1 0 8.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
+                </svg>
+              </span>
+              <span><strong>Lean Change Management</strong> para cambios iterativos, no traumáticos.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                  <path d="M12 2 4 5v6c0 5 3.8 9.4 8 11 4.2-1.6 8-6 8-11V5l-8-3Zm3.707 7.293a1 1 0 0 0-1.414-1.414L11 10.172l-1.293-1.293A1 1 0 1 0 8.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
+                </svg>
+              </span>
+              <span><strong>unFIX</strong> para modularidad y adaptabilidad.</span>
+            </li>
+          </ul>
+
+          <p class="mt-6 pt-4 border-t border-slate-200/60 text-lg leading-relaxed">
+            <span class="font-extrabold text-slate-800">Resultado esperado:</span>
+            estructura anticuello de botella, adaptable y que no frena la ejecución.
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <!-- CTA: Pongamos en marcha tu sistema de ejecución -->
+<div class="mt-12">
+  <div class="rounded-2xl bg-petroleo text-contraste px-6 py-7 md:px-10 md:py-8 shadow-lg">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+      <div>
+        <p class="text-base md:text-lg opacity-90">¿Listo para instalar foco, cadencias y previsibilidad?</p>
+        <h3 class="text-2xl md:text-3xl font-extrabold leading-tight">
+          Agenda un diagnóstico de 30′ y te entrego el roadmap mínimo por módulos.
+        </h3>
+        <p class="mt-2 text-contraste/90 max-w-2xl">
+          Definimos por dónde empezar (Liderazgo, Flujo o Estructura), qué <b>primeras prácticas</b> activar y un horizonte de <b>4–6 semanas</b>.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+        <a href="/agenda.html"
+           class="inline-flex items-center justify-center rounded-xl bg-contraste text-petroleo font-semibold px-5 py-3 hover:opacity-95 transition shadow-md">
+          Agendar diagnóstico (30′)
+        </a>
+        <a href="mailto:contacto@adriandeyme.com?subject=Solicitud%20de%20propuesta&body=Hola%20Adri%C3%A1n%2C%20quisiera%20una%20propuesta%20para%20mi%20equipo.%20Contexto%3A%20"
+           class="inline-flex items-center justify-center rounded-xl bg-transparent text-contraste font-semibold px-5 py-3 border border-contraste/60 hover:bg-contraste hover:text-petroleo transition">
+          Solicitar propuesta
+        </a>
+      </div>
+    </div>
+  </div>
+  <p class="text-center text-suave mt-3 text-sm">
+    Sin costo ni compromiso. Si no aplica, te lo digo claro y te recomiendo alternativas.
+  </p>
 </div>
-<!-- Servicio 2: Ingeniería de Flujo -->
-<div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-suave">
-<span class="text-4xl font-extrabold text-suave">02</span>
-<h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Ingeniería de Flujo</h3>
-<p class="mb-4 text-lg font-semibold text-petroleo">Implementación OKR, Kanban y Lean</p>
-<p class="text-gray-700 mb-6">
-                            Diseñamos la maquinaria operativa. Nos enfocamos en la predictibilidad, la eliminación de desperdicio y el alineamiento estratégico.
-                        </p>
-<ul class="service-list text-gray-700 text-sm space-y-2">
-<li>Diseño e Implementación de la Metodología <strong>OKR</strong> (Objetivos y Resultados Clave).</li>
-<li>Mapeo de Flujo de Valor (VSM) y optimización <strong>Lean</strong>.</li>
-<li>Instalación y Coaching de <strong>Kanban</strong> para la gestión del trabajo.</li>
-<li>Formación en Agilidad Avanzada (Scaled Agile, Scrum).</li>
-</ul>
-</div>
-<!-- Servicio 3: Arquitectura Empresarial -->
-<div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-profundo">
-<span class="text-4xl font-extrabold text-suave">03</span>
-<h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Arquitectura Empresarial</h3>
-<p class="mb-4 text-lg font-semibold text-petroleo">Modelado Modular y Gestión del Cambio</p>
-<p class="text-gray-700 mb-6">
-                            La estructura debe ser modular, adaptable y capaz de sostener el crecimiento. Transformamos la organización para que sea antifrágil.
-                        </p>
-<ul class="service-list text-gray-700 text-sm space-y-2">
-<li>Modelado de la Arquitectura Organizacional con <strong>unFIX</strong>.</li>
-<li>Diseño de la estructura para equipos y departamentos cross-funcionales.</li>
-<li>Adopción de <strong>Lean Change Management</strong> (cambio no traumático).</li>
-<li>Estrategia de adaptación y eliminación de cuellos de botella sistémicos.</li>
-</ul>
-</div>
-</div>
-</div>
+  </div>
 </section>
+
 <!-- SECCIÓN HERRAMIENTAS (Badges de Herramientas) -->
-<section class="bg-contraste pb-20 px-6" id="herramientas">
-<div class="container mx-auto max-w-6xl">
-<!-- Sub-sección de Badges (Herramientas de Arquitectura) -->
-<div class="pt-8">
-<h3 class="text-2xl font-bold text-center mb-8 text-petroleo">Las Herramientas que Arquitectan tu Sistema</h3>
-<!-- AQUI el flex-wrap se mantiene, gap-3 para móvil y gap-6 para desktop -->
-<div class="flex flex-wrap justify-center gap-3 md:gap-6">
-<!-- Badge 1: OKR Coach Professional -->
-<div class="badge-container badge-tool-container flex justify-center items-center" title="OKR Coach Professional">
-<img alt="OKR Coach Professional" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0E4C5A/FFFFFF?text=OKR';" src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/okr-coach-badge.webp?raw=true"/>
-</div>
-<!-- Badge 2: Kanban Coach Professional -->
-<div class="badge-container badge-tool-container flex justify-center items-center" title="Kanban Coach Professional">
-<img alt="Kanban Coach Professional" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/100x100/4D7C87/FFFFFF?text=KCP';" src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/kcp-badge.webp?raw=true"/>
-</div>
-<!-- Badge 3: unFIX Architect -->
-<div class="badge-container badge-tool-container flex justify-center items-center" title="unFIX Architect">
-<img alt="unFIX Architect" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/100x100/062F36/FFFFFF?text=unFIX';" src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/unfix.webp?raw=true"/>
-</div>
-<!-- Badge 4: Lean Change Management Explorer -->
-<div class="badge-container badge-tool-container flex justify-center items-center" title="Lean Change Management Explorer">
-<img alt="Lean Change Management Explorer" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/100x100/4D7C87/FFFFFF?text=LCM';" src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/lcm-explorer.webp?raw=true"/>
-</div>
-<!-- Badge 5: Management 3.0 -->
-<div class="badge-container badge-tool-container flex justify-center items-center" title="Management 3.0">
-<img alt="Management 3.0" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0E4C5A/FFFFFF?text=M3.0';" src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/badges/management30.webp?raw=true"/>
-</div>
-</div>
-</div>
-<!-- CTA dentro de la sección de Herramientas -->
-<div class="text-center mt-16 p-8 bg-suave/10 rounded-xl max-w-4xl mx-auto">
-<p class="text-xl font-bold text-profundo mb-4">¿No sabes por dónde empezar?</p>
-<p class="text-lg text-gray-700 mb-6">
-                        Si te sientes abrumado por la ilusión vs. la fricción de la ejecución, agenda tu diagnóstico. Te ayudaré a identificar la causa raíz (si es el <strong>Ser, el Flujo o la Estructura</strong>) para que inviertas tu presupuesto de forma precisa.
-                    </p>
-<a class="inline-block bg-petroleo hover:bg-profundo text-contraste font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105" href="agenda.html">
-                        Agenda un Diagnóstico de Causas Raíz
-                    </a>
-</div>
-</div>
+<section class="mx-auto max-w-7xl px-5 pt-4 pb-2" aria-labelledby="certs-title">
+  <h3 id="certs-title" class="text-2xl md:text-3xl font-extrabold text-center text-petroleo mb-6">
+    Certificaciones que Arquitectan tu Sistema
+  </h3>
+
+  <div class="mx-auto max-w-5xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-5 items-center">
+    <!-- Cada badge: usa PNGs transparentes. Todos con mismas clases para homogeneidad -->
+    <a href="#servicios" class="group block rounded-2xl bg-white/60 p-4 shadow transition hover:shadow-lg hover:-translate-y-0.5">
+      <img src="/Site/assets/badges/okr.png" alt="OKR Coach Professional" class="mx-auto h-14 md:h-16 object-contain transition group-hover:scale-[1.02]">
+    </a>
+    <a href="#servicios" class="group block rounded-2xl bg-white/60 p-4 shadow transition hover:shadow-lg hover:-translate-y-0.5">
+      <img src="/Site/assets/badges/kcp.png" alt="Kanban Coaching Professional" class="mx-auto h-14 md:h-16 object-contain transition group-hover:scale-[1.02]">
+    </a>
+    <a href="#servicios" class="group block rounded-2xl bg-white/60 p-4 shadow transition hover:shadow-lg hover:-translate-y-0.5">
+      <img src="/Site/assets/badges/unfix.png" alt="unFIX Architect" class="mx-auto h-14 md:h-16 object-contain transition group-hover:scale-[1.02]">
+    </a>
+    <a href="#servicios" class="group block rounded-2xl bg-white/60 p-4 shadow transition hover:shadow-lg hover:-translate-y-0.5">
+      <img src="/Site/assets/badges/lcm.png" alt="Lean Change Management Explorer" class="mx-auto h-14 md:h-16 object-contain transition group-hover:scale-[1.02]">
+    </a>
+    <a href="#servicios" class="group block rounded-2xl bg-white/60 p-4 shadow transition hover:shadow-lg hover:-translate-y-0.5">
+      <img src="/Site/assets/badges/m30.png" alt="Management 3.0" class="mx-auto h-14 md:h-16 object-contain transition group-hover:scale-[1.02]">
+    </a>
+  </div>
 </section>
+
+<!-- CTA luego de la sección de Herramientas -->
+<section class="mx-auto max-w-7xl px-5 pt-2 pb-12" aria-labelledby="cta-micro-title">
+  <div class="rounded-[24px] bg-white/60 backdrop-blur p-6 md:p-8 shadow-card text-center">
+    <h4 id="cta-micro-title" class="text-2xl md:text-3xl font-extrabold text-profundo mb-2">
+      ¿No sabes por dónde empezar?
+    </h4>
+    <p class="text-lg md:text-xl text-suave mb-6">
+      En 30 minutos ubicamos la causa raíz y definimos la primera cadencia.
+    </p>
+    <a href="/agenda" 
+       class="inline-flex items-center gap-2 rounded-full bg-petroleo text-white font-semibold px-6 py-3 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition"
+       data-cta="micro-diagnostico">
+      Agendar Diagnóstico (30’)
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 1 1-1.414 1.414L12 6.414V17a1 1 0 1 1-2 0V6.414L5.707 10.707A1 1 0 1 1 4.293 9.293l6-6Z"/></svg>
+    </a>
+  </div>
+</section>
+
 <!-- SECCIÓN BLOG AUTOMATIZADO -->
-<section class="py-20 md:py-24 px-6 bg-neutro" id="blog">
-<div class="container mx-auto max-w-6xl">
-<h2 class="text-4xl font-extrabold text-center mb-5 text-profundo uppercase tracking-tight">
+<section class="mx-auto max-w-7xl px-5 py-6" id="blog">
+<div class="rounded-[28px] bg-white/70 backdrop-blur p-8 md:p-12 shadow-card">
+
+<h2 class="text-4xl font-extrabold text-center mb-5 text-petroleo uppercase tracking-tight">
                     Últimas Reflexiones
                 </h2>
 <p class="text-xl text-center mb-12 text-suave max-w-3xl mx-auto">
-                    Explora mi perspectiva sistémica y de liderazgo en los artículos más recientes.
+                    Explora mi perspectiva sistémica y de liderazgo en estos artículos.
                 </p>
 <!-- Contenedor donde se inyectarán los posts de Medium -->
 <div class="grid md:grid-cols-3 gap-8" id="medium-posts-container">
@@ -467,6 +743,7 @@ img[src*="/assets/badges/"]:hover{
 </div>
 </div>
 </section>
+
 <!-- SECCIÓN CONTACTO (Call to Action Final, con enlace de correo y URL de Calendly) -->
 <section class="min-h-[30vh] bg-petroleo py-20 flex items-center" id="contacto">
 <div class="container mx-auto max-w-3xl px-4 text-center">
@@ -477,7 +754,7 @@ img[src*="/assets/badges/"]:hover{
 <!-- Contenedor de Botones de Contacto -->
 <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
 <!-- CTA 1: Calendly -->
-<a class="inline-block bg-contraste text-profundo hover:bg-neutro font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 border border-profundo text-lg" href="https://calendly.com/adrian-deyme/reunion-exploratoria" rel="noopener noreferrer" target="_blank">
+<a class="inline-block bg-contraste text-profundo hover:bg-neutro font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 border border-profundo text-lg" href="agenda.html" rel="noopener noreferrer" target="_blank">
                         Ir a Calendly
                     </a>
 <!-- CTA 2: LinkedIn -->
@@ -498,7 +775,7 @@ img[src*="/assets/badges/"]:hover{
 <div class="flex flex-col md:flex-row justify-between items-center border-b border-suave/30 pb-6 mb-6">
 <!-- Logo y Nombre -->
 <div class="flex items-center mb-4 md:mb-0">
-<img alt="Logo Adrian Deyme" class="h-8 w-auto rounded-lg mr-3 opacity-90" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/32x32/0E4C5A/FFFFFF?text=AD';" src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/brand/ad-logo.webp?raw=true"/>
+<img alt="Logo Adrian Deyme" class="h-8 w-auto rounded-lg mr-3 opacity-90" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/32x32/0E4C5A/FFFFFF?text=AD';" src="/Site/assets/brand/ad-logo.webp"/>
 <span class="text-xl font-bold tracking-tight text-contraste">Adrian DEYME</span>
 </div>
 <!-- Iconos de Redes Sociales -->
@@ -547,72 +824,50 @@ img[src*="/assets/badges/"]:hover{
             });
         });
     </script>
-<!-- Script para cargar posts de Medium -->
+
+
+<!-- Script para cargar posts de Medium (imagen y grid de 3) -->
 <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // *** USUARIO DE MEDIUM CONFIGURADO ***
-            const MEDIUM_USERNAME = 'adriandeyme'; 
-            
-            // Si tu usuario empieza con @, el feed RSS lo necesita.
-            const MEDIUM_HANDLE = MEDIUM_USERNAME.startsWith('@') ? MEDIUM_USERNAME : `@${MEDIUM_USERNAME}`; 
-            
-            // API de proxy para transformar el RSS de Medium a JSON (Supera problemas de CORS)
-            // URL de Medium RSS: https://medium.com/feed/@adriandeyme
-            const MEDIUM_FEED_URL = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${MEDIUM_HANDLE}`;
-            const container = document.getElementById('medium-posts-container');
-            const profileLink = document.getElementById('medium-profile-link');
-            
-            // Actualiza el enlace del botón a tu perfil real
-            profileLink.href = `https://medium.com/${MEDIUM_HANDLE}`;
+document.addEventListener('DOMContentLoaded', () => {
+  const USER = 'adriandeyme';
+  const HANDLE = USER.startsWith('@') ? USER : `@${USER}`;
+  const FEED = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${HANDLE}`;
+  const container = document.getElementById('medium-posts-container');
+  const profileLink = document.getElementById('medium-profile-link');
+  if (profileLink) profileLink.href = `https://medium.com/${HANDLE}`;
+  if (!container) return;
+  container.innerHTML = '<div class="col-span-3 text-profundo/70">Cargando publicaciones…</div>';
+  fetch(FEED).then(r=>r.json()).then(data=>{
+    if (data.status!=='ok' || !data.items?.length){
+      container.innerHTML = '<p class="col-span-3 text-center text-red-500">No hay publicaciones disponibles.</p>';
+      return;
+    }
+    container.innerHTML='';
+    data.items.slice(0,3).forEach(post=>{
+      let img = post.thumbnail || (post.enclosure && post.enclosure.link) || '';
+      if(!img && post.content){
+        const m = post.content.match(/<img[^>]+src="([^">]+)"/i);
+        if(m) img = m[1];
+      }
+      const date = new Date(post.pubDate).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'});
+      const text = (post.content||post.description||'').replace(/<[^>]*>/g,'').trim().slice(0,150)+'…';
+      container.insertAdjacentHTML('beforeend',`
+        <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+          ${img?`<img src="${img}" alt="" class="w-full h-56 object-cover">`:''}
+          <div class="p-6 flex flex-col gap-3">
+            <p class="text-sm text-suave">${date}</p>
+            <h3 class="text-xl font-extrabold text-profundo"><a href="${post.link}" target="_blank" rel="noopener">${post.title}</a></h3>
+            <p class="text-gray-600">${text}</p>
+            <a class="mt-1 text-petroleo font-semibold" href="${post.link}" target="_blank" rel="noopener">Leer artículo completo →</a>
+          </div>
+        </article>
+      `);
+    });
+  }).catch(()=>{
+    container.innerHTML = '<p class="col-span-3 text-center text-red-500">No se pudieron cargar las publicaciones.</p>';
+  });
+});
+</script>
 
-            fetch(MEDIUM_FEED_URL)
-                .then(response => response.json())
-                .then(data => {
-                    // Verifica si hay error o si no hay posts
-                    if (data.status !== 'ok' || !data.items || data.items.length === 0) {
-                        container.innerHTML = `<p class="col-span-3 text-center text-lg text-red-500">Error al cargar o no hay publicaciones disponibles. El usuario ${MEDIUM_HANDLE} puede no tener posts aún.</p>`;
-                        return;
-                    }
-                    
-                    // Limpia el mensaje de "cargando"
-                    container.innerHTML = '';
-                    
-                    // Toma solo los primeros 3 posts
-                    const posts = data.items.slice(0, 3);
-                    
-                    posts.forEach(post => {
-                        // Limpia el título
-                        const title = post.title;
-                        
-                        // Extrae el contenido sin las etiquetas HTML y limita la longitud
-                        let rawContent = post.content || post.description;
-                        const content = rawContent.replace(/<[^>]*>/g, '').substring(0, 150).trim() + '...'; 
-                        
-                        // Formatea la fecha
-                        const date = new Date(post.pubDate).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
-
-                        const postHTML = `
-                            <article class="card-hover-effect bg-contraste p-6 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col justify-between">
-                                <div>
-                                    <p class="text-sm text-suave mb-2">${date}</p>
-                                    <h3 class="text-xl font-bold mb-3 text-profundo hover:text-petroleo transition duration-300">
-                                        <a href="${post.link}" target="_blank">${title}</a>
-                                    </h3>
-                                    <p class="text-gray-600 mb-4">${content}</p>
-                                </div>
-                                <a href="${post.link}" target="_blank" class="text-petroleo font-semibold hover:text-profundo transition duration-300">
-                                    Leer artículo completo →
-                                </a>
-                            </article>
-                        `;
-                        container.innerHTML += postHTML;
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching Medium posts:', error);
-                    container.innerHTML = `<p class="col-span-3 text-center text-lg text-red-500">No se pudieron cargar las publicaciones. (Error de red o CORS).</p>`;
-                });
-        });
-    </script>
 </body>
 </html>
