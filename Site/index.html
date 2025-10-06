@@ -870,33 +870,6 @@ img[src*="/assets/badges/"]:hover{
 </div>
 </div>
 </footer>
-<!-- Script para la funcionalidad del Menú Móvil -->
-<script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuButton = document.getElementById('menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuLinks = mobileMenu.querySelectorAll('a');
-
-            // Función para alternar la visibilidad del menú
-            const toggleMenu = () => {
-                mobileMenu.classList.toggle('hidden');
-            };
-
-            // Evento para el botón hamburguesa
-            menuButton.addEventListener('click', toggleMenu);
-
-            // Evento para cerrar el menú al hacer clic en un enlace (navegación a sección)
-            menuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    // Esperamos un breve momento para que la navegación se complete antes de cerrar el menú
-                    setTimeout(() => {
-                        mobileMenu.classList.add('hidden');
-                    }, 100); 
-                });
-            });
-        });
-    </script>
-
 
 <!-- Script para cargar posts de Medium (imagen y grid de 3) -->
 <script>
