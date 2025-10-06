@@ -931,9 +931,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <script>
-  document.getElementById('menu-button')?.addEventListener('click', () => {
-    const mm = document.getElementById('mobile-menu');
-    mm?.classList.toggle('hidden');
+  document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('menu-button');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+    });
   });
 </script>
 </body>
