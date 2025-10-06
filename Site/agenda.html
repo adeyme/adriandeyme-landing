@@ -1,121 +1,100 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
-<script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-NTWMC2JYYY');
-</script>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Agendar reunión · Adrián Deyme</title>
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Agendar reunión · Adrián Deyme</title>
+  <meta name="description" content="Agenda una reunión exploratoria de 30 minutos con Adrián Deyme para cerrar la brecha entre estrategia y ejecución.">
+  <link rel="canonical" href="https://www.adriandeyme.com/agenda.html">
 
-    <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
-    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Agendar reunión · Adrián Deyme">
+  <meta property="og:description" content="Agenda una reunión exploratoria de 30 minutos para diagnosticar tu brecha de ejecución.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.adriandeyme.com/agenda.html">
+  <meta property="og:image" content="https://www.adriandeyme.com/Site/assets/social/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="es_LA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Agendar reunión · Adrián Deyme">
+  <meta name="twitter:description" content="Diagnóstico breve para enfocar, ordenar y volver predecible tu ejecución.">
+  <meta name="twitter:image" content="https://www.adriandeyme.com/Site/assets/social/og-default.png">
+  <meta name="twitter:site" content="@adriandeyme">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#0E4C5A">
+  <link rel="icon" href="/Site/assets/brand/ad-favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/Site/assets/brand/apple-touch-icon.png">
 
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-    <style>
-        :root{
-            /* Usando los valores de tu Guía de Identidad Visual */
-            --petroleo:#0E4C5A;       /* Azul Petróleo (Principal) */
-            --profundo:#062F36;      /* Azul Oscuro (Texto Principal) */
-            --suave:#4D7C87;         /* Azul Claro (Muted) */
-            --neutro:#F5F5F5;        /* Gris Claro (Fondo Neutro) */
-            --card:#FFFFFF;
-            --radius:20px;
-        }
-        body{
-            margin:0; 
-            font-family: 'Montserrat', sans-serif;
-            color:var(--profundo); 
-            background:var(--neutro);
-        }
-        header{
-            max-width:1120px; margin:24px auto 0; padding:0 20px;
-            display:flex; align-items:center; justify-content:space-between;
-        }
-        .brand{display:flex; align-items:center; gap:12px; font-weight:700; color:var(--profundo);}
-        .brand img{height:28px; width:28px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);}
-        .wrap{
-            max-width:1120px; margin:24px auto 60px; padding:0 20px;
-        }
-        .card{
-            background:var(--card); border-radius:var(--radius); box-shadow:0 8px 30px rgba(0,0,0,.08);
-            padding:24px; overflow:hidden;
-        }
-        h1{font-size:28px; line-height:1.15; margin:0 0 8px; font-weight:800; color:var(--petroleo);}
-        p.lead{color:var(--suave); margin:0 0 20px; font-size:18px;}
-        .cal-wrap{min-height:860px;}
-        .fallback{
-            margin-top:14px; font-size:14px; color:var(--suave);
-        }
-        .fallback a{color:var(--petroleo); font-weight:600; text-decoration:none; transition: color 0.3s;}
-        .fallback a:hover{color:var(--profundo);}
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-        /* Estilo del botón "Volver" */
-        .btn-volver {
-            color:var(--suave); 
-            text-decoration:none; 
-            font-weight:600;
-            padding: 8px 16px;
-            border: 1px solid var(--suave);
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-        .btn-volver:hover {
-            color: var(--card);
-            background-color: var(--petroleo);
-            border-color: var(--petroleo);
-        }
-    </style>
+  <style>
+    :root{--petroleo:#0E4C5A;--profundo:#062F36;--suave:#4D7C87;--neutro:#F5F5F5;--card:#FFFFFF;--radius:20px}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;color:var(--profundo);background:var(--neutro)}
+    header{max-width:1120px;margin:24px auto 0;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--profundo)}
+    .brand img{height:28px;width:28px;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+    .wrap{max-width:1120px;margin:24px auto 60px;padding:0 20px}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:0 8px 30px rgba(0,0,0,.08);padding:24px;overflow:hidden}
+    h1{font-size:28px;line-height:1.15;margin:0 0 8px;font-weight:800;color:var(--petroleo)}
+    p.lead{color:var(--suave);margin:0 0 20px;font-size:18px}
+    .cal-wrap{min-height:860px}
+    .fallback{margin-top:14px;font-size:14px;color:var(--suave)}
+    .fallback a{color:var(--petroleo);font-weight:600;text-decoration:none;transition:color .3s}
+    .fallback a:hover{color:var(--profundo)}
+    .btn-volver{color:var(--suave);text-decoration:none;font-weight:700;padding:8px 16px;border:1px solid var(--suave);border-radius:8px;transition:all .3s}
+    .btn-volver:hover{color:var(--card);background-color:var(--petroleo);border-color:var(--petroleo)}
+  </style>
 </head>
 <body>
+  <header>
+    <a class="brand" href="index.html" aria-label="Volver al inicio">
+      <img src="/Site/assets/brand/ad-favicon.png" alt="AD" width="28" height="28">
+      <span>Adrián Deyme</span>
+    </a>
+    <a href="index.html" class="btn-volver">← Volver al Inicio</a>
+  </header>
 
-    <header>
-        <div class="brand">
-            <img 
-                src="https://github.com/adeyme/adriandeyme-landing/blob/main/Site/assets/brand/ad-favicon.png?raw=true" 
-                alt="AD" 
-                onerror="this.onerror=null; this.src='https://placehold.co/32x32/0E4C5A/FFFFFF?text=AD';" 
-            />
-            <span>Adrián Deyme</span>
-        </div>
-        <a href="index.html" class="btn-volver">← Volver al Inicio</a>
-    </header>
+  <main class="wrap">
+    <div class="card">
+      <h1>Agenda tu reunión exploratoria de 30'</h1>
+      <p class="lead">Elige el horario que mejor te quede. Al confirmar, te llevaremos automáticamente a la página de siguientes pasos.</p>
 
-    <main class="wrap">
-        <div class="card">
-            <h1>Agenda tu reunión exploratoria de 30'</h1>
-            <p class="lead">Elige el horario que mejor te quede. Al confirmar, te llevaremos automáticamente a la página de siguientes pasos.</p>
+      <div class="cal-wrap">
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/adriandeyme/reunion-exploratoria?hide_gdpr_banner=1"
+             style="min-width:320px;height:860px;"></div>
+      </div>
 
-            <div class="cal-wrap">
-                <div class="calendly-inline-widget"
-                    data-url="https://calendly.com/adriandeyme/reunion-exploratoria?hide_gdpr_banner=1"
-                    style="min-width:320px;height:860px;"></div>
-            </div>
+      <p class="fallback">
+        Si no te redirige automáticamente tras agendar, por favor,
+        <a href="gracias.html">haz clic aquí para ir a la página de gracias</a>.
+      </p>
+    </div>
+  </main>
 
-            <p class="fallback">
-                Si no te redirige automáticamente tras agendar, por favor, 
-                <a href="gracias.html">haz clic aquí para ir a la página de gracias</a>.
-            </p>
-        </div>
-    </main>
-
-    <script>
-        // Redirección a la página de gracias tras reservar, usando el evento del embed de Calendly
-        window.addEventListener("message", function(e){
-            // Aceptamos mensajes del dominio de Calendly y comprobamos el evento de agendamiento
-            if (e?.origin?.includes("calendly.com") && e?.data?.event === "calendly.event_scheduled") {
-                // Redirige a tu página de gracias (usando una ruta absoluta para mayor fiabilidad)
-                window.location.href = "/gracias.html"; 
-            }
-        });
-    </script>
+  <script>
+    // Redirección post-agendamiento desde el embed de Calendly
+    window.addEventListener("message", function(e){
+      if (e?.origin?.includes("calendly.com") && e?.data?.event === "calendly.event_scheduled") {
+        window.location.href = "gracias.html";
+      }
+    });
+  </script>
 </body>
 </html>
