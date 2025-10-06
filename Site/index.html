@@ -16,8 +16,6 @@
 <!-- ✨ Meta básicas y sociales (deben ir muy arriba en <head>) -->
 <title>Adrián Deyme — Ejecución Predecible</title>
 <link rel="canonical" href="https://www.adriandeyme.com/">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
 <meta name="description" content="Transformo la estrategia en ejecución predecible integrando Liderazgo, Ejecución y Estructura. Coaching, OKRs y Kanban.">
 
 <!-- Open Graph -->
@@ -28,8 +26,6 @@
 <meta property="og:title" content="Adrián Deyme — Ejecución Predecible">
 <meta property="og:description" content="Cierro la brecha de ejecución con foco, cadencias y estructura.">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/social/og-default.png?v=20251006">
-<meta property="og:image:secure_url" content="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/social/og-default.png?v=20251006">
-<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Banner de Adrián Deyme: Arquitectura Sistémica y Coaching de Liderazgo">
@@ -40,7 +36,6 @@
 <meta name="twitter:title" content="Adrián Deyme — Ejecución Predecible">
 <meta name="twitter:description" content="Cierro la brecha de ejecución con foco, cadencias y estructura.">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/social/og-default.png?v=20251006">
-<meta name="twitter:image:alt" content="Banner de Adrián Deyme">
     
 <!-- Carga de Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -272,10 +267,9 @@ img[src*="/assets/badges/"]:hover{
 <!-- MENÚ DESPLEGABLE MÓVIL (Inicialmente oculto) -->
 <nav
   id="mobile-menu"
-  class="hidden md:hidden absolute inset-x-0 top-[68px] bg-contraste shadow-lg py-4 border-t border-neutro transition-all duration-200 ease-out"
+  class="hidden md:hidden absolute inset-x-0 top-[68px] bg-contraste shadow-lg py-4 border-t border-neutro transition-all duration-200 ease-out z-40"
   role="dialog"
-  aria-label="Navegación móvil"
->
+  aria-label="Navegación móvil">
   <div class="flex flex-col space-y-3 px-6 text-lg font-medium">
     <a href="#estrategia" class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Estrategia</a>
     <a href="#pilares"    class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Pilares</a>
@@ -947,49 +941,31 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const btn  = document.getElementById('menu-button');
-    const menu = document.getElementById('mobile-menu');
+(() => {
+  const btn = document.getElementById('menu-button');
+  const panel = document.getElementById('mobile-menu');
+  if (!btn || !panel) return;
 
-    if (!btn || !menu) return;
+  function toggle(open) {
+    const isOpen = (open !== undefined) ? open : panel.classList.contains('hidden');
+    panel.classList.toggle('hidden', !isOpen);
+    btn.setAttribute('aria-expanded', String(isOpen));
+  }
 
-    // Toggle al hacer clic en el botón
-    btn.addEventListener('click', () => {
-      const isHidden = menu.classList.contains('hidden');
-      menu.classList.toggle('hidden');
-      btn.setAttribute('aria-expanded', String(isHidden));
-    });
+  btn.addEventListener('click', () => toggle());
 
-    // Cerrar al hacer clic en cualquier enlace del menú
-    menu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        if (!menu.classList.contains('hidden')) {
-          menu.classList.add('hidden');
-          btn.setAttribute('aria-expanded', 'false');
-        }
-      });
-    });
-
-    // Cerrar con tecla ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
-        menu.classList.add('hidden');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // (Opcional) Cerrar si haces clic fuera del menú y del botón
-    document.addEventListener('click', (e) => {
-      if (!menu.classList.contains('hidden')) {
-        const clickFuera = !menu.contains(e.target) && !btn.contains(e.target);
-        if (clickFuera) {
-          menu.classList.add('hidden');
-          btn.setAttribute('aria-expanded', 'false');
-        }
-      }
-    });
+  // Cierra al hacer click en cualquier link del menú
+  panel.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => toggle(false));
   });
+
+  // Escape para cerrar
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') toggle(false);
+  });
+})();
 </script>
+
 
 </body>
 </html>
