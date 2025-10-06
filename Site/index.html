@@ -254,23 +254,39 @@ img[src*="/assets/badges/"]:hover{
                 </a>
 </nav>
 <!-- Botón de Menú para Móviles (Hamburguesa) -->
-<button aria-label="Menu" class="md:hidden p-2 rounded-lg hover:bg-neutro transition duration-200" id="menu-button" type="button">
-<svg class="w-6 h-6 text-petroleo" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<button
+  id="menu-button"
+  type="button"
+  aria-label="Abrir menú"
+  aria-controls="mobile-menu"
+  aria-expanded="false"
+  class="md:hidden p-2 rounded-lg hover:bg-neutro transition duration-200 z-50"
+>
+  <svg class="w-6 h-6 text-petroleo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+  </svg>
 </button>
 </div>
 </header>
+
 <!-- MENÚ DESPLEGABLE MÓVIL (Inicialmente oculto) -->
-<div class="hidden md:hidden bg-contraste shadow-lg py-4 transition-all duration-300 ease-in-out" id="mobile-menu">
-<div class="flex flex-col space-y-3 px-6 text-lg font-medium">
-<a class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro" href="#estrategia">Estrategia</a>
-<a class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro" href="#pilares">Pilares</a>
-<a class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro" href="#servicios">Servicios</a>
-<a class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro" href="#blog">Blog</a>
-<a class="block text-center mt-4 bg-petroleo hover:bg-profundo text-contraste font-bold py-2 rounded-lg shadow-md transition duration-300" href="agenda.html">
-                Agenda un Diagnóstico
-            </a>
-</div>
-</div>
+<nav
+  id="mobile-menu"
+  class="hidden md:hidden absolute inset-x-0 top-[68px] bg-contraste shadow-lg py-4 border-t border-neutro transition-all duration-200 ease-out"
+  role="dialog"
+  aria-label="Navegación móvil"
+>
+  <div class="flex flex-col space-y-3 px-6 text-lg font-medium">
+    <a href="#estrategia" class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Estrategia</a>
+    <a href="#pilares"    class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Pilares</a>
+    <a href="#servicios"  class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Servicios</a>
+    <a href="#blog"       class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Blog</a>
+    <a href="agenda.html" class="block text-center mt-1 bg-petroleo hover:bg-profundo text-contraste font-bold py-2 rounded-lg shadow-md transition duration-300">
+      Agenda un Diagnóstico
+    </a>
+  </div>
+</nav>
+
 <main>
 
 <!-- SECCIÓN HERO (Banner Principal con Foto y Narrativa Ajustada) -->
@@ -932,16 +948,48 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const btn = document.getElementById('menu-button');
+    const btn  = document.getElementById('menu-button');
     const menu = document.getElementById('mobile-menu');
+
     if (!btn || !menu) return;
 
+    // Toggle al hacer clic en el botón
     btn.addEventListener('click', () => {
+      const isHidden = menu.classList.contains('hidden');
       menu.classList.toggle('hidden');
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
+      btn.setAttribute('aria-expanded', String(isHidden));
+    });
+
+    // Cerrar al hacer clic en cualquier enlace del menú
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (!menu.classList.contains('hidden')) {
+          menu.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // Cerrar con tecla ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // (Opcional) Cerrar si haces clic fuera del menú y del botón
+    document.addEventListener('click', (e) => {
+      if (!menu.classList.contains('hidden')) {
+        const clickFuera = !menu.contains(e.target) && !btn.contains(e.target);
+        if (clickFuera) {
+          menu.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      }
     });
   });
 </script>
+
 </body>
 </html>
