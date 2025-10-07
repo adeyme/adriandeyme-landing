@@ -966,6 +966,20 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
 
-
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    if (typeof gtag === "function") {
+      console.log("✅ Enviando page_view manual desde adriandeyme.com");
+      gtag('event', 'page_view', {
+        page_title: document.title,
+        page_path: window.location.pathname,
+        debug_mode: true
+      });
+    } else {
+      console.warn("⚠️ gtag no definido — posible bloqueo del script GA4");
+    }
+  });
+</script>
+  
 </body>
 </html>
