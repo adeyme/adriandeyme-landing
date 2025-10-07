@@ -214,18 +214,6 @@ img[src*="/assets/badges/"]:hover{
   transition:transform .2s ease;
 }
 .cert-badges .badge-link:hover{ transform:translateY(-2px); }
-
-/* OVERRIDE a los estilos globales de badges solo dentro de esta fila */
-.cert-badges img[src*="/assets/badges/"]{
-  padding:0 !important;             /* sin caja blanca */
-  border-radius:0 !important;
-  box-shadow:none !important;
-  background:transparent !important;
-  height:44px; width:auto; object-fit:contain;
-}
-@media (min-width:768px){
-  .cert-badges img[src*="/assets/badges/"]{ height:56px; }
-}
     
 </script>
 
@@ -233,6 +221,31 @@ img[src*="/assets/badges/"]:hover{
 <meta name="theme-color" content="#0E4C5A">
 <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/ad-favicon.png?v=2">
 
+<style>
+/* --- Ajuste de los badges de certificaciones (actualizado y limpio) --- */
+.cert-badges img {
+  height: 60px;               /* Tamaño base equilibrado */
+  width: auto;                /* Mantiene proporción */
+  object-fit: contain;
+  background: transparent;
+  border-radius: 0;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08)); /* sombra leve */
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.cert-badges img:hover {
+  transform: translateY(-3px) scale(1.04);
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+}
+
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+  .cert-badges img {
+    height: 44px;
+  }
+}
+</style>
+    
 </head>
 <body class="text-profundo">
 <!-- BARRA DE NAVEGACIÓN (HEADER) -->
