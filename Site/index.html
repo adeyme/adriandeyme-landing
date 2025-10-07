@@ -202,6 +202,31 @@ img[src*="/assets/badges/"]:hover{
     el.addEventListener('blur', reset);
   });
 })();
+
+/* ===== Badges de la sección "Certificaciones..." (fila compacta) ===== */
+.cert-badges { white-space: nowrap; }
+
+/* Quita fondo/sombra/espacios de los wrappers */
+.cert-badges .badge-link{
+  display:inline-flex; align-items:center; justify-content:center;
+  background:transparent !important; box-shadow:none !important;
+  padding:0 !important; border-radius:0 !important;
+  transition:transform .2s ease;
+}
+.cert-badges .badge-link:hover{ transform:translateY(-2px); }
+
+/* OVERRIDE a los estilos globales de badges solo dentro de esta fila */
+.cert-badges img[src*="/assets/badges/"]{
+  padding:0 !important;             /* sin caja blanca */
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+  height:44px; width:auto; object-fit:contain;
+}
+@media (min-width:768px){
+  .cert-badges img[src*="/assets/badges/"]{ height:56px; }
+}
+    
 </script>
 
 <!-- PWA / mobile -->
