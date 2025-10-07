@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google tag (gtag.js) -->
+
+<!-- Google tag (GA4) - Modo Cookieless -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTVMC2JYYY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-NTVMC2JYYY');
+
+  // Configuración avanzada para evitar bloqueo por cookies
+  gtag('config', 'G-NTVMC2JYYY', {
+    'anonymize_ip': true,
+    'allow_ad_personalization_signals': false,
+    'cookie_flags': 'SameSite=None;Secure',
+    'transport_type': 'beacon'
+  });
 </script>
+
 <!-- ✨ Meta básicas y sociales (deben ir muy arriba en <head>) -->
 <title>Adrian Deyme - Ejecución Sistémica y Coaching de Liderazgo</title>
 <!-- Canonical y descripción -->
