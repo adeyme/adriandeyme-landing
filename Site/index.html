@@ -2,19 +2,20 @@
 <html lang="es">
 <head>
 
-<!-- Google tag (GA4) - Modo Cookieless -->
+<!-- Google tag (GA4) - Modo Cookieless y compatibilidad Chrome -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTVMC2JYYY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  // Configuración avanzada para evitar bloqueo por cookies
+  // Configuración para entornos sin cookies de terceros (GitHub Pages, Netlify)
   gtag('config', 'G-NTVMC2JYYY', {
     'anonymize_ip': true,
     'allow_ad_personalization_signals': false,
     'cookie_flags': 'SameSite=None;Secure',
-    'transport_type': 'beacon'
+    'transport_type': 'beacon',
+    'debug_mode': true
   });
 </script>
 
