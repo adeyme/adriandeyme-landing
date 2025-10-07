@@ -171,7 +171,7 @@ img[src*="/assets/badges/"]:hover{
 }
 </style>
 
-<!-- Interacción tilt de badges (también fuera del JSON-LD) -->
+<!-- Interacción tilt de badges -->
 <script>
 (function(){
   const els=[...document.querySelectorAll('img[src*="/assets/badges/"]')];
@@ -200,24 +200,24 @@ img[src*="/assets/badges/"]:hover{
     el.addEventListener('blur', reset);
   });
 })();
-
-/* ===== Badges de la sección "Certificaciones..." (fila compacta) ===== */
-<style>
-  .cert-badges { white-space: nowrap; }
-</style>
-
-/* Quita fondo/sombra/espacios de los wrappers */
-.cert-badges .badge-link{
-  display:inline-flex; align-items:center; justify-content:center;
-  background:transparent !important; box-shadow:none !important;
-  padding:0 !important; border-radius:0 !important;
-  transition:transform .2s ease;
-}
-.cert-badges .badge-link:hover{ transform:translateY(-2px); }
-    
 </script>
 
+<!-- Este bloque va FUERA del script -->
 <style>
+  /* ===== Badges de la sección "Certificaciones..." (fila compacta) ===== */
+  .cert-badges { white-space: nowrap; }
+
+  /* Quita fondo/sombra/espacios de los wrappers */
+  .cert-badges .badge-link {
+    display:inline-flex; align-items:center; justify-content:center;
+    background:transparent !important; box-shadow:none !important;
+    padding:0 !important; border-radius:0 !important;
+    transition:transform .2s ease;
+  }
+  .cert-badges .badge-link:hover { transform:translateY(-2px); }
+</style>
+
+
 /* --- Ajuste de los badges de certificaciones (actualizado y limpio) --- */
 .cert-badges img {
   height: 60px;               /* Tamaño base equilibrado */
