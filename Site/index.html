@@ -885,7 +885,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 document.addEventListener('DOMContentLoaded', () => {
   const USER = 'adriandeyme';
   const HANDLE = USER.startsWith('@') ? USER : `@${USER}`;
-  const FEED = `https://feedapi.steinhq.com/feed?url=https://medium.com/feed/@adriandeyme`;
+  const FEED = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@adriandeyme`;
   const container = document.getElementById('medium-posts-container');
   const profileLink = document.getElementById('medium-profile-link');
   if (profileLink) profileLink.href = `https://medium.com/${HANDLE}`;
