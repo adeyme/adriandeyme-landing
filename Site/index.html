@@ -887,8 +887,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('medium-posts-container');
   const profileLink = document.getElementById('medium-profile-link');
   if (!container) return;
-
-  // Cambia el enlace del botón "Ver todos los artículos"
   if (profileLink) profileLink.href = `https://medium.com/@adriandeyme`;
 
   container.innerHTML = '<div class="col-span-3 text-center text-profundo/70">Cargando publicaciones…</div>';
@@ -896,7 +894,6 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch(FEED)
     .then(response => response.json())
     .then(data => {
-      // 🚨 Validación: si el feed viene vacío o cacheado
       if (!data.items || data.items.length < 2) {
         console.warn('⚠️ Feed posiblemente cacheado, intenta recargar más tarde.');
         container.innerHTML = '<p class="col-span-3 text-center text-suave">Sin publicaciones recientes o feed cacheado.</p>';
@@ -904,19 +901,42 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const posts = data.items.slice(0, 3);
-      container.innerHTML = posts.map(post => `
-        <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-          <img src="${post.thumbnail}" alt="Imagen del artículo" class="w-full h-56 object-cover">
-          <div class="p-6 flex flex-col gap-3">
-            <p class="text-sm text-suave">${new Date(post.pubDate).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'})}</p>
-            <h3 class="text-xl font-extrabold text-profundo">
-              <a href="${post.link}" target="_blank" rel="noopener">${post.title}</a>
-            </h3>
-            <p class="text-gray-600">${post.description.replace(/<[^>]*>/g,'').trim().substring(0,150)}...</p>
-            <a class="mt-1 text-petroleo font-semibold" href="${post.link}" target="_blank" rel="noopener">Leer artículo completo →</a>
-          </div>
-        </article>
-      `).join('');
+      container.innerHTML = posts.map(post => {
+        // 🧩 Intenta obtener la imagen desde thumbnail o desde el contenido
+        let img = post.thumbnail || '';
+        if (!img && post.content) {
+          const match = post.content.match(/<img[^>]+src="([^">]+)"/i);
+          if (match) img = match[1];
+        }
+
+        // Si sigue sin imagen, usamos una imagen por defecto
+        if (!img) {
+          img = 'https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/medium-placeholder.jpg';
+        }
+
+        const date = new Date(post.pubDate).toLocaleDateString('es-ES', {
+          day: '2-digit', month: 'short', year: 'numeric'
+        });
+
+        const cleanDesc = (post.description || '')
+          .replace(/<[^>]*>/g, '')
+          .trim()
+          .substring(0, 180) + '...';
+
+        return `
+          <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+            <img src="${img}" alt="Imagen del artículo" class="w-full h-56 object-cover">
+            <div class="p-6 flex flex-col gap-3">
+              <p class="text-sm text-suave">${date}</p>
+              <h3 class="text-xl font-extrabold text-profundo">
+                <a href="${post.link}" target="_blank" rel="noopener">${post.title}</a>
+              </h3>
+              <p class="text-gray-600">${cleanDesc}</p>
+              <a class="mt-1 text-petroleo font-semibold" href="${post.link}" target="_blank" rel="noopener">Leer artículo completo →</a>
+            </div>
+          </article>
+        `;
+      }).join('');
     })
     .catch(error => {
       console.error('Error al cargar el feed de Medium:', error);
@@ -924,6 +944,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+
   
 </body>
 </html>
