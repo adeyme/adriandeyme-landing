@@ -880,72 +880,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </footer>
 
-<!-- Script para cargar posts de Medium (imagen y grid de 3) -->
+<!-- Script actualizado para cargar posts de Medium -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const USER = 'adriandeyme';
-  const HANDLE = USER.startsWith('@') ? USER : `@${USER}`;
-  const FEED = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@adriandeyme`;
+  const FEED = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@adriandeyme&nocache=${Date.now()}`;
   const container = document.getElementById('medium-posts-container');
   const profileLink = document.getElementById('medium-profile-link');
-  if (profileLink) profileLink.href = `https://medium.com/${HANDLE}`;
   if (!container) return;
-  container.innerHTML = '<div class="col-span-3 text-profundo/70">Cargando publicaciones…</div>';
-  fetch(FEED).then(r=>r.json()).then(data=>{
-    if (data.status!=='ok' || !data.items?.length){
-      container.innerHTML = '<p class="col-span-3 text-center text-red-500">No hay publicaciones disponibles.</p>';
-      return;
-    }
-    container.innerHTML='';
-    data.items.slice(0,3).forEach(post=>{
-      let img = post.thumbnail || (post.enclosure && post.enclosure.link) || '';
-      if(!img && post.content){
-        const m = post.content.match(/<img[^>]+src="([^">]+)"/i);
-        if(m) img = m[1];
+
+  // Cambia el enlace del botón "Ver todos los artículos"
+  if (profileLink) profileLink.href = `https://medium.com/@adriandeyme`;
+
+  container.innerHTML = '<div class="col-span-3 text-center text-profundo/70">Cargando publicaciones…</div>';
+
+  fetch(FEED)
+    .then(response => response.json())
+    .then(data => {
+      // 🚨 Validación: si el feed viene vacío o cacheado
+      if (!data.items || data.items.length < 2) {
+        console.warn('⚠️ Feed posiblemente cacheado, intenta recargar más tarde.');
+        container.innerHTML = '<p class="col-span-3 text-center text-suave">Sin publicaciones recientes o feed cacheado.</p>';
+        return;
       }
-      const date = new Date(post.pubDate).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'});
-      const text = (post.content||post.description||'').replace(/<[^>]*>/g,'').trim().slice(0,150)+'…';
-      container.insertAdjacentHTML('beforeend',`
+
+      const posts = data.items.slice(0, 3);
+      container.innerHTML = posts.map(post => `
         <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-          ${img?`<img src="${img}" alt="" class="w-full h-56 object-cover">`:''}
+          <img src="${post.thumbnail}" alt="Imagen del artículo" class="w-full h-56 object-cover">
           <div class="p-6 flex flex-col gap-3">
-            <p class="text-sm text-suave">${date}</p>
-            <h3 class="text-xl font-extrabold text-profundo"><a href="${post.link}" target="_blank" rel="noopener">${post.title}</a></h3>
-            <p class="text-gray-600">${text}</p>
+            <p class="text-sm text-suave">${new Date(post.pubDate).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'})}</p>
+            <h3 class="text-xl font-extrabold text-profundo">
+              <a href="${post.link}" target="_blank" rel="noopener">${post.title}</a>
+            </h3>
+            <p class="text-gray-600">${post.description.replace(/<[^>]*>/g,'').trim().substring(0,150)}...</p>
             <a class="mt-1 text-petroleo font-semibold" href="${post.link}" target="_blank" rel="noopener">Leer artículo completo →</a>
           </div>
         </article>
-      `);
+      `).join('');
+    })
+    .catch(error => {
+      console.error('Error al cargar el feed de Medium:', error);
+      container.innerHTML = '<p class="col-span-3 text-center text-red-500">No se pudieron cargar las publicaciones.</p>';
     });
-  }).catch(()=>{
-    container.innerHTML = '<p class="col-span-3 text-center text-red-500">No se pudieron cargar las publicaciones.</p>';
-  });
 });
-</script>
-<script>
-(() => {
-  const btn = document.getElementById('menu-button');
-  const panel = document.getElementById('mobile-menu');
-  if (!btn || !panel) return;
-
-  function toggle(open) {
-    const isOpen = (open !== undefined) ? open : panel.classList.contains('hidden');
-    panel.classList.toggle('hidden', !isOpen);
-    btn.setAttribute('aria-expanded', String(isOpen));
-  }
-
-  btn.addEventListener('click', () => toggle());
-
-  // Cierra al hacer click en cualquier link del menú
-  panel.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => toggle(false));
-  });
-
-  // Escape para cerrar
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') toggle(false);
-  });
-})();
 </script>
   
 </body>
