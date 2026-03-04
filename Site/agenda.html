@@ -1,9 +1,14 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KPCL8GBK');</script>
-  <!-- End Google Tag Manager -->
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NTWMC2JYYY');
+  </script>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -58,8 +63,6 @@
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPCL8GBK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <header>
     <a class="brand" href="index.html" aria-label="Volver al inicio">
@@ -93,13 +96,11 @@
     window.addEventListener("message", function(e) {
       if (e?.origin?.includes("calendly.com") && e?.data?.event === "calendly.event_scheduled") {
         try {
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            event: 'calendly_event_scheduled',
+          gtag('event', 'calendly_event_scheduled', {
             event_type: e?.data?.payload?.event?.event_type_name || 'Reunión exploratoria',
             invitee: e?.data?.payload?.invitee?.email || '(desconocido)'
           });
-        } catch(err) { console.warn('GTM tracking error:', err); }
+        } catch(err) { console.warn('GA4 tracking error:', err); }
         window.location.assign('/gracias.html');
       }
     });
