@@ -1,53 +1,47 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NTWMC2JYYY');
-  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KPCL8GBK');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Agendar reunión · Adrián Deyme</title>
-  <meta name="description" content="Agenda una reunión exploratoria de 30 minutos con Adrián Deyme para cerrar la brecha entre estrategia y ejecución.">
+  <meta name="description" content="Agenda una reunión exploratoria de 30 minutos con Adrián Deyme. Elige el horario que mejor te quede y recibe los siguientes pasos automáticamente.">
   <link rel="canonical" href="https://www.adriandeyme.com/agenda.html">
 
-  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Agendar reunión · Adrián Deyme">
-  <meta property="og:description" content="Agenda una reunión exploratoria de 30 minutos para diagnosticar tu brecha de ejecución.">
+  <meta property="og:description" content="Elige un horario para tu reunión exploratoria de 30 minutos.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.adriandeyme.com/agenda.html">
-  <meta property="og:image" content="https://www.adriandeyme.com/Site/assets/social/og-default.png">
+  <meta property="og:locale" content="es_LA">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/social/og-default.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="es_LA">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Agendar reunión · Adrián Deyme">
-  <meta name="twitter:description" content="Diagnóstico breve para enfocar, ordenar y volver predecible tu ejecución.">
-  <meta name="twitter:image" content="https://www.adriandeyme.com/Site/assets/social/og-default.png">
+  <meta name="twitter:description" content="Elige un horario para tu reunión exploratoria de 30 minutos.">
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/social/og-default.jpg">
   <meta name="twitter:site" content="@adriandeyme">
-
   <meta name="theme-color" content="#0E4C5A">
-  <link rel="icon" href="/Site/assets/brand/ad-logo.png" type="image/png">
-  <link rel="apple-touch-icon" href="/Site/assets/brand/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <link rel="icon" type="image/png"
+        href="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/ad-logo-32.png">
 
-  <!-- Tipografía -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://assets.calendly.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <style>
     :root{--petroleo:#0E4C5A;--profundo:#062F36;--suave:#4D7C87;--neutro:#F5F5F5;--card:#FFFFFF;--radius:20px}
     *{box-sizing:border-box}
-    body{margin:0;font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;color:var(--profundo);background:var(--neutro)}
+    body{margin:0;font-family:'Montserrat',system-ui,sans-serif;color:var(--profundo);background:var(--neutro);text-rendering:optimizeLegibility}
     header{max-width:1120px;margin:24px auto 0;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--profundo)}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--profundo);text-decoration:none}
     .brand img{height:28px;width:28px;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
     .wrap{max-width:1120px;margin:24px auto 60px;padding:0 20px}
     .card{background:var(--card);border-radius:var(--radius);box-shadow:0 8px 30px rgba(0,0,0,.08);padding:24px;overflow:hidden}
@@ -55,33 +49,40 @@
     p.lead{color:var(--suave);margin:0 0 20px;font-size:18px}
     .cal-wrap{min-height:860px}
     .fallback{margin-top:14px;font-size:14px;color:var(--suave)}
-    .fallback a{color:var(--petroleo);font-weight:600;text-decoration:none;transition:color .3s}
+    .fallback a{color:var(--petroleo);font-weight:600;text-decoration:none;transition:color .2s ease}
     .fallback a:hover{color:var(--profundo)}
-    .btn-volver{color:var(--suave);text-decoration:none;font-weight:700;padding:8px 16px;border:1px solid var(--suave);border-radius:8px;transition:all .3s}
-    .btn-volver:hover{color:var(--card);background-color:var(--petroleo);border-color:var(--petroleo)}
+    .btn-volver{color:var(--suave);text-decoration:none;font-weight:600;padding:8px 16px;border:1px solid var(--suave);border-radius:8px;transition:all .2s ease}
+    .btn-volver:hover{color:var(--card);background:var(--petroleo);border-color:var(--petroleo)}
+    .btn-volver:focus-visible,a:focus-visible{outline:none;box-shadow:0 0 0 3px #fff,0 0 0 6px rgba(3,105,161,.35)}
+    @media(prefers-reduced-motion:reduce){.btn-volver,.fallback a{transition:none}}
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPCL8GBK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <header>
     <a class="brand" href="index.html" aria-label="Volver al inicio">
-      <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/ad-logo.png" alt="AD" width="28" height="28">
+      <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/ad-logo.png"
+           alt="AD" width="28" height="28"
+           onerror="this.onerror=null;this.src='https://placehold.co/28x28/0E4C5A/FFFFFF?text=AD'">
       <span>Adrián Deyme</span>
     </a>
-    <a href="index.html" class="btn-volver">← Volver al Inicio</a>
+    <a href="index.html" class="btn-volver" aria-label="Volver al inicio">← Volver al Inicio</a>
   </header>
 
-  <main class="wrap">
-    <div class="card">
-      <h1>Agenda tu reunión exploratoria de 30'</h1>
-      <p class="lead">Elige el horario que mejor te quede. Al confirmar, te llevaremos automáticamente a la página de siguientes pasos.</p>
-
-      <div class="cal-wrap">
+  <main class="wrap" role="main">
+    <div class="card" role="region" aria-labelledby="agenda-title">
+      <h1 id="agenda-title">Agenda tu reunión exploratoria de 30'</h1>
+      <p class="lead" id="agenda-desc">
+        Elige el horario que mejor te quede. Al confirmar, te llevaremos automáticamente a la página de siguientes pasos.
+      </p>
+      <div class="cal-wrap" aria-describedby="agenda-desc">
         <div class="calendly-inline-widget"
-             data-url="https://calendly.com/adriandeyme/reunion-exploratoria?hide_gdpr_banner=1"
+             data-url="https://calendly.com/adrian-deyme/reunion-exploratoria?hide_gdpr_banner=1"
              style="min-width:320px;height:860px;"></div>
       </div>
-
-      <p class="fallback">
+      <p class="fallback" role="status" aria-live="polite">
         Si no te redirige automáticamente tras agendar, por favor,
         <a href="gracias.html">haz clic aquí para ir a la página de gracias</a>.
       </p>
@@ -89,12 +90,26 @@
   </main>
 
   <script>
-    // Redirección post-agendamiento desde el embed de Calendly
-    window.addEventListener("message", function(e){
+    window.addEventListener("message", function(e) {
       if (e?.origin?.includes("calendly.com") && e?.data?.event === "calendly.event_scheduled") {
-        window.location.href = "gracias.html";
+        try {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'calendly_event_scheduled',
+            event_type: e?.data?.payload?.event?.event_type_name || 'Reunión exploratoria',
+            invitee: e?.data?.payload?.invitee?.email || '(desconocido)'
+          });
+        } catch(err) { console.warn('GTM tracking error:', err); }
+        window.location.assign('/gracias.html');
       }
     });
   </script>
+
+  <noscript>
+    <p style="text-align:center;margin-top:16px">
+      Para ver el calendario necesitás JavaScript. También podés
+      <a href="https://calendly.com/adrian-deyme/reunion-exploratoria">abrir Calendly en una pestaña nueva</a>.
+    </p>
+  </noscript>
 </body>
 </html>
