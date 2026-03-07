@@ -1540,7 +1540,7 @@
              onerror="this.onerror=null;this.src='https://placehold.co/28x28/FFD600/0F0F14?text=AD'">
         <span><span class="script">Adrian</span> Deyme</span>
       </div>
-      <p class="footer-copy">© 2026 Adrián Deyme · Panamá</p>
+      <p class="footer-copy">© 2025 Adrián Deyme · Panamá</p>
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/"
            target="_blank" rel="noopener"
@@ -1576,20 +1576,52 @@
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   /* ---- Lead form "La Escucha" ---- */
-  function pedirEscucha() {
-    const email = document.getElementById('escucha-email').value.trim();
+  async function pedirEscucha() {
+    const input = document.getElementById('escucha-email');
+    const btn = document.querySelector('#gratis .btn-primary');
+    const msg = document.getElementById('escucha-msg');
+    const form = document.querySelector('.email-form');
+    const email = input.value.trim();
+
     if (!email || !email.includes('@')) {
-      document.getElementById('escucha-email').focus();
+      input.focus();
+      input.style.borderColor = '#E63946';
+      setTimeout(() => input.style.borderColor = '', 2000);
       return;
     }
-    // Track en GA4
-    gtag('event', 'lead_la_escucha', { email_provided: true });
-    // Ocultar form, mostrar mensaje
-    document.querySelector('.email-form').style.display = 'none';
-    document.getElementById('escucha-msg').style.display = 'block';
-    // TODO: conectar con Mailchimp/ConvertKit/EmailJS
-    console.log('Email capturado:', email);
+
+    // Estado cargando
+    btn.textContent = 'Enviando…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (res.ok) {
+        // Éxito — track GA4 y mostrar confirmación
+        gtag('event', 'lead_la_escucha', { email_provided: true });
+        form.style.display = 'none';
+        msg.style.display = 'block';
+      } else {
+        btn.textContent = 'Quiero mi copia';
+        btn.disabled = false;
+        msg.textContent = 'Algo salió mal. Intentá de nuevo.';
+        msg.style.color = '#E63946';
+        msg.style.display = 'block';
+      }
+    } catch (err) {
+      btn.textContent = 'Quiero mi copia';
+      btn.disabled = false;
+      msg.textContent = 'Error de conexión. Intentá de nuevo.';
+      msg.style.color = '#E63946';
+      msg.style.display = 'block';
+    }
   }
+
   document.getElementById('escucha-email')?.addEventListener('keydown', e => {
     if (e.key === 'Enter') pedirEscucha();
   });
