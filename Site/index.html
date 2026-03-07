@@ -1,950 +1,1645 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Google Tag Manager -->
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
   <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id=GTM-KPCL8GBK'+dl;
-  f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KPCL8GBK');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NTWMC2JYYY');
   </script>
-  <!-- End Google Tag Manager -->
 
-<!-- ✨ Meta básicas y sociales (deben ir muy arriba en <head>) -->
-<title>Adrian Deyme | Coach Ejecutivo Sistémico: Supera Bloqueos y Logra Resultados Predecibles</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="canonical" href="https://www.adriandeyme.com/">
-<meta name="description" content="Acompaño a líderes ejecutivos a superar bloqueos de crecimiento y a alinear Estrategia y Ejecución. Experto en Arquitectura Sistémica, OKRs y Agilidad.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adrián Deyme · Resuelvo LEGOS</title>
+  <meta name="description" content="Acompaño a líderes y organizaciones a ordenar sus piezas. Coaching ejecutivo, OKRs, Kanban, Arquitectura Sistémica.">
+  <link rel="canonical" href="https://www.adriandeyme.com/">
 
-  <!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:locale" content="es_LA">
-<meta property="og:url" content="https://www.adriandeyme.com/">
-<meta property="og:site_name" content="Adrián Deyme">
-<meta property="og:title" content="Adrián Deyme | Supera Bloqueos y Logra Resultados Predecibles">
-<meta property="og:description" content="Acompaño a líderes ejecutivos a superar bloqueos de crecimiento y a alinear Estrategia y Ejecución.">
-<meta property="og:image" content="https://www.adriandeyme.com/assets/social/og-default.jpg">
-<meta property="og:image:secure_url" content="https://www.adriandeyme.com/assets/social/og-default.jpg"> 
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:alt" content="Banner de Adrián Deyme: Arquitectura Sistémica y Coaching de Liderazgo">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_LA">
+  <meta property="og:url" content="https://www.adriandeyme.com/">
+  <meta property="og:title" content="Adrián Deyme · Resuelvo LEGOS">
+  <meta property="og:description" content="Cuando otros ven caos, yo veo piezas de un LEGO que pueden ordenarse.">
+  <meta property="og:image" content="https://www.adriandeyme.com/assets/social/og-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@adriandeyme">
+  <meta name="theme-color" content="#1A1A2E">
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@adriandeyme">
-<meta name="twitter:url" content="https://www.adriandeyme.com/">
-<meta name="twitter:title" content="Adrián Deyme | Supera Bloqueos y Logra Resultados Predecibles">
-<meta name="twitter:description" content="Acompaño a líderes ejecutivos a superar bloques de crecimiento y a alinear Estrategia y Ejecución.">
-<meta name="twitter:image" content="https://www.adriandeyme.com/assets/social/og-default.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo-180.png">
 
-<!-- ✅ Favicons -->
-<link rel="icon" type="image/x-icon" href="https://www.adriandeyme.com/assets/brand/ad-logo.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="https://www.adriandeyme.com/assets/brand/ad-logo-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://www.adriandeyme.com/assets/brand/ad-logo-180.png">
-<meta name="theme-color" content="#0E4C5A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Pacifico&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Carga de Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- Configuración de Fuentes (Montserrat y Pacifico) -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Pacifico&amp;display=swap" rel="stylesheet"/>
-
-<!-- Configuración de Colores y Tipografías -->
-<script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'petroleo': '#0E4C5A', 
-                        'suave': '#4D7C87',     
-                        'profundo': '#062F36',  
-                        'neutro': '#F5F5F5',    
-                        'contraste': '#FFFFFF', 
-                    },
-                    fontFamily: {
-                        'sans': ['Montserrat', 'sans-serif'], 
-                        'script': ['Pacifico', 'cursive'],     
-                    }
-                }
-            }
-        }
-    </script>
-<style>
-        /* Estilos personalizados */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #F5F5F5; 
-        }
-        .adrian-name {
-            font-family: 'Pacifico', cursive;
-            color: #0E4C5A;
-        }
-        .card-hover-effect {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-hover-effect:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(14, 76, 90, 0.15); 
-        }
-        .service-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .service-list li::before {
-            content: '✓'; 
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: #4D7C87; 
-            font-weight: bold;
-        }
-        /* Estilo para el Badge (Credencial) - Sección HERO */
-        .badge-container{width:80px;height:80px;overflow:hidden;border-radius:12px;}
-        /* Estilo para los Badges de HERRAMIENTAS - SECCIÓN INFERIOR */
-        .badge-tool-container {
-             /* Reducido a 50px para móvil */
-             width: 50px; 
-             height: 50px;
-             border-radius: 12px;
-        }
-        /* Aumentar el tamaño de los badges de herramientas en pantallas grandes (desktop) */
-        @media (min-width: 768px) {
-            .badge-tool-container {
-                 width: 100px; 
-                 height: 100px;
-                 border-radius: 16px;
-            }
-        }
-
-        .badge-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 2px; /* Reducción de padding para que el contenido sea más grande */
-        }
-        /* Aumento de tamaño del contenedor de la foto de perfil */
-        .profile-pic {
-            object-fit: cover;
-            width: 320px; 
-            height: 320px;
-            border-radius: 50%;
-            border: 8px solid #F5F5F5; 
-            box-shadow: 0 10px 20px rgba(6, 47, 54, 0.2); 
-        }
-    </style>
-
-<!-- JSON-LD (cerrado correctamente) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Adrián Deyme",
-  "url": "https://www.adriandeyme.com/",
-  "jobTitle": "Coach de Liderazgo y Consultor en Ejecución Sistémica",
-  "sameAs": ["https://www.linkedin.com/in/adriandeyme-coach-ontologico/"]
-}
-</script>
-
-<!-- ESTILOS de badges (fuera del JSON-LD) -->
-<style>
-/* Badges: caja transparente + hover sutil */
-img[src*="/assets/badges/"]{
-  background-color: transparent !important;
-  border-radius:16px;
-  padding:12px;
-  box-shadow:0 6px 18px rgba(0,0,0,0);
-  transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
-  will-change:transform, box-shadow, filter;
-}
-img[src*="/assets/badges/"]:hover{
-  transform:translateY(-2px) scale(1.03);
-  box-shadow:0 12px 28px rgba(0,0,0,.16);
-  filter:saturate(1.08) contrast(1.03);
-}
-@media (prefers-reduced-motion: reduce){
-  img[src*="/assets/badges/"]{transition:none}
-  img[src*="/assets/badges/"]:hover{transform:none}
-}
-</style>
-
-<!-- Interacción tilt de badges -->
-<script>
-(function(){
-  const els=[...document.querySelectorAll('img[src*="/assets/badges/"]')];
-  const maxTilt=6;
-  els.forEach(el=>{
-    let rafId=null;
-    function onMove(e){
-      const r=el.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
-      const dx=(e.clientX-cx)/r.width, dy=(e.clientY-cy)/r.height;
-      const rx=(+dy*maxTilt), ry=(-dx*maxTilt);
-      if(rafId) cancelAnimationFrame(rafId);
-      rafId=requestAnimationFrame(()=>{
-        el.style.transform=`translateY(-2px) scale(1.03) rotateX(${rx}deg) rotateY(${ry}deg)`;
-        el.style.boxShadow='0 14px 30px rgba(0,0,0,.20)';
-        el.style.filter='saturate(1.08) contrast(1.03)';
-      });
+  <style>
+    /* ============================================================
+       VARIABLES & RESET
+    ============================================================ */
+    :root {
+      --negro:    #0F0F14;
+      --oscuro:   #1A1A2E;
+      --medio:    #2D2D44;
+      --gris:     #8888A8;
+      --claro:    #F0F0F5;
+      --blanco:   #FFFFFF;
+      --amarillo: #FFD600;
+      --amarillo2:#FFC107;
+      --rojo:     #E63946;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 28px;
     }
-    function reset(){
-      if(rafId) cancelAnimationFrame(rafId);
-      el.style.transform='';
-      el.style.boxShadow='0 6px 18px rgba(0,0,0,.10)';
-      el.style.filter='';
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--negro);
+      color: var(--claro);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    el.addEventListener('mousemove', onMove);
-    el.addEventListener('mouseleave', reset);
-    el.addEventListener('blur', reset);
-  });
-})();
-</script>
 
-<!-- Este bloque va FUERA del script -->
-<style>
-  /* ===== Badges de la sección "Certificaciones..." (fila compacta) ===== */
-  .cert-badges { white-space: nowrap; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
-  /* Quita fondo/sombra/espacios de los wrappers */
-  .cert-badges .badge-link {
-    display:inline-flex; align-items:center; justify-content:center;
-    background:transparent !important; box-shadow:none !important;
-    padding:0 !important; border-radius:0 !important;
-    transition:transform .2s ease;
-  }
-  .cert-badges .badge-link:hover { transform:translateY(-2px); }
-</style>
+    /* ============================================================
+       UTILIDADES
+    ============================================================ */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-<!-- Estilo final de badges de certificaciones -->
-<style>
-/* --- Ajuste de los badges de certificaciones (actualizado y limpio) --- */
-.cert-badges img {
-  height: 76px; /* Tamaño base equilibrado */
-  width: auto;  /* Mantiene proporción */
-  object-fit: contain;
-  background: transparent;
-  border-radius: 0;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08)); /* sombra leve */
-  transition: transform 0.25s ease, filter 0.25s ease;
-}
+    .tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--amarillo);
+      background: rgba(255,214,0,.1);
+      border: 1px solid rgba(255,214,0,.25);
+      border-radius: 4px;
+      padding: 4px 10px;
+    }
 
-.cert-badges img:hover {
-  transform: translateY(-3px) scale(1.04);
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
 
-/* Ajuste responsivo */
-@media (max-width: 768px) {
-  .cert-badges img {
-    height: 44px;
-  }
-}
-</style>
-    
+    .btn-primary {
+      background: var(--amarillo);
+      color: var(--negro);
+      box-shadow: 0 4px 24px rgba(255,214,0,.35);
+    }
+    .btn-primary:hover { background: var(--amarillo2); box-shadow: 0 8px 32px rgba(255,214,0,.45); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--claro);
+      border: 1.5px solid rgba(255,255,255,.25);
+    }
+    .btn-ghost:hover { border-color: var(--amarillo); color: var(--amarillo); }
+
+    section { position: relative; }
+
+    /* ============================================================
+       STUD PATTERN (textura LEGO de fondo)
+    ============================================================ */
+    .stud-bg {
+      background-color: var(--oscuro);
+      background-image: radial-gradient(circle, rgba(255,214,0,.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15,15,20,.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 17px;
+    }
+    .nav-logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+    .nav-logo .script { font-family: 'Pacifico', cursive; color: var(--amarillo); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gris);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--blanco); }
+
+    .nav-cta { padding: 10px 22px; font-size: 14px; }
+
+    /* Hamburger */
+    .nav-ham {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-ham span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--claro);
+      border-radius: 2px;
+      transition: all .3s;
+    }
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      background: var(--oscuro);
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 20px 24px;
+      gap: 16px;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--gris);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      transition: color .2s;
+    }
+    .nav-mobile a:hover { color: var(--amarillo); }
+    .nav-mobile .btn { margin-top: 8px; justify-content: center; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      background: var(--negro);
+      overflow: hidden;
+      padding: 80px 0 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 20px;
+    }
+
+    .hero-headline {
+      font-size: clamp(40px, 5.5vw, 68px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -.02em;
+      margin-bottom: 24px;
+    }
+    .hero-headline em {
+      font-style: normal;
+      color: var(--amarillo);
+      font-family: 'Pacifico', cursive;
+      font-size: .85em;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      font-weight: 300;
+      color: rgba(240,240,245,.7);
+      max-width: 480px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Figura LEGO */
+    .hero-figure {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .hero-figure::before {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(ellipse, rgba(255,214,0,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-lego {
+      width: 340px;
+      height: auto;
+      filter: drop-shadow(0 20px 60px rgba(255,214,0,.2));
+      animation: float 4s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* Stud decorativo */
+    .stud-deco {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,214,0,.12);
+      border: 1px solid rgba(255,214,0,.2);
+    }
+    .stud-deco.s1 { width: 80px; height: 80px; top: 60px; right: -20px; }
+    .stud-deco.s2 { width: 40px; height: 40px; bottom: 80px; left: -30px; }
+    .stud-deco.s3 { width: 120px; height: 120px; top: -30px; left: 20px; opacity: .5; }
+
+    /* ============================================================
+       PUENTE — EL LEGO
+    ============================================================ */
+    #puente {
+      padding: 100px 0;
+      background: var(--oscuro);
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .puente-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .puente-quote {
+      font-size: clamp(24px, 3.5vw, 40px);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -.015em;
+      margin-bottom: 20px;
+    }
+    .puente-quote span { color: var(--amarillo); }
+
+    .puente-sub {
+      font-size: 18px;
+      color: rgba(240,240,245,.6);
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+
+    .puente-claim {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(28px, 4vw, 48px);
+      color: var(--amarillo);
+      line-height: 1.2;
+    }
+
+    /* ============================================================
+       TRES PERSONAS
+    ============================================================ */
+    #personas {
+      padding: 100px 0;
+      background: var(--negro);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .section-header h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.2;
+      margin-top: 12px;
+    }
+
+    .personas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .persona-card {
+      background: var(--oscuro);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      border: 1px solid rgba(255,255,255,.07);
+      position: relative;
+      overflow: hidden;
+      transition: border-color .3s, transform .3s;
+    }
+    .persona-card:hover {
+      border-color: rgba(255,214,0,.3);
+      transform: translateY(-4px);
+    }
+    .persona-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--amarillo);
+    }
+
+    .persona-emoji {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .persona-role {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gris);
+      margin-bottom: 10px;
+    }
+
+    .persona-quote {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--blanco);
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+    .persona-quote span {
+      color: var(--amarillo);
+    }
+
+    .persona-desc {
+      font-size: 14px;
+      color: rgba(240,240,245,.55);
+      line-height: 1.65;
+    }
+
+    .personas-cierre {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .personas-cierre p {
+      font-size: 20px;
+      font-weight: 500;
+      color: rgba(240,240,245,.5);
+      font-style: italic;
+    }
+    .personas-cierre strong {
+      color: var(--amarillo);
+      font-style: normal;
+    }
+
+    /* ============================================================
+       LA PARADOJA
+    ============================================================ */
+    #paradoja {
+      padding: 100px 0;
+      background: var(--medio);
+      overflow: hidden;
+    }
+
+    .paradoja-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .paradoja-frase1 {
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 300;
+      color: rgba(240,240,245,.5);
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+
+    .paradoja-reveal {
+      background: var(--negro);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      border: 1px solid rgba(255,214,0,.2);
+      position: relative;
+    }
+    .paradoja-reveal::before {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      left: 40px;
+      font-size: 80px;
+      font-family: 'Pacifico', cursive;
+      color: var(--amarillo);
+      line-height: 1;
+    }
+
+    .paradoja-texto {
+      font-size: clamp(18px, 2.5vw, 26px);
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--blanco);
+    }
+    .paradoja-texto strong {
+      color: var(--amarillo);
+    }
+
+    /* ============================================================
+       SERVICIOS — LAS PIEZAS
+    ============================================================ */
+    #servicios {
+      padding: 100px 0;
+      background: var(--negro);
+    }
+
+    .piezas-intro {
+      max-width: 560px;
+      margin: 0 auto 70px;
+      text-align: center;
+    }
+
+    /* Bloque Coaching */
+    .pieza-bloque {
+      margin-bottom: 64px;
+    }
+
+    .pieza-bloque-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .pieza-bloque-title .num {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--amarillo);
+      background: rgba(255,214,0,.08);
+      border: 1px solid rgba(255,214,0,.2);
+      border-radius: 4px;
+      padding: 4px 8px;
+      letter-spacing: .08em;
+    }
+    .pieza-bloque-title h3 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -.01em;
+    }
+
+    .piezas-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .piezas-row.two { grid-template-columns: repeat(2, 1fr) 1fr; }
+
+    .pieza {
+      background: var(--oscuro);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      border: 1px solid rgba(255,255,255,.07);
+      position: relative;
+      cursor: default;
+      transition: border-color .3s, background .3s;
+    }
+    .pieza:hover {
+      border-color: rgba(255,214,0,.35);
+      background: rgba(45,45,68,.8);
+    }
+
+    /* Stud en la esquina — detalle LEGO */
+    .pieza::after {
+      content: '⬡';
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      font-size: 18px;
+      color: rgba(255,214,0,.2);
+    }
+
+    .pieza-nombre {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--blanco);
+      margin-bottom: 10px;
+    }
+
+    .pieza-cuando {
+      font-size: 13px;
+      color: rgba(240,240,245,.5);
+      line-height: 1.6;
+      font-style: italic;
+    }
+    .pieza-cuando::before {
+      content: 'Cuando... ';
+      color: var(--amarillo);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       LLEVATE UNA PIEZA
+    ============================================================ */
+    #gratis {
+      padding: 100px 0;
+      background: var(--oscuro);
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+
+    .gratis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .gratis-card {
+      background: var(--negro);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      border: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .3s;
+    }
+    .gratis-card:hover { border-color: rgba(255,214,0,.3); }
+
+    .gratis-card-img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 20px rgba(255,214,0,.25));
+    }
+
+    .gratis-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .gratis-card p {
+      font-size: 14px;
+      color: rgba(240,240,245,.55);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .gratis-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,214,0,.12);
+      border: 1px solid rgba(255,214,0,.25);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--amarillo);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    /* Email form */
+    .email-form {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .email-form input {
+      flex: 1;
+      min-width: 180px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 100px;
+      padding: 12px 20px;
+      font-size: 14px;
+      color: var(--blanco);
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .email-form input::placeholder { color: rgba(255,255,255,.3); }
+    .email-form input:focus { border-color: var(--amarillo); }
+    .email-form .btn { padding: 12px 22px; font-size: 14px; }
+
+    /* ============================================================
+       QUIÉN SOY
+    ============================================================ */
+    #quien {
+      padding: 100px 0;
+      background: var(--negro);
+    }
+
+    .quien-grid {
+      display: grid;
+      grid-template-columns: 1fr 460px;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .quien-quote {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(20px, 2.5vw, 28px);
+      color: var(--amarillo);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .quien-text {
+      font-size: 16px;
+      color: rgba(240,240,245,.65);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .piezas-vida {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 28px 0;
+    }
+    .pieza-vida {
+      background: rgba(255,214,0,.08);
+      border: 1px solid rgba(255,214,0,.2);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--amarillo);
+    }
+
+    .quien-foto-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .quien-foto-wrap::before {
+      content: '';
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,214,0,.22) 0%, transparent 70%);
+      z-index: 0;
+    }
+    .quien-foto-wrap::after {
+      content: '';
+      position: absolute;
+      width: 368px;
+      height: 368px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,214,0,.3);
+      z-index: 0;
+    }
+    .quien-foto {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      position: relative;
+      z-index: 1;
+      border: 4px solid rgba(255,214,0,.25);
+    }
+
+    /* ============================================================
+       CREDENCIALES
+    ============================================================ */
+    #credenciales {
+      padding: 80px 0;
+      background: var(--oscuro);
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .creds-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+    .creds-header h2 {
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 700;
+      letter-spacing: -.01em;
+      margin-top: 10px;
+    }
+
+    .badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .badge-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-item img {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(20%);
+      transition: filter .3s, transform .3s;
+    }
+    .badge-item img:hover {
+      filter: grayscale(0%) drop-shadow(0 4px 12px rgba(255,214,0,.3));
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    .badge-label {
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      color: var(--gris);
+      text-align: center;
+      max-width: 90px;
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       BLOG — PIEZAS PARA PENSAR
+    ============================================================ */
+    #blog {
+      padding: 100px 0;
+      background: var(--negro);
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .post-card {
+      background: var(--oscuro);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.07);
+      transition: border-color .3s, transform .3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .post-card:hover {
+      border-color: rgba(255,214,0,.3);
+      transform: translateY(-4px);
+    }
+
+    .post-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: var(--medio);
+    }
+    .post-img-placeholder {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, var(--medio), var(--oscuro));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
+
+    .post-body {
+      padding: 24px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .post-source {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--amarillo);
+    }
+
+    .post-title {
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--blanco);
+      flex: 1;
+    }
+
+    .post-date {
+      font-size: 12px;
+      color: var(--gris);
+    }
+
+    .post-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--amarillo);
+      transition: gap .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .post-link:hover { gap: 8px; }
+
+    .blog-cta {
+      text-align: center;
+      margin-top: 44px;
+    }
+
+    /* ============================================================
+       CTA FINAL
+    ============================================================ */
+    #cta {
+      padding: 120px 0;
+      background: var(--oscuro);
+      overflow: hidden;
+      position: relative;
+    }
+
+    #cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,214,0,.05) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    #cta::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(255,214,0,.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-headline {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(32px, 5vw, 60px);
+      color: var(--blanco);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .cta-headline span { color: var(--amarillo); }
+
+    .cta-sub {
+      font-size: 18px;
+      color: rgba(240,240,245,.55);
+      max-width: 440px;
+      margin: 0 auto 44px;
+      font-weight: 300;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .cta-email {
+      font-size: 14px;
+      color: var(--gris);
+      transition: color .2s;
+    }
+    .cta-email:hover { color: var(--amarillo); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--negro);
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 40px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .footer-logo img {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      opacity: .8;
+    }
+    .footer-logo .script { font-family: 'Pacifico', cursive; color: var(--amarillo); }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--gris);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--gris);
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--amarillo); }
+
+    /* Icono LinkedIn */
+    .li-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,.06);
+      border-radius: 8px;
+      color: var(--gris);
+      transition: background .2s, color .2s;
+    }
+    .li-icon:hover { background: rgba(0,119,181,.25); color: #0077B5; }
+
+    /* ============================================================
+       REVEAL ANIMATIONS
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-figure { order: -1; }
+      .hero-lego { width: 220px; }
+      .hero-sub { margin: 0 auto 40px; }
+      .hero-actions { justify-content: center; }
+
+      .personas-grid { grid-template-columns: 1fr; }
+      .piezas-row { grid-template-columns: 1fr 1fr; }
+      .piezas-row.two { grid-template-columns: 1fr 1fr; }
+      .gratis-grid { grid-template-columns: 1fr; }
+      .quien-grid { grid-template-columns: 1fr; }
+      .quien-foto-wrap { display: none; }
+      .posts-grid { grid-template-columns: 1fr; }
+
+      .nav-links, .nav-cta { display: none; }
+      .nav-ham { display: flex; }
+    }
+
+    @media (max-width: 600px) {
+      .piezas-row { grid-template-columns: 1fr; }
+      .piezas-row.two { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .hero-lego { animation: none; }
+      .btn:hover, .pieza:hover, .persona-card:hover, .post-card:hover { transform: none; }
+    }
+  </style>
 </head>
-<body class="text-profundo">
-  
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPCL8GBK"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  
-<!-- BARRA DE NAVEGACIÓN (HEADER) -->
-<header class="backdrop-blur bg-contraste bg-white/85 shadow-md sticky supports-[backdrop-filter]:bg-white/70 top-0 z-10 z-20">
-<div class="container mx-auto px-6 py-4 flex justify-between items-center">
-<!-- Logo y Nombre -->
-<div class="flex items-center space-x-3">
-<img alt="Logo Adrian Deyme" class="h-10 w-auto rounded-lg" decoding="async" onerror="this.onerror=null; this.src='https://placehold.co/40x40/0E4C5A/FFFFFF?text=AD';" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/ad-logo.png"/>
-<span class="text-2xl md:text-3xl font-bold tracking-tight">
-<span class="adrian-name">Adrian</span>
-<span class="uppercase text-profundo">DEYME</span>
-</span>
-</div>
-<!-- Navegación Principal (Desktop) -->
-<nav class="hidden md:flex space-x-8 text-lg font-medium items-center">
-<a class="hover:text-petroleo transition duration-300" href="#el-bloqueo">El Bloqueo</a>
-<a class="hover:text-petroleo transition duration-300" href="#metodologia">Metodología</a>
-<a class="hover:text-petroleo transition duration-300" href="#servicios">Servicios</a>
-<a class="hover:text-petroleo transition duration-300" href="#blog">Blog</a>
-<!-- Botón de Agenda/Diagnóstico -->
-<a class="inline-block bg-petroleo hover:bg-profundo text-contraste font-bold py-2 px-4 rounded-lg shadow-md transition duration-300" href="agenda.html">
-                    Agenda un Diagnóstico
-                </a>
-</nav>
-<!-- Botón de Menú para Móviles (Hamburguesa) -->
-<button
-  id="menu-button"
-  type="button"
-  aria-label="Abrir menú"
-  aria-controls="mobile-menu"
-  aria-expanded="false"
-  class="md:hidden p-2 rounded-lg hover:bg-neutro transition duration-200 z-50">
-  <svg class="w-6 h-6 text-petroleo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-  </svg>
-</button>
-</div>
-</header>
+<body>
 
-<!-- MENÚ DESPLEGABLE MÓVIL (Inicialmente oculto) -->
-<nav
-  id="mobile-menu"
-  class="hidden md:hidden absolute inset-x-0 top-[68px] bg-contraste shadow-lg py-4 border-t border-neutro transition-all duration-200 ease-out z-40"
-  role="dialog"
-  aria-label="Navegación móvil">
-  <div class="flex flex-col space-y-3 px-6 text-lg font-medium">
-    <a href="#el-bloqueo" class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">El Bloqueo</a>
-    <a href="#metodologia"    class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Metodología</a>
-    <a href="#servicios"  class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Servicios</a>
-    <a href="#blog"       class="block py-2 text-profundo hover:text-petroleo transition duration-300 border-b border-neutro">Blog</a>
-    <a href="agenda.html" class="block text-center mt-1 bg-petroleo hover:bg-profundo text-contraste font-bold py-2 rounded-lg shadow-md transition duration-300">
-      Agenda un Diagnóstico
-    </a>
+<!-- ============================================================
+     NAV
+============================================================ -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Adrián Deyme">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo.png"
+             alt="AD" width="32" height="32"
+             onerror="this.onerror=null;this.src='https://placehold.co/32x32/FFD600/0F0F14?text=AD'">
+        <span><span class="script">Adrian</span> Deyme</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#personas">El problema</a></li>
+        <li><a href="#servicios">Las piezas</a></li>
+        <li><a href="#gratis">Gratis</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#quien">Quién soy</a></li>
+      </ul>
+      <a href="agenda.html" class="btn btn-primary nav-cta">Hablemos 30′</a>
+      <button class="nav-ham" id="ham-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="mobile-nav" role="dialog" aria-label="Navegación">
+    <a href="#personas" onclick="closeMobileNav()">El problema</a>
+    <a href="#servicios" onclick="closeMobileNav()">Las piezas</a>
+    <a href="#gratis" onclick="closeMobileNav()">Gratis</a>
+    <a href="#blog" onclick="closeMobileNav()">Blog</a>
+    <a href="#quien" onclick="closeMobileNav()">Quién soy</a>
+    <a href="agenda.html" class="btn btn-primary">Hablemos 30′</a>
   </div>
 </nav>
 
-<main>
-
-<!-- SECCIÓN HERO (Banner Principal con Foto y Narrativa Ajustada) -->
-<section class="relative bg-suave min-h-[75vh] flex items-center p-6 overflow-hidden" id="hero">
-<div class="container mx-auto max-w-6xl py-10 flex flex-col md:flex-row items-center justify-between z-10">
-<!-- Columna de Texto y CTA -->
-<div class="md:w-3/5 text-center md:text-left text-contraste mb-10 md:mb-0">
-<div class="hidden justify-center md:justify-start mb-6 md:hidden">
-<!-- Foto de Perfil Móvil (Optimización de imagen: se usa <picture> para futuros srcset) -->
-<picture>
-<img alt="Foto de perfil de Adrian Deyme, Consultor Sistémico" class="profile-pic w-32 h-32" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4D7C87/FFFFFF?text=AD';" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/adrian-perfil.png" width="320" height="320">
-</picture>
-</div>
-<p class="text-xl font-semibold mb-3 tracking-widest uppercase text-neutro opacity-80">
-                        COACH EJECUTIVO SISTÉMICO
-                    </p>
-<h1 class="text-4xl md:text-5xl font-extrabold mb-5 tracking-tight text-contraste leading-tight">
-                        Superamos Bloqueos de Ejecución <span class="text-petroleo drop-shadow-lg">y Recuperamos la Previsibilidad</span>.
-                    </h1>
-<p class="text-lg md:text-xl font-light mb-8 italic max-w-xl md:max-w-none">
-                        Acompaño a <strong>líderes y organizaciones</strong> a cerrar la brecha entre <strong>Estrategia y Ejecución</strong> en contextos complejos, a través de mi formación avanzada en intervención humana y sistémica.
-                    </p>
-
-<!-- Contenedor de Botones -->
-<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-10 justify-center md:justify-start">
-<a class="inline-block bg-petroleo hover:bg-profundo text-contraste font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105" href="agenda.html">
-                            Agenda un Diagnóstico Gratuito de 30 min
-                        </a>
-<a class="inline-block bg-contraste text-petroleo hover:bg-neutro font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 border border-petroleo" href="#servicios">
-                            Ver Servicios
-                        </a>
-</div>
-<!-- BADGES DE CREDENCIALES (Liderazgo) -->
-<div class="mt-8">
-<h4 class="text-sm font-semibold mb-3 text-neutro uppercase tracking-wider">Credenciales de Liderazgo y Coaching</h4>
-<div class="flex flex-nowrap justify-center md:justify-start gap-4 overflow-x-auto"">
-<!-- Badge 1: Miembro ICF -->
-<div class="badge-container flex justify-center items-center" title="Miembro ICF">
-<img alt="Miembro ICF" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/80x80/062F36/FFFFFF?text=ICF+Member';" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/icf-member.png"/>
-</div>
-<!-- Badge 2: Coach Ontológico ICF -->
-<div class="badge-container flex justify-center items-center" title="Coach Ontológico ICF (Level 2)">
-<img alt="Coach Ontológico ICF" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/80x80/0E4C5A/FFFFFF?text=ICF+L2';" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/icf-level2.png"/>
-</div>
-<!-- Badge 3: Agile Coach -->
-<div class="badge-container flex justify-center items-center" title="ICP-ACC Agile Coach">
-<img alt="Agile Coach" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/80x80/4D7C87/FFFFFF?text=ICP-ACC';" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/icp-acc.png"/>
-</div>
-<!-- Badge 4: Agile System Coach -->
-<div class="badge-container flex justify-center items-center" title="ICP-SYS Agile System Coach">
-<img alt="Agile System Coach" class="badge-img" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/80x80/062F36/FFFFFF?text=ICP-SYS';" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/icp-sys.png"/>
-</div>
-</div>
-</div>
-</div>
-<!-- Columna de Imagen de Perfil (Solo visible en Desktop, con mayor tamaño y <picture>) -->
-<div class="hidden md:flex md:w-2/5 justify-center">
-<picture>
-<img alt="Foto de perfil de Adrian Deyme, Consultor Sistémico" class="profile-pic" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/320x320/4D7C87/FFFFFF?text=AD';" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/adrian-perfil.png"/ width="320" height="320">
-</picture>
-</div>
-</div>
-</section>
-
-<!-- =================== PROBLEMA =================== -->
-<section class="mx-auto max-w-7xl px-5 py-3" id="el-bloqueo">
-  <div class="rounded-[28px] bg-white/70 backdrop-blur p-8 md:p-12 shadow-card">
-    <h2 class="text-4xl font-extrabold text-center mb-5 text-petroleo uppercase tracking-tight">
-      Tu estrategia es brillante. Tu ejecución... tiene Bloqueos Sistémicos.
-    </h2>
-    <p class="text-xl text-center mb-8 text-suave max-w-3xl mx-auto">
-      La brecha entre tu visión y los resultados no es un problema de talento. Es una falla en la Arquitectura Sistémica de tu organización. Se manifiesta así:
-    </p>
-
-    <ul class="mt-6 grid gap-3 text-base md:text-xl text-petroleo/90">
-  <li class="flex items-start gap-3">
-    <svg class="mt-1 h-5 w-5 text-suave shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.704 5.29a1 1 0 0 1 0 1.42l-7.25 7.25a1 1 0 0 1-1.414 0L3.296 9.516a1 1 0 1 1 1.414-1.414l3.04 3.04 6.543-6.54a1 1 0 0 1 1.41 0z"/></svg>
-    <span><strong>Fechas que se mueven</strong> y proyectos que no cierran.</span>
-  </li>
-
-  <li class="flex items-start gap-3">
-    <svg class="mt-1 h-5 w-5 text-suave shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.704 5.29a1 1 0 0 1 0 1.42l-7.25 7.25a1 1 0 0 1-1.414 0L3.296 9.516a1 1 0 1 1 1.414-1.414l3.04 3.04 6.543-6.54a1 1 0 0 1 1.41 0z"/></svg>
-    <span><strong>Urgencia permanente</strong> y baja previsibilidad.</span>
-  </li>
-
-  <li class="flex items-start gap-3">
-    <svg class="mt-1 h-5 w-5 text-suave shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.704 5.29a1 1 0 0 1 0 1.42l-7.25 7.25a1 1 0 0 1-1.414 0L3.296 9.516a1 1 0 1 1 1.414-1.414l3.04 3.04 6.543-6.54a1 1 0 0 1 1.41 0z"/></svg>
-    <span><strong>Demasiado trabajo en curso</strong> y poco terminado.</span>
-  </li>
-
-  <li class="flex items-start gap-3">
-    <svg class="mt-1 h-5 w-5 text-suave shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.704 5.29a1 1 0 0 1 0 1.42l-7.25 7.25a1 1 0 0 1-1.414 0L3.296 9.516a1 1 0 1 1 1.414-1.414l3.04 3.04 6.543-6.54a1 1 0 0 1 1.41 0z"/></svg>
-    <span><strong>Reuniones sin decisión</strong>, acuerdos difusos y poco seguimiento.</span>
-  </li>
-
-  <li class="flex items-start gap-3">
-    <svg class="mt-1 h-5 w-5 text-suave shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.704 5.29a1 1 0 0 1 0 1.42l-7.25 7.25a1 1 0 0 1-1.414 0L3.296 9.516a1 1 0 1 1 1.414-1.414l3.04 3.04 6.543-6.54a1 1 0 0 1 1.41 0z"/></svg>
-    <span><strong>Líderes saturados</strong> y equipos siempre apagando incendios.</span>
-  </li>
-</ul>
-<!-- CTA: Diagnóstico -->
-<div class="mt-10">
-  <div class="rounded-2xl bg-petroleo text-contraste px-6 py-7 md:px-10 md:py-8 shadow-lg">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-      <div>
-        <p class="text-base md:text-lg opacity-90">Siguiente paso</p>
-        <h3 class="text-2xl md:text-3xl font-extrabold leading-tight">
-          Agenda tu diagnóstico de 30′ y ubicamos la causa raíz.
-        </h3>
-        <p class="mt-2 text-contraste/90 max-w-2xl">
-          En una sesión breve detectamos si el cuello de botella está en <b>liderazgo</b>, <b>flujo de ejecución</b> o <b>estructura</b> y te doy una hoja de ruta mínima.
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1 class="hero-headline" style="margin-top:0">
+          Lo das todo<br>
+          y no ves<br>
+          <em>resultados.</em>
+        </h1>
+        <p class="hero-sub">
+          Donde otros ven problemas, yo veo oportunidades.<br>
+          Donde otros ven caos, veo piezas que pueden ordenarse.
         </p>
+        <div class="hero-actions">
+          <a href="agenda.html" class="btn btn-primary">
+            Hablemos 30 minutos
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#personas" class="btn btn-ghost">Ver el problema</a>
+        </div>
       </div>
 
-      <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-        <a href="/agenda.html"
-           class="inline-flex items-center justify-center rounded-xl bg-contraste text-petroleo font-semibold px-5 py-3 hover:opacity-95 transition shadow-md">
-          Agendar diagnóstico (30′)
+      <div class="hero-figure">
+        <div class="stud-deco s1"></div>
+        <div class="stud-deco s2"></div>
+        <div class="stud-deco s3"></div>
+        <img
+          src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/adri-lego.png"
+          alt="Adrián Deyme — figura LEGO"
+          class="hero-lego"
+          onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/adrian-perfil.webp';this.classList.remove('hero-lego');this.style.cssText='width:300px;height:300px;object-fit:cover;border-radius:50%;border:6px solid var(--oscuro);position:relative;z-index:1'"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PUENTE — EL LEGO
+============================================================ -->
+<section id="puente">
+  <div class="container">
+    <div class="puente-inner reveal">
+      <p class="puente-quote">
+        "Cuando otros ven caos, yo veo<br>
+        <span>piezas de un LEGO que pueden ordenarse.</span>"
+      </p>
+      <p class="puente-sub">
+        Las piezas siempre están.<br>
+        El problema es que aún no fueron ordenadas.
+      </p>
+      <p class="puente-claim">Resuelvo LEGOS.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRES PERSONAS
+============================================================ -->
+<section id="personas">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">El problema</span>
+      <h2>Tres personas.<br>El mismo problema.</h2>
+    </div>
+
+    <div class="personas-grid">
+      <div class="persona-card reveal reveal-delay-1">
+        <div class="persona-emoji">👤</div>
+        <div class="persona-role">El profesional</div>
+        <p class="persona-quote">"Tengo las piezas y <span>nadie me deja armar.</span>"</p>
+        <p class="persona-desc">Sabés que podés más. Pero el sistema en el que estás no te da el espacio. Cada idea tuya choca con una pared invisible.</p>
+      </div>
+      <div class="persona-card reveal reveal-delay-2">
+        <div class="persona-emoji">⚙️</div>
+        <div class="persona-role">El gerente</div>
+        <p class="persona-quote">"Tengo que armar y <span>las piezas no alcanzan.</span>"</p>
+        <p class="persona-desc">Presión desde arriba, agotamiento desde abajo. El día entero se va en apagar incendios. No hay tiempo para pensar en el sistema.</p>
+      </div>
+      <div class="persona-card reveal reveal-delay-3">
+        <div class="persona-emoji">🏗️</div>
+        <div class="persona-role">El dueño</div>
+        <p class="persona-quote">"Les di las piezas y <span>nadie arma nada.</span>"</p>
+        <p class="persona-desc">Construiste el negocio solo. Ahora todo sigue dependiendo de vos. Cada decisión, cada problema, cada cliente.</p>
+      </div>
+    </div>
+
+    <div class="personas-cierre reveal">
+      <p>Mientras tanto, <strong>el cliente que pagó por el LEGO sigue esperando.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LA PARADOJA
+============================================================ -->
+<section id="paradoja">
+  <div class="container">
+    <div class="paradoja-inner reveal">
+      <p class="paradoja-frase1">"El problema siempre parece estar en la otra pieza."</p>
+      <div class="paradoja-reveal">
+        <p class="paradoja-texto">
+          El problema no está en ninguna pieza por separado.<br>
+          Está en <strong>cómo se relacionan entre sí.</strong><br><br>
+          Y eso puede reorganizarse.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICIOS — LAS PIEZAS
+============================================================ -->
+<section id="servicios">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">Las piezas</span>
+      <h2>Cada pieza es independiente.<br>Elegís lo que necesitás.</h2>
+    </div>
+
+    <!-- Bloque Coaching -->
+    <div class="pieza-bloque reveal">
+      <div class="pieza-bloque-title">
+        <span class="num">01</span>
+        <h3>Coaching</h3>
+      </div>
+      <div class="piezas-row">
+        <div class="pieza">
+          <div class="pieza-nombre">Coaching para Líderes</div>
+          <p class="pieza-cuando">el que tiene que liderar está agotado de solo sobrevivir.</p>
+        </div>
+        <div class="pieza">
+          <div class="pieza-nombre">Coaching para Equipos</div>
+          <p class="pieza-cuando">las personas están pero el equipo no funciona.</p>
+        </div>
+        <div class="pieza">
+          <div class="pieza-nombre">Coaching Organizacional</div>
+          <p class="pieza-cuando">la empresa creció pero la dirección se perdió.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloque Agilidad -->
+    <div class="pieza-bloque reveal">
+      <div class="pieza-bloque-title">
+        <span class="num">02</span>
+        <h3>Agilidad</h3>
+      </div>
+      <div class="piezas-row">
+        <div class="pieza">
+          <div class="pieza-nombre">OKRs</div>
+          <p class="pieza-cuando">todos trabajan pero nadie sabe hacia dónde.</p>
+        </div>
+        <div class="pieza">
+          <div class="pieza-nombre">Kanban</div>
+          <p class="pieza-cuando">hay mucho en movimiento y nada termina.</p>
+        </div>
+        <div class="pieza">
+          <div class="pieza-nombre">Lean Change Management</div>
+          <p class="pieza-cuando">el cambio genera más caos del que resuelve.</p>
+        </div>
+      </div>
+      <div class="piezas-row two" style="margin-top:16px">
+        <div class="pieza">
+          <div class="pieza-nombre">unFIX</div>
+          <p class="pieza-cuando">la estructura es el problema.</p>
+        </div>
+        <div class="pieza">
+          <div class="pieza-nombre">Management 3.0</div>
+          <p class="pieza-cuando">liderar personas se convirtió en el mayor desafío.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA de sección -->
+    <div style="text-align:center; margin-top: 20px;" class="reveal">
+      <a href="agenda.html" class="btn btn-primary">
+        ¿Por cuál pieza arrancamos?
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LLEVATE UNA PIEZA — GRATIS
+============================================================ -->
+<section id="gratis">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">Para llevarte</span>
+      <h2>Una pieza para llevarte.</h2>
+      <p style="font-size:18px; color: rgba(240,240,245,.55); margin-top: 12px; font-weight:300;">Gratis. Sin compromiso. Para empezar a ordenar.</p>
+    </div>
+
+    <div class="gratis-grid">
+      <!-- Sin email -->
+      <div class="gratis-card reveal reveal-delay-1">
+        <span class="gratis-badge">Sin registro</span>
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/lego-okr.png"
+             alt="OKR Coach GPT"
+             class="gratis-card-img"
+             onerror="this.onerror=null;this.style.fontSize='60px';this.alt='🤖'">
+        <h3>GPT OKR Coach</h3>
+        <p>Un asistente de IA entrenado para ayudarte a definir y revisar tus OKRs. Sin registro. Sin email. Lo abrís y lo usás ahora.</p>
+        <a href="https://chatgpt.com/g/g-gOmcHbWEC-okr-coach"
+           target="_blank" rel="noopener"
+           class="btn btn-primary" style="align-self: flex-start;">
+          Acceder gratis →
+        </a>
+      </div>
+
+      <!-- Con email -->
+      <div class="gratis-card reveal reveal-delay-2">
+        <span class="gratis-badge" style="background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.15); color:var(--claro);">PDF gratuito</span>
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/lego-oreja-v2.png"
+             alt="La Escucha — PDF"
+             class="gratis-card-img"
+             onerror="this.onerror=null;this.style.fontSize='60px';this.alt='👂'">
+        <h3>La Escucha</h3>
+        <p>¿Qué escuchás cuando escuchás? ¿O solo te escuchás a vos mismo? Una guía breve sobre el poder de la escucha real para líderes.</p>
+        <div class="email-form">
+          <input type="email" id="escucha-email" placeholder="tu@email.com" autocomplete="email">
+          <button class="btn btn-primary" onclick="pedirEscucha()">Quiero mi copia</button>
+        </div>
+        <p id="escucha-msg" style="font-size:13px; color:var(--amarillo); display:none; margin-top:-8px;">✓ ¡Te lo enviamos pronto!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUIÉN SOY
+============================================================ -->
+<section id="quien">
+  <div class="container">
+    <div class="quien-grid">
+      <div class="reveal">
+        <span class="tag" style="margin-bottom:20px; display:inline-block;">Quién soy</span>
+        <p class="quien-quote">
+          "Mi vida es como un LEGO —<br>
+          construida de piezas muy distintas<br>
+          que encontraron la armonía entre sí."
+        </p>
+        <p class="quien-text">
+          Ingeniero Informático. Project Manager. Coach Ontológico ICF. Agilista. Papá. Expatriado viviendo en Panamá.
+        </p>
+        <p class="quien-text">
+          Cada pieza sumó. Ninguna sobra. Y todas juntas me permiten ver los sistemas donde otros ven caos.
+        </p>
+        <!-- ICF Chapter Leader — rol destacado -->
+        <div style="background:rgba(255,214,0,.07);border:1px solid rgba(255,214,0,.25);border-radius:14px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;gap:14px;">
+          <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/icf-member-2026.png"
+               alt="ICF" style="height:48px;width:auto;object-fit:contain;flex-shrink:0;">
+          <div>
+            <p style="font-size:13px;font-weight:700;color:var(--amarillo);margin-bottom:2px;text-transform:uppercase;letter-spacing:.06em;">ICF Chapter Leader</p>
+            <p style="font-size:14px;color:rgba(240,240,245,.7);line-height:1.5;">Charter Chapter Leader · ICF Panamá — parte de la comunidad que define los estándares del coaching en la región.</p>
+          </div>
+        </div>
+
+        <div class="piezas-vida">
+          <span class="pieza-vida">Ingeniero</span>
+          <span class="pieza-vida">Project Manager</span>
+          <span class="pieza-vida">Coach ICF</span>
+          <span class="pieza-vida">Agilista</span>
+          <span class="pieza-vida">Papá</span>
+          <span class="pieza-vida">Expatriado</span>
+        </div>
+        <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/"
+           target="_blank" rel="noopener"
+           class="btn btn-ghost" style="margin-top:8px;">
+          Ver historia completa en LinkedIn →
+        </a>
+      </div>
+
+      <div class="quien-foto-wrap reveal reveal-delay-1">
+        <img
+          src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/adrian-perfil.webp"
+          alt="Adrián Deyme"
+          class="quien-foto"
+          onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/adrian-perfil.png'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CREDENCIALES
+============================================================ -->
+<section id="credenciales">
+  <div class="container">
+    <div class="creds-header reveal">
+      <span class="tag">Credenciales</span>
+      <h2>Las piezas que sumé.</h2>
+    </div>
+
+    <div class="badges-row reveal">
+      <!-- Chapter Leader — destacado -->
+      <div class="badge-item">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/icf-member-2026.png" alt="ICF Chapter Leader"
+             style="height:80px;filter:drop-shadow(0 4px 12px rgba(255,214,0,.3))">
+        <span class="badge-label" style="color:var(--amarillo);">ICF Chapter<br>Leader · Panamá</span>
+      </div>
+      <div class="badge-item">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/icf-level2-2026.png" alt="ICF Level 2">
+        <span class="badge-label">ICF Level 2</span>
+      </div>
+      <div class="badge-item">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/icp-acc.png" alt="ICP-ACC">
+        <span class="badge-label">ICP-ACC</span>
+      </div>
+      <div class="badge-item">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/icp-sys.png" alt="ICP-SYS">
+        <span class="badge-label">ICP-SYS</span>
+      </div>
+      <div class="badge-item">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/okr.png" alt="OKR Coach">
+        <span class="badge-label">OKR Coach</span>
+      </div>
+      <div class="badge-item">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/kcp.png" alt="KCP">
+        <span class="badge-label">Kanban Coach</span>
+      </div>
+      <div class="badge-item">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/unfix.png" alt="unFIX">
+        <span class="badge-label">unFIX</span>
+      </div>
+      <div class="badge-item">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/lcm.png" alt="LCM">
+        <span class="badge-label">Lean Change</span>
+      </div>
+      <div class="badge-item">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/M30-2026.png" alt="Management 3.0" style="height:80px;width:80px;object-fit:contain;">
+        <span class="badge-label">Management 3.0</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BLOG
+============================================================ -->
+<section id="blog">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">Blog</span>
+      <h2>Piezas para pensar.</h2>
+    </div>
+
+    <div class="posts-grid" id="posts-container">
+      <!-- Posts cargados por JS -->
+      <div style="grid-column:1/-1; text-align:center; color:var(--gris); padding:40px 0;">
+        Cargando artículos…
+      </div>
+    </div>
+
+    <div class="blog-cta reveal">
+      <a href="https://medium.com/@adriandeyme" target="_blank" rel="noopener" class="btn btn-ghost">
+        Ver todos los artículos →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA FINAL
+============================================================ -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <p class="cta-headline">
+        ¿Querés ordenar<br>las piezas de tu <span>LEGO</span>?
+      </p>
+      <p class="cta-sub">
+        Hablemos 30 minutos.<br>
+        Sin costo. Sin compromiso.<br>
+        Si no aplica, te lo digo claro.
+      </p>
+      <div class="cta-actions">
+        <a href="agenda.html" class="btn btn-primary">
+          Hablemos
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/"
            target="_blank" rel="noopener"
-           class="inline-flex items-center justify-center rounded-xl bg-transparent text-contraste font-semibold px-5 py-3 border border-contraste/60 hover:bg-contraste hover:text-petroleo transition">
+           class="btn btn-ghost">
           Conectar en LinkedIn
         </a>
       </div>
+      <a href="mailto:contacto@adriandeyme.com" class="cta-email">
+        contacto@adriandeyme.com
+      </a>
     </div>
-  </div>
-  <p class="text-center text-suave mt-3 text-sm">
-    Sin costo ni compromiso. Si no aplica, te lo diré con claridad.
-  </p>
-</div>
-
   </div>
 </section>
 
-<!-- CAUSAS DEL PROBLEMA -->
-<section class="mx-auto max-w-7xl px-5 py-6" id="metodologia">
-<div class="rounded-[28px] bg-white/70 backdrop-blur p-8 md:p-12 shadow-card">
-<div class="container mx-auto max-w-6xl">
-<h2 class="text-4xl font-extrabold text-center mb-5 text-petroleo uppercase tracking-tight">
-                    Tu Arquitectura Sistémica: Tres Pilares de la Causa Raíz
-                </h2>
-<p class="text-xl text-center mb-12 text-suave max-w-3xl mx-auto">
-                    <strong>La falta de previsibilidad</strong> no <strong>se soluciona</strong> con más esfuerzo, sino <strong>revisando si la falla en tu sistema se origina en el Liderazgo, el Flujo de Ejecución o la Estructura:</strong> 
-                </p>
-<!-- Grid de 3 Pilares -->
-<div class="grid md:grid-cols-3 gap-8 mb-16">
-<!-- Pilar 1: El Liderazgo -->
-<div class="card-hover-effect bg-contraste p-8 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col items-center text-center">
-<div class="mb-4 p-4 rounded-full bg-suave/20 text-petroleo">
-<svg class="lucide lucide-users" fill="none" height="48" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-</div>
-<h3 class="text-2xl font-bold mb-0 text-profundo">Pilar 1: El Liderazgo</h3>
-<ul class="mt-6 w-full text-left space-y-3 text-lg md:text-xl text-petroleo/90 leading-relaxed">
-  <li class="flex items-start gap-3">
-    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo">
-      <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-        <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.707-9.707a1 1 0 0 0-1.414-1.414L9 10.172 7.707 8.879A1 1 0 1 0 6.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
-      </svg>
-    </span>
-    <span><strong>Decisión y delegación</strong> poco claras.</span>
-  </li>
-  <li class="flex items-start gap-3">
-    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo">
-      <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-        <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.707-9.707a1 1 0 0 0-1.414-1.414L9 10.172 7.707 8.879A1 1 0 1 0 6.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
-      </svg>
-    </span>
-    <span><strong>Patrones culturales</strong>: silos, coordinación frágil, stakeholders difusos.</span>
-  </li>
-  <li class="flex items-start gap-3">
-    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo">
-      <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-        <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.707-9.707a1 1 0 0 0-1.414-1.414L9 10.172 7.707 8.879A1 1 0 1 0 6.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
-      </svg>
-    </span>
-    <span><strong>Baja cadencia</strong> de conversaciones que cierran acuerdos.</span>
-  </li>
-</ul>
-</div>
-<!-- Pilar 2: El Flujo de Ejecución -->
-<div class="card-hover-effect bg-contraste p-8 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col items-center text-center">
-<div class="mb-4 p-4 rounded-full bg-suave/20 text-petroleo">
-<svg class="lucide lucide-gauge" fill="none" height="48" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg"><path d="m12 14v4"></path><path d="M3.34 10A8 8 0 1 1 5.76 19"></path><path d="M20.7 10a8 8 0 1 0-7.79 6"></path></svg>
-</div>
-<h3 class="text-2xl font-bold mb-0 text-profundo">Pilar 2: El Flujo de Ejecución</h3>
-<ul class="mt-6 w-full text-left space-y-3 text-lg md:text-xl text-petroleo/90 leading-relaxed">
-  <li class="flex items-start gap-3">
-    <span class="flex h-7 w-7 items-center justify-center rounded-md bg-suave/15 text-petroleo">
-      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-        <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-2.293 7.293-6.364 6.364a1 1 0 0 1-1.414 0L6.293 12.02a1 1 0 0 1 1.414-1.414l2.121 2.12 5.657-5.656a1 1 0 1 1 1.414 1.414Z"/>
-      </svg>
-    </span>
-    <span><strong>Demasiado trabajo en progreso</strong> y prioridades invisibles.</span>
-  </li>
-  <li class="flex items-start gap-3">
-    <span class="flex h-7 w-7 items-center justify-center rounded-md bg-suave/15 text-petroleo">
-      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-        <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-2.293 7.293-6.364 6.364a1 1 0 0 1-1.414 0L6.293 12.02a1 1 0 0 1 1.414-1.414l2.121 2.12 5.657-5.656a1 1 0 1 1 1.414 1.414Z"/>
-      </svg>
-    </span>
-    <span><strong>Tableros y métricas</strong> inexistentes o poco útiles para decidir.</span>
-  </li>
-  <li class="flex items-start gap-3">
-    <span class="flex h-7 w-7 items-center justify-center rounded-md bg-suave/15 text-petroleo">
-      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-        <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-2.293 7.293-6.364 6.364a1 1 0 0 1-1.414 0L6.293 12.02a1 1 0 0 1 1.414-1.414l2.121 2.12 5.657-5.656a1 1 0 1 1 1.414 1.414Z"/>
-      </svg>
-    </span>
-    <span><strong>Rituales débiles</strong> que no sostienen el ritmo de entrega.</span>
-  </li>
-</ul>
-</div>
-<!-- Pilar 3: La Estructura -->
-<div class="card-hover-effect bg-contraste p-8 rounded-xl shadow-lg border-t-4 border-petroleo flex flex-col items-center text-center">
-<div class="mb-4 p-4 rounded-full bg-suave/20 text-petroleo">
-<svg class="lucide lucide-layers" fill="none" height="48" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg"><path d="m12.83 2.18-.81.9a4 4 0 0 0-.23.63c-.15.42-.1.87.12 1.25L13.4 9.4c.2.35.2.77 0 1.12L10 16l-3-4.5"></path><path d="m12.83 2.18-3.04 4.19"></path><path d="M17.7 13.79 12 21l-5.7-7.21c-.42-.53-.8-.98-1.15-1.39C3.76 11.23 3.01 9.98 3 8.5V6.5c.01-1.48.76-2.73 2.15-4.59L12 11l6.85-9.09c1.39 1.86 2.15 3.11 2.15 4.59v2c-.01 1.48-.76 2.73-2.15 4.59L17.7 13.79Z"></path></svg>
-</div>
-<h3 class="text-2xl font-bold mb-0 text-profundo">Pilar 3: La Estructura</h3>
-<ul class="mt-6 w-full text-left space-y-3 text-lg md:text-xl text-petroleo/90 leading-relaxed">
-  <li class="flex items-start gap-3">
-    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo">
-      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-        <path d="M12 2 4 5v6c0 5 3.8 9.4 8 11 4.2-1.6 8-6 8-11V5l-8-3Zm3.707 7.293a1 1 0 0 0-1.414-1.414L11 10.172l-1.293-1.293A1 1 0 1 0 8.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
-      </svg>
-    </span>
-    <span><strong>Roles y acuerdos</strong> sin diseño explícito.</span>
-  </li>
-  <li class="flex items-start gap-3">
-    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo">
-      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-        <path d="M12 2 4 5v6c0 5 3.8 9.4 8 11 4.2-1.6 8-6 8-11V5l-8-3Zm3.707 7.293a1 1 0 0 0-1.414-1.414L11 10.172l-1.293-1.293A1 1 0 1 0 8.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
-      </svg>
-    </span>
-    <span><strong>Estructura poco modular</strong> los cambios traban el flujo de trabajo.</span>
-  </li>
-  <li class="flex items-start gap-3">
-    <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo">
-      <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-        <path d="M12 2 4 5v6c0 5 3.8 9.4 8 11 4.2-1.6 8-6 8-11V5l-8-3Zm3.707 7.293a1 1 0 0 0-1.414-1.414L11 10.172l-1.293-1.293A1 1 0 1 0 8.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
-      </svg>
-    </span>
-    <span><strong>Gestión del cambio</strong> improvisada o traumática.</span>
-  </li>
-</ul>
-</div>
-</div>
-<!-- CTA: Identificamos la causa y te doy plan de acción -->
-<div class="mt-10">
-  <div class="rounded-2xl bg-petroleo text-contraste px-6 py-7 md:px-10 md:py-8 shadow-lg">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-      <div>
-        <p class="text-base md:text-lg opacity-90">¿Cuál de los tres pilares está frenando tus resultados?</p>
-        <h3 class="text-2xl md:text-3xl font-extrabold leading-tight">
-          Hagamos un diagnóstico de 30′ y salís con un plan concreto.
-        </h3>
-        <p class="mt-2 text-contraste/90 max-w-2xl">
-          Revisamos <b>liderazgo</b>, <b>flujo de ejecución</b> y <b>estructura</b>. Te marco la causa raíz y los <b>primeros pasos</b> para recuperar previsibilidad.
-        </p>
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo.png"
+             alt="AD" width="28" height="28"
+             onerror="this.onerror=null;this.src='https://placehold.co/28x28/FFD600/0F0F14?text=AD'">
+        <span><span class="script">Adrian</span> Deyme</span>
       </div>
-
-      <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-        <a href="/agenda.html"
-           class="inline-flex items-center justify-center rounded-xl bg-contraste text-petroleo font-semibold px-5 py-3 hover:opacity-95 transition shadow-md">
-          Agendar diagnóstico (30′)
+      <p class="footer-copy">© 2025 Adrián Deyme · Panamá</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/"
+           target="_blank" rel="noopener"
+           class="li-icon" aria-label="LinkedIn">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.51-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.769 7 2.476v6.759z"/></svg>
         </a>
-        <a href="#servicios"
-           class="inline-flex items-center justify-center rounded-xl bg-transparent text-contraste font-semibold px-5 py-3 border border-contraste/60 hover:bg-contraste hover:text-petroleo transition">
-          Ver cómo lo soluciono
-        </a>
+        <a href="#">Privacidad</a>
       </div>
     </div>
   </div>
-  <p class="text-center text-suave mt-3 text-sm">
-    Sin costo ni compromiso. Si no aplica, te lo digo claro y te recomiendo alternativas.
-  </p>
-</div>
-</div>
-</section>
-
-<!-- SOLUCIÓN DEL PROBLEMA - SERVICIO -->
-<section id="servicios" class="mx-auto max-w-7xl px-5 py-6" aria-labelledby="servicios-title">
-  <div class="rounded-[28px] bg-white/70 backdrop-blur p-8 md:p-12 shadow-card">
-    <div class="container mx-auto max-w-6xl">
-      <h2 id="servicios-title" class="text-4xl font-extrabold text-center mb-5 text-petroleo uppercase tracking-tight">
-        Nuestra Solución: Del Diagnóstico a la Instalación de tus Tres Pilares
-      </h2>
-      <p class="text-xl text-center mb-16 text-suave max-w-4xl mx-auto">
-        Trabajamos por módulos, atacando la causa raíz para instalar foco, cadencias y previsibilidad.
-      </p>
-
-      <!-- Grid de Módulos de Servicio -->
-      <div class="grid md:grid-cols-3 gap-10">
-
-        <!-- Servicio 1: Liderazgo -->
-        <div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-petroleo">
-          <span class="text-4xl font-extrabold text-suave">01</span>
-          <h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Coaching de Liderazgo</h3>
-
-          <ul class="mt-5 w-full text-left space-y-3 text-base md:text-lg text-petroleo/90 leading-relaxed">
-            <li class="flex items-start gap-3">
-              <!-- check círculo -->
-              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
-                <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-                  <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.707-9.707a1 1 0 0 0-1.414-1.414L9 10.172 7.707 8.879A1 1 0 1 0 6.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
-                </svg>
-              </span>
-              <span><strong>Diagnóstico</strong> de estilo de liderazgo y cultura.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
-                <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-                  <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.707-9.707a1 1 0 0 0-1.414-1.414L9 10.172 7.707 8.879A1 1 0 1 0 6.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
-                </svg>
-              </span>
-              <span><strong>Coaching Ontológico ICF</strong> para líderes.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
-                <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-                  <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.707-9.707a1 1 0 0 0-1.414-1.414L9 10.172 7.707 8.879A1 1 0 1 0 6.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
-                </svg>
-              </span>
-              <span><strong>Agile Coaching</strong> para equipos.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
-                <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-                  <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.707-9.707a1 1 0 0 0-1.414-1.414L9 10.172 7.707 8.879A1 1 0 1 0 6.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
-                </svg>
-              </span>
-              <span>Prácticas de <strong>delegación, acuerdos y sponsorship</strong>.</span>
-            </li>
-          </ul>
-
-          <p class="mt-6 pt-4 border-t border-slate-200/60 text-lg leading-relaxed">
-            <span class="font-extrabold text-slate-800">Resultado esperado:</span>
-            Liderazgo nítido, <strong>acuerdos ejecutivos</strong> que se cumplen y <strong>mínima fricción</strong> cultural.
-          </p>
-        </div>
-
-        <!-- Servicio 2: Flujo de Ejecución -->
-        <div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-suave">
-          <span class="text-4xl font-extrabold text-suave">02</span>
-          <h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Flujo de Ejecución</h3>
-
-          <ul class="mt-5 w-full text-left space-y-3 text-base md:text-lg text-petroleo/90 leading-relaxed">
-            <li class="flex items-start gap-3">
-              <!-- check cuadrado -->
-              <span class="flex h-7 w-7 items-center justify-center rounded-md bg-suave/15 text-petroleo shrink-0">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-                  <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-2.293 7.293-6.364 6.364a1 1 0 0 1-1.414 0L6.293 12.02a1 1 0 1 1 1.414-1.414l2.121 2.12 5.657-5.656a1 1 0 1 1 1.414 1.414Z"/>
-                </svg>
-              </span>
-              <span><strong>Mapeo de Flujo de Valor (VSM)</strong> y mejoras Lean.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="flex h-7 w-7 items-center justify-center rounded-md bg-suave/15 text-petroleo shrink-0">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-                  <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-2.293 7.293-6.364 6.364a1 1 0 0 1-1.414 0L6.293 12.02a1 1 0 1 1 1.414-1.414l2.121 2.12 5.657-5.656a1 1 0 1 1 1.414 1.414Z"/>
-                </svg>
-              </span>
-              <span><strong>Kanban System</strong> con visibilización del flujo, WIP y cuellos de botella, con métricas claras.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="flex h-7 w-7 items-center justify-center rounded-md bg-suave/15 text-petroleo shrink-0">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-                  <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-2.293 7.293-6.364 6.364a1 1 0 0 1-1.414 0L6.293 12.02a1 1 0 1 1 1.414-1.414l2.121 2.12 5.657-5.656a1 1 0 1 1 1.414 1.414Z"/>
-                </svg>
-              </span>
-              <span><strong>KPIs y OKRs</strong>: indicadores de desempeño y objetivos medibles.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="flex h-7 w-7 items-center justify-center rounded-md bg-suave/15 text-petroleo shrink-0">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-                  <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-2.293 7.293-6.364 6.364a1 1 0 0 1-1.414 0L6.293 12.02a1 1 0 1 1 1.414-1.414l2.121 2.12 5.657-5.656a1 1 0 1 1 1.414 1.414Z"/>
-                </svg>
-              </span>
-              <span><strong>Formación en Agilidad</strong>.</span>
-            </li>
-          </ul>
-
-          <p class="mt-6 pt-4 border-t border-slate-200/60 text-lg leading-relaxed">
-            <span class="font-extrabold text-slate-800">Resultado esperado:</span>
-            Foco total <strong>entrega rápida</strong> y <strong>ritmo de ejecución predecible</strong>.
-          </p>
-        </div>
-
-        <!-- Servicio 3: Arquitectura Empresarial -->
-        <div class="card-hover-effect bg-neutro p-6 rounded-xl shadow-xl border-l-8 border-profundo">
-          <span class="text-4xl font-extrabold text-suave">03</span>
-          <h3 class="text-3xl font-bold mt-2 mb-4 text-profundo">Arquitectura Organizacional</h3>
-
-          <ul class="mt-5 w-full text-left space-y-3 text-base md:text-lg text-petroleo/90 leading-relaxed">
-            <li class="flex items-start gap-3">
-              <!-- check escudo -->
-              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-                  <path d="M12 2 4 5v6c0 5 3.8 9.4 8 11 4.2-1.6 8-6 8-11V5l-8-3Zm3.707 7.293a1 1 0 0 0-1.414-1.414L11 10.172l-1.293-1.293A1 1 0 1 0 8.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
-                </svg>
-              </span>
-              <span><strong>System Coaching</strong> para analizar la estructura de comunicación (cultura) y adoptar mentalidad ágil.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-                  <path d="M12 2 4 5v6c0 5 3.8 9.4 8 11 4.2-1.6 8-6 8-11V5l-8-3Zm3.707 7.293a1 1 0 0 0-1.414-1.414L11 10.172l-1.293-1.293A1 1 0 1 0 8.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
-                </svg>
-              </span>
-              <span>Diseño de <strong>roles, acuerdos y rituales</strong> que sostienen el cambio.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-                  <path d="M12 2 4 5v6c0 5 3.8 9.4 8 11 4.2-1.6 8-6 8-11V5l-8-3Zm3.707 7.293a1 1 0 0 0-1.414-1.414L11 10.172l-1.293-1.293A1 1 0 1 0 8.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
-                </svg>
-              </span>
-              <span><strong>Lean Change Management</strong> para cambios iterativos, no traumáticos.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="flex h-7 w-7 items-center justify-center rounded-full bg-suave/15 text-petroleo shrink-0">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true">
-                  <path d="M12 2 4 5v6c0 5 3.8 9.4 8 11 4.2-1.6 8-6 8-11V5l-8-3Zm3.707 7.293a1 1 0 0 0-1.414-1.414L11 10.172l-1.293-1.293A1 1 0 1 0 8.293 10.293l2 2a1 1 0 0 0 1.414 0l4-4Z"/>
-                </svg>
-              </span>
-              <span><strong>unFIX</strong> para modularidad y adaptabilidad.</span>
-            </li>
-          </ul>
-
-          <p class="mt-6 pt-4 border-t border-slate-200/60 text-lg leading-relaxed">
-            <span class="font-extrabold text-slate-800">Resultado esperado:</span>
-            <strong>Estructura modular</strong> y <strong>adaptable</strong> que elimina el cuello de botella y acelera la ejecución.
-          </p>
-        </div>
-
-      </div>
-    </div>
-    <!-- CTA: Pongamos en marcha tu sistema de ejecución -->
-<div class="mt-12">
-  <div class="rounded-2xl bg-petroleo text-contraste px-6 py-7 md:px-10 md:py-8 shadow-lg">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-      <div>
-        <p class="text-base md:text-lg opacity-90">¿Listo para instalar foco, cadencias y previsibilidad?</p>
-        <h3 class="text-2xl md:text-3xl font-extrabold leading-tight">
-          Agenda un diagnóstico de 30′ y te entrego el roadmap mínimo por módulos.
-        </h3>
-        <p class="mt-2 text-contraste/90 max-w-2xl">
-          Definimos por dónde empezar (Liderazgo, Flujo de Ejecución o Estructura), qué <b>primeras prácticas</b> activar y un horizonte de <b>4–6 semanas</b>.
-        </p>
-      </div>
-
-      <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-        <a href="/agenda.html"
-           class="inline-flex items-center justify-center rounded-xl bg-contraste text-petroleo font-semibold px-5 py-3 hover:opacity-95 transition shadow-md">
-          Agendar diagnóstico (30′)
-        </a>
-        <a href="mailto:contacto@adriandeyme.com?subject=Solicitud%20de%20propuesta&body=Hola%20Adri%C3%A1n%2C%20quisiera%20una%20propuesta%20para%20mi%20equipo.%20Contexto%3A%20"
-           class="inline-flex items-center justify-center rounded-xl bg-transparent text-contraste font-semibold px-5 py-3 border border-contraste/60 hover:bg-contraste hover:text-petroleo transition">
-          Solicitar propuesta
-        </a>
-      </div>
-    </div>
-  </div>
-  <p class="text-center text-suave mt-3 text-sm">
-    Sin costo ni compromiso. Si no aplica, te lo digo claro y te recomiendo alternativas.
-  </p>
-</div>
-  </div>
-</section>
-
-<!-- SECCIÓN HERRAMIENTAS (Badges de Herramientas) -->
-<section class="mx-auto max-w-7xl px-5 pt-4 pb-2" aria-labelledby="certs-title">
-  <h3 id="certs-title" class="text-3xl md:text-4xl font-extrabold text-center text-petroleo mb-5">
-    CERTIFICACIONES QUE ARQUITECTAN TU SISTEMA
-  </h3>
-
-  <!-- Línea de badges compacta -->
-  <div class="cert-badges mx-auto max-w-5xl flex flex-nowrap items-center justify-center gap-3 md:gap-4 overflow-x-auto md:overflow-visible py-1">
-    <a href="#servicios" class="badge-link">
-      <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/okr.png" alt="OKR Coach Professional" class="badge-img-small">
-    </a>
-    <a href="#servicios" class="badge-link">
-      <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/kcp.png" alt="Kanban Coaching Professional" class="badge-img-small">
-    </a>
-    <a href="#servicios" class="badge-link">
-      <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/unfix.png" alt="unFIX Architect" class="badge-img-small">
-    </a>
-    <a href="#servicios" class="badge-link">
-      <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/lcm.png" alt="Lean Change Management Explorer" class="badge-img-small">
-    </a>
-    <a href="#servicios" class="badge-link">
-      <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/m30.png" alt="Management 3.0" class="badge-img-small">
-    </a>
-  </div>
-</section>
-
-<!-- SECCIÓN BLOG AUTOMATIZADO -->
-<section class="mx-auto max-w-7xl px-5 py-6" id="blog">
-<div class="rounded-[28px] bg-white/70 backdrop-blur p-8 md:p-12 shadow-card">
-
-<h2 class="text-4xl font-extrabold text-center mb-5 text-petroleo uppercase tracking-tight">
-                    Últimas Reflexiones
-                </h2>
-<p class="text-xl text-center mb-12 text-suave max-w-3xl mx-auto">
-                    Explora mi perspectiva sistémica y de liderazgo en estos artículos.
-                </p>
-<!-- Contenedor donde se inyectarán los posts de Medium -->
-<div class="grid md:grid-cols-3 gap-8" id="medium-posts-container">
-<!-- Los posts se cargarán aquí -->
-<p class="col-span-3 text-center text-lg text-suave">Cargando publicaciones de Medium...</p>
-</div>
-<div class="text-center mt-12">
-<a class="inline-block bg-suave hover:bg-profundo text-contraste font-bold py-3 px-8 rounded-full shadow-xl transition duration-300" href="https://medium.com/@adriandeyme" id="medium-profile-link" rel="noopener noreferrer" target="_blank">
-                        Ver todos los artículos en Medium
-                    </a>
-</div>
-</div>
-</section>
-
-<!-- SECCIÓN CONTACTO (Call to Action Final, con enlace de correo y URL de Calendly) -->
-<section class="min-h-[30vh] bg-petroleo py-20 flex items-center" id="contacto">
-<div class="container mx-auto max-w-3xl px-4 text-center">
-<h2 class="text-4xl font-extrabold mb-4 text-contraste">¿Listo para superar los bloqueos y recuperar la previsibilidad?</h2>
-<p class="text-xl mb-10 text-suave">
-                    El primer paso para iniciar tu transformación es agendar una <strong>Reunión Exploratoria</strong>. Elige tu medio de contacto preferido.
-                </p>
-<!-- Contenedor de Botones de Contacto -->
-<div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-<!-- CTA 1: Calendly -->
-<a class="inline-block bg-contraste text-profundo hover:bg-neutro font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 border border-profundo text-lg" href="agenda.html" rel="noopener noreferrer" target="_blank">
-                        Agendar un Diagnóstico
-                    </a>
-<!-- CTA 2: LinkedIn -->
-<a class="inline-block bg-[#0077B5] text-contraste hover:bg-[#005582] font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 border border-contraste text-lg" href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" rel="noopener noreferrer" target="_blank">
-                        Conectar en LinkedIn
-                    </a>
-</div>
-<!-- CTA 3: Correo Electrónico -->
-<a class="inline-block text-contraste hover:text-neutro font-bold py-3 px-8 transition duration-300 text-lg border-b-2 border-transparent hover:border-contraste" href="mailto:contacto@adriandeyme.com">
-                    Enviar un Email a contacto@adriandeyme.com
-                </a>
-</div>
-</section>
-</main>
-<!-- PIE DE PÁGINA (FOOTER) - MEJORADO con enlaces legales -->
-<footer class="bg-profundo text-neutro py-10">
-<div class="container mx-auto px-6">
-<div class="flex flex-col md:flex-row justify-between items-center border-b border-suave/30 pb-6 mb-6">
-<!-- Logo y Nombre -->
-<div class="flex items-center mb-4 md:mb-0">
-<img alt="Logo Adrian Deyme" class="h-8 w-auto rounded-lg mr-3 opacity-90" decoding="async" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/32x32/0E4C5A/FFFFFF?text=AD';" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/ad-logo.png"/>
-<span class="text-xl font-bold tracking-tight text-contraste">Adrian DEYME</span>
-</div>
-<!-- Iconos de Redes Sociales -->
-<div class="flex space-x-6">
-<a class="text-suave hover:text-contraste transition duration-300" href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" rel="noopener noreferrer" target="_blank" title="Perfil de LinkedIn">
-<!-- Icono de LinkedIn SVG -->
-<svg class="w-7 h-7" fill="currentColor" height="28" viewbox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.51-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.769 7 2.476v6.759z"></path></svg>
-</a>
-<!-- Puedes añadir más iconos aquí, ej: Twitter, Facebook, etc. -->
-</div>
-</div>
-<!-- Enlaces Legales y Copyright -->
-<div class="text-center md:flex md:justify-between md:items-center text-sm">
-<p class="mb-4 md:mb-0 text-suave">© 2025 Adrian Deyme. Todos los derechos reservados.</p>
-<div class="flex justify-center space-x-4">
-<!-- Estos enlaces son placeholders; debes crear estas páginas por separado. -->
-<a class="hover:text-contraste transition duration-300 text-suave/80 hover:underline" href="#">Términos y Condiciones</a>
-<a class="hover:text-contraste transition duration-300 text-suave/80 hover:underline" href="#">Política de Privacidad</a>
-</div>
-</div>
-</div>
 </footer>
 
-<!-- Script actualizado para cargar posts de Medium -->
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const FEED = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@adriandeyme&nocache=${Date.now()}`;
-  const container = document.getElementById('medium-posts-container');
-  const profileLink = document.getElementById('medium-profile-link');
-  if (!container) return;
-  if (profileLink) profileLink.href = `https://medium.com/@adriandeyme`;
+  /* ---- Mobile nav ---- */
+  const hamBtn = document.getElementById('ham-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamBtn.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    hamBtn.setAttribute('aria-expanded', open);
+  });
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    hamBtn.setAttribute('aria-expanded', false);
+  }
 
-  container.innerHTML = '<div class="col-span-3 text-center text-profundo/70">Cargando publicaciones…</div>';
+  /* ---- Scroll reveal ---- */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  fetch(FEED)
-    .then(response => response.json())
-    .then(data => {
-      if (!data.items || data.items.length < 2) {
-        console.warn('⚠️ Feed posiblemente cacheado, intenta recargar más tarde.');
-        container.innerHTML = '<p class="col-span-3 text-center text-suave">Sin publicaciones recientes o feed cacheado.</p>';
+  /* ---- Lead form "La Escucha" ---- */
+  function pedirEscucha() {
+    const email = document.getElementById('escucha-email').value.trim();
+    if (!email || !email.includes('@')) {
+      document.getElementById('escucha-email').focus();
+      return;
+    }
+    // Track en GA4
+    gtag('event', 'lead_la_escucha', { email_provided: true });
+    // Ocultar form, mostrar mensaje
+    document.querySelector('.email-form').style.display = 'none';
+    document.getElementById('escucha-msg').style.display = 'block';
+    // TODO: conectar con Mailchimp/ConvertKit/EmailJS
+    console.log('Email capturado:', email);
+  }
+  document.getElementById('escucha-email')?.addEventListener('keydown', e => {
+    if (e.key === 'Enter') pedirEscucha();
+  });
+
+  /* ---- Blog feed desde articles.json ---- */
+  const container = document.getElementById('posts-container');
+
+  // Íconos por fuente
+  const SOURCE_EMOJI = {
+    'Medium': '✍️',
+    'LinkedIn': '💼',
+    'La Estrella de Panamá': '📰',
+  };
+
+  function renderPost(p) {
+    const emoji = SOURCE_EMOJI[p.source] || '📄';
+    return `
+      <article class="post-card">
+        ${p.img
+          ? `<img src="${p.img}" alt="${p.title}" class="post-img" loading="lazy" onerror="this.onerror=null;this.parentElement.querySelector('.post-img-placeholder').style.display='flex';this.style.display='none'"><div class="post-img-placeholder" style="display:none">${emoji}</div>`
+          : `<div class="post-img-placeholder">${emoji}</div>`
+        }
+        <div class="post-body">
+          <span class="post-source">${p.source}</span>
+          <h3 class="post-title">
+            <a href="${p.url}" target="_blank" rel="noopener">${p.title}</a>
+          </h3>
+          ${p.desc ? `<p style="font-size:13px;color:rgba(240,240,245,.45);line-height:1.6;">${p.desc}</p>` : ''}
+          <span class="post-date">${new Date(p.date).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'})}</span>
+          <a href="${p.url}" target="_blank" rel="noopener" class="post-link">Leer artículo <span>→</span></a>
+        </div>
+      </article>`;
+  }
+
+  fetch('articles.json')
+    .then(r => r.json())
+    .then(articles => {
+      if (!articles.length) {
+        container.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--gris)">Próximamente.</p>';
         return;
       }
-
-      const posts = data.items.slice(0, 3);
-      container.innerHTML = posts.map(post => {
-        // 🧩 Intenta obtener la imagen desde thumbnail o desde el contenido
-        let img = post.thumbnail || '';
-        if (!img && post.content) {
-          const match = post.content.match(/<img[^>]+src="([^">]+)"/i);
-          if (match) img = match[1];
-        }
-
-        // Si sigue sin imagen, usamos una imagen por defecto
-        if (!img) {
-          img = 'https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/medium-placeholder.jpg';
-        }
-
-        const date = new Date(post.pubDate).toLocaleDateString('es-ES', {
-          day: '2-digit', month: 'short', year: 'numeric'
-        });
-
-        const cleanDesc = (post.description || '')
-          .replace(/<[^>]*>/g, '')
-          .trim()
-          .substring(0, 180) + '...';
-
-        return `
-          <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-            <img src="${img}" alt="Imagen del artículo" class="w-full h-56 object-cover">
-            <div class="p-6 flex flex-col gap-3">
-              <p class="text-sm text-suave">${date}</p>
-              <h3 class="text-xl font-extrabold text-profundo">
-                <a href="${post.link}" target="_blank" rel="noopener">${post.title}</a>
-              </h3>
-              <p class="text-gray-600">${cleanDesc}</p>
-              <a class="mt-1 text-petroleo font-semibold" href="${post.link}" target="_blank" rel="noopener">Leer artículo completo →</a>
-            </div>
-          </article>
-        `;
-      }).join('');
+      // Ordenar por fecha descendente, mostrar los 3 más recientes
+      articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+      container.innerHTML = articles.slice(0, 3).map(renderPost).join('');
+      container.querySelectorAll('.post-card').forEach(el => observer.observe(el));
     })
-    .catch(error => {
-      console.error('Error al cargar el feed de Medium:', error);
-      container.innerHTML = '<p class="col-span-3 text-center text-red-500">No se pudieron cargar las publicaciones.</p>';
+    .catch(() => {
+      container.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--gris)">Los artículos estarán disponibles pronto.</p>';
     });
-});
 </script>
 
-  
 </body>
 </html>
