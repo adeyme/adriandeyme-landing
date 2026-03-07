@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <!-- Google Analytics 4 -->
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,116 +12,164 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>¡Reunión agendada! · Adrián Deyme</title>
+  <title>¡Reunión confirmada! · Adrián Deyme</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://www.adriandeyme.com/gracias.html">
-  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/ad-logo-32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo-180.png">
+  <meta name="theme-color" content="#0F0F14">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Pacifico&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --petroleo: #0E4C5A;
-      --profundo: #062F36;
-      --suave:    #4D7C87;
-      --neutro:   #F5F5F5;
-      --card:     #FFFFFF;
-      --ok:       #0e844f;
-      --radius:   20px;
+      --negro:    #0F0F14;
+      --oscuro:   #1A1A2E;
+      --medio:    #2D2D44;
+      --gris:     #8888AA;
+      --claro:    #E8E8F0;
+      --blanco:   #FFFFFF;
+      --amarillo: #FFD600;
+      --amarillo2:#FFC107;
+      --verde:    #0e844f;
     }
-    * { box-sizing: border-box; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0;
-      font-family: 'Montserrat', system-ui, sans-serif;
-      background: var(--neutro);
-      color: var(--profundo);
+      font-family: 'DM Sans', sans-serif;
+      background: var(--negro);
+      color: var(--claro);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    /* ── Header ── */
-    header {
-      max-width: 1120px;
-      margin: 24px auto 0;
-      padding: 0 20px;
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15,15,20,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 0 24px;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
     }
-    .brand {
+    .nav-logo {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 700;
-      color: var(--profundo);
       text-decoration: none;
+      color: var(--claro);
+      font-weight: 700;
+      font-size: 17px;
     }
-    .brand img { height: 28px; width: 28px; border-radius: 6px; }
+    .nav-logo img { height: 32px; width: 32px; border-radius: 8px; }
+    .nav-logo .script { font-family: 'Pacifico', cursive; color: var(--amarillo); }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      background: var(--amarillo);
+      color: var(--negro);
+      transition: background .2s, box-shadow .2s;
+    }
+    .btn-primary:hover { background: var(--amarillo2); box-shadow: 0 8px 32px rgba(255,214,0,.45); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,.25);
+      color: var(--claro);
+      transition: border-color .2s, color .2s;
+    }
+    .btn-ghost:hover { border-color: var(--amarillo); color: var(--amarillo); }
 
-    /* ── Main ── */
+    /* MAIN */
     main {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px 20px 60px;
+      padding: 60px 24px;
     }
+
     .card {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: 0 8px 30px rgba(0,0,0,.08);
-      padding: 48px 40px;
-      max-width: 620px;
+      background: var(--oscuro);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 24px;
+      padding: 56px 48px;
+      max-width: 580px;
       width: 100%;
       text-align: center;
     }
 
-    /* ── Ícono de check ── */
+    /* Check */
     .check-wrap {
       width: 72px;
       height: 72px;
       border-radius: 50%;
-      background: #e6f4ed;
+      background: rgba(14,132,79,.15);
+      border: 1.5px solid rgba(14,132,79,.4);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 24px;
+      margin: 0 auto 28px;
     }
-    .check-wrap svg { color: var(--ok); }
+    .check-wrap svg { color: #2ecc71; }
 
     h1 {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--petroleo);
-      margin: 0 0 12px;
+      font-size: clamp(24px, 4vw, 32px);
+      font-weight: 700;
+      color: var(--blanco);
+      margin-bottom: 12px;
       line-height: 1.2;
     }
-    p.lead {
-      font-size: 17px;
-      color: var(--suave);
-      margin: 0 0 32px;
-      line-height: 1.6;
+    h1 span {
+      font-family: 'Pacifico', cursive;
+      color: var(--amarillo);
+      font-size: .9em;
     }
-
-    /* ── Pasos siguientes ── */
-    .steps {
-      text-align: left;
-      background: var(--neutro);
-      border-radius: 14px;
-      padding: 24px 28px;
+    .lead {
+      font-size: 16px;
+      color: var(--gris);
+      line-height: 1.65;
       margin-bottom: 36px;
     }
-    .steps h2 {
-      font-size: 14px;
-      font-weight: 700;
+
+    /* Pasos */
+    .steps {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      text-align: left;
+    }
+    .steps-title {
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+      color: var(--amarillo);
+      letter-spacing: .1em;
       text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--suave);
-      margin: 0 0 16px;
+      margin-bottom: 18px;
     }
     .step {
       display: flex;
@@ -135,97 +183,79 @@
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: var(--petroleo);
-      color: #fff;
+      background: var(--amarillo);
+      color: var(--negro);
       font-size: 13px;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .step-text { font-size: 15px; color: var(--profundo); line-height: 1.5; }
-    .step-text strong { color: var(--petroleo); }
+    .step-text {
+      font-size: 15px;
+      color: var(--claro);
+      line-height: 1.5;
+      padding-top: 3px;
+    }
+    .step-text strong { color: var(--blanco); }
 
-    /* ── Botones ── */
+    /* Acciones */
     .actions {
       display: flex;
       gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
     }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 22px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 15px;
-      text-decoration: none;
-      transition: all .2s ease;
-    }
-    .btn-primary {
-      background: var(--petroleo);
-      color: #fff;
-    }
-    .btn-primary:hover { background: var(--profundo); transform: translateY(-1px); }
-    .btn-ghost {
-      border: 1px solid var(--suave);
-      color: var(--suave);
-      background: transparent;
-    }
-    .btn-ghost:hover { background: var(--petroleo); color: #fff; border-color: var(--petroleo); }
 
-    /* ── Footer ── */
+    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
       font-size: 13px;
-      color: var(--suave);
+      color: var(--gris);
     }
+    footer a { color: var(--gris); text-decoration: none; }
+    footer a:hover { color: var(--amarillo); }
 
-    @media (max-width: 480px) {
-      .card { padding: 32px 20px; }
-      h1 { font-size: 22px; }
+    @media (max-width: 520px) {
+      .card { padding: 36px 24px; }
       .actions { flex-direction: column; }
-      .btn { justify-content: center; }
+      .btn-primary, .btn-ghost { justify-content: center; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <a class="brand" href="index.html" aria-label="Volver al inicio">
-      <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/ad-logo.png"
-           alt="AD" width="28" height="28"
-           onerror="this.src='https://placehold.co/28x28/0E4C5A/FFFFFF?text=AD'">
-      <span>Adrián Deyme</span>
+  <nav>
+    <a class="nav-logo" href="index.html" aria-label="Volver al inicio">
+      <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo.png"
+           alt="AD" width="32" height="32"
+           onerror="this.src='https://placehold.co/32x32/FFD600/0F0F14?text=AD'">
+      <span><span class="script">Adrian</span> DEYME</span>
     </a>
-  </header>
+  </nav>
 
   <main>
-    <div class="card" role="main">
+    <div class="card">
 
-      <!-- Check animado -->
       <div class="check-wrap" aria-hidden="true">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none"
              stroke="currentColor" stroke-width="2.5"
              stroke-linecap="round" stroke-linejoin="round">
           <polyline points="20 6 9 17 4 12"/>
         </svg>
       </div>
 
-      <h1>¡Tu reunión está confirmada!</h1>
+      <h1>¡Tu reunión está <span>confirmada!</span></h1>
       <p class="lead">
-        Revisá tu correo — vas a recibir una invitación de calendario con el enlace de la videollamada y los detalles de la reunión.
+        Revisá tu correo — vas a recibir una invitación de calendario con el enlace de la videollamada y todos los detalles.
       </p>
 
-      <!-- Pasos siguientes -->
-      <div class="steps" aria-label="Pasos siguientes">
-        <h2>Qué viene ahora</h2>
+      <div class="steps">
+        <p class="steps-title">Qué viene ahora</p>
         <div class="step">
           <div class="step-num">1</div>
-          <div class="step-text"><strong>Revisá tu email</strong> para confirmar la invitación de calendario.</div>
+          <div class="step-text"><strong>Revisá tu email</strong> y confirmá la invitación de calendario.</div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
@@ -233,32 +263,25 @@
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <div class="step-text"><strong>Nos vemos en la reunión</strong> — llegá con una pregunta o problema concreto en mente.</div>
+          <div class="step-text"><strong>Llegá con una pregunta o problema concreto</strong> en mente — así ordenamos las piezas juntos.</div>
         </div>
       </div>
 
-      <!-- CTAs -->
       <div class="actions">
-        <a href="descubrimiento.html" class="btn btn-primary">
-          Dejar contexto previo →
-        </a>
-        <a href="index.html" class="btn btn-ghost">
-          Volver al inicio
-        </a>
+        <a href="index.html" class="btn-ghost">← Volver al inicio</a>
       </div>
 
     </div>
   </main>
 
   <footer>
-    <p>© 2025 Adrián Deyme · <a href="index.html">adriandeyme.com</a></p>
+    <p>© 2026 Adrián Deyme · Panamá · <a href="index.html">adriandeyme.com</a></p>
   </footer>
 
   <!-- Evento de conversión GA4 -->
   <script>
-    gtag('event', 'conversion_reunion_agendada', {
-      page: 'gracias'
-    });
+    gtag('event', 'conversion_reunion_agendada', { page: 'gracias' });
   </script>
+
 </body>
 </html>
