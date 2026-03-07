@@ -11,86 +11,284 @@
   </script>
 
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Agendar reunión · Adrián Deyme</title>
-  <meta name="description" content="Agenda una reunión exploratoria de 30 minutos con Adrián Deyme. Elige el horario que mejor te quede y recibe los siguientes pasos automáticamente.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hablemos 30′ · Adrián Deyme</title>
+  <meta name="description" content="Agendá una reunión exploratoria de 30 minutos con Adrián Deyme. Elegí el horario que mejor te quede.">
   <link rel="canonical" href="https://www.adriandeyme.com/agenda.html">
 
-  <meta property="og:title" content="Agendar reunión · Adrián Deyme">
-  <meta property="og:description" content="Elige un horario para tu reunión exploratoria de 30 minutos.">
+  <meta property="og:title" content="Hablemos 30′ · Adrián Deyme">
+  <meta property="og:description" content="Elegí un horario para tu reunión exploratoria de 30 minutos.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.adriandeyme.com/agenda.html">
   <meta property="og:locale" content="es_LA">
   <meta property="og:image" content="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/social/og-default.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Agendar reunión · Adrián Deyme">
-  <meta name="twitter:description" content="Elige un horario para tu reunión exploratoria de 30 minutos.">
-  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/social/og-default.jpg">
   <meta name="twitter:site" content="@adriandeyme">
-  <meta name="theme-color" content="#0E4C5A">
+  <meta name="theme-color" content="#0F0F14">
 
-  <link rel="icon" type="image/png"
-        href="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/ad-logo-32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo-180.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://assets.calendly.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Pacifico&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <style>
-    :root{--petroleo:#0E4C5A;--profundo:#062F36;--suave:#4D7C87;--neutro:#F5F5F5;--card:#FFFFFF;--radius:20px}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Montserrat',system-ui,sans-serif;color:var(--profundo);background:var(--neutro);text-rendering:optimizeLegibility}
-    header{max-width:1120px;margin:24px auto 0;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--profundo);text-decoration:none}
-    .brand img{height:28px;width:28px;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
-    .wrap{max-width:1120px;margin:24px auto 60px;padding:0 20px}
-    .card{background:var(--card);border-radius:var(--radius);box-shadow:0 8px 30px rgba(0,0,0,.08);padding:24px;overflow:hidden}
-    h1{font-size:28px;line-height:1.15;margin:0 0 8px;font-weight:800;color:var(--petroleo)}
-    p.lead{color:var(--suave);margin:0 0 20px;font-size:18px}
-    .cal-wrap{min-height:860px}
-    .fallback{margin-top:14px;font-size:14px;color:var(--suave)}
-    .fallback a{color:var(--petroleo);font-weight:600;text-decoration:none;transition:color .2s ease}
-    .fallback a:hover{color:var(--profundo)}
-    .btn-volver{color:var(--suave);text-decoration:none;font-weight:600;padding:8px 16px;border:1px solid var(--suave);border-radius:8px;transition:all .2s ease}
-    .btn-volver:hover{color:var(--card);background:var(--petroleo);border-color:var(--petroleo)}
-    .btn-volver:focus-visible,a:focus-visible{outline:none;box-shadow:0 0 0 3px #fff,0 0 0 6px rgba(3,105,161,.35)}
-    @media(prefers-reduced-motion:reduce){.btn-volver,.fallback a{transition:none}}
+    :root {
+      --negro:    #0F0F14;
+      --oscuro:   #1A1A2E;
+      --medio:    #2D2D44;
+      --gris:     #8888A8;
+      --claro:    #F0F0F5;
+      --blanco:   #FFFFFF;
+      --amarillo: #FFD600;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--negro);
+      color: var(--claro);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ---- NAV ---- */
+    nav {
+      background: rgba(15,15,20,.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 17px;
+    }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-logo .script { font-family: 'Pacifico', cursive; color: var(--amarillo); }
+
+    .btn-volver {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gris);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 100px;
+      padding: 8px 18px;
+      transition: color .2s, border-color .2s;
+    }
+    .btn-volver:hover { color: var(--amarillo); border-color: rgba(255,214,0,.4); }
+
+    /* ---- MAIN ---- */
+    main {
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 48px auto 60px;
+      padding: 0 24px;
+    }
+
+    /* ---- HEADER DE PÁGINA ---- */
+    .page-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--amarillo);
+      background: rgba(255,214,0,.1);
+      border: 1px solid rgba(255,214,0,.25);
+      border-radius: 4px;
+      padding: 4px 10px;
+      margin-bottom: 16px;
+    }
+
+    .page-header h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .page-header h1 em {
+      font-style: normal;
+      font-family: 'Pacifico', cursive;
+      color: var(--amarillo);
+      font-size: .9em;
+    }
+
+    .page-header p {
+      font-size: 17px;
+      color: rgba(240,240,245,.55);
+      font-weight: 300;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ---- PROMESAS ---- */
+    .promesas {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .promesa {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(240,240,245,.6);
+    }
+    .promesa svg { color: var(--amarillo); flex-shrink: 0; }
+
+    /* ---- CARD CALENDLY ---- */
+    .cal-card {
+      background: var(--oscuro);
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.07);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
+    }
+
+    .calendly-inline-widget {
+      min-height: 700px;
+    }
+
+    /* Fallback */
+    .fallback {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--gris);
+    }
+    .fallback a {
+      color: var(--amarillo);
+      font-weight: 600;
+      transition: opacity .2s;
+    }
+    .fallback a:hover { opacity: .75; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background: var(--negro);
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .footer-logo img { width: 24px; height: 24px; border-radius: 6px; opacity: .8; }
+    .footer-logo .script { font-family: 'Pacifico', cursive; color: var(--amarillo); }
+    .footer-copy { font-size: 12px; color: var(--gris); }
+
+    @media (max-width: 600px) {
+      .promesas { gap: 16px; }
+      .footer-inner { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <a class="brand" href="index.html" aria-label="Volver al inicio">
-      <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/ad-logo.png"
-           alt="AD" width="28" height="28"
-           onerror="this.onerror=null;this.src='https://placehold.co/28x28/0E4C5A/FFFFFF?text=AD'">
-      <span>Adrián Deyme</span>
-    </a>
-    <a href="index.html" class="btn-volver" aria-label="Volver al inicio">← Volver al Inicio</a>
-  </header>
-
-  <main class="wrap" role="main">
-    <div class="card" role="region" aria-labelledby="agenda-title">
-      <h1 id="agenda-title">Agenda tu reunión exploratoria de 30'</h1>
-      <p class="lead" id="agenda-desc">
-        Elige el horario que mejor te quede. Al confirmar, te llevaremos automáticamente a la página de siguientes pasos.
-      </p>
-      <div class="cal-wrap" aria-describedby="agenda-desc">
-        <div class="calendly-inline-widget"
-             data-url="https://calendly.com/adriandeyme/reunion-exploratoria?hide_gdpr_banner=1"
-             style="min-width:320px;height:860px;"></div>
-      </div>
-      <p class="fallback" role="status" aria-live="polite">
-        Si no te redirige automáticamente tras agendar, por favor,
-        <a href="gracias.html">haz clic aquí para ir a la página de gracias</a>.
-      </p>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Volver al inicio">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo.png"
+             alt="AD" width="32" height="32"
+             onerror="this.onerror=null;this.src='https://placehold.co/32x32/FFD600/0F0F14?text=AD'">
+        <span><span class="script">Adrian</span> Deyme</span>
+      </a>
+      <a href="index.html" class="btn-volver">
+        ← Volver al inicio
+      </a>
     </div>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <span class="tag">30 minutos · Sin costo</span>
+      <h1>Ordenemos las piezas<br>de tu <em>LEGO.</em></h1>
+      <p>Elegí el horario que mejor te quede. Al confirmar, te llevo automáticamente a los siguientes pasos.</p>
+    </div>
+
+    <div class="promesas">
+      <div class="promesa">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+        Sin costo ni compromiso
+      </div>
+      <div class="promesa">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+        Identificamos la causa raíz
+      </div>
+      <div class="promesa">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+        Salís con un plan concreto
+      </div>
+    </div>
+
+    <div class="cal-card">
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/adriandeyme/reunion-exploratoria?hide_gdpr_banner=1&background_color=1A1A2E&text_color=F0F0F5&primary_color=FFD600"
+           style="min-width:320px;height:700px;"></div>
+    </div>
+
+    <p class="fallback" role="status" aria-live="polite">
+      Si el calendario no carga,
+      <a href="https://calendly.com/adriandeyme/reunion-exploratoria" target="_blank" rel="noopener">abrilo directamente acá</a>.
+    </p>
   </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo.png"
+             alt="AD" width="24" height="24"
+             onerror="this.onerror=null;this.src='https://placehold.co/24x24/FFD600/0F0F14?text=AD'">
+        <span><span class="script">Adrian</span> Deyme</span>
+      </div>
+      <p class="footer-copy">© 2026 Adrián Deyme · Panamá</p>
+    </div>
+  </footer>
 
   <script>
     window.addEventListener("message", function(e) {
@@ -100,17 +298,18 @@
             event_type: e?.data?.payload?.event?.event_type_name || 'Reunión exploratoria',
             invitee: e?.data?.payload?.invitee?.email || '(desconocido)'
           });
-        } catch(err) { console.warn('GA4 tracking error:', err); }
+        } catch(err) { console.warn('GA4 error:', err); }
         window.location.assign('/gracias.html');
       }
     });
   </script>
 
   <noscript>
-    <p style="text-align:center;margin-top:16px">
+    <p style="text-align:center;padding:20px;color:#8888A8">
       Para ver el calendario necesitás JavaScript. También podés
-      <a href="https://calendly.com/adriandeyme/reunion-exploratoria">abrir Calendly en una pestaña nueva</a>.
+      <a href="https://calendly.com/adriandeyme/reunion-exploratoria" style="color:#FFD600">abrir Calendly en una pestaña nueva</a>.
     </p>
   </noscript>
+
 </body>
 </html>
