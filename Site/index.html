@@ -571,9 +571,6 @@
       color: rgba(255,214,0,.2);
     }
 
-    .pieza {
-      position: relative;
-    }
     .pieza-lego {
       position: absolute;
       bottom: 10px;
@@ -1059,11 +1056,15 @@
        REVEAL ANIMATIONS
     ============================================================ */
     .reveal {
+      opacity: 1;
+      transform: none;
+    }
+    .js-ready .reveal {
       opacity: 0;
       transform: translateY(28px);
       transition: opacity .7s ease, transform .7s ease;
     }
-    .reveal.visible {
+    .js-ready .reveal.visible {
       opacity: 1;
       transform: none;
     }
@@ -1103,7 +1104,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; transition: none; }
+      .js-ready .reveal { opacity: 1; transform: none; transition: none; }
       .hero-lego { animation: none; }
       .btn:hover, .pieza:hover, .persona-card:hover, .post-card:hover { transform: none; }
     }
@@ -1596,6 +1597,7 @@
   }
 
   /* ---- Scroll reveal ---- */
+  document.body.classList.add('js-ready');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.12 });
