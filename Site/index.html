@@ -561,24 +561,25 @@
       background: rgba(45,45,68,.8);
     }
 
-    /* Stud en la esquina — detalle LEGO */
+    /* Stud en esquina inferior derecha — detalle LEGO */
     .pieza::after {
       content: '⬡';
       position: absolute;
-      top: 14px;
-      right: 16px;
-      font-size: 18px;
-      color: rgba(255,214,0,.2);
+      bottom: 12px;
+      right: 14px;
+      font-size: 16px;
+      color: rgba(255,214,0,.25);
     }
 
+    /* Mini-LEGO en esquina superior derecha */
     .pieza-lego {
       position: absolute;
-      bottom: 10px;
+      top: 10px;
       right: 10px;
-      width: 52px;
-      height: 52px;
+      width: 48px;
+      height: 48px;
       object-fit: contain;
-      opacity: 0.85;
+      opacity: 0.82;
       transition: transform 0.25s ease, opacity 0.25s ease;
       pointer-events: none;
     }
