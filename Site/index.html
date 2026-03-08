@@ -1697,4 +1697,11 @@
       // Ordenar por fecha descendente, mostrar los 3 más recientes
       articles.sort((a, b) => new Date(b.date) - new Date(a.date));
       container.innerHTML = articles.slice(0, 3).map(renderPost).join('');
-      container.querySelectorAll('.
+      container.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })
+    .catch(() => {
+      container.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--gris)">No se pudieron cargar los artículos.</p>';
+    });
+</script>
+</body>
+</html>
