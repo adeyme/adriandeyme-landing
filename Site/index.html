@@ -1119,6 +1119,31 @@
       color: rgba(240,240,245,.5);
       line-height: 1.65;
     }
+
+    /* Botones de área en hero */
+    .hero-areas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .hero-area-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 22px;
+      border-radius: 100px;
+      border: 1.5px solid rgba(255,214,0,.5);
+      color: var(--amarillo);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .03em;
+      background: rgba(255,214,0,.06);
+      transition: background .2s, border-color .2s;
+    }
+    .hero-area-btn:hover {
+      background: rgba(255,214,0,.14);
+      border-color: var(--amarillo);
+    }
   </style>
 </head>
 <body>
@@ -1177,6 +1202,10 @@
           Desarmo problemas y ordeno ideas<br>
           como si fueran piezas de LEGO.
         </p>
+        <div class="hero-areas">
+          <a href="#servicios" class="hero-area-btn">Coaching</a>
+          <a href="#servicios" class="hero-area-btn">Consultoría</a>
+        </div>
         <div class="hero-actions">
           <a href="agenda.html" class="btn btn-primary">
             Hablemos 30 minutos
