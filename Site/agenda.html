@@ -295,8 +295,7 @@
       if (e?.origin?.includes("calendly.com") && e?.data?.event === "calendly.event_scheduled") {
         try {
           gtag('event', 'calendly_event_scheduled', {
-            event_type: e?.data?.payload?.event?.event_type_name || 'Reunión exploratoria',
-            invitee: e?.data?.payload?.invitee?.email || '(desconocido)'
+            event_type: e?.data?.payload?.event?.event_type_name || 'Reunión exploratoria'
           });
         } catch(err) { console.warn('GA4 error:', err); }
         window.location.assign('/gracias.html');
