@@ -571,6 +571,24 @@
       color: rgba(255,214,0,.2);
     }
 
+    .pieza {
+      position: relative;
+    }
+    .pieza-lego {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      opacity: 0.85;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      pointer-events: none;
+    }
+    .pieza:hover .pieza-lego {
+      transform: scale(1.15) rotate(-4deg);
+      opacity: 1;
+    }
     .pieza-nombre {
       font-size: 16px;
       font-weight: 700;
@@ -1249,7 +1267,7 @@
   <div class="container">
     <div class="section-header reveal">
       <span class="tag">Las piezas</span>
-      <h2>Cada pieza es independiente.<br>Elegís lo que necesitás.</h2>
+      <h2>Elige las piezas que necesites.</h2>
     </div>
 
     <!-- Bloque Coaching -->
@@ -1262,14 +1280,17 @@
         <div class="pieza">
           <div class="pieza-nombre">Coaching para Líderes</div>
           <p class="pieza-cuando">el que tiene que liderar está agotado de solo sobrevivir.</p>
+          <img class="pieza-lego" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/lego/lego-level2.png" alt="" aria-hidden="true">
         </div>
         <div class="pieza">
           <div class="pieza-nombre">Coaching para Equipos</div>
           <p class="pieza-cuando">las personas están pero el equipo no funciona.</p>
+          <img class="pieza-lego" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/lego/lego-icp-acc.png" alt="" aria-hidden="true">
         </div>
         <div class="pieza">
           <div class="pieza-nombre">Coaching Organizacional</div>
           <p class="pieza-cuando">la empresa creció pero la dirección se perdió.</p>
+          <img class="pieza-lego" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/lego/lego-icp-sys.png" alt="" aria-hidden="true">
         </div>
       </div>
     </div>
@@ -1284,24 +1305,29 @@
         <div class="pieza">
           <div class="pieza-nombre">OKRs</div>
           <p class="pieza-cuando">todos trabajan pero nadie sabe hacia dónde.</p>
+          <img class="pieza-lego" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/lego/lego-okr-coach.png" alt="" aria-hidden="true">
         </div>
         <div class="pieza">
           <div class="pieza-nombre">Kanban</div>
           <p class="pieza-cuando">hay mucho en movimiento y nada termina.</p>
+          <img class="pieza-lego" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/lego/lego-kcp.png" alt="" aria-hidden="true">
         </div>
         <div class="pieza">
           <div class="pieza-nombre">Lean Change Management</div>
           <p class="pieza-cuando">el cambio genera más caos del que resuelve.</p>
+          <img class="pieza-lego" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/lego/lego-lcm.png" alt="" aria-hidden="true">
         </div>
       </div>
       <div class="piezas-row two" style="margin-top:16px">
         <div class="pieza">
           <div class="pieza-nombre">unFIX</div>
           <p class="pieza-cuando">la estructura es el problema.</p>
+          <img class="pieza-lego" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/lego/lego-unfix.png" alt="" aria-hidden="true">
         </div>
         <div class="pieza">
           <div class="pieza-nombre">Management 3.0</div>
           <p class="pieza-cuando">liderar personas se convirtió en el mayor desafío.</p>
+          <img class="pieza-lego" src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/lego/lego-m30.png" alt="" aria-hidden="true">
         </div>
       </div>
     </div>
@@ -1357,7 +1383,7 @@
           <input type="email" id="escucha-email" placeholder="tu@email.com" autocomplete="email">
           <button class="btn btn-primary" onclick="pedirEscucha()">Quiero mi copia</button>
         </div>
-        <p id="escucha-msg" style="font-size:13px; color:var(--amarillo); display:none; margin-top:-8px;">✓ ¡Te lo mandamos pronto!</p>
+        <p id="escucha-msg" style="font-size:13px; color:var(--amarillo); display:none; margin-top:-8px;">✓ ¡Te lo mando pronto!</p>
       </div>
     </div>
   </div>
@@ -1521,8 +1547,8 @@
           Conectar en LinkedIn
         </a>
       </div>
-      <a href="mailto:contacto@adriandeyme.com" class="cta-email">
-        contacto@adriandeyme.com
+      <a href="/cdn-cgi/l/email-protection#472428293326243328072623352e262923223e2a226924282a" class="cta-email">
+        <span class="__cf_email__" data-cfemail="167579786277756279567772647f777872736f7b733875797b">[email&#160;protected]</span>
       </a>
     </div>
   </div>
@@ -1556,7 +1582,7 @@
 <!-- ============================================================
      SCRIPTS
 ============================================================ -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /* ---- Mobile nav ---- */
   const hamBtn = document.getElementById('ham-btn');
   const mobileNav = document.getElementById('mobile-nav');
@@ -1666,12 +1692,4 @@
       // Ordenar por fecha descendente, mostrar los 3 más recientes
       articles.sort((a, b) => new Date(b.date) - new Date(a.date));
       container.innerHTML = articles.slice(0, 3).map(renderPost).join('');
-      container.querySelectorAll('.post-card').forEach(el => observer.observe(el));
-    })
-    .catch(() => {
-      container.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--gris)">Los artículos estarán disponibles pronto.</p>';
-    });
-</script>
-
-</body>
-</html>
+      container.querySelectorAll('.
