@@ -12,38 +12,41 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hablemos 30′ · Adrián Deyme</title>
-  <meta name="description" content="Agendá una reunión exploratoria de 30 minutos con Adrián Deyme. Elegí el horario que mejor te quede.">
+  <title>Conversemos 30′ · Adrián Deyme</title>
+  <meta name="description" content="Agendá una conversación exploratoria de 30 minutos con Adrián Deyme. Sin costo, sin compromiso. Elegí el horario que mejor te quede.">
   <link rel="canonical" href="https://www.adriandeyme.com/agenda.html">
 
-  <meta property="og:title" content="Hablemos 30′ · Adrián Deyme">
-  <meta property="og:description" content="Elegí un horario para tu reunión exploratoria de 30 minutos.">
+  <meta property="og:title" content="Conversemos 30′ · Adrián Deyme">
+  <meta property="og:description" content="Agendá una conversación exploratoria de 30 minutos. Sin costo, sin compromiso.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.adriandeyme.com/agenda.html">
   <meta property="og:locale" content="es_LA">
   <meta property="og:image" content="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/social/og-default.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@adriandeyme">
-  <meta name="theme-color" content="#0F0F14">
+  <meta name="theme-color" content="#0D1F2D">
+  <meta name="robots" content="noindex, nofollow">
 
   <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo-180.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Pacifico&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <style>
     :root {
-      --negro:    #0F0F14;
-      --oscuro:   #1A1A2E;
-      --medio:    #2D2D44;
-      --gris:     #8888A8;
-      --claro:    #F0F0F5;
+      --noche:    #0D1F2D;
+      --petroleo: #1C3A4A;
+      --oro:      #C9A84C;
+      --oro2:     #B8963E;
+      --marfil:   #F5F3EE;
+      --gris:     #8A8A8A;
+      --gris2:    #555;
+      --tinta:    #1A1A1A;
       --blanco:   #FFFFFF;
-      --amarillo: #FFD600;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,8 +54,8 @@
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--negro);
-      color: var(--claro);
+      background: var(--noche);
+      color: var(--blanco);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -62,148 +65,200 @@
 
     /* ---- NAV ---- */
     nav {
-      background: rgba(15,15,20,.9);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      padding: 0 24px;
+      background: rgba(13,31,45,.96);
+      backdrop-filter: blur(20px);
+      border-bottom: 0.5px solid rgba(255,255,255,.07);
+      padding: 0 32px;
     }
     .nav-inner {
-      max-width: 1120px;
+      max-width: 1100px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 64px;
+      height: 68px;
     }
     .nav-logo {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: 17px;
+      align-items: baseline;
+      gap: 2px;
     }
-    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
-    .nav-logo .script { font-family: 'Pacifico', cursive; color: var(--amarillo); }
-
+    .nav-logo .nombre {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--oro);
+      line-height: 1;
+    }
+    .nav-logo .apellido {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+      margin-left: 10px;
+      padding-top: 4px;
+    }
     .btn-volver {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--gris);
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 100px;
-      padding: 8px 18px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      border: 0.5px solid rgba(255,255,255,.12);
+      border-radius: 4px;
+      padding: 9px 18px;
       transition: color .2s, border-color .2s;
     }
-    .btn-volver:hover { color: var(--amarillo); border-color: rgba(255,214,0,.4); }
+    .btn-volver:hover { color: var(--oro); border-color: rgba(201,168,76,.35); }
 
     /* ---- MAIN ---- */
     main {
       flex: 1;
-      max-width: 900px;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      max-width: 1100px;
       width: 100%;
-      margin: 48px auto 60px;
-      padding: 0 24px;
+      margin: 0 auto;
+      padding: 64px 32px 80px;
+      gap: 80px;
+      align-items: start;
     }
 
-    /* ---- HEADER DE PÁGINA ---- */
-    .page-header {
-      text-align: center;
+    /* ---- SIDEBAR IZQUIERDA ---- */
+    .sidebar {}
+
+    .sidebar-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--oro);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .sidebar h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 3.5vw, 44px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--blanco);
+      margin-bottom: 8px;
+    }
+    .sidebar h1 em {
+      font-style: italic;
+      color: var(--oro);
+    }
+
+    .sidebar-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,.45);
+      line-height: 1.8;
       margin-bottom: 40px;
     }
 
-    .tag {
-      display: inline-block;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--amarillo);
-      background: rgba(255,214,0,.1);
-      border: 1px solid rgba(255,214,0,.25);
-      border-radius: 4px;
-      padding: 4px 10px;
-      margin-bottom: 16px;
-    }
-
-    .page-header h1 {
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 700;
-      letter-spacing: -.02em;
-      line-height: 1.15;
-      margin-bottom: 12px;
-    }
-    .page-header h1 em {
-      font-style: normal;
-      font-family: 'Pacifico', cursive;
-      color: var(--amarillo);
-      font-size: .9em;
-    }
-
-    .page-header p {
-      font-size: 17px;
-      color: rgba(240,240,245,.55);
-      font-weight: 300;
-      max-width: 480px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    /* ---- PROMESAS ---- */
+    /* Promesas */
     .promesas {
       display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 48px;
     }
+
     .promesa {
       display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: rgba(240,240,245,.6);
+      align-items: flex-start;
+      gap: 14px;
     }
-    .promesa svg { color: var(--amarillo); flex-shrink: 0; }
 
-    /* ---- CARD CALENDLY ---- */
+    .promesa-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(201,168,76,.12);
+      border: 0.5px solid rgba(201,168,76,.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .promesa-icon svg { color: var(--oro); }
+
+    .promesa-texto {}
+    .promesa-titulo {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--blanco);
+      margin-bottom: 2px;
+    }
+    .promesa-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,.35);
+      line-height: 1.6;
+    }
+
+    /* Separador */
+    .sidebar-divider {
+      border: none;
+      border-top: 0.5px solid rgba(255,255,255,.07);
+      margin: 40px 0;
+    }
+
+    /* Cita */
+    .sidebar-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-style: italic;
+      font-weight: 400;
+      color: rgba(255,255,255,.5);
+      line-height: 1.65;
+      padding-left: 16px;
+      border-left: 1.5px solid rgba(201,168,76,.3);
+    }
+
+    /* ---- CALENDLY CARD ---- */
+    .cal-wrap {}
+
     .cal-card {
-      background: var(--oscuro);
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,.07);
+      background: rgba(255,255,255,.03);
+      border: 0.5px solid rgba(255,255,255,.08);
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,.4);
     }
 
     .calendly-inline-widget {
-      min-height: 700px;
+      min-height: 680px;
     }
 
-    /* Fallback */
     .fallback {
       text-align: center;
-      margin-top: 20px;
-      font-size: 13px;
-      color: var(--gris);
+      margin-top: 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.2);
     }
     .fallback a {
-      color: var(--amarillo);
-      font-weight: 600;
+      color: var(--oro);
       transition: opacity .2s;
     }
-    .fallback a:hover { opacity: .75; }
+    .fallback a:hover { opacity: .7; }
 
     /* ---- FOOTER ---- */
     footer {
-      background: var(--negro);
-      border-top: 1px solid rgba(255,255,255,.07);
-      padding: 28px 24px;
-      text-align: center;
+      background: rgba(0,0,0,.2);
+      border-top: 0.5px solid rgba(255,255,255,.05);
+      padding: 28px 32px;
     }
     .footer-inner {
-      max-width: 1120px;
+      max-width: 1100px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -213,18 +268,41 @@
     }
     .footer-logo {
       display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 700;
+      align-items: baseline;
+      gap: 2px;
     }
-    .footer-logo img { width: 24px; height: 24px; border-radius: 6px; opacity: .8; }
-    .footer-logo .script { font-family: 'Pacifico', cursive; color: var(--amarillo); }
-    .footer-copy { font-size: 12px; color: var(--gris); }
+    .footer-logo .nombre {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--oro);
+    }
+    .footer-logo .apellido {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      margin-left: 8px;
+    }
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.2);
+    }
 
-    @media (max-width: 600px) {
-      .promesas { gap: 16px; }
-      .footer-inner { flex-direction: column; }
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 860px) {
+      main {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 48px 24px 60px;
+      }
+      .sidebar-quote { display: none; }
+      .sidebar-divider { display: none; }
+      .footer-inner { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -232,61 +310,111 @@
 
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="Volver al inicio">
-        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo.png"
-             alt="AD" width="32" height="32"
-             onerror="this.onerror=null;this.src='https://placehold.co/32x32/FFD600/0F0F14?text=AD'">
-        <span><span class="script">Adrian</span> Deyme</span>
+      <a href="index.html" class="nav-logo" aria-label="Volver al inicio — Adrián Deyme" style="display:flex; align-items:center;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 72" height="36" style="height:36px; width:auto;" role="img" aria-label="Adrián Deyme">
+          <rect x="16" y="12" width="48" height="48" rx="5" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+          <rect x="21" y="17" width="38" height="38" rx="3" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+          <text x="40" y="44" font-family="Georgia, serif" font-size="22" font-style="italic" font-weight="400" fill="#C9A84C" text-anchor="middle" dominant-baseline="middle">AD</text>
+          <text x="80" y="30" font-family="Georgia, serif" font-size="28" font-style="italic" font-weight="400" fill="#C9A84C" dominant-baseline="middle">Adrián</text>
+          <text x="207" y="30" font-family="'DM Sans', Arial, sans-serif" font-size="12" font-weight="300" fill="rgba(255,255,255,0.65)" dominant-baseline="middle" letter-spacing="6">DEYME</text>
+          <text x="81" y="52" font-family="'Courier New', monospace" font-size="8" fill="rgba(255,255,255,0.3)" letter-spacing="3">COACH EJECUTIVO ICF</text>
+        </svg>
       </a>
-      <a href="index.html" class="btn-volver">
-        ← Volver al inicio
-      </a>
+      <a href="index.html" class="btn-volver">← Volver al inicio</a>
     </div>
   </nav>
 
   <main>
-    <div class="page-header">
-      <span class="tag">30 minutos · Sin costo</span>
-      <h1>Ordenemos las piezas<br>de tu <em>LEGO.</em></h1>
-      <p>Elegí el horario que mejor te quede. Al confirmar, te llevo automáticamente a los siguientes pasos.</p>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <span class="sidebar-tag">30 minutos · Sin costo</span>
+      <h1>Una conversación<br>para ver si tiene<br>sentido <em>trabajar juntos.</em></h1>
+      <p class="sidebar-sub">
+        No es una reunión de venta. Es un espacio para entender si el problema que tenés y la forma en que trabajo tienen algo que decirse.
+      </p>
+
+      <!-- Foto + nombre -->
+      <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 36px; padding: 20px 24px; background: rgba(255,255,255,.03); border: 0.5px solid rgba(255,255,255,.07); border-radius: 12px;">
+        <img
+          src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/adrian-perfil.webp"
+          alt="Adrián Deyme"
+          style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid rgba(201,168,76,.25); flex-shrink: 0;"
+          onerror="this.src='https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/adrian-perfil.png'">
+        <div>
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: #C9A84C; line-height: 1;">Adrián <span style="font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.6);">Deyme</span></p>
+          <p style="font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-top: 4px;">ICF Level 2 Coach · Panamá</p>
+        </div>
+      </div>
+
+      <div class="promesas">
+        <div class="promesa">
+          <div class="promesa-icon">
+            <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="promesa-texto">
+            <p class="promesa-titulo">Sin costo ni compromiso</p>
+            <p class="promesa-desc">La conversación es gratuita. No hay propuesta al final si no tiene sentido.</p>
+          </div>
+        </div>
+        <div class="promesa">
+          <div class="promesa-icon">
+            <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="promesa-texto">
+            <p class="promesa-titulo">Claridad sobre el problema real</p>
+            <p class="promesa-desc">En 30 minutos identificamos dónde está el nudo — aunque no trabajemos juntos.</p>
+          </div>
+        </div>
+        <div class="promesa">
+          <div class="promesa-icon">
+            <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="promesa-texto">
+            <p class="promesa-titulo">Confidencial y sin agenda corporativa</p>
+            <p class="promesa-desc">Un espacio privado para pensar con claridad, sin presiones ni filtros.</p>
+          </div>
+        </div>
+        <div class="promesa">
+          <div class="promesa-icon">
+            <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="promesa-texto">
+            <p class="promesa-titulo">Salís con algo concreto</p>
+            <p class="promesa-desc">Una perspectiva nueva, una pregunta que no te habías hecho, o un primer paso claro.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="sidebar-divider">
+
+      <p class="sidebar-quote">
+        "El primer movimiento en una organización nueva define mucho más que un buen inicio — condiciona la efectividad, la credibilidad y el posicionamiento futuro."
+      </p>
     </div>
 
-    <div class="promesas">
-      <div class="promesa">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
-        Sin costo ni compromiso
+    <!-- CALENDLY -->
+    <div class="cal-wrap">
+      <div class="cal-card">
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/adriandeyme/reunion-exploratoria?hide_gdpr_banner=1&background_color=0D1F2D&text_color=F0F0F5&primary_color=C9A84C"
+             style="min-width:320px; height:680px;"></div>
       </div>
-      <div class="promesa">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
-        Identificamos la causa raíz
-      </div>
-      <div class="promesa">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
-        Salís con un plan concreto
-      </div>
+      <p class="fallback" role="status" aria-live="polite">
+        Si el calendario no carga,
+        <a href="https://calendly.com/adriandeyme/reunion-exploratoria" target="_blank" rel="noopener">abrilo directamente acá</a>.
+      </p>
     </div>
 
-    <div class="cal-card">
-      <div class="calendly-inline-widget"
-           data-url="https://calendly.com/adriandeyme/reunion-exploratoria?hide_gdpr_banner=1&background_color=1A1A2E&text_color=F0F0F5&primary_color=FFD600"
-           style="min-width:320px;height:700px;"></div>
-    </div>
-
-    <p class="fallback" role="status" aria-live="polite">
-      Si el calendario no carga,
-      <a href="https://calendly.com/adriandeyme/reunion-exploratoria" target="_blank" rel="noopener">abrilo directamente acá</a>.
-    </p>
   </main>
 
   <footer>
     <div class="footer-inner">
       <div class="footer-logo">
-        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo.png"
-             alt="AD" width="24" height="24"
-             onerror="this.onerror=null;this.src='https://placehold.co/24x24/FFD600/0F0F14?text=AD'">
-        <span><span class="script">Adrian</span> Deyme</span>
+        <span class="nombre">Adrián</span>
+        <span class="apellido">Deyme</span>
       </div>
-      <p class="footer-copy">© 2026 Adrián Deyme · Panamá</p>
+      <p class="footer-copy">© 2026 · Panamá · Centroamérica y el Caribe</p>
     </div>
   </footer>
 
@@ -295,7 +423,7 @@
       if (e?.origin?.includes("calendly.com") && e?.data?.event === "calendly.event_scheduled") {
         try {
           gtag('event', 'calendly_event_scheduled', {
-            event_type: e?.data?.payload?.event?.event_type_name || 'Reunión exploratoria'
+            event_type: e?.data?.payload?.event?.event_type_name || 'Conversación exploratoria'
           });
         } catch(err) { console.warn('GA4 error:', err); }
         window.location.assign('/gracias.html');
@@ -304,9 +432,9 @@
   </script>
 
   <noscript>
-    <p style="text-align:center;padding:20px;color:#8888A8">
+    <p style="text-align:center;padding:20px;color:rgba(255,255,255,.3); font-family:'DM Mono',monospace; font-size:11px;">
       Para ver el calendario necesitás JavaScript. También podés
-      <a href="https://calendly.com/adriandeyme/reunion-exploratoria" style="color:#FFD600">abrir Calendly en una pestaña nueva</a>.
+      <a href="https://calendly.com/adriandeyme/reunion-exploratoria" style="color:#C9A84C;">abrir Calendly en una nueva pestaña</a>.
     </p>
   </noscript>
 
