@@ -12,96 +12,81 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>¡Reunión confirmada! · Adrián Deyme</title>
+  <title>Conversación confirmada · Adrián Deyme</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://www.adriandeyme.com/gracias.html">
+  <meta name="theme-color" content="#0D1F2D">
+
   <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo-180.png">
-  <meta name="theme-color" content="#0F0F14">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Pacifico&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --negro:    #0F0F14;
-      --oscuro:   #1A1A2E;
-      --medio:    #2D2D44;
-      --gris:     #8888AA;
-      --claro:    #E8E8F0;
+      --noche:    #0D1F2D;
+      --petroleo: #1C3A4A;
+      --oro:      #C9A84C;
+      --oro2:     #B8963E;
+      --marfil:   #F5F3EE;
+      --gris:     #8A8A8A;
       --blanco:   #FFFFFF;
-      --amarillo: #FFD600;
-      --amarillo2:#FFC107;
-      --verde:    #0e844f;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--negro);
-      color: var(--claro);
+      background: var(--noche);
+      color: var(--blanco);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    /* NAV */
+    a { color: inherit; text-decoration: none; }
+
+    /* ---- NAV ---- */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(15,15,20,.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      padding: 0 24px;
-      height: 64px;
+      background: rgba(13,31,45,.96);
+      backdrop-filter: blur(20px);
+      border-bottom: 0.5px solid rgba(255,255,255,.07);
+      padding: 0 32px;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height: 68px;
     }
     .nav-logo {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--claro);
-      font-weight: 700;
-      font-size: 17px;
+      align-items: baseline;
+      gap: 2px;
     }
-    .nav-logo img { height: 32px; width: 32px; border-radius: 8px; }
-    .nav-logo .script { font-family: 'Pacifico', cursive; color: var(--amarillo); }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 22px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 14px;
-      text-decoration: none;
-      background: var(--amarillo);
-      color: var(--negro);
-      transition: background .2s, box-shadow .2s;
+    .nav-logo .nombre {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--oro);
+      line-height: 1;
     }
-    .btn-primary:hover { background: var(--amarillo2); box-shadow: 0 8px 32px rgba(255,214,0,.45); }
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 22px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 14px;
-      text-decoration: none;
-      border: 1.5px solid rgba(255,255,255,.25);
-      color: var(--claro);
-      transition: border-color .2s, color .2s;
+    .nav-logo .apellido {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+      margin-left: 10px;
+      padding-top: 4px;
     }
-    .btn-ghost:hover { border-color: var(--amarillo); color: var(--amarillo); }
 
-    /* MAIN */
+    /* ---- MAIN ---- */
     main {
       flex: 1;
       display: flex;
@@ -111,93 +96,115 @@
     }
 
     .card {
-      background: var(--oscuro);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 24px;
-      padding: 56px 48px;
-      max-width: 580px;
+      max-width: 620px;
       width: 100%;
       text-align: center;
     }
 
     /* Check */
     .check-wrap {
-      width: 72px;
-      height: 72px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
-      background: rgba(14,132,79,.15);
-      border: 1.5px solid rgba(14,132,79,.4);
+      background: rgba(201,168,76,.08);
+      border: 0.5px solid rgba(201,168,76,.3);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 28px;
+      margin: 0 auto 36px;
     }
-    .check-wrap svg { color: #2ecc71; }
+    .check-wrap svg { color: var(--oro); }
+
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--oro);
+      display: block;
+      margin-bottom: 20px;
+    }
 
     h1 {
-      font-size: clamp(24px, 4vw, 32px);
-      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 400;
+      line-height: 1.15;
       color: var(--blanco);
-      margin-bottom: 12px;
-      line-height: 1.2;
+      margin-bottom: 16px;
     }
-    h1 span {
-      font-family: 'Pacifico', cursive;
-      color: var(--amarillo);
-      font-size: .9em;
+    h1 em {
+      font-style: italic;
+      color: var(--oro);
     }
+
     .lead {
       font-size: 16px;
-      color: var(--gris);
-      line-height: 1.65;
-      margin-bottom: 36px;
+      font-weight: 300;
+      color: rgba(255,255,255,.45);
+      line-height: 1.8;
+      margin-bottom: 48px;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* Pasos */
     .steps {
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.07);
+      background: rgba(255,255,255,.03);
+      border: 0.5px solid rgba(255,255,255,.07);
       border-radius: 16px;
-      padding: 24px 28px;
-      margin-bottom: 36px;
+      padding: 32px 36px;
+      margin-bottom: 40px;
       text-align: left;
     }
-    .steps-title {
-      font-size: 11px;
+
+    .steps-label {
       font-family: 'DM Mono', monospace;
-      font-weight: 500;
-      color: var(--amarillo);
-      letter-spacing: .1em;
+      font-size: 9px;
+      letter-spacing: .2em;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      color: var(--oro);
+      margin-bottom: 24px;
+      display: block;
     }
+
     .step {
       display: flex;
-      gap: 14px;
+      gap: 16px;
       align-items: flex-start;
-      margin-bottom: 14px;
+      margin-bottom: 20px;
     }
     .step:last-child { margin-bottom: 0; }
+
     .step-num {
       flex-shrink: 0;
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
-      background: var(--amarillo);
-      color: var(--negro);
-      font-size: 13px;
-      font-weight: 700;
+      background: rgba(201,168,76,.1);
+      border: 0.5px solid rgba(201,168,76,.3);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--oro);
+      margin-top: 1px;
     }
-    .step-text {
-      font-size: 15px;
-      color: var(--claro);
-      line-height: 1.5;
-      padding-top: 3px;
+
+    .step-texto {}
+    .step-titulo {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--blanco);
+      margin-bottom: 2px;
     }
-    .step-text strong { color: var(--blanco); }
+    .step-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,.35);
+      line-height: 1.6;
+    }
 
     /* Acciones */
     .actions {
@@ -207,75 +214,140 @@
       flex-wrap: wrap;
     }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
+    .btn-oro {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
       font-size: 13px;
-      color: var(--gris);
+      font-weight: 600;
+      letter-spacing: .04em;
+      background: var(--oro);
+      color: var(--noche);
+      border: none;
+      cursor: pointer;
+      transition: background .2s;
+      text-decoration: none;
     }
-    footer a { color: var(--gris); text-decoration: none; }
-    footer a:hover { color: var(--amarillo); }
+    .btn-oro:hover { background: var(--oro2); }
 
-    @media (max-width: 520px) {
-      .card { padding: 36px 24px; }
-      .actions { flex-direction: column; }
-      .btn-primary, .btn-ghost { justify-content: center; }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: transparent;
+      color: rgba(255,255,255,.4);
+      border: 0.5px solid rgba(255,255,255,.12);
+      cursor: pointer;
+      transition: color .2s, border-color .2s;
+      text-decoration: none;
+    }
+    .btn-outline:hover { color: var(--oro); border-color: rgba(201,168,76,.3); }
+
+    /* ---- FOOTER ---- */
+    footer {
+      border-top: 0.5px solid rgba(255,255,255,.05);
+      padding: 24px 32px;
+      text-align: center;
+    }
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.2);
+    }
+
+    @media (max-width: 480px) {
+      .steps { padding: 24px 20px; }
+      .actions { flex-direction: column; align-items: stretch; }
+      .btn-oro, .btn-outline { justify-content: center; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a class="nav-logo" href="index.html" aria-label="Volver al inicio">
-      <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/brand/adrian-logo.png"
-           alt="AD" width="32" height="32"
-           onerror="this.src='https://placehold.co/32x32/FFD600/0F0F14?text=AD'">
-      <span><span class="script">Adrian</span> DEYME</span>
-    </a>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Volver al inicio — Adrián Deyme" style="display:flex; align-items:center;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 72" height="36" style="height:36px; width:auto;" role="img" aria-label="Adrián Deyme">
+          <rect x="16" y="12" width="48" height="48" rx="5" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+          <rect x="21" y="17" width="38" height="38" rx="3" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+          <text x="40" y="44" font-family="Georgia, serif" font-size="22" font-style="italic" font-weight="400" fill="#C9A84C" text-anchor="middle" dominant-baseline="middle">AD</text>
+          <text x="80" y="30" font-family="Georgia, serif" font-size="28" font-style="italic" font-weight="400" fill="#C9A84C" dominant-baseline="middle">Adrián</text>
+          <text x="207" y="30" font-family="'DM Sans', Arial, sans-serif" font-size="12" font-weight="300" fill="rgba(255,255,255,0.65)" dominant-baseline="middle" letter-spacing="6">DEYME</text>
+          <text x="81" y="52" font-family="'Courier New', monospace" font-size="8" fill="rgba(255,255,255,0.3)" letter-spacing="3">COACH EJECUTIVO ICF</text>
+        </svg>
+      </a>
+    </div>
   </nav>
 
   <main>
     <div class="card">
 
       <div class="check-wrap" aria-hidden="true">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2.5"
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2"
              stroke-linecap="round" stroke-linejoin="round">
           <polyline points="20 6 9 17 4 12"/>
         </svg>
       </div>
 
-      <h1>¡Tu reunión está <span>confirmada!</span></h1>
+      <span class="tag">Conversación confirmada</span>
+
+      <h1>Todo listo.<br><em>Nos vemos pronto.</em></h1>
+
       <p class="lead">
         Revisá tu correo — vas a recibir una invitación de calendario con el enlace de la videollamada y todos los detalles.
       </p>
 
       <div class="steps">
-        <p class="steps-title">Qué viene ahora</p>
+        <span class="steps-label">Qué viene ahora</span>
         <div class="step">
           <div class="step-num">1</div>
-          <div class="step-text"><strong>Revisá tu email</strong> y confirmá la invitación de calendario.</div>
+          <div class="step-texto">
+            <p class="step-titulo">Confirmá la invitación de calendario</p>
+            <p class="step-desc">Revisá tu email y aceptá el evento para que quede registrado en tu agenda.</p>
+          </div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <div class="step-text">Si querés, <strong>dejame contexto previo</strong> para aprovechar mejor los 30 minutos.</div>
+          <div class="step-texto">
+            <p class="step-titulo">Traé contexto si querés aprovecharlo al máximo</p>
+            <p class="step-desc">No es obligatorio — pero si me contás algo del contexto antes, podemos ir más al fondo en los 30 minutos.</p>
+          </div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <div class="step-text"><strong>Llegá con una pregunta o problema concreto</strong> en mente — así ordenamos las piezas juntos.</div>
+          <div class="step-texto">
+            <p class="step-titulo">Llegá con una pregunta o situación concreta</p>
+            <p class="step-desc">No hace falta tener todo claro — alcanza con saber qué es lo que más te preocupa o lo que no termina de resolverse.</p>
+          </div>
         </div>
       </div>
 
       <div class="actions">
-        <a href="index.html" class="btn-ghost">← Volver al inicio</a>
+        <a href="index.html" class="btn-outline">← Volver al inicio</a>
+        <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/"
+           target="_blank" rel="noopener"
+           class="btn-oro">
+          Conectar en LinkedIn →
+        </a>
       </div>
 
     </div>
   </main>
 
   <footer>
-    <p>© 2026 Adrián Deyme · Panamá · <a href="index.html">adriandeyme.com</a></p>
+    <p class="footer-copy">© 2026 Adrián Deyme · Panamá · Centroamérica y el Caribe</p>
   </footer>
 
   <!-- Evento de conversión GA4 -->
