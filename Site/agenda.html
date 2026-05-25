@@ -1,14 +1,16 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NTWMC2JYYY');
-  </script>
+  <!-- ============================================================
+       GOOGLE TAG MANAGER — reemplaza snippet gtag.js anterior
+       GTM-KPCL8GBK · www.adriandeyme.com
+  ============================================================ -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KPCL8GBK');</script>
+  <!-- Fin Google Tag Manager -->
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -63,7 +65,6 @@
 
     a { color: inherit; text-decoration: none; }
 
-    /* ---- NAV ---- */
     nav {
       background: rgba(13,31,45,.96);
       backdrop-filter: blur(20px);
@@ -83,23 +84,6 @@
       align-items: baseline;
       gap: 2px;
     }
-    .nav-logo .nombre {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 400;
-      color: var(--oro);
-      line-height: 1;
-    }
-    .nav-logo .apellido {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 300;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.6);
-      margin-left: 10px;
-      padding-top: 4px;
-    }
     .btn-volver {
       display: inline-flex;
       align-items: center;
@@ -116,7 +100,6 @@
     }
     .btn-volver:hover { color: var(--oro); border-color: rgba(201,168,76,.35); }
 
-    /* ---- MAIN ---- */
     main {
       flex: 1;
       display: grid;
@@ -128,9 +111,6 @@
       gap: 80px;
       align-items: start;
     }
-
-    /* ---- SIDEBAR IZQUIERDA ---- */
-    .sidebar {}
 
     .sidebar-tag {
       font-family: 'DM Mono', monospace;
@@ -163,7 +143,6 @@
       margin-bottom: 40px;
     }
 
-    /* Promesas */
     .promesas {
       display: flex;
       flex-direction: column;
@@ -191,7 +170,6 @@
     }
     .promesa-icon svg { color: var(--oro); }
 
-    .promesa-texto {}
     .promesa-titulo {
       font-size: 14px;
       font-weight: 500;
@@ -204,14 +182,12 @@
       line-height: 1.6;
     }
 
-    /* Separador */
     .sidebar-divider {
       border: none;
       border-top: 0.5px solid rgba(255,255,255,.07);
       margin: 40px 0;
     }
 
-    /* Cita */
     .sidebar-quote {
       font-family: 'Cormorant Garamond', serif;
       font-size: 17px;
@@ -222,9 +198,6 @@
       padding-left: 16px;
       border-left: 1.5px solid rgba(201,168,76,.3);
     }
-
-    /* ---- CALENDLY CARD ---- */
-    .cal-wrap {}
 
     .cal-card {
       background: rgba(255,255,255,.03);
@@ -251,7 +224,6 @@
     }
     .fallback a:hover { opacity: .7; }
 
-    /* ---- FOOTER ---- */
     footer {
       background: rgba(0,0,0,.2);
       border-top: 0.5px solid rgba(255,255,255,.05);
@@ -265,11 +237,6 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
-    }
-    .footer-logo {
-      display: flex;
-      align-items: baseline;
-      gap: 2px;
     }
     .footer-logo .nombre {
       font-family: 'Cormorant Garamond', serif;
@@ -293,7 +260,6 @@
       color: rgba(255,255,255,.2);
     }
 
-    /* ---- RESPONSIVE ---- */
     @media (max-width: 860px) {
       main {
         grid-template-columns: 1fr;
@@ -307,6 +273,11 @@
   </style>
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPCL8GBK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Fin Google Tag Manager (noscript) -->
 
   <nav>
     <div class="nav-inner">
@@ -325,8 +296,6 @@
   </nav>
 
   <main>
-
-    <!-- SIDEBAR -->
     <div class="sidebar">
       <span class="sidebar-tag">30 minutos · Sin costo</span>
       <h1>Una conversación<br>para ver si tiene<br>sentido <em>trabajar juntos.</em></h1>
@@ -334,7 +303,6 @@
         No es una reunión de venta. Es un espacio para entender si el problema que tenés y la forma en que trabajo tienen algo que decirse.
       </p>
 
-      <!-- Foto + nombre -->
       <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 36px; padding: 20px 24px; background: rgba(255,255,255,.03); border: 0.5px solid rgba(255,255,255,.07); border-radius: 12px;">
         <img
           src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/adrian-perfil.webp"
@@ -393,7 +361,6 @@
       </p>
     </div>
 
-    <!-- CALENDLY -->
     <div class="cal-wrap">
       <div class="cal-card">
         <div class="calendly-inline-widget"
@@ -405,7 +372,6 @@
         <a href="https://calendly.com/adriandeyme/reunion-exploratoria" target="_blank" rel="noopener">abrilo directamente acá</a>.
       </p>
     </div>
-
   </main>
 
   <footer>
