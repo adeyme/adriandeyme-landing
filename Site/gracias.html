@@ -1,14 +1,16 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NTWMC2JYYY');
-  </script>
+  <!-- ============================================================
+       GOOGLE TAG MANAGER — reemplaza snippet gtag.js anterior
+       GTM-KPCL8GBK · www.adriandeyme.com
+  ============================================================ -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KPCL8GBK');</script>
+  <!-- Fin Google Tag Manager -->
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +50,6 @@
 
     a { color: inherit; text-decoration: none; }
 
-    /* ---- NAV ---- */
     nav {
       background: rgba(13,31,45,.96);
       backdrop-filter: blur(20px);
@@ -63,30 +64,7 @@
       justify-content: space-between;
       height: 68px;
     }
-    .nav-logo {
-      display: flex;
-      align-items: baseline;
-      gap: 2px;
-    }
-    .nav-logo .nombre {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 400;
-      color: var(--oro);
-      line-height: 1;
-    }
-    .nav-logo .apellido {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 300;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.6);
-      margin-left: 10px;
-      padding-top: 4px;
-    }
 
-    /* ---- MAIN ---- */
     main {
       flex: 1;
       display: flex;
@@ -101,7 +79,6 @@
       text-align: center;
     }
 
-    /* Check */
     .check-wrap {
       width: 64px;
       height: 64px;
@@ -149,7 +126,6 @@
       margin-right: auto;
     }
 
-    /* Pasos */
     .steps {
       background: rgba(255,255,255,.03);
       border: 0.5px solid rgba(255,255,255,.07);
@@ -193,7 +169,6 @@
       margin-top: 1px;
     }
 
-    .step-texto {}
     .step-titulo {
       font-size: 14px;
       font-weight: 500;
@@ -206,7 +181,6 @@
       line-height: 1.6;
     }
 
-    /* Acciones */
     .actions {
       display: flex;
       gap: 12px;
@@ -253,7 +227,6 @@
     }
     .btn-outline:hover { color: var(--oro); border-color: rgba(201,168,76,.3); }
 
-    /* ---- FOOTER ---- */
     footer {
       border-top: 0.5px solid rgba(255,255,255,.05);
       padding: 24px 32px;
@@ -275,6 +248,11 @@
 </head>
 <body>
 
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPCL8GBK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Fin Google Tag Manager (noscript) -->
+
   <nav>
     <div class="nav-inner">
       <a href="index.html" class="nav-logo" aria-label="Volver al inicio — Adrián Deyme" style="display:flex; align-items:center;">
@@ -292,7 +270,6 @@
 
   <main>
     <div class="card">
-
       <div class="check-wrap" aria-hidden="true">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
              stroke="currentColor" stroke-width="2"
@@ -342,7 +319,6 @@
           Conectar en LinkedIn →
         </a>
       </div>
-
     </div>
   </main>
 
@@ -350,9 +326,13 @@
     <p class="footer-copy">© 2026 Adrián Deyme · Panamá · Centroamérica y el Caribe</p>
   </footer>
 
-  <!-- Evento de conversión GA4 -->
+  <!-- Evento de conversión GA4 — disparado vía GTM dataLayer -->
   <script>
-    gtag('event', 'conversion_reunion_agendada', { page: 'gracias' });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'conversion_reunion_agendada',
+      page: 'gracias'
+    });
   </script>
 
 </body>
