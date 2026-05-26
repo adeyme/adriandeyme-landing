@@ -1,1 +1,850 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- ============================================================
+       F4.1 — BLOG LISTING PAGE
+       Frente 4: Contenido y autoridad SEO
+       Tarea 4.1: Blog propio en adriandeyme.com/blog
+       
+       UBICACIÓN: /blog/index.html
+       DEPENDENCIA: Lee artículos desde /blog/articles.json
+       NOTA: Replica tokens, tipografía, nav y footer del index principal
+  ============================================================ -->
 
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NTWMC2JYYY');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO — Title y description optimizados para keyword cluster TOFU -->
+  <title>Blog · Adrián Deyme — Liderazgo, Coaching Ejecutivo y Organizaciones Complejas</title>
+  <meta name="description" content="Artículos sobre liderazgo en organizaciones complejas, coaching ejecutivo, transición de roles y herramientas para líderes. Por Adrián Deyme, Coach Ejecutivo ICF.">
+  <link rel="canonical" href="https://www.adriandeyme.com/blog/">
+
+  <!-- OG / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_LA">
+  <meta property="og:url" content="https://www.adriandeyme.com/blog/">
+  <meta property="og:title" content="Blog · Adrián Deyme — Liderazgo y Coaching Ejecutivo">
+  <meta property="og:description" content="Artículos sobre liderazgo en organizaciones complejas, coaching ejecutivo, transición de roles y herramientas para líderes.">
+  <meta property="og:image" content="https://www.adriandeyme.com/assets/social/og-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@adriandeyme">
+  <meta name="theme-color" content="#0D1F2D">
+
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="es" href="https://www.adriandeyme.com/blog/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32-v2.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/favicon-180-v2.png">
+
+  <!-- Fuentes — mismas que el index principal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD: CollectionPage schema para el listado del blog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Blog — Adrián Deyme",
+    "description": "Artículos sobre liderazgo en organizaciones complejas, coaching ejecutivo y herramientas para líderes.",
+    "url": "https://www.adriandeyme.com/blog/",
+    "author": {
+      "@type": "Person",
+      "name": "Adrián Deyme",
+      "url": "https://www.adriandeyme.com",
+      "jobTitle": "Coach Ejecutivo ICF",
+      "sameAs": [
+        "https://www.linkedin.com/in/adriandeyme-coach-ontologico",
+        "https://medium.com/@adriandeyme"
+      ]
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Adrián Deyme · Coach Ejecutivo",
+      "url": "https://www.adriandeyme.com"
+    }
+  }
+  </script>
+
+  <style>
+    /* ============================================================
+       TOKENS — idénticos al index principal
+    ============================================================ */
+    :root {
+      --noche:      #0D1F2D;
+      --petroleo:   #1C3A4A;
+      --petroleo2:  #243F50;
+      --oro:        #C9A84C;
+      --oro2:       #B8963E;
+      --marfil:     #F5F3EE;
+      --gris:       #8A8A8A;
+      --gris2:      #555;
+      --tinta:      #1A1A1A;
+      --blanco:     #FFFFFF;
+      --borde:      rgba(255,255,255,.08);
+      --borde-claro: rgba(0,0,0,.1);
+      --r-sm: 4px;
+      --r-md: 10px;
+      --r-lg: 18px;
+      --r-xl: 24px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--marfil);
+      color: var(--tinta);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ============================================================
+       TIPOGRAFÍA
+    ============================================================ */
+    .label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--oro);
+    }
+
+    /* ============================================================
+       BOTONES — idénticos al index
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      cursor: pointer;
+      border: none;
+      transition: all .25s ease;
+      text-decoration: none;
+    }
+
+    .btn-oro {
+      background: var(--oro);
+      color: var(--noche);
+      padding: 14px 32px;
+      border-radius: var(--r-sm);
+    }
+    .btn-oro:hover {
+      background: var(--oro2);
+      transform: translateY(-1px);
+    }
+
+    /* ============================================================
+       NAV — idéntica al index
+    ============================================================ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(13,31,45,.96);
+      backdrop-filter: blur(20px);
+      border-bottom: 0.5px solid rgba(255,255,255,.07);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+    .nav-logo .nombre {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--oro);
+      letter-spacing: .01em;
+      line-height: 1;
+    }
+    .nav-logo .apellido {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      margin-left: 10px;
+      padding-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: rgba(255,255,255,.9); }
+    .nav-links a.active { color: var(--oro); }
+
+    .nav-ham {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-ham span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: rgba(255,255,255,.6);
+      transition: all .3s;
+    }
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      background: var(--noche);
+      border-top: 0.5px solid rgba(255,255,255,.07);
+      padding: 24px 32px;
+      gap: 4px;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-size: 13px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      padding: 12px 0;
+      border-bottom: 0.5px solid rgba(255,255,255,.06);
+      transition: color .2s;
+    }
+    .nav-mobile a:hover { color: var(--oro); }
+    .nav-mobile .btn-oro { margin-top: 16px; justify-content: center; }
+
+    /* ============================================================
+       BLOG HERO — cabecera de la página de listado
+    ============================================================ */
+    .blog-hero {
+      background: var(--noche);
+      padding: 100px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Textura sutil — misma que el hero del index */
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .blog-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+    }
+
+    .blog-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4.5vw, 54px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--blanco);
+      margin-top: 16px;
+      margin-bottom: 20px;
+    }
+    .blog-hero h1 em {
+      font-style: italic;
+      color: var(--oro);
+    }
+
+    .blog-hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,.45);
+      line-height: 1.8;
+      max-width: 540px;
+    }
+
+    /* ============================================================
+       FILTROS — categorías de contenido
+    ============================================================ */
+    .blog-filters {
+      padding: 32px 0 0;
+      background: var(--marfil);
+      border-bottom: 0.5px solid var(--borde-claro);
+    }
+
+    .filters-inner {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding-bottom: 24px;
+    }
+
+    .filter-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gris);
+      background: transparent;
+      border: 0.5px solid var(--borde-claro);
+      border-radius: var(--r-sm);
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-btn:hover {
+      border-color: var(--oro2);
+      color: var(--oro2);
+    }
+    .filter-btn.active {
+      background: var(--noche);
+      color: var(--oro);
+      border-color: var(--noche);
+    }
+
+    /* ============================================================
+       GRID DE ARTÍCULOS
+    ============================================================ */
+    .blog-grid-section {
+      padding: 60px 0 120px;
+      background: var(--marfil);
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .post-card {
+      background: var(--blanco);
+      border: 0.5px solid var(--borde-claro);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .3s, transform .3s;
+    }
+    .post-card:hover {
+      border-color: rgba(201,168,76,.3);
+      transform: translateY(-3px);
+    }
+
+    .post-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .post-placeholder {
+      width: 100%;
+      height: 200px;
+      background: var(--petroleo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .post-placeholder-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      color: rgba(201,168,76,.3);
+    }
+
+    .post-body {
+      padding: 28px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .post-source {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--oro2);
+    }
+
+    .post-category {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gris);
+      background: rgba(0,0,0,.04);
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+
+    .post-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--noche);
+      flex: 1;
+    }
+    .post-titulo a {
+      color: inherit;
+      transition: color .2s;
+    }
+    .post-titulo a:hover {
+      color: var(--oro2);
+    }
+
+    .post-desc {
+      font-size: 13px;
+      color: var(--gris);
+      line-height: 1.7;
+    }
+
+    .post-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .post-fecha {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: rgba(0,0,0,.3);
+    }
+
+    .post-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--oro2);
+      letter-spacing: .04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border-bottom: 0.5px solid var(--oro2);
+      padding-bottom: 1px;
+      transition: gap .2s;
+    }
+    .post-link:hover { gap: 8px; color: var(--oro); border-color: var(--oro); }
+
+    /* Estado vacío si no hay artículos para un filtro */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 0;
+    }
+    .empty-state p {
+      font-size: 15px;
+      color: var(--gris);
+    }
+
+    /* ============================================================
+       FOOTER — idéntico al index
+    ============================================================ */
+    footer {
+      background: var(--noche);
+      border-top: 0.5px solid rgba(255,255,255,.06);
+      padding: 44px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+    .footer-logo .nombre {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--oro);
+    }
+    .footer-logo .apellido {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-left: 8px;
+    }
+
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.25);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .footer-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.25);
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--oro); }
+
+    .li-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,.05);
+      border: 0.5px solid rgba(255,255,255,.1);
+      border-radius: var(--r-sm);
+      color: rgba(255,255,255,.4);
+      transition: all .2s;
+    }
+    .li-icon:hover {
+      background: rgba(201,168,76,.1);
+      border-color: rgba(201,168,76,.3);
+      color: var(--oro);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 900px) {
+      .posts-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .posts-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .nav-ham { display: flex; }
+      .blog-hero { padding: 80px 0 52px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV — replica exacta del index, con "Blog" marcado como activo
+============================================================ -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="nombre">Adrián</span>
+        <span class="apellido">Deyme</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#problema">El problema</a></li>
+        <li><a href="/#servicios">Servicios</a></li>
+        <li><a href="/#quien">Sobre mí</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+      </ul>
+      <a href="/agenda.html" class="btn btn-oro" style="border-radius: 4px; font-size: 12px; padding: 11px 24px; letter-spacing: .06em; text-transform: uppercase;">Conversemos</a>
+      <button class="nav-ham" id="ham-btn" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="mobile-nav" role="dialog" aria-label="Navegación">
+    <a href="/#problema" onclick="closeMobileNav()">El problema</a>
+    <a href="/#servicios" onclick="closeMobileNav()">Servicios</a>
+    <a href="/#quien" onclick="closeMobileNav()">Sobre mí</a>
+    <a href="/blog/" onclick="closeMobileNav()">Blog</a>
+    <a href="/agenda.html" class="btn btn-oro">Conversemos</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     BLOG HERO
+============================================================ -->
+<section class="blog-hero">
+  <div class="container">
+    <div class="blog-hero-inner">
+      <span class="label">Blog</span>
+      <h1>Punto de <em>vista.</em></h1>
+      <p class="blog-hero-sub">Artículos sobre liderazgo, organizaciones complejas y las conversaciones que todavía no tuviste. Desde la mirada de un coach que entiende el sistema porque lo vivió desde adentro.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FILTROS POR CATEGORÍA
+     Categorías definidas por los pilares de contenido:
+     - Liderazgo
+     - Transición
+     - Herramientas
+     - Coaching
+============================================================ -->
+<section class="blog-filters">
+  <div class="container">
+    <div class="filters-inner" id="filters">
+      <button class="filter-btn active" data-filter="todos">Todos</button>
+      <button class="filter-btn" data-filter="liderazgo">Liderazgo</button>
+      <button class="filter-btn" data-filter="transicion">Transición</button>
+      <button class="filter-btn" data-filter="herramientas">Herramientas</button>
+      <button class="filter-btn" data-filter="coaching">Coaching</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GRID DE ARTÍCULOS
+============================================================ -->
+<section class="blog-grid-section">
+  <div class="container">
+    <div class="posts-grid" id="posts-container">
+      <!-- Los artículos se renderizan vía JS desde articles.json -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER — réplica del index
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">
+        <span class="nombre">Adrián</span>
+        <span class="apellido">Deyme</span>
+      </a>
+      <p class="footer-copy">&copy; 2026 Adrián Deyme. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="/blog/">Blog</a>
+        <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico" target="_blank" rel="noopener" class="li-icon" aria-label="LinkedIn">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ============================================================
+     NAV MOBILE
+  ============================================================ */
+  const hamBtn = document.getElementById('ham-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  hamBtn?.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    hamBtn.setAttribute('aria-expanded', open);
+  });
+
+  function closeMobileNav() {
+    mobileNav?.classList.remove('open');
+    hamBtn?.setAttribute('aria-expanded', 'false');
+  }
+
+  /* ============================================================
+     ARTÍCULOS — ampliado con campo "category" para filtrado
+     
+     NOTA PARA ADRIÁN: 
+     Este array se lee desde un archivo JSON externo en producción.
+     Para la primera versión, está embebido aquí.
+     Cuando el blog crezca, mover a /blog/articles.json y hacer fetch.
+     
+     Cada artículo necesita:
+     - source: "Blog" (propio) | "Medium" | "La Estrella de Panamá"
+     - title: título del artículo
+     - slug: URL relativa si es post propio (/blog/nombre.html)
+     - url: URL completa si es artículo externo
+     - date: fecha ISO
+     - img: URL de la imagen de portada (opcional)
+     - desc: descripción corta (1-2 oraciones)
+     - category: "liderazgo" | "transicion" | "herramientas" | "coaching"
+  ============================================================ */
+  const articles = [
+    {
+      source: "La Estrella de Panamá",
+      title: "¿Murió el trabajo estable?",
+      date: "2026-02-07",
+      url: "https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864",
+      img: "https://www.laestrella.com.pa/binrepository/700x466/0c0/699d466/none/199516884/ALGQ/pexels-woman-1851464-1280_181-12524158_20260207094431.jpg",
+      desc: "El trabajo estable no desapareció por factores externos — desapareció porque en contextos de alta complejidad ya no alcanza con hacer bien el trabajo.",
+      category: "liderazgo"
+    },
+    {
+      source: "Medium",
+      title: "El 90% de los Líderes Están Atrapados en el Pasado",
+      date: "2025-10-23",
+      url: "https://medium.com/@adriandeyme/el-90-de-los-l%C3%ADderes-est%C3%A1n-atrapados-en-el-pasado-00a2fb2980b0",
+      img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png",
+      desc: "El modelo del líder héroe quedó obsoleto. Solo el 10% de los gerentes opera desde niveles realmente aptos para el presente.",
+      category: "liderazgo"
+    },
+    {
+      source: "Medium",
+      title: "¿Qué mueve realmente a las personas a seguirte?",
+      date: "2025-10-14",
+      url: "https://medium.com/@adriandeyme/qu%C3%A9-mueve-realmente-a-las-personas-a-seguirte-01c1dca3f43a",
+      img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png",
+      desc: "Las personas no siguen lo que un líder hace — siguen lo que representa. El Círculo Dorado de Sinek aplicado al liderazgo.",
+      category: "liderazgo"
+    },
+    {
+      source: "Medium",
+      title: "Si tu Estrategia se Mueve a 100 km/h, ¿Por Qué Tu Estructura Va a 10?",
+      date: "2025-10-02",
+      url: "https://medium.com/@adriandeyme/si-tu-estrategia-se-mueve-a-100-km-h-por-qu%C3%A9-tu-estructura-va-a-10-40eccb35086f",
+      img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*BhY2_8mIIOUmodGPYImNrg.png",
+      desc: "Las estructuras rígidas son el freno de mano de la ejecución. unFIX propone una arquitectura modular para reorganizar la empresa alrededor del flujo de valor.",
+      category: "herramientas"
+    },
+    {
+      source: "Medium",
+      title: "Descubre el Método Kanban: Transforma el Caos en Eficiencia",
+      date: "2025-10-09",
+      url: "https://medium.com/@adriandeyme/descubre-el-m%C3%A9todo-kanban-transforma-el-caos-en-eficiencia-y-felicidad-organizacional-f7c6905fd193",
+      img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*dQdMWNNoBGemd8zrNdR2oQ.jpeg",
+      desc: "Kanban no arregla personas — mejora el sistema de trabajo. Visualizar el flujo y limitar el trabajo en progreso transforma entornos caóticos en sistemas predecibles.",
+      category: "herramientas"
+    }
+  ];
+
+  /* ---- Iconos por fuente ---- */
+  const SOURCE_ICON = {
+    'Medium': '✦',
+    'LinkedIn': '◆',
+    'La Estrella de Panamá': '◈',
+    'Blog': '◉'
+  };
+
+  /* ---- Render ---- */
+  function renderPost(p) {
+    const icon = SOURCE_ICON[p.source] || '◇';
+    const href = p.slug || p.url;
+    const target = p.slug ? '' : ' target="_blank" rel="noopener"';
+
+    return `
+      <article class="post-card" data-category="${p.category}">
+        ${p.img
+          ? `<img src="${p.img}" alt="${p.title}" class="post-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">${icon}</span></div>`
+          : `<div class="post-placeholder"><span class="post-placeholder-icon">${icon}</span></div>`
+        }
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-source">${p.source}</span>
+            <span class="post-category">${p.category}</span>
+          </div>
+          <h2 class="post-titulo">
+            <a href="${href}"${target}>${p.title}</a>
+          </h2>
+          ${p.desc ? `<p class="post-desc">${p.desc}</p>` : ''}
+          <div class="post-footer">
+            <span class="post-fecha">${new Date(p.date).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'})}</span>
+            <a href="${href}"${target} class="post-link">Leer <span>→</span></a>
+          </div>
+        </div>
+      </article>`;
+  }
+
+  const container = document.getElementById('posts-container');
+  container.innerHTML = articles.map(renderPost).join('');
+
+  /* ---- Filtros ---- */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      const cards = container.querySelectorAll('.post-card');
+
+      let visible = 0;
+      cards.forEach(card => {
+        if (filter === 'todos' || card.dataset.category === filter) {
+          card.style.display = '';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      /* Estado vacío */
+      const existing = container.querySelector('.empty-state');
+      if (existing) existing.remove();
+
+      if (visible === 0) {
+        container.insertAdjacentHTML('beforeend',
+          '<div class="empty-state"><p>Próximamente: artículos sobre este tema.</p></div>');
+      }
+    });
+  });
+
+  /* ---- GA4: tracking de click en artículo del blog ---- */
+  container.addEventListener('click', (e) => {
+    const link = e.target.closest('.post-link, .post-titulo a');
+    if (link && typeof gtag === 'function') {
+      const card = link.closest('.post-card');
+      const title = card?.querySelector('.post-titulo')?.textContent?.trim();
+      gtag('event', 'click_blog_article', {
+        article_title: title,
+        article_category: card?.dataset.category
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
