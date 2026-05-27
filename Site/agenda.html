@@ -281,7 +281,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="Volver al inicio — Adrián Deyme" style="display:flex; align-items:center;">
+      <a href="/" class="nav-logo" aria-label="Volver al inicio — Adrián Deyme" style="display:flex; align-items:center;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="12 8 280 56" style="height:48px; width:auto;" role="img" aria-label="Adrián Deyme">
           <rect x="16" y="12" width="48" height="48" rx="5" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
           <rect x="21" y="17" width="38" height="38" rx="3" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
@@ -291,7 +291,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <text x="81" y="52" font-family="'Courier New', monospace" font-size="8" fill="rgba(255,255,255,0.3)" letter-spacing="3">COACH EJECUTIVO ICF</text>
         </svg>
       </a>
-      <a href="index.html" class="btn-volver">← Volver al inicio</a>
+      <a href="/" class="btn-volver">← Volver al inicio</a>
     </div>
   </nav>
 
@@ -385,14 +385,71 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
   <script>
+    /* ============================================================
+       F3.4 — TRACKING DEL FUNNEL AGENDA
+    ============================================================ */
+
+    /* Mejora #2 — Evento de llegada a la página de agenda */
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'view_agenda_page',
+      page: 'agenda'
+    });
+
+    /* Mejora #3 — Detectar si el widget de Calendly cargó correctamente */
+    var calendlyLoaded = false;
     window.addEventListener("message", function(e) {
-      if (e?.origin?.includes("calendly.com") && e?.data?.event === "calendly.event_scheduled") {
-        try {
-          gtag('event', 'calendly_event_scheduled', {
+      if (e?.origin?.includes("calendly.com")) {
+
+        /* Calendly envía un evento cuando el widget termina de cargar */
+        if (e?.data?.event === "calendly.page_height" && !calendlyLoaded) {
+          calendlyLoaded = true;
+          window.dataLayer.push({
+            event: 'calendly_widget_loaded',
+            page: 'agenda'
+          });
+        }
+
+        /* Evento principal: reunión agendada */
+        if (e?.data?.event === "calendly.event_scheduled") {
+          try {
+            gtag('event', 'calendly_event_scheduled', {
+              event_type: e?.data?.payload?.event?.event_type_name || 'Conversación exploratoria'
+            });
+          } catch(err) { console.warn('GA4 event error:', err); }
+
+          /* También push a dataLayer para GTM */
+          window.dataLayer.push({
+            event: 'calendly_event_scheduled',
             event_type: e?.data?.payload?.event?.event_type_name || 'Conversación exploratoria'
           });
-        } catch(err) { console.warn('GA4 error:', err); }
-        window.location.assign('/gracias.html');
+
+          window.location.assign('/gracias.html');
+        }
+      }
+    });
+
+    /* Mejora #4 — Fallback para móvil: si Calendly abre en nueva pestaña,
+       el postMessage nunca llega. Detectamos si el usuario vuelve a la
+       página después de haber estado en Calendly (visibilitychange).
+       Si el widget estaba cargado y la página estuvo oculta > 30s,
+       mostramos un enlace manual a gracias.html */
+    var pageHiddenAt = null;
+
+    document.addEventListener("visibilitychange", function() {
+      if (document.hidden) {
+        pageHiddenAt = Date.now();
+      } else if (pageHiddenAt && calendlyLoaded) {
+        var awaySeconds = (Date.now() - pageHiddenAt) / 1000;
+        if (awaySeconds > 30) {
+          var fallbackEl = document.querySelector('.fallback');
+          if (fallbackEl) {
+            fallbackEl.innerHTML =
+              '¿Ya agendaste tu reunión? ' +
+              '<a href="/gracias.html" style="color:#C9A84C;">Confirma aquí →</a>';
+          }
+        }
+        pageHiddenAt = null;
       }
     });
   </script>
