@@ -25,6 +25,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Mi Enfoque — filosofía y declaración de principios -->
+  <url>
+    <loc>https://www.adriandeyme.com/enfoque.html</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Agenda — página de conversión -->
   <url>
     <loc>https://www.adriandeyme.com/agenda.html</loc>
