@@ -11,14 +11,13 @@
        NOTA: Replica tokens, tipografía, nav y footer del index principal
   ============================================================ -->
 
-  <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTWMC2JYYY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NTWMC2JYYY');
-  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KPCL8GBK');</script>
+  <!-- Fin Google Tag Manager -->
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -144,9 +143,10 @@
       letter-spacing: .05em;
       cursor: pointer;
       border: none;
-      transition: all .25s ease;
+      transition: background .2s cubic-bezier(.23,1,.32,1), transform .2s cubic-bezier(.23,1,.32,1), border-color .2s cubic-bezier(.23,1,.32,1), color .2s cubic-bezier(.23,1,.32,1);
       text-decoration: none;
     }
+    .btn:active { transform: scale(.97); }
 
     .btn-oro {
       background: var(--oro);
@@ -233,7 +233,7 @@
       width: 22px;
       height: 1px;
       background: rgba(255,255,255,.6);
-      transition: all .3s;
+      transition: transform .3s cubic-bezier(.23,1,.32,1), opacity .3s;
     }
 
     .nav-mobile {
@@ -334,7 +334,7 @@
       border-radius: var(--r-sm);
       padding: 8px 16px;
       cursor: pointer;
-      transition: all .2s;
+      transition: background .2s cubic-bezier(.23,1,.32,1), border-color .2s cubic-bezier(.23,1,.32,1), color .2s cubic-bezier(.23,1,.32,1);
     }
     .filter-btn:hover {
       border-color: var(--oro2);
@@ -557,7 +557,7 @@
       border: 0.5px solid rgba(255,255,255,.1);
       border-radius: var(--r-sm);
       color: rgba(255,255,255,.4);
-      transition: all .2s;
+      transition: background .2s cubic-bezier(.23,1,.32,1), border-color .2s cubic-bezier(.23,1,.32,1), color .2s cubic-bezier(.23,1,.32,1);
     }
     .li-icon:hover {
       background: rgba(201,168,76,.1);
@@ -581,6 +581,11 @@
   </style>
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPCL8GBK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Fin Google Tag Manager (noscript) -->
 
 <!-- ============================================================
      NAV — replica exacta del index, con "Blog" marcado como activo
@@ -724,39 +729,39 @@
       category: "liderazgo"
     },
     {
-      source: "Medium",
+      source: "Blog",
       title: "El 90% de los Líderes Están Atrapados en el Pasado",
       date: "2025-10-23",
-      url: "https://medium.com/@adriandeyme/el-90-de-los-l%C3%ADderes-est%C3%A1n-atrapados-en-el-pasado-00a2fb2980b0",
+      slug: "/blog/lideres-atrapados-pasado.html",
       img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png",
-      desc: "El modelo del líder héroe quedó obsoleto. Solo el 10% de los gerentes opera desde niveles realmente aptos para el presente.",
+      desc: "Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual. La investigación de Leadership Agility explica por qué.",
       category: "liderazgo"
     },
     {
-      source: "Medium",
-      title: "¿Qué mueve realmente a las personas a seguirte?",
+      source: "Blog",
+      title: "¿Qué Mueve Realmente a las Personas a Seguirte?",
       date: "2025-10-14",
-      url: "https://medium.com/@adriandeyme/qu%C3%A9-mueve-realmente-a-las-personas-a-seguirte-01c1dca3f43a",
+      slug: "/blog/circulo-dorado-liderazgo.html",
       img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png",
-      desc: "Las personas no siguen lo que un líder hace — siguen lo que representa. El Círculo Dorado de Sinek aplicado al liderazgo.",
+      desc: "Las personas no siguen lo que un líder hace — siguen lo que representa. El Círculo Dorado de Sinek aplicado al liderazgo ejecutivo.",
       category: "liderazgo"
     },
     {
-      source: "Medium",
+      source: "Blog",
       title: "Si tu Estrategia se Mueve a 100 km/h, ¿Por Qué Tu Estructura Va a 10?",
       date: "2025-10-02",
-      url: "https://medium.com/@adriandeyme/si-tu-estrategia-se-mueve-a-100-km-h-por-qu%C3%A9-tu-estructura-va-a-10-40eccb35086f",
+      slug: "/blog/estrategia-estructura-unfix.html",
       img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*BhY2_8mIIOUmodGPYImNrg.png",
-      desc: "Las estructuras rígidas son el freno de mano de la ejecución. unFIX propone una arquitectura modular para reorganizar la empresa alrededor del flujo de valor.",
+      desc: "Las estructuras rígidas frenan la ejecución. unFIX propone una arquitectura modular para reorganizar la empresa alrededor del flujo de valor.",
       category: "herramientas"
     },
     {
-      source: "Medium",
+      source: "Blog",
       title: "Descubre el Método Kanban: Transforma el Caos en Eficiencia",
       date: "2025-10-09",
-      url: "https://medium.com/@adriandeyme/descubre-el-m%C3%A9todo-kanban-transforma-el-caos-en-eficiencia-y-felicidad-organizacional-f7c6905fd193",
+      slug: "/blog/metodo-kanban-eficiencia.html",
       img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*dQdMWNNoBGemd8zrNdR2oQ.jpeg",
-      desc: "Kanban no arregla personas — mejora el sistema de trabajo. Visualizar el flujo y limitar el trabajo en progreso transforma entornos caóticos en sistemas predecibles.",
+      desc: "Kanban no arregla personas — mejora el sistema de trabajo. Visualizar el flujo transforma entornos caóticos en sistemas predecibles.",
       category: "herramientas"
     }
   ];
