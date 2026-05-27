@@ -1,8 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.adriandeyme.com/</loc></url>
-  <url><loc>https://www.adriandeyme.com/transicion</loc></url>
-  <url><loc>https://www.adriandeyme.com/agenda.html</loc></url> <--- ¡NUEVA LÍNEA!
-  <url><loc>https://www.adriandeyme.com/gracias.html</loc></url>
-  <url><loc>https://www.adriandeyme.com/descubrimiento.html</loc></url>
+
+  <!-- Página principal — máxima prioridad -->
+  <url>
+    <loc>https://www.adriandeyme.com/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Blog — listado de artículos -->
+  <url>
+    <loc>https://www.adriandeyme.com/blog/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Coaching de Transición — landing de servicio -->
+  <url>
+    <loc>https://www.adriandeyme.com/transicion.html</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Agenda — página de conversión -->
+  <url>
+    <loc>https://www.adriandeyme.com/agenda.html</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Gracias — post-conversión -->
+  <url>
+    <loc>https://www.adriandeyme.com/gracias.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <!-- Descubrimiento -->
+  <url>
+    <loc>https://www.adriandeyme.com/descubrimiento.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!--
+    NOTA: Cuando publiques artículos en el blog propio,
+    añadir una entrada <url> por cada post individual:
+    
+    <url>
+      <loc>https://www.adriandeyme.com/blog/nombre-del-post.html</loc>
+      <lastmod>FECHA-DE-PUBLICACIÓN</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.6</priority>
+    </url>
+  -->
+
 </urlset>
