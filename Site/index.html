@@ -79,7 +79,8 @@
       },
       "sameAs": [
         "https://www.linkedin.com/in/adriandeyme-coach-ontologico/",
-        "https://medium.com/@adriandeyme"
+        "https://medium.com/@adriandeyme",
+        "https://www.adriandeyme.com/blog/"
       ],
       "knowsAbout": [
         "Coaching Ejecutivo",
@@ -979,6 +980,137 @@
       transform: translateY(-2px);
     }
 
+    /* ============================================================
+       CASOS DE IMPACTO — F3.2
+    ============================================================ */
+    #impacto {
+      padding: 120px 0;
+      background: var(--marfil);
+    }
+
+    .impacto-header {
+      max-width: 600px;
+      margin-bottom: 64px;
+    }
+
+    .impacto-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 3.5vw, 46px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--noche);
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+    .impacto-header h2 em {
+      font-style: italic;
+      color: var(--oro2);
+    }
+
+    .impacto-header p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--gris2);
+      line-height: 1.8;
+    }
+
+    .impacto-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .caso-card {
+      background: var(--blanco);
+      border: 0.5px solid var(--borde-claro);
+      border-radius: var(--r-lg);
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: border-color .3s, transform .3s;
+    }
+    .caso-card:hover {
+      border-color: rgba(201,168,76,.3);
+      transform: translateY(-2px);
+    }
+
+    .caso-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .caso-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--oro2);
+    }
+
+    .caso-duracion {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .1em;
+      color: rgba(0,0,0,.3);
+    }
+
+    .caso-perfil {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--noche);
+    }
+
+    .caso-industria {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gris);
+    }
+
+    .caso-bloque-titulo {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--oro2);
+      margin-bottom: 8px;
+    }
+
+    .caso-texto {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gris2);
+      line-height: 1.8;
+    }
+
+    .caso-resultado {
+      border-top: 0.5px solid var(--borde-claro);
+      padding-top: 20px;
+    }
+
+    .caso-resultado .caso-texto {
+      color: var(--noche);
+      font-weight: 400;
+    }
+
+    .impacto-nota {
+      margin-top: 48px;
+      text-align: center;
+    }
+    .impacto-nota p {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      color: rgba(0,0,0,.25);
+    }
+
     #blog {
       padding: 120px 0;
       background: var(--marfil);
@@ -1326,6 +1458,8 @@
       .servicio-cta { justify-content: flex-start; }
       .quien-grid { grid-template-columns: 1fr; gap: 60px; }
       .posts-grid { grid-template-columns: 1fr; }
+      .impacto-grid { grid-template-columns: 1fr; }
+      .caso-card { padding: 32px 24px; }
       .gratis-grid { grid-template-columns: 1fr; }
       .nav-links, .nav-links + .btn-oro { display: none; }
       .nav-ham { display: flex; }
@@ -1371,7 +1505,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li><a href="#problema">El problema</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#quien">Sobre mí</a></li>
-        <li><a href="#blog">Blog</a></li>
+        <li><a href="/blog/">Blog</a></li>
       </ul>
       <a href="agenda.html" class="btn btn-oro" style="border-radius: 4px; font-size: 12px; padding: 11px 24px; letter-spacing: .06em; text-transform: uppercase;">Conversemos</a>
       <button class="nav-ham" id="ham-btn" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav">
@@ -1383,7 +1517,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="#problema" onclick="closeMobileNav()">El problema</a>
     <a href="#servicios" onclick="closeMobileNav()">Servicios</a>
     <a href="#quien" onclick="closeMobileNav()">Sobre mí</a>
-    <a href="#blog" onclick="closeMobileNav()">Blog</a>
+    <a href="/blog/" onclick="closeMobileNav()">Blog</a>
     <a href="agenda.html" class="btn btn-oro">Conversemos</a>
   </div>
 </nav>
@@ -1607,6 +1741,110 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- ============================================================
+     F3.2 — CASOS DE IMPACTO
+     Procesos reales anonimizados. Entre #quien y #credenciales.
+============================================================ -->
+<section id="impacto">
+  <div class="container">
+    <div class="impacto-header reveal">
+      <span class="label">Procesos reales</span>
+      <h2>Lo que se destrabó <em>en el camino.</em></h2>
+      <p>Cada proceso es confidencial. Lo que comparto aquí es la estructura de lo que ocurrió — anonimizado, pero real.</p>
+    </div>
+
+    <div class="impacto-grid">
+      <div class="caso-card reveal">
+        <div class="caso-meta">
+          <span class="caso-num">Caso 01</span>
+          <span class="caso-duracion">6 sesiones · 90 días</span>
+        </div>
+        <p class="caso-perfil">Gerente General</p>
+        <p class="caso-industria">Logística · Centroamérica</p>
+        <div>
+          <p class="caso-bloque-titulo">El contexto</p>
+          <p class="caso-texto">Una ejecutiva con quince años en operaciones asumió la gerencia general de una empresa logística regional en pleno crecimiento. Su claridad operativa era enorme — pero esa misma fortaleza se había convertido en límite: intervenía demasiado pronto, absorbía decisiones que otros debían tomar y era el principal punto de dependencia del sistema.</p>
+        </div>
+        <div>
+          <p class="caso-bloque-titulo">El trabajo</p>
+          <p class="caso-texto">Durante el proceso, la ejecutiva pudo observar cómo su forma de liderar — resolver todo, estar en todo — generaba exactamente lo que quería evitar: un equipo que no tomaba decisiones sin ella. A partir de esa observación, identificó las conversaciones que estaba evitando, redefinió lo que significaba "agregar valor" desde el rol de gerente general y diseñó una forma de estar presente sin absorber.</p>
+        </div>
+        <div class="caso-resultado">
+          <p class="caso-bloque-titulo">Lo que se destrabó</p>
+          <p class="caso-texto">Redujo su intervención directa en lo operativo. El equipo directivo empezó a asumir mayor responsabilidad. El cambio más profundo fue en cómo medía su propio valor: dejó de medirlo por la cantidad de problemas que resolvía y empezó a medirlo por la capacidad que generaba en otros.</p>
+        </div>
+      </div>
+
+      <div class="caso-card reveal rd1">
+        <div class="caso-meta">
+          <span class="caso-num">Caso 02</span>
+          <span class="caso-duracion">6 sesiones · 90 días</span>
+        </div>
+        <p class="caso-perfil">VP Comercial</p>
+        <p class="caso-industria">Tecnología B2B · Panamá</p>
+        <div>
+          <p class="caso-bloque-titulo">El contexto</p>
+          <p class="caso-texto">Una ejecutiva con trayectoria en ventas consultivas asumió como VP Comercial en una empresa tecnológica B2B en crecimiento acelerado. Encontró un equipo reactivo, un pipeline poco confiable y presión del CEO por resultados rápidos — sin romper la confianza del equipo heredado.</p>
+        </div>
+        <div>
+          <p class="caso-bloque-titulo">El trabajo</p>
+          <p class="caso-texto">En el proceso, la ejecutiva pudo ver que su mayor riesgo no era "no vender" sino repetir lo que siempre le había funcionado: cerrar ella misma. Exploró qué significaba pasar de ejecutora a líder de un sistema comercial. Identificó dónde su equipo evitaba conversaciones difíciles con clientes y dónde ella misma evitaba conversaciones difíciles con el CEO. Trabajó sobre ambas.</p>
+        </div>
+        <div class="caso-resultado">
+          <p class="caso-bloque-titulo">Lo que se destrabó</p>
+          <p class="caso-texto">El equipo operaba con mayor autonomía, las reuniones tenían otro foco y la VP dejó de cargar sola con el resultado. El cambio más relevante fue que el equipo empezó a hacerse cargo de la calidad de sus oportunidades — no solo del volumen de actividad.</p>
+        </div>
+      </div>
+
+      <div class="caso-card reveal rd2">
+        <div class="caso-meta">
+          <span class="caso-num">Caso 03</span>
+          <span class="caso-duracion">8 sesiones · 4 meses</span>
+        </div>
+        <p class="caso-perfil">Director de Operaciones</p>
+        <p class="caso-industria">Retail · Centroamérica</p>
+        <div>
+          <p class="caso-bloque-titulo">El contexto</p>
+          <p class="caso-texto">Un ejecutivo con amplia experiencia operativa asumió como Director de Operaciones de una cadena de retail con presencia regional. La empresa había crecido rápido, pero los procesos internos seguían funcionando como cuando la operación era mucho más pequeña. Todo terminaba pasando por él.</p>
+        </div>
+        <div>
+          <p class="caso-bloque-titulo">El trabajo</p>
+          <p class="caso-texto">El proceso le permitió observar un patrón que no tenía visible: su disponibilidad permanente no era compromiso — era una forma de controlar que le costaba soltar. A partir de ahí, trabajó sobre qué debía seguir en sus manos y qué necesitaba salir de su agenda. Revisó sus acuerdos con los mandos medios y construyó una forma de liderar la operación sin ser el cuello de botella.</p>
+        </div>
+        <div class="caso-resultado">
+          <p class="caso-bloque-titulo">Lo que se destrabó</p>
+          <p class="caso-texto">Los mandos medios empezaron a resolver con mayor criterio. Las reuniones dejaron de ser espacios de reporte y se convirtieron en espacios de decisión. El mayor cambio fue dejar de confundirse con la operación: seguía cerca del negocio, pero ya no estaba atrapado en cada urgencia.</p>
+        </div>
+      </div>
+
+      <div class="caso-card reveal rd3">
+        <div class="caso-meta">
+          <span class="caso-num">Caso 04</span>
+          <span class="caso-duracion">10 sesiones · 6 meses</span>
+        </div>
+        <p class="caso-perfil">CEO · Segunda generación</p>
+        <p class="caso-industria">Industrial / Manufactura · Sudamérica</p>
+        <div>
+          <p class="caso-bloque-titulo">El contexto</p>
+          <p class="caso-texto">Un ejecutivo de segunda generación asumió como CEO de una empresa familiar industrial. Tenía legitimidad técnica y conocimiento profundo del negocio, pero su autoridad todavía convivía con la presencia activa de los fundadores. Formalmente era CEO; en la práctica, muchas decisiones seguían siendo consultadas o revisadas por la generación anterior.</p>
+        </div>
+        <div>
+          <p class="caso-bloque-titulo">El trabajo</p>
+          <p class="caso-texto">En el proceso, el CEO pudo distinguir algo que no tenía claro: la diferencia entre respetar la historia de la empresa y pedir permiso para liderarla. Exploró los vínculos entre lo familiar y lo empresarial, identificó dónde estaba cediendo autoridad sin darse cuenta y preparó conversaciones que venía postergando — con los fundadores, con el directorio y con su propio equipo.</p>
+        </div>
+        <div class="caso-resultado">
+          <p class="caso-bloque-titulo">Lo que se destrabó</p>
+          <p class="caso-texto">Clarificó su mandato, ordenó la relación con el equipo directivo y estableció conversaciones que llevaban tiempo pendientes. La empresa no cambió de un día para otro, pero el sistema empezó a reconocer un nuevo centro de conducción. Dejó de pedir permiso para ocupar el rol y comenzó a ejercerlo con mayor serenidad y legitimidad.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="impacto-nota">
+      <p>Todos los procesos son individuales y confidenciales. Los casos están anonimizados con autorización de los participantes.</p>
+    </div>
+  </div>
+</section>
+
 <!-- CREDENCIALES -->
 <section id="credenciales">
   <div class="container">
@@ -1627,22 +1865,74 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- BLOG -->
+<!-- BLOG — Preview de 3 artículos recientes + enlace al blog completo -->
 <section id="blog">
   <div class="container">
     <div class="section-header reveal">
       <span class="label">Publicaciones</span>
       <h2>Punto de vista.</h2>
-      <p>Artículos sobre liderazgo, organizaciones y complejidad — publicados en Medium y La Estrella de Panamá.</p>
+      <p>Artículos sobre liderazgo, organizaciones y complejidad.</p>
     </div>
-    <div class="posts-grid" id="posts-container">
-      <div style="grid-column:1/-1; text-align:center; padding: 60px 0; color: var(--gris);">
-        <span class="label-muted">Cargando publicaciones…</span>
-      </div>
+    <div class="posts-grid" style="margin-top: 60px;">
+
+      <article class="post-card reveal">
+        <img src="https://www.laestrella.com.pa/binrepository/700x466/0c0/699d466/none/199516884/ALGQ/pexels-woman-1851464-1280_181-12524158_20260207094431.jpg"
+             alt="¿Murió el trabajo estable?" class="post-img" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">◈</span></div>
+        <div class="post-body">
+          <span class="post-source">La Estrella de Panamá</span>
+          <h3 class="post-titulo">
+            <a href="https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864" target="_blank" rel="noopener" style="color:inherit;">¿Murió el trabajo estable?</a>
+          </h3>
+          <p class="post-desc">El trabajo estable no desapareció por factores externos — desapareció porque en contextos de alta complejidad ya no alcanza con hacer bien el trabajo.</p>
+          <div class="post-footer">
+            <span class="post-fecha">07 feb 2026</span>
+            <a href="https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864" target="_blank" rel="noopener" class="post-link">Leer <span>→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card reveal rd1">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png"
+             alt="El 90% de los Líderes Están Atrapados en el Pasado" class="post-img" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">✦</span></div>
+        <div class="post-body">
+          <span class="post-source">Medium</span>
+          <h3 class="post-titulo">
+            <a href="https://medium.com/@adriandeyme/el-90-de-los-l%C3%ADderes-est%C3%A1n-atrapados-en-el-pasado-00a2fb2980b0" target="_blank" rel="noopener" style="color:inherit;">El 90% de los Líderes Están Atrapados en el Pasado</a>
+          </h3>
+          <p class="post-desc">El modelo del líder héroe quedó obsoleto. Solo el 10% de los gerentes opera desde niveles realmente aptos para el presente.</p>
+          <div class="post-footer">
+            <span class="post-fecha">23 oct 2025</span>
+            <a href="https://medium.com/@adriandeyme/el-90-de-los-l%C3%ADderes-est%C3%A1n-atrapados-en-el-pasado-00a2fb2980b0" target="_blank" rel="noopener" class="post-link">Leer <span>→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card reveal rd2">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png"
+             alt="¿Qué mueve realmente a las personas a seguirte?" class="post-img" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">✦</span></div>
+        <div class="post-body">
+          <span class="post-source">Medium</span>
+          <h3 class="post-titulo">
+            <a href="https://medium.com/@adriandeyme/qu%C3%A9-mueve-realmente-a-las-personas-a-seguirte-01c1dca3f43a" target="_blank" rel="noopener" style="color:inherit;">¿Qué mueve realmente a las personas a seguirte?</a>
+          </h3>
+          <p class="post-desc">Las personas no siguen lo que un líder hace — siguen lo que representa. El Círculo Dorado de Sinek aplicado al liderazgo.</p>
+          <div class="post-footer">
+            <span class="post-fecha">14 oct 2025</span>
+            <a href="https://medium.com/@adriandeyme/qu%C3%A9-mueve-realmente-a-las-personas-a-seguirte-01c1dca3f43a" target="_blank" rel="noopener" class="post-link">Leer <span>→</span></a>
+          </div>
+        </div>
+      </article>
+
     </div>
     <div class="blog-cta reveal">
-      <a href="https://medium.com/@adriandeyme" target="_blank" rel="noopener" class="btn btn-outline-oscuro">
-        Ver todas las publicaciones →
+      <a href="/blog/" class="btn btn-outline-oscuro">
+        Ver todos los artículos →
       </a>
     </div>
   </div>
@@ -1716,6 +2006,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <p class="footer-copy">© 2026 · Panamá · Centroamérica y el Caribe</p>
       <div class="footer-links">
+        <a href="/blog/">Blog</a>
         <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" target="_blank" rel="noopener" class="li-icon" aria-label="LinkedIn">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.51-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.769 7 2.476v6.759z"/></svg>
         </a>
@@ -1798,66 +2089,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.getElementById('escucha-email')?.addEventListener('keydown', e => {
     if (e.key === 'Enter') pedirEscucha();
   });
-
-  /* ---- Blog feed ---- */
-  const container = document.getElementById('posts-container');
-
-  const articles = [
-    {
-      source: "La Estrella de Panamá",
-      title: "¿Murió el trabajo estable?",
-      date: "2026-02-07",
-      url: "https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864",
-      img: "https://www.laestrella.com.pa/binrepository/700x466/0c0/699d466/none/199516884/ALGQ/pexels-woman-1851464-1280_181-12524158_20260207094431.jpg",
-      desc: "El trabajo estable no desapareció por factores externos — desapareció porque en contextos de alta complejidad ya no alcanza con hacer bien el trabajo."
-    },
-    {
-      source: "Medium",
-      title: "El 90% de los Líderes Están Atrapados en el Pasado",
-      date: "2025-10-23",
-      url: "https://medium.com/@adriandeyme/el-90-de-los-l%C3%ADderes-est%C3%A1n-atrapados-en-el-pasado-00a2fb2980b0",
-      img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png",
-      desc: "El modelo del líder héroe quedó obsoleto. Solo el 10% de los gerentes opera desde niveles realmente aptos para el presente."
-    },
-    {
-      source: "Medium",
-      title: "¿Qué mueve realmente a las personas a seguirte?",
-      date: "2025-10-14",
-      url: "https://medium.com/@adriandeyme/qu%C3%A9-mueve-realmente-a-las-personas-a-seguirte-01c1dca3f43a",
-      img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png",
-      desc: "Las personas no siguen lo que un líder hace — siguen lo que representa. El Círculo Dorado de Sinek aplicado al liderazgo."
-    }
-  ];
-
-  const SOURCE_ICON = {
-    'Medium': '✦',
-    'LinkedIn': '◆',
-    'La Estrella de Panamá': '◈',
-  };
-
-  function renderPost(p) {
-    const icon = SOURCE_ICON[p.source] || '◇';
-    return `
-      <article class="post-card">
-        ${p.img
-          ? `<img src="${p.img}" alt="${p.title}" class="post-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">${icon}</span></div>`
-          : `<div class="post-placeholder"><span class="post-placeholder-icon">${icon}</span></div>`
-        }
-        <div class="post-body">
-          <span class="post-source">${p.source}</span>
-          <h3 class="post-titulo">
-            <a href="${p.url}" target="_blank" rel="noopener" style="color:inherit;">${p.title}</a>
-          </h3>
-          ${p.desc ? `<p class="post-desc">${p.desc}</p>` : ''}
-          <div class="post-footer">
-            <span class="post-fecha">${new Date(p.date).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'})}</span>
-            <a href="${p.url}" target="_blank" rel="noopener" class="post-link">Leer <span>→</span></a>
-          </div>
-        </div>
-      </article>`;
-  }
-
-  container.innerHTML = articles.map(renderPost).join('');
 </script>
 
 </body>
