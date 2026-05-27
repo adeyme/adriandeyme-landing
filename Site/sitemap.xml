@@ -59,4 +59,33 @@
     </url>
   -->
 
+  <!-- Artículos del blog -->
+  <url>
+    <loc>https://www.adriandeyme.com/blog/lideres-atrapados-pasado.html</loc>
+    <lastmod>2025-10-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.adriandeyme.com/blog/circulo-dorado-liderazgo.html</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.adriandeyme.com/blog/estrategia-estructura-unfix.html</loc>
+    <lastmod>2025-10-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.adriandeyme.com/blog/metodo-kanban-eficiencia.html</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>
