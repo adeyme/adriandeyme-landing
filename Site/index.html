@@ -2045,7 +2045,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   /* ---- Lead form ---- */
-  async function pedirEscucha() {
+async function pedirEscucha() {
     const input = document.getElementById('escucha-email');
     const btn = document.querySelector('#gratis .btn-oro');
     const msg = document.getElementById('escucha-msg');
@@ -2070,20 +2070,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
 
       if (res.ok) {
-        gtag('event', 'lead_la_escucha', { email_provided: true });
+        try { gtag('event', 'lead_la_escucha', { email_provided: true }); } catch(e) {}
         form.style.display = 'none';
         msg.style.display = 'block';
       } else {
         btn.textContent = 'Quiero mi copia';
         btn.disabled = false;
-        msg.textContent = 'Algo salió mal. Intentá de nuevo.';
+        msg.textContent = 'Algo salió mal. Intenta de nuevo.';
         msg.style.color = 'rgba(255,255,255,.4)';
         msg.style.display = 'block';
       }
     } catch (err) {
       btn.textContent = 'Quiero mi copia';
       btn.disabled = false;
-      msg.textContent = 'Error de conexión. Intentá de nuevo.';
+      msg.textContent = 'Error de conexión. Intenta de nuevo.';
       msg.style.color = 'rgba(255,255,255,.4)';
       msg.style.display = 'block';
     }
