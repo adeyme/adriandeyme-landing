@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- ============================================================
+       F4.1 — BLOG POST TEMPLATE
+       Frente 4: Contenido y autoridad SEO
+       
+       UBICACIÓN: /blog/[slug].html
+       
+       INSTRUCCIONES DE USO:
+       1. Copiar este archivo y renombrarlo con el slug del artículo
+       2. Reemplazar todos los [VARIABLE] con contenido real
+       3. Ajustar el CTA contextual según el segmento del artículo
+       4. Si el artículo ya existe en Medium, añadir rel="canonical"
+          apuntando a ESTE archivo (tu dominio), no a Medium
+  ============================================================ -->
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KPCL8GBK');</script>
+  <!-- Fin Google Tag Manager -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO — [REEMPLAZAR] título + keyword objetivo del artículo -->
+  <title>¿Qué Mueve Realmente a las Personas a Seguirte? · Adrián Deyme — Coach Ejecutivo ICF</title>
+  <meta name="description" content="Las personas no siguen lo que un líder hace — siguen lo que representa. El Círculo Dorado de Sinek aplicado al liderazgo ejecutivo.">
+  <link rel="canonical" href="https://www.adriandeyme.com/blog/circulo-dorado-liderazgo.html">
+
+  <!-- OG / Social — [REEMPLAZAR] -->
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_LA">
+  <meta property="og:url" content="https://www.adriandeyme.com/blog/circulo-dorado-liderazgo.html">
+  <meta property="og:title" content="¿Qué Mueve Realmente a las Personas a Seguirte?">
+  <meta property="og:description" content="El Círculo Dorado de Sinek: por qué el propósito es la arquitectura invisible del liderazgo inspirador.">
+  <meta property="og:image" content="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png">
+  <meta property="article:published_time" content="2025-10-14T00:00:00-05:00">
+  <meta property="article:author" content="https://www.adriandeyme.com">
+  <meta property="article:section" content="Liderazgo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@adriandeyme">
+  <meta name="theme-color" content="#0D1F2D">
+
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="es" href="https://www.adriandeyme.com/blog/circulo-dorado-liderazgo.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32-v2.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/favicon-180-v2.png">
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD: Article schema — [REEMPLAZAR] campos marcados -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "¿Qué Mueve Realmente a las Personas a Seguirte?",
+    "description": "El Círculo Dorado de Sinek: por qué el propósito es la arquitectura invisible del liderazgo inspirador.",
+    "url": "https://www.adriandeyme.com/blog/circulo-dorado-liderazgo.html",
+    "datePublished": "2025-10-14T00:00:00-05:00",
+    "dateModified": "2025-10-14T00:00:00-05:00",
+    "image": "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png",
+    "author": {
+      "@type": "Person",
+      "name": "Adrián Deyme",
+      "url": "https://www.adriandeyme.com",
+      "jobTitle": "Coach Ejecutivo ICF",
+      "sameAs": [
+        "https://www.linkedin.com/in/adriandeyme-coach-ontologico",
+        "https://medium.com/@adriandeyme"
+      ]
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Adrián Deyme",
+      "url": "https://www.adriandeyme.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.adriandeyme.com/blog/circulo-dorado-liderazgo.html"
+    },
+    "articleSection": "Liderazgo",
+    "inLanguage": "es"
+  }
+  </script>
+
+  <style>
+    /* ============================================================
+       TOKENS — idénticos al index
+    ============================================================ */
+    :root {
+      --noche:      #0D1F2D;
+      --petroleo:   #1C3A4A;
+      --petroleo2:  #243F50;
+      --oro:        #C9A84C;
+      --oro2:       #B8963E;
+      --marfil:     #F5F3EE;
+      --gris:       #8A8A8A;
+      --gris2:      #555;
+      --tinta:      #1A1A1A;
+      --blanco:     #FFFFFF;
+      --borde:      rgba(255,255,255,.08);
+      --borde-claro: rgba(0,0,0,.1);
+      --r-sm: 4px;
+      --r-md: 10px;
+      --r-lg: 18px;
+      --r-xl: 24px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--marfil);
+      color: var(--tinta);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--oro);
+    }
+
+    /* ============================================================
+       BOTONES
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      cursor: pointer;
+      border: none;
+      transition: background .2s cubic-bezier(.23,1,.32,1), transform .2s cubic-bezier(.23,1,.32,1), border-color .2s cubic-bezier(.23,1,.32,1), color .2s cubic-bezier(.23,1,.32,1);
+      text-decoration: none;
+    }
+    .btn:active { transform: scale(.97); }
+
+    .btn-oro {
+      background: var(--oro);
+      color: var(--noche);
+      padding: 14px 32px;
+      border-radius: var(--r-sm);
+    }
+    .btn-oro:hover {
+      background: var(--oro2);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-oscuro {
+      background: transparent;
+      color: var(--gris2);
+      padding: 13px 28px;
+      border-radius: var(--r-sm);
+      border: 0.5px solid rgba(0,0,0,.2);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+    .btn-outline-oscuro:hover {
+      border-color: var(--tinta);
+      color: var(--tinta);
+    }
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(13,31,45,.96);
+      backdrop-filter: blur(20px);
+      border-bottom: 0.5px solid rgba(255,255,255,.07);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+    .nav-logo .nombre {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--oro);
+      letter-spacing: .01em;
+      line-height: 1;
+    }
+    .nav-logo .apellido {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      margin-left: 10px;
+      padding-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: rgba(255,255,255,.9); }
+    .nav-links a.active { color: var(--oro); }
+
+    .nav-ham {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-ham span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: rgba(255,255,255,.6);
+      transition: transform .3s cubic-bezier(.23,1,.32,1), opacity .3s;
+    }
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      background: var(--noche);
+      border-top: 0.5px solid rgba(255,255,255,.07);
+      padding: 24px 32px;
+      gap: 4px;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-size: 13px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      padding: 12px 0;
+      border-bottom: 0.5px solid rgba(255,255,255,.06);
+      transition: color .2s;
+    }
+    .nav-mobile a:hover { color: var(--oro); }
+    .nav-mobile .btn-oro { margin-top: 16px; justify-content: center; }
+
+    /* ============================================================
+       ARTICLE HEADER
+    ============================================================ */
+    .article-header {
+      background: var(--noche);
+      padding: 100px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .article-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .article-header-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+
+    .article-meta-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .article-category-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--oro);
+      background: rgba(201,168,76,.1);
+      border: 0.5px solid rgba(201,168,76,.25);
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+
+    .article-reading-time {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.3);
+    }
+
+    .article-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--blanco);
+      margin-bottom: 20px;
+    }
+
+    .article-header-desc {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255,255,255,.45);
+      line-height: 1.8;
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+
+    .article-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .12em;
+      color: rgba(255,255,255,.25);
+    }
+
+    /* ============================================================
+       ARTICLE HERO IMAGE (opcional)
+    ============================================================ */
+    .article-hero-img {
+      background: var(--noche);
+      padding: 0 0 0;
+    }
+    .article-hero-img img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+    }
+
+    /* ============================================================
+       ARTICLE BODY — prosa editorial
+    ============================================================ */
+    .article-body-section {
+      padding: 64px 0 80px;
+      background: var(--marfil);
+    }
+
+    .article-body {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Tipografía del cuerpo del artículo */
+    .article-body p {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--gris2);
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+
+    .article-body h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--noche);
+      line-height: 1.25;
+      margin-top: 48px;
+      margin-bottom: 20px;
+    }
+
+    .article-body h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--noche);
+      margin-top: 36px;
+      margin-bottom: 16px;
+    }
+
+    .article-body blockquote {
+      border-left: 2px solid var(--oro);
+      padding: 4px 0 4px 24px;
+      margin: 32px 0;
+    }
+    .article-body blockquote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--noche);
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+
+    .article-body ul,
+    .article-body ol {
+      padding-left: 24px;
+      margin-bottom: 24px;
+    }
+    .article-body li {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--gris2);
+      line-height: 1.9;
+      margin-bottom: 8px;
+    }
+
+    .article-body strong {
+      font-weight: 500;
+      color: var(--tinta);
+    }
+
+    .article-body em {
+      font-style: italic;
+    }
+
+    .article-body a {
+      color: var(--oro2);
+      border-bottom: 0.5px solid var(--oro2);
+      transition: color .2s;
+    }
+    .article-body a:hover {
+      color: var(--oro);
+      border-color: var(--oro);
+    }
+
+    /* Separador visual dentro del artículo */
+    .article-body hr {
+      border: none;
+      border-top: 0.5px solid var(--borde-claro);
+      margin: 48px 0;
+    }
+
+    /* ============================================================
+       CTA CONTEXTUAL — al final del artículo
+       
+       INSTRUCCIÓN: Elegir el CTA según el segmento del artículo:
+       - Artículos de Liderazgo/Transición → agenda.html
+       - Artículos de Herramientas → recurso "La Escucha" o agenda
+       - Artículos para empresa/RRHH → transicion.html o agenda
+    ============================================================ */
+    .article-cta {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--noche);
+      border-radius: var(--r-lg);
+      padding: 48px 40px;
+      text-align: center;
+    }
+
+    .article-cta .label {
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .article-cta h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--blanco);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .article-cta h3 em {
+      font-style: italic;
+      color: var(--oro);
+    }
+
+    .article-cta p {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,.45);
+      line-height: 1.7;
+      max-width: 440px;
+      margin: 0 auto 28px;
+    }
+
+    /* ============================================================
+       ARTÍCULOS RELACIONADOS
+    ============================================================ */
+    .related-section {
+      padding: 80px 0 120px;
+      background: var(--marfil);
+      border-top: 0.5px solid var(--borde-claro);
+    }
+
+    .related-header {
+      margin-bottom: 40px;
+    }
+    .related-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--noche);
+      margin-top: 12px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* Reutiliza las mismas clases de post-card del listado */
+    .related-grid .post-card {
+      background: var(--blanco);
+      border: 0.5px solid var(--borde-claro);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .3s, transform .3s;
+    }
+    .related-grid .post-card:hover {
+      border-color: rgba(201,168,76,.3);
+      transform: translateY(-3px);
+    }
+    .related-grid .post-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .related-grid .post-body {
+      padding: 24px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .related-grid .post-source {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--oro2);
+    }
+    .related-grid .post-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--noche);
+      flex: 1;
+    }
+    .related-grid .post-titulo a { color: inherit; transition: color .2s; }
+    .related-grid .post-titulo a:hover { color: var(--oro2); }
+    .related-grid .post-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--oro2);
+      letter-spacing: .04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border-bottom: 0.5px solid var(--oro2);
+      padding-bottom: 1px;
+      transition: gap .2s;
+      align-self: flex-start;
+    }
+    .related-grid .post-link:hover { gap: 8px; color: var(--oro); }
+
+    /* ============================================================
+       BACK TO BLOG
+    ============================================================ */
+    .back-to-blog {
+      padding: 0 0 60px;
+      background: var(--marfil);
+      text-align: center;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--noche);
+      border-top: 0.5px solid rgba(255,255,255,.06);
+      padding: 44px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+    .footer-logo .nombre {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--oro);
+    }
+    .footer-logo .apellido {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-left: 8px;
+    }
+
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.25);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .footer-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.25);
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--oro); }
+
+    .li-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,.05);
+      border: 0.5px solid rgba(255,255,255,.1);
+      border-radius: var(--r-sm);
+      color: rgba(255,255,255,.4);
+      transition: background .2s cubic-bezier(.23,1,.32,1), border-color .2s cubic-bezier(.23,1,.32,1), color .2s cubic-bezier(.23,1,.32,1);
+    }
+    .li-icon:hover {
+      background: rgba(201,168,76,.1);
+      border-color: rgba(201,168,76,.3);
+      color: var(--oro);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 900px) {
+      .related-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .nav-ham { display: flex; }
+      .article-header { padding: 80px 0 52px; }
+      .article-cta { padding: 36px 24px; }
+      .article-body { padding: 0 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPCL8GBK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Fin Google Tag Manager (noscript) -->
+
+<!-- ============================================================
+     NAV
+============================================================ -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="nombre">Adrián</span>
+        <span class="apellido">Deyme</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#problema">El problema</a></li>
+        <li><a href="/#servicios">Servicios</a></li>
+        <li><a href="/#quien">Sobre mí</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+      </ul>
+      <a href="/agenda.html" class="btn btn-oro" style="border-radius: 4px; font-size: 12px; padding: 11px 24px; letter-spacing: .06em; text-transform: uppercase;">Conversemos</a>
+      <button class="nav-ham" id="ham-btn" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="mobile-nav" role="dialog" aria-label="Navegación">
+    <a href="/#problema" onclick="closeMobileNav()">El problema</a>
+    <a href="/#servicios" onclick="closeMobileNav()">Servicios</a>
+    <a href="/#quien" onclick="closeMobileNav()">Sobre mí</a>
+    <a href="/blog/" onclick="closeMobileNav()">Blog</a>
+    <a href="/agenda.html" class="btn btn-oro">Conversemos</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     ARTICLE HEADER
+     [REEMPLAZAR] título, categoría, tiempo de lectura, fecha
+============================================================ -->
+<header class="article-header">
+  <div class="container">
+    <div class="article-header-inner">
+      <div class="article-meta-top">
+        <span class="article-category-tag">Liderazgo</span>
+        <span class="article-reading-time">10 min de lectura</span>
+      </div>
+      <h1>¿Qué Mueve Realmente a las Personas a Seguirte?</h1>
+      <p class="article-header-desc">El liderazgo del siglo XXI atraviesa una transformación silenciosa. Las organizaciones ya no se sostienen solo por estrategias brillantes. La pregunta que desafía a los líderes en su centro: ¿qué mueve realmente a las personas a seguirte?</p>
+      <time class="article-date" datetime="2025-10-14T00:00:00-05:00">[DD de mes de AAAA]</time>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO IMAGE (opcional — borrar si no aplica)
+============================================================ -->
+<div class="article-hero-img">
+  <div class="container">
+    <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png" alt="Líderes que inspiran con propósito" loading="eager">
+  </div>
+</div>
+
+<!-- ============================================================
+     ARTICLE BODY
+     
+     INSTRUCCIONES DE FORMATO:
+     - Usar <h2> para secciones principales (Cormorant Garamond)
+     - Usar <h3> para subsecciones (DM Sans)
+     - Usar <blockquote><p>...</p></blockquote> para citas destacadas
+     - Usar <strong> para énfasis (DM Sans 500)
+     - Usar <em> para cursivas
+     - Usar <hr> para separadores temáticos
+     - No usar clases adicionales — el CSS del .article-body aplica
+============================================================ -->
+<section class="article-body-section">
+  <div class="container">
+    <div class="article-body">
+
+<p>Las organizaciones ya no se sostienen únicamente por estrategias brillantes, estructuras sólidas o indicadores de rendimiento. En un mundo saturado de información, donde los cambios se aceleran más rápido que la capacidad humana de adaptarse, los líderes se enfrentan a una pregunta que los desafía en su centro: ¿qué mueve realmente a las personas a seguirte?</p>
+
+      <p>Durante décadas, el liderazgo se entendió como la habilidad de dirigir, influir o motivar. Sin embargo, el modelo clásico — centrado en el control, la eficiencia y los resultados — ha demostrado su agotamiento. Cada vez más profesionales exitosos declaran sentirse desconectados de su propósito. Equipos de alto rendimiento se desmoronan ante la falta de sentido compartido.</p>
+
+      <p>La crisis del liderazgo no es una crisis de talento, sino de propósito.</p>
+
+      <h2>El Círculo Dorado: la arquitectura invisible del liderazgo inspirador</h2>
+
+      <p>Simon Sinek desarrolló el modelo del Círculo Dorado tras estudiar a líderes y organizaciones que inspiraban un compromiso emocional profundo — desde Apple hasta Martin Luther King — y detectar un patrón común: todos piensan, actúan y comunican desde adentro hacia afuera.</p>
+
+      <p>El modelo se compone de tres círculos concéntricos: el Por Qué (la causa, creencia o propósito que motiva cada acción), el Cómo (los valores, principios o procesos que materializan esa creencia) y el Qué (los productos, servicios o resultados visibles).</p>
+
+      <p>La mayoría de los líderes comunican desde el exterior: "esto es lo que hacemos, así lo hacemos, y por eso somos diferentes". Pero los líderes que inspiran comienzan en el núcleo: "esto es en lo que creemos, por eso lo hacemos, y esto es lo que ofrecemos como consecuencia".</p>
+
+      <p>Sinek descubrió que este orden está anclado en la biología del cerebro humano. El "Qué" corresponde al neocórtex, el área racional del lenguaje. Pero el "Por Qué" y el "Cómo" se relacionan con el sistema límbico, el centro emocional responsable de la toma de decisiones y de la confianza. Cuando un líder comunica desde su Por Qué, conecta con la parte del cerebro que decide.</p>
+
+      <blockquote><p>La lógica justifica, pero el propósito inspira.</p></blockquote>
+
+      <h2>El Por Qué: el núcleo biológico de la influencia</h2>
+
+      <p>El Por Qué es la creencia fundamental que explica por qué existes más allá del beneficio, por qué te levantas cada mañana y por qué alguien debería importarle lo que haces. No se inventa: se descubre. Está presente en la historia, en los momentos donde se sintió plenitud, impacto o coherencia.</p>
+
+      <p>Cuando los líderes comunican desde su Por Qué, el impacto es inmediato: generan confianza. Porque la confianza no nace de los datos, sino de la coherencia entre lo que se cree, lo que se dice y lo que se hace. Miles de personas viajaron a Washington no porque Martin Luther King tuviera un plan de doce pasos, sino porque creían en lo que él creía. No fue un líder que gritó "tengo un plan", sino uno que proclamó "tengo un sueño".</p>
+
+      <p>Las personas no siguen lo que un líder hace — siguen lo que representa.</p>
+
+      <h2>Del Por Qué al Para Qué: la evolución consciente</h2>
+
+      <p>Si el Por Qué revela la creencia que impulsa al líder, el Para Qué expresa la intención consciente de proyectar esa creencia hacia el futuro. El Por Qué responde a "¿Qué me mueve?"; el Para Qué responde "¿Hacia dónde canalizo eso que me mueve?".</p>
+
+      <p>Sin un Para Qué, el propósito puede quedarse en inspiración personal. Con él, se convierte en acción estratégica. El líder deja de ser protagonista para convertirse en catalizador.</p>
+
+      <h2>El valor del Círculo Dorado en el liderazgo moderno</h2>
+
+      <p>Las organizaciones del futuro no se construirán alrededor de productos ni procesos, sino de propósitos compartidos. Cuando los líderes clarifican y comunican su Por Qué, las decisiones se vuelven coherentes con los valores, los equipos se comprometen emocionalmente y la cultura se alinea desde dentro. Cuando integran el Para Qué, transforman la inspiración en dirección y pasan de liderar procesos a liderar significados.</p>
+
+      <h2>Metodología para descubrir tu Círculo Dorado</h2>
+
+      <p>El proceso, inspirado en Encuentra tu Por Qué de Sinek, comienza conectando con la historia personal: ¿cuándo te sentiste más vivo en tu trabajo? ¿Qué aportabas a otros en esos momentos? A partir de ahí, se identifican los momentos de contribución, se declara el Por Qué con la estructura "Contribuyo a [impacto] para que [transformación]", se formula el Para Qué, se definen los Cómo (principios de acción) y se alinean los Qué (proyectos y servicios tangibles).</p>
+
+      <p>El proceso completo requiere entre cinco y siete horas de trabajo reflexivo. Un espacio pequeño de introspección que puede redefinir la dirección de una carrera, una cultura o una vida.</p>
+
+      <hr>
+
+      <p>El liderazgo no consiste en tener seguidores, sino en crear las condiciones para que otros también descubran su Por Qué y actúen desde su Para Qué. Esa es la esencia de los líderes que inspiran: aquellos que viven lo que predican, comunican lo que creen y lideran con sentido.</p>
+
+    </div>
+
+    <!-- ============================================================
+         CTA CONTEXTUAL
+         
+         VARIANTE A — Para artículos de Liderazgo/Transición:
+         Apunta a agenda.html (conversación exploratoria)
+         
+         VARIANTE B — Para artículos de Herramientas:
+         Apunta al recurso "La Escucha" (captura de email)
+         
+         VARIANTE C — Para artículos dirigidos a Empresa/RRHH:
+         Apunta a transicion.html (landing específica)
+         
+         Elegir UNA variante y borrar las demás.
+    ============================================================ -->
+
+    <!-- VARIANTE A — Conversación exploratoria -->
+    <div class="article-cta">
+      <span class="label">Siguiente paso</span>
+      <h3>El sistema no te espera.<br><em>La conversación, sí.</em></h3>
+      <p>30 minutos para hablar de lo que observás en tu organización y explorar si tiene sentido trabajar juntos.</p>
+      <a href="/agenda.html" class="btn btn-oro">
+        Conversemos
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!--
+    VARIANTE B — Recurso "La Escucha" (descomentar si aplica)
+    <div class="article-cta">
+      <span class="label">Recurso gratuito</span>
+      <h3>La Escucha:<br><em>el primer acto de liderazgo.</em></h3>
+      <p>Un recurso para líderes que quieren desarrollar la competencia más subestimada del liderazgo ejecutivo.</p>
+      <a href="/#gratis" class="btn btn-oro">Quiero mi copia</a>
+    </div>
+    -->
+
+    <!--
+    VARIANTE C — Para empresa/RRHH (descomentar si aplica)
+    <div class="article-cta">
+      <span class="label">Para empresas</span>
+      <h3>Coaching de Transición<br><em>para el ejecutivo que incorporás.</em></h3>
+      <p>Acompaño al ejecutivo recién incorporado durante sus primeros 90 días — el período que define su credibilidad y su mandato.</p>
+      <a href="/transicion.html" class="btn btn-oro">Ver el servicio</a>
+    </div>
+    -->
+
+  </div>
+</section>
+
+<!-- ============================================================
+     ARTÍCULOS RELACIONADOS
+     [REEMPLAZAR] con 2-3 artículos de la misma categoría
+============================================================ -->
+<section class="related-section">
+  <div class="container">
+    <div class="related-header">
+      <span class="label">Seguir leyendo</span>
+      <h2>Otros artículos que pueden interesarte.</h2>
+    </div>
+    <div class="related-grid" id="related-posts">
+      <!-- Se renderizan vía JS o se hardcodean por artículo -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BACK TO BLOG
+============================================================ -->
+<div class="back-to-blog">
+  <a href="/blog/" class="btn btn-outline-oscuro">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Ver todos los artículos
+  </a>
+</div>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">
+        <span class="nombre">Adrián</span>
+        <span class="apellido">Deyme</span>
+      </a>
+      <p class="footer-copy">&copy; 2026 Adrián Deyme. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="/blog/">Blog</a>
+        <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico" target="_blank" rel="noopener" class="li-icon" aria-label="LinkedIn">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ---- NAV MOBILE ---- */
+  const hamBtn = document.getElementById('ham-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  hamBtn?.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    hamBtn.setAttribute('aria-expanded', open);
+  });
+
+  function closeMobileNav() {
+    mobileNav?.classList.remove('open');
+    hamBtn?.setAttribute('aria-expanded', 'false');
+  }
+
+  /* ---- GA4: tracking de lectura del artículo ---- */
+  if (typeof gtag === 'function') {
+    /* Evento: artículo visto */
+    gtag('event', 'view_blog_article', {
+      article_title: document.querySelector('.article-header h1')?.textContent?.trim(),
+      article_category: document.querySelector('.article-category-tag')?.textContent?.trim()
+    });
+
+    /* Scroll depth: 25%, 50%, 75%, 100% del artículo */
+    const articleBody = document.querySelector('.article-body');
+    if (articleBody) {
+      const thresholds = [25, 50, 75, 100];
+      const fired = new Set();
+
+      window.addEventListener('scroll', () => {
+        const rect = articleBody.getBoundingClientRect();
+        const articleHeight = articleBody.offsetHeight;
+        const scrolled = window.innerHeight - rect.top;
+        const pct = Math.min(100, Math.max(0, (scrolled / articleHeight) * 100));
+
+        thresholds.forEach(t => {
+          if (pct >= t && !fired.has(t)) {
+            fired.add(t);
+            gtag('event', 'scroll_blog_article', {
+              article_title: document.querySelector('.article-header h1')?.textContent?.trim(),
+              scroll_depth: t
+            });
+          }
+        });
+      }, { passive: true });
+    }
+  }
+</script>
+
+</body>
+</html>
