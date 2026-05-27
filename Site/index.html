@@ -270,8 +270,11 @@
       letter-spacing: .05em;
       cursor: pointer;
       border: none;
-      transition: all .25s ease;
+      transition: background .2s cubic-bezier(.23,1,.32,1), transform .2s cubic-bezier(.23,1,.32,1), border-color .2s cubic-bezier(.23,1,.32,1), color .2s cubic-bezier(.23,1,.32,1);
       text-decoration: none;
+    }
+    .btn:active {
+      transform: scale(.97);
     }
 
     .btn-oro {
@@ -397,7 +400,7 @@
       width: 22px;
       height: 1px;
       background: rgba(255,255,255,.6);
-      transition: all .3s;
+      transition: transform .3s cubic-bezier(.23,1,.32,1), opacity .3s;
     }
 
     .nav-mobile {
@@ -1028,7 +1031,7 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-      transition: border-color .3s, transform .3s;
+      transition: border-color .3s cubic-bezier(.23,1,.32,1), transform .3s cubic-bezier(.23,1,.32,1);
     }
     .caso-card:hover {
       border-color: rgba(201,168,76,.3);
@@ -1130,7 +1133,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: border-color .3s, transform .3s;
+      transition: border-color .3s cubic-bezier(.23,1,.32,1), transform .3s cubic-bezier(.23,1,.32,1);
     }
     .post-card:hover {
       border-color: rgba(201,168,76,.3);
@@ -1431,7 +1434,7 @@
       border: 0.5px solid rgba(255,255,255,.1);
       border-radius: var(--r-sm);
       color: rgba(255,255,255,.4);
-      transition: all .2s;
+      transition: background .2s cubic-bezier(.23,1,.32,1), border-color .2s cubic-bezier(.23,1,.32,1), color .2s cubic-bezier(.23,1,.32,1);
     }
     .li-icon:hover {
       background: rgba(0,119,181,.2);
@@ -1443,7 +1446,7 @@
     .js-ready .reveal {
       opacity: 0;
       transform: translateY(24px);
-      transition: opacity .8s ease, transform .8s ease;
+      transition: opacity .8s cubic-bezier(.23,1,.32,1), transform .8s cubic-bezier(.23,1,.32,1);
     }
     .js-ready .reveal.visible { opacity: 1; transform: none; }
     .rd1 { transition-delay: .1s; }
@@ -1951,7 +1954,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="gratis-badge">Sin registro</span>
         <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/lego-okr.png" alt="OKR Coach GPT" onerror="this.style.display='none'">
         <h3>GPT OKR Coach</h3>
-        <p>Un asistente de IA entrenado para ayudarte a aprender, diseñar, validar y dar seguimiento a tus OKRs de forma práctica y estratégica. Lo abrís y lo usás ahora, sin registro.</p>
+        <p>Un asistente de IA entrenado para ayudarte a aprender, diseñar, validar y dar seguimiento a tus OKRs de forma práctica y estratégica. Lo abres y lo usas ahora, sin registro.</p>
         <a href="https://chatgpt.com/g/g-gOmcHbWEC-okr-coach" target="_blank" rel="noopener" class="btn btn-oro" style="align-self: flex-start;">
           Acceder gratis →
         </a>
@@ -1965,7 +1968,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <input type="email" id="escucha-email" placeholder="tu@email.com" autocomplete="email">
           <button class="btn btn-oro" onclick="pedirEscucha()">Quiero mi copia</button>
         </div>
-        <p id="escucha-msg" style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.08em; color:var(--oro); display:none; margin-top:-8px;">✓ Te lo mando pronto.</p>
+        <p id="escucha-msg" style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.08em; color:var(--oro); display:none; margin-top:-8px;">✓ Te lo envío pronto.</p>
       </div>
     </div>
   </div>
@@ -1984,7 +1987,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </p>
       <div class="cta-actions">
         <a href="agenda.html" class="btn btn-oro">
-          Agendá tu reunión
+          Agenda tu reunión
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" target="_blank" rel="noopener" class="btn btn-outline-oscuro">
