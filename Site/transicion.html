@@ -85,8 +85,9 @@
       font-family: 'DM Sans', sans-serif; font-size: 13px;
       font-weight: 600; letter-spacing: .05em;
       cursor: pointer; border: none;
-      transition: all .25s ease; text-decoration: none;
+      transition: background .2s cubic-bezier(.23,1,.32,1), transform .2s cubic-bezier(.23,1,.32,1), border-color .2s cubic-bezier(.23,1,.32,1), color .2s cubic-bezier(.23,1,.32,1); text-decoration: none;
     }
+    .btn:active { transform: scale(.97); }
     .btn-oro { background: var(--oro); color: var(--noche); padding: 14px 32px; border-radius: var(--r-sm); }
     .btn-oro:hover { background: var(--oro2); transform: translateY(-1px); }
     .btn-outline-claro {
@@ -718,7 +719,7 @@
       background: rgba(255,255,255,.05);
       border: 0.5px solid rgba(255,255,255,.1);
       border-radius: var(--r-sm); color: rgba(255,255,255,.4);
-      transition: all .2s;
+      transition: background .2s cubic-bezier(.23,1,.32,1), border-color .2s cubic-bezier(.23,1,.32,1), color .2s cubic-bezier(.23,1,.32,1);
     }
     .li-icon:hover {
       background: rgba(0,119,181,.2);
