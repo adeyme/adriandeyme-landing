@@ -116,16 +116,20 @@
       display: flex; align-items: center;
       justify-content: space-between; height: 68px;
     }
-    .btn-volver {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-family: 'DM Mono', monospace; font-size: 10px;
-      letter-spacing: .14em; text-transform: uppercase;
-      color: rgba(255,255,255,.35);
-      border: 0.5px solid rgba(255,255,255,.12);
-      border-radius: var(--r-sm); padding: 9px 18px;
-      transition: color .2s, border-color .2s;
-    }
-    .btn-volver:hover { color: var(--oro); border-color: rgba(201,168,76,.35); }
+    .nav-logo { display: flex; align-items: baseline; gap: 2px; }
+    .nav-logo .nombre { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--oro); letter-spacing: .01em; line-height: 1; }
+    .nav-logo .apellido { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 300; letter-spacing: .28em; text-transform: uppercase; color: rgba(255,255,255,.75); margin-left: 10px; padding-top: 4px; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.45); transition: color .2s; }
+    .nav-links a:hover { color: rgba(255,255,255,.9); }
+    .nav-links a.active { color: var(--oro); }
+    .nav-ham { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-ham span { display: block; width: 22px; height: 1px; background: rgba(255,255,255,.6); transition: transform .3s cubic-bezier(.23,1,.32,1), opacity .3s; }
+    .nav-mobile { display: none; flex-direction: column; background: var(--noche); border-top: 0.5px solid rgba(255,255,255,.07); padding: 24px 32px; gap: 4px; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); padding: 12px 0; border-bottom: 0.5px solid rgba(255,255,255,.06); transition: color .2s; }
+    .nav-mobile a:hover { color: var(--oro); }
+    .nav-mobile .btn-oro { margin-top: 16px; justify-content: center; }
 
     /* HERO */
     #hero {
@@ -739,6 +743,8 @@
 
     /* RESPONSIVE */
     @media (max-width: 960px) {
+      .nav-links, .nav-links + .btn-oro { display: none; }
+      .nav-ham { display: flex; }
       .hero-inner { grid-template-columns: 1fr; gap: 48px; }
       .para-quien-grid { grid-template-columns: 1fr; }
       .espacios-grid { grid-template-columns: 1fr; }
@@ -774,18 +780,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav>
   <div class="container">
     <div class="nav-inner">
-      <a href="/" aria-label="Adrián Deyme — Coach Ejecutivo ICF" style="display:flex;align-items:center;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="12 8 280 56" style="height:48px;width:auto;" role="img" aria-label="Adrián Deyme">
-          <rect x="16" y="12" width="48" height="48" rx="5" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
-          <rect x="21" y="17" width="38" height="38" rx="3" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
-          <text x="40" y="44" font-family="Georgia,serif" font-size="22" font-style="italic" font-weight="400" fill="#C9A84C" text-anchor="middle" dominant-baseline="middle">AD</text>
-          <text x="80" y="30" font-family="Georgia,serif" font-size="28" font-style="italic" font-weight="400" fill="#C9A84C" dominant-baseline="middle">Adrián</text>
-          <text x="186" y="30" font-family="Arial,sans-serif" font-size="12" font-weight="300" fill="rgba(255,255,255,0.65)" dominant-baseline="middle" letter-spacing="4">DEYME</text>
-          <text x="81" y="52" font-family="'Courier New',monospace" font-size="8" fill="rgba(255,255,255,0.3)" letter-spacing="3">COACH EJECUTIVO ICF</text>
-        </svg>
+      <a href="/" class="nav-logo">
+        <span class="nombre">Adrián</span>
+        <span class="apellido">Deyme</span>
       </a>
-      <a href="/" class="btn-volver">← Volver al inicio</a>
+      <ul class="nav-links">
+        <li><a href="/#problema">El problema</a></li>
+        <li><a href="/#servicios">Servicios</a></li>
+        <li><a href="/enfoque.html">Enfoque</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+      <a href="/agenda.html" class="btn btn-oro" style="border-radius: 4px; font-size: 12px; padding: 11px 24px; letter-spacing: .06em; text-transform: uppercase;">Conversemos</a>
+      <button class="nav-ham" id="ham-btn" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
+  <div class="nav-mobile" id="mobile-nav" role="dialog" aria-label="Navegación">
+    <a href="/#problema" onclick="closeMobileNav()">El problema</a>
+    <a href="/#servicios" onclick="closeMobileNav()">Servicios</a>
+    <a href="/enfoque.html" onclick="closeMobileNav()">Enfoque</a>
+    <a href="/blog/" onclick="closeMobileNav()">Blog</a>
+    <a href="/agenda.html" class="btn btn-oro">Conversemos</a>
   </div>
 </nav>
 
@@ -1208,7 +1224,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" target="_blank" rel="noopener" class="li-icon" aria-label="LinkedIn">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.51-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.769 7 2.476v6.759z"/></svg>
         </a>
-        <a href="/" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25);transition:color .2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.25)'">Inicio</a>
+        <a href="index.html" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25);transition:color .2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.25)'">Inicio</a>
       </div>
     </div>
   </div>
@@ -1224,5 +1240,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
+<script>
+  const hamBtn=document.getElementById('ham-btn'),mobileNav=document.getElementById('mobile-nav');
+  hamBtn?.addEventListener('click',()=>{const o=mobileNav.classList.toggle('open');hamBtn.setAttribute('aria-expanded',o)});
+  function closeMobileNav(){mobileNav?.classList.remove('open');hamBtn?.setAttribute('aria-expanded','false')}
+</script>
 </body>
 </html>
