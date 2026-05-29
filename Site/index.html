@@ -2085,41 +2085,9 @@ async function pedirEscucha() {
   });
 
   /* ---- Blog preview: 2 artículos más recientes del blog ----
-     INSTRUCCIÓN: Cuando publiques un artículo nuevo en el blog,
-     añádelo a este array. El JS ordena por fecha y muestra los 2
-     más recientes automáticamente. La Estrella queda estática arriba.
+     Lee de /blog/articles.json — fuente única de datos.
+     Cuando publiques un artículo nuevo, actualiza solo el JSON.
   ---- */
-  const blogArticles = [
-    {
-      title: "El 90% de los Líderes Están Atrapados en el Pasado",
-      slug: "/blog/lideres-atrapados-pasado.html",
-      date: "2025-10-23",
-      img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png",
-      desc: "Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual. La investigación de Leadership Agility explica por qué."
-    },
-    {
-      title: "¿Qué Mueve Realmente a las Personas a Seguirte?",
-      slug: "/blog/circulo-dorado-liderazgo.html",
-      date: "2025-10-14",
-      img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png",
-      desc: "Las personas no siguen lo que un líder hace — siguen lo que representa. El Círculo Dorado de Sinek aplicado al liderazgo ejecutivo."
-    },
-    {
-      title: "Si tu Estrategia se Mueve a 100 km/h, ¿Por Qué Tu Estructura Va a 10?",
-      slug: "/blog/estrategia-estructura-unfix.html",
-      date: "2025-10-02",
-      img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*BhY2_8mIIOUmodGPYImNrg.png",
-      desc: "Las estructuras rígidas frenan la ejecución. unFIX propone una arquitectura modular para reorganizar la empresa alrededor del flujo de valor."
-    },
-    {
-      title: "Descubre el Método Kanban: Transforma el Caos en Eficiencia",
-      slug: "/blog/metodo-kanban-eficiencia.html",
-      date: "2025-10-09",
-      img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*dQdMWNNoBGemd8zrNdR2oQ.jpeg",
-      desc: "Kanban no arregla personas — mejora el sistema de trabajo. Visualizar el flujo transforma entornos caóticos en sistemas predecibles."
-    }
-  ];
-
   function renderBlogCard(article, delay) {
     const cls = delay ? ` rd${delay}` : '';
     return `<article class="post-card reveal${cls}">
@@ -2140,15 +2108,21 @@ async function pedirEscucha() {
     </article>`;
   }
 
-  // Ordenar por fecha descendente y tomar los 2 más recientes
-  const latest = blogArticles.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 2);
-  const slot1 = document.getElementById('blog-dynamic-1');
-  const slot2 = document.getElementById('blog-dynamic-2');
-  if (slot1 && latest[0]) slot1.outerHTML = renderBlogCard(latest[0], 1);
-  if (slot2 && latest[1]) slot2.outerHTML = renderBlogCard(latest[1], 2);
-
-  // Registrar las nuevas cards en el observer de reveal
-  document.querySelectorAll('#blog .post-card.reveal:not(.visible)').forEach(el => observer.observe(el));
+  fetch('/blog/articles.json')
+    .then(r => r.json())
+    .then(articles => {
+      // Filtrar solo artículos del blog (no La Estrella ni externos)
+      const blogOnly = articles.filter(a => a.source === 'Blog');
+      // Ordenar por fecha descendente, tomar los 2 más recientes
+      const latest = blogOnly.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 2);
+      const slot1 = document.getElementById('blog-dynamic-1');
+      const slot2 = document.getElementById('blog-dynamic-2');
+      if (slot1 && latest[0]) slot1.outerHTML = renderBlogCard(latest[0], 1);
+      if (slot2 && latest[1]) slot2.outerHTML = renderBlogCard(latest[1], 2);
+      // Registrar las nuevas cards en el observer de reveal
+      document.querySelectorAll('#blog .post-card.reveal:not(.visible)').forEach(el => observer.observe(el));
+    })
+    .catch(() => { /* Si falla el fetch, los slots quedan vacíos — no rompe nada */ });
 </script>
 
 </body>
