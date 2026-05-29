@@ -2100,7 +2100,7 @@ async function pedirEscucha() {
       var href = p.slug || p.url;
       var external = !p.slug;
       var tgt = external ? ' target="_blank" rel="noopener"' : '';
-      var cls = i === 0 ? 'post-card reveal rd1' : 'post-card reveal rd2';
+      var cls = i === 0 ? 'post-card reveal visible rd1' : 'post-card reveal visible rd2';
       var art = document.createElement('article');
       art.className = cls;
       var h = '';
