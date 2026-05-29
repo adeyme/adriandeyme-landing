@@ -1222,6 +1222,10 @@
       margin-top: 48px;
     }
 
+    #dynamic-posts {
+      display: contents;
+    }
+
     #gratis {
       padding: 120px 0;
       background: var(--noche);
@@ -1909,7 +1913,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </article>
 
-      <!-- Las tarjetas dinámicas se inyectan aquí vía JS, después de la tarjeta fijada -->
+      <!-- Las tarjetas dinámicas se renderizan aquí vía JS -->
+      <div id="dynamic-posts"></div>
 
     </div>
     <div class="blog-cta reveal">
@@ -2093,64 +2098,59 @@ async function pedirEscucha() {
 </script>
 
 <!-- ============================================================
-     BLOG DINÁMICO — Carga los 2 artículos más recientes
-     desde /articles.json, excluyendo el artículo fijado.
-     Si el fetch falla (preview local, etc.), usa el array de respaldo.
+     BLOG DINAMICO - Carga los 2 articulos mas recientes
 ============================================================ -->
 <script>
   (function() {
-    const pinnedCard = document.getElementById('pinned-card');
-    const pinnedUrl = pinnedCard?.dataset.pinnedUrl || '';
-    if (!pinnedCard) return;
+    try {
+      var pinned = document.getElementById('pinned-card');
+      var box = document.getElementById('dynamic-posts');
+      if (!pinned || !box) return;
+      var pinnedUrl = pinned.getAttribute('data-pinned-url') || '';
 
-    /* Respaldo: se usa si el fetch falla (preview, offline, etc.)
-       Mantener sincronizado con /articles.json cuando se publique un artículo nuevo */
-    const fallback = [
-      { source:"Blog", title:"Qué escucha un líder cuando cree que está escuchando", date:"2026-06-02", slug:"/blog/escucha-lider.html", img:"https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/blog-cover-escucha.webp", desc:"La mayoría de los líderes confunde oír con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato técnico.", category:"coaching" },
-      { source:"La Estrella de Panamá", title:"¿Murió el trabajo estable?", date:"2026-02-07", url:"https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864", img:"https://www.laestrella.com.pa/binrepository/700x466/0c0/699d466/none/199516884/ALGQ/pexels-woman-1851464-1280_181-12524158_20260207094431.jpg", desc:"El trabajo estable no desapareció por factores externos — desapareció porque en contextos de alta complejidad ya no alcanza con hacer bien el trabajo.", category:"liderazgo" },
-      { source:"Blog", title:"El 90% de los Líderes Están Atrapados en el Pasado", date:"2025-10-23", slug:"/blog/lideres-atrapados-pasado.html", img:"https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png", desc:"Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual.", category:"liderazgo" }
-    ];
+      var fallback = [
+        { source:'Blog', title:'Que escucha un lider cuando cree que esta escuchando', date:'2026-06-02', slug:'/blog/escucha-lider.html', img:'https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/blog-cover-escucha.webp', desc:'La mayoria de los lideres confunde oir con escuchar.', category:'coaching' },
+        { source:'Blog', title:'El 90% de los Lideres Estan Atrapados en el Pasado', date:'2025-10-23', slug:'/blog/lideres-atrapados-pasado.html', img:'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png', desc:'Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual.', category:'liderazgo' },
+        { source:'Blog', title:'Que Mueve Realmente a las Personas a Seguirte?', date:'2025-10-14', slug:'/blog/circulo-dorado-liderazgo.html', img:'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png', desc:'Las personas no siguen lo que un lider hace, siguen lo que representa.', category:'liderazgo' }
+      ];
 
-    function renderDynamic(articles) {
-      articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-      const filtered = articles.filter(p => (p.slug || p.url || '') !== pinnedUrl);
-      const recent = filtered.slice(0, 2);
+      function render(articles) {
+        articles.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+        var filtered = articles.filter(function(p) {
+          return (p.slug || p.url || '') !== pinnedUrl;
+        });
+        var recent = filtered.slice(0, 2);
+        var html = '';
+        for (var i = 0; i < recent.length; i++) {
+          var p = recent[i];
+          var href = p.slug || p.url;
+          var target = p.slug ? '' : ' target="_blank" rel="noopener"';
+          var cls = i === 0 ? 'post-card reveal rd1' : 'post-card reveal rd2';
+          html += '<article class="' + cls + '">';
+          if (p.img) {
+            html += '<img src="' + p.img + '" alt="' + p.title + '" class="post-img" loading="lazy" onerror="this.style.display=\'none\'">';
+          } else {
+            html += '<div class="post-placeholder"><span class="post-placeholder-icon">&#9673;</span></div>';
+          }
+          html += '<div class="post-body">';
+          html += '<span class="post-source">' + p.source + '</span>';
+          html += '<h3 class="post-titulo"><a href="' + href + '"' + target + ' style="color:inherit;">' + p.title + '</a></h3>';
+          if (p.desc) html += '<p class="post-desc">' + p.desc + '</p>';
+          html += '<div class="post-footer">';
+          html += '<span class="post-fecha">' + new Date(p.date).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'}) + '</span>';
+          html += '<a href="' + href + '"' + target + ' class="post-link">Leer <span>&rarr;</span></a>';
+          html += '</div></div></article>';
+        }
+        box.innerHTML = html;
+      }
 
-      const html = recent.map((p, i) => {
-        const href = p.slug || p.url;
-        const target = p.slug ? '' : ' target="_blank" rel="noopener"';
-        const icon = p.source === 'Blog' ? '◉' : '◈';
-        const delayClass = i === 0 ? 'reveal rd1' : 'reveal rd2';
-
-        return `
-          <article class="post-card ${delayClass}">
-            ${p.img
-              ? `<img src="${p.img}" alt="${p.title}" class="post-img" loading="lazy"
-                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                 <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">${icon}</span></div>`
-              : `<div class="post-placeholder"><span class="post-placeholder-icon">${icon}</span></div>`
-            }
-            <div class="post-body">
-              <span class="post-source">${p.source}</span>
-              <h3 class="post-titulo">
-                <a href="${href}"${target} style="color:inherit;">${p.title}</a>
-              </h3>
-              ${p.desc ? `<p class="post-desc">${p.desc}</p>` : ''}
-              <div class="post-footer">
-                <span class="post-fecha">${new Date(p.date).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'})}</span>
-                <a href="${href}"${target} class="post-link">Leer <span>→</span></a>
-              </div>
-            </div>
-          </article>`;
-      }).join('');
-
-      pinnedCard.insertAdjacentHTML('afterend', html);
+      fetch('/articles.json')
+        .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function(data) { render(data); })
+        .catch(function() { render(fallback); });
+    } catch(e) {
+      console.warn('Error en blog dinamico:', e);
     }
-
-    fetch('/articles.json')
-      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then(data => renderDynamic(data))
-      .catch(() => renderDynamic(fallback));
   })();
 </script>
 
