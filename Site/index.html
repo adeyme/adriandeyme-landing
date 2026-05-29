@@ -1910,7 +1910,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </article>
 
       <!-- ============================================================
-           TARJETAS DINÁMICAS — Se cargan desde /blog/articles.json
+           TARJETAS DINÁMICAS — Se cargan desde /articles.json
            Muestra los 2 artículos más recientes (excluye el fijado)
            NO TOCAR — se actualizan solas al agregar artículos al JSON
       ============================================================ -->
@@ -2099,8 +2099,8 @@ async function pedirEscucha() {
 
 <!-- ============================================================
      BLOG DINÁMICO — Carga los 2 artículos más recientes
-     desde /blog/articles.json, excluyendo el artículo fijado.
-     No tocar este script — se alimenta solo del JSON.
+     desde /articles.json, excluyendo el artículo fijado.
+     Si el fetch falla (preview local, etc.), usa el array de respaldo.
 ============================================================ -->
 <script>
   (function() {
@@ -2109,50 +2109,52 @@ async function pedirEscucha() {
     const container = document.getElementById('dynamic-posts');
     if (!container) return;
 
-    fetch('/blog/articles.json')
-      .then(r => r.json())
-      .then(articles => {
-        articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+    /* Respaldo: se usa si el fetch falla (preview, offline, etc.)
+       Mantener sincronizado con /articles.json cuando se publique un artículo nuevo */
+    const fallback = [
+      { source:"Blog", title:"Qué escucha un líder cuando cree que está escuchando", date:"2026-06-02", slug:"/blog/escucha-lider.html", img:"", desc:"La mayoría de los líderes confunde oír con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato técnico.", category:"coaching" },
+      { source:"La Estrella de Panamá", title:"¿Murió el trabajo estable?", date:"2026-02-07", url:"https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864", img:"https://www.laestrella.com.pa/binrepository/700x466/0c0/699d466/none/199516884/ALGQ/pexels-woman-1851464-1280_181-12524158_20260207094431.jpg", desc:"El trabajo estable no desapareció por factores externos — desapareció porque en contextos de alta complejidad ya no alcanza con hacer bien el trabajo.", category:"liderazgo" },
+      { source:"Blog", title:"El 90% de los Líderes Están Atrapados en el Pasado", date:"2025-10-23", slug:"/blog/lideres-atrapados-pasado.html", img:"https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png", desc:"Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual.", category:"liderazgo" }
+    ];
 
-        /* Excluir el artículo fijado para no duplicar */
-        const filtered = articles.filter(p => {
-          const url = p.slug || p.url || '';
-          return url !== pinnedUrl;
-        });
+    function renderDynamic(articles) {
+      articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+      const filtered = articles.filter(p => (p.slug || p.url || '') !== pinnedUrl);
+      const recent = filtered.slice(0, 2);
 
-        const recent = filtered.slice(0, 2);
+      container.innerHTML = recent.map((p, i) => {
+        const href = p.slug || p.url;
+        const target = p.slug ? '' : ' target="_blank" rel="noopener"';
+        const icon = p.source === 'Blog' ? '◉' : '◈';
+        const delayClass = i === 0 ? 'reveal rd1' : 'reveal rd2';
 
-        container.innerHTML = recent.map((p, i) => {
-          const href = p.slug || p.url;
-          const target = p.slug ? '' : ' target="_blank" rel="noopener"';
-          const icon = p.source === 'Blog' ? '◉' : '◈';
-          const delayClass = i === 0 ? 'reveal rd1' : 'reveal rd2';
-
-          return `
-            <article class="post-card ${delayClass}">
-              ${p.img
-                ? `<img src="${p.img}" alt="${p.title}" class="post-img" loading="lazy"
-                       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                   <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">${icon}</span></div>`
-                : `<div class="post-placeholder"><span class="post-placeholder-icon">${icon}</span></div>`
-              }
-              <div class="post-body">
-                <span class="post-source">${p.source}</span>
-                <h3 class="post-titulo">
-                  <a href="${href}"${target} style="color:inherit;">${p.title}</a>
-                </h3>
-                ${p.desc ? `<p class="post-desc">${p.desc}</p>` : ''}
-                <div class="post-footer">
-                  <span class="post-fecha">${new Date(p.date).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'})}</span>
-                  <a href="${href}"${target} class="post-link">Leer <span>→</span></a>
-                </div>
+        return `
+          <article class="post-card ${delayClass}">
+            ${p.img
+              ? `<img src="${p.img}" alt="${p.title}" class="post-img" loading="lazy"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                 <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">${icon}</span></div>`
+              : `<div class="post-placeholder"><span class="post-placeholder-icon">${icon}</span></div>`
+            }
+            <div class="post-body">
+              <span class="post-source">${p.source}</span>
+              <h3 class="post-titulo">
+                <a href="${href}"${target} style="color:inherit;">${p.title}</a>
+              </h3>
+              ${p.desc ? `<p class="post-desc">${p.desc}</p>` : ''}
+              <div class="post-footer">
+                <span class="post-fecha">${new Date(p.date).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'})}</span>
+                <a href="${href}"${target} class="post-link">Leer <span>→</span></a>
               </div>
-            </article>`;
-        }).join('');
-      })
-      .catch(err => {
-        console.warn('No se pudo cargar articles.json:', err);
-      });
+            </div>
+          </article>`;
+      }).join('');
+    }
+
+    fetch('/articles.json')
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(data => renderDynamic(data))
+      .catch(() => renderDynamic(fallback));
   })();
 </script>
 
