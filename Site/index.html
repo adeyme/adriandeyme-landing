@@ -1877,11 +1877,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2>Punto de vista.</h2>
       <p>Artículos sobre liderazgo, organizaciones y complejidad.</p>
     </div>
-    <div class="posts-grid" style="margin-top: 60px;" id="index-posts-grid">
+    <div class="posts-grid" style="margin-top: 60px;">
 
       <!-- ============================================================
-           TARJETA FIJADA — Editable a mano por Adrián
+           TARJETA 1 — FIJADA — Editable a mano por Adrián
+           
            Modificar cuando quieras destacar otro artículo.
+           data-pinned-url debe coincidir con el href.
       ============================================================ -->
       <article class="post-card reveal" id="pinned-card"
                data-pinned-url="https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864">
@@ -1902,69 +1904,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </article>
 
+      <!-- ============================================================
+           TARJETAS 2 y 3 — DINÁMICAS
+           
+           Contenido de respaldo hardcodeado abajo.
+           El JS las actualiza desde articles.json si puede.
+           Si no puede, se ven con este contenido.
+           
+           ACTUALIZAR manualmente al publicar un artículo nuevo
+           solo si el fetch no funciona en producción.
+      ============================================================ -->
+      <article class="post-card reveal rd1" id="dynamic-card-1">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/blog-cover-escucha.webp"
+             alt="Qué escucha un líder cuando cree que está escuchando" class="post-img" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">◉</span></div>
+        <div class="post-body">
+          <span class="post-source">Blog</span>
+          <h3 class="post-titulo">
+            <a href="/blog/escucha-lider.html" style="color:inherit;">Qué escucha un líder cuando cree que está escuchando</a>
+          </h3>
+          <p class="post-desc">La mayoría de los líderes confunde oír con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato técnico.</p>
+          <div class="post-footer">
+            <span class="post-fecha">02 jun 2026</span>
+            <a href="/blog/escucha-lider.html" class="post-link">Leer <span>→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card reveal rd2" id="dynamic-card-2">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png"
+             alt="El 90% de los Líderes Están Atrapados en el Pasado" class="post-img" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">◉</span></div>
+        <div class="post-body">
+          <span class="post-source">Blog</span>
+          <h3 class="post-titulo">
+            <a href="/blog/lideres-atrapados-pasado.html" style="color:inherit;">El 90% de los Líderes Están Atrapados en el Pasado</a>
+          </h3>
+          <p class="post-desc">Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual. La investigación de Leadership Agility explica por qué.</p>
+          <div class="post-footer">
+            <span class="post-fecha">23 oct 2025</span>
+            <a href="/blog/lideres-atrapados-pasado.html" class="post-link">Leer <span>→</span></a>
+          </div>
+        </div>
+      </article>
+
     </div>
-    <script>
-      /* ============================================================
-         Agrega los 2 artículos más recientes al grid.
-         Misma lógica que el blog index: appendChild directo al grid.
-         Si falla, muestra el respaldo hardcodeado.
-      ============================================================ */
-      (function() {
-        var grid = document.getElementById('index-posts-grid');
-        var pinned = document.getElementById('pinned-card');
-        if (!grid || !pinned) return;
-        var pinnedUrl = pinned.getAttribute('data-pinned-url') || '';
-
-        function buildCard(p, delay) {
-          var href = p.slug || p.url;
-          var external = !p.slug;
-          var art = document.createElement('article');
-          art.className = 'post-card reveal ' + delay;
-
-          var inner = '';
-          if (p.img) {
-            inner += '<img src="' + p.img + '" alt="' + p.title + '" class="post-img" loading="lazy" onerror="this.style.display=\'none\'">';
-          } else {
-            inner += '<div class="post-placeholder"><span class="post-placeholder-icon">\u25C9</span></div>';
-          }
-          inner += '<div class="post-body">';
-          inner += '<span class="post-source">' + p.source + '</span>';
-          inner += '<h3 class="post-titulo"><a href="' + href + '"' + (external ? ' target="_blank" rel="noopener"' : '') + ' style="color:inherit;">' + p.title + '</a></h3>';
-          if (p.desc) inner += '<p class="post-desc">' + p.desc + '</p>';
-          inner += '<div class="post-footer">';
-          inner += '<span class="post-fecha">' + new Date(p.date + 'T12:00:00').toLocaleDateString('es-ES', {day:'2-digit', month:'short', year:'numeric'}) + '</span>';
-          inner += '<a href="' + href + '"' + (external ? ' target="_blank" rel="noopener"' : '') + ' class="post-link">Leer <span>\u2192</span></a>';
-          inner += '</div></div>';
-
-          art.innerHTML = inner;
-          return art;
-        }
-
-        function renderCards(articles) {
-          articles.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
-          var filtered = [];
-          for (var i = 0; i < articles.length; i++) {
-            if ((articles[i].slug || articles[i].url || '') !== pinnedUrl) {
-              filtered.push(articles[i]);
-            }
-          }
-          var card1 = filtered[0] ? buildCard(filtered[0], 'rd1') : null;
-          var card2 = filtered[1] ? buildCard(filtered[1], 'rd2') : null;
-          if (card1) grid.appendChild(card1);
-          if (card2) grid.appendChild(card2);
-        }
-
-        var fallback = [
-          { source:'Blog', title:'Qu\u00e9 escucha un l\u00edder cuando cree que est\u00e1 escuchando', date:'2026-06-02', slug:'/blog/escucha-lider.html', img:'https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/blog-cover-escucha.webp', desc:'La mayor\u00eda de los l\u00edderes confunde o\u00edr con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato t\u00e9cnico.', category:'coaching' },
-          { source:'Blog', title:'El 90% de los L\u00edderes Est\u00e1n Atrapados en el Pasado', date:'2025-10-23', slug:'/blog/lideres-atrapados-pasado.html', img:'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png', desc:'Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual.', category:'liderazgo' }
-        ];
-
-        fetch('/articles.json')
-          .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-          .then(function(data) { renderCards(data); })
-          .catch(function() { renderCards(fallback); });
-      })();
-    </script>
     <div class="blog-cta reveal">
       <a href="/blog/" class="btn btn-outline-oscuro">
         Ver todos los artículos →
