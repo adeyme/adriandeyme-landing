@@ -2146,6 +2146,9 @@ async function pedirEscucha() {
   const slot2 = document.getElementById('blog-dynamic-2');
   if (slot1 && latest[0]) slot1.outerHTML = renderBlogCard(latest[0], 1);
   if (slot2 && latest[1]) slot2.outerHTML = renderBlogCard(latest[1], 2);
+
+  // Registrar las nuevas cards en el observer de reveal
+  document.querySelectorAll('#blog .post-card.reveal:not(.visible)').forEach(el => observer.observe(el));
 </script>
 
 </body>
