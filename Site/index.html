@@ -1879,7 +1879,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="posts-grid" style="margin-top: 60px;">
 
-      <article class="post-card reveal">
+      <!-- ============================================================
+           TARJETA FIJADA — Editable a mano por Adrián
+           
+           Esta tarjeta SIEMPRE se muestra en posición 1.
+           Modificar cuando quieras destacar otro artículo
+           (ej: nueva publicación en La Estrella, entrevista, etc.)
+           
+           Para cambiarla: editar href, img src, título, desc y fecha.
+           data-pinned-url debe coincidir con el href principal
+           para evitar duplicados con las tarjetas dinámicas.
+      ============================================================ -->
+      <article class="post-card reveal" id="pinned-card"
+               data-pinned-url="https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864">
         <img src="https://www.laestrella.com.pa/binrepository/700x466/0c0/699d466/none/199516884/ALGQ/pexels-woman-1851464-1280_181-12524158_20260207094431.jpg"
              alt="¿Murió el trabajo estable?" class="post-img" loading="lazy"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -1897,41 +1909,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </article>
 
-      <article class="post-card reveal rd1">
-        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png"
-             alt="El 90% de los Líderes Están Atrapados en el Pasado" class="post-img" loading="lazy"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">✦</span></div>
-        <div class="post-body">
-          <span class="post-source">Medium</span>
-          <h3 class="post-titulo">
-            <a href="https://medium.com/@adriandeyme/el-90-de-los-l%C3%ADderes-est%C3%A1n-atrapados-en-el-pasado-00a2fb2980b0" target="_blank" rel="noopener" style="color:inherit;">El 90% de los Líderes Están Atrapados en el Pasado</a>
-          </h3>
-          <p class="post-desc">El modelo del líder héroe quedó obsoleto. Solo el 10% de los gerentes opera desde niveles realmente aptos para el presente.</p>
-          <div class="post-footer">
-            <span class="post-fecha">23 oct 2025</span>
-            <a href="https://medium.com/@adriandeyme/el-90-de-los-l%C3%ADderes-est%C3%A1n-atrapados-en-el-pasado-00a2fb2980b0" target="_blank" rel="noopener" class="post-link">Leer <span>→</span></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="post-card reveal rd2">
-        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png"
-             alt="¿Qué mueve realmente a las personas a seguirte?" class="post-img" loading="lazy"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">✦</span></div>
-        <div class="post-body">
-          <span class="post-source">Medium</span>
-          <h3 class="post-titulo">
-            <a href="https://medium.com/@adriandeyme/qu%C3%A9-mueve-realmente-a-las-personas-a-seguirte-01c1dca3f43a" target="_blank" rel="noopener" style="color:inherit;">¿Qué mueve realmente a las personas a seguirte?</a>
-          </h3>
-          <p class="post-desc">Las personas no siguen lo que un líder hace — siguen lo que representa. El Círculo Dorado de Sinek aplicado al liderazgo.</p>
-          <div class="post-footer">
-            <span class="post-fecha">14 oct 2025</span>
-            <a href="https://medium.com/@adriandeyme/qu%C3%A9-mueve-realmente-a-las-personas-a-seguirte-01c1dca3f43a" target="_blank" rel="noopener" class="post-link">Leer <span>→</span></a>
-          </div>
-        </div>
-      </article>
+      <!-- ============================================================
+           TARJETAS DINÁMICAS — Se cargan desde /blog/articles.json
+           Muestra los 2 artículos más recientes (excluye el fijado)
+           NO TOCAR — se actualizan solas al agregar artículos al JSON
+      ============================================================ -->
+      <div id="dynamic-posts" style="display:contents;"></div>
 
     </div>
     <div class="blog-cta reveal">
@@ -2112,6 +2095,65 @@ async function pedirEscucha() {
   document.getElementById('escucha-email')?.addEventListener('keydown', e => {
     if (e.key === 'Enter') pedirEscucha();
   });
+</script>
+
+<!-- ============================================================
+     BLOG DINÁMICO — Carga los 2 artículos más recientes
+     desde /blog/articles.json, excluyendo el artículo fijado.
+     No tocar este script — se alimenta solo del JSON.
+============================================================ -->
+<script>
+  (function() {
+    const pinnedCard = document.getElementById('pinned-card');
+    const pinnedUrl = pinnedCard?.dataset.pinnedUrl || '';
+    const container = document.getElementById('dynamic-posts');
+    if (!container) return;
+
+    fetch('/blog/articles.json')
+      .then(r => r.json())
+      .then(articles => {
+        articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        /* Excluir el artículo fijado para no duplicar */
+        const filtered = articles.filter(p => {
+          const url = p.slug || p.url || '';
+          return url !== pinnedUrl;
+        });
+
+        const recent = filtered.slice(0, 2);
+
+        container.innerHTML = recent.map((p, i) => {
+          const href = p.slug || p.url;
+          const target = p.slug ? '' : ' target="_blank" rel="noopener"';
+          const icon = p.source === 'Blog' ? '◉' : '◈';
+          const delayClass = i === 0 ? 'reveal rd1' : 'reveal rd2';
+
+          return `
+            <article class="post-card ${delayClass}">
+              ${p.img
+                ? `<img src="${p.img}" alt="${p.title}" class="post-img" loading="lazy"
+                       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                   <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">${icon}</span></div>`
+                : `<div class="post-placeholder"><span class="post-placeholder-icon">${icon}</span></div>`
+              }
+              <div class="post-body">
+                <span class="post-source">${p.source}</span>
+                <h3 class="post-titulo">
+                  <a href="${href}"${target} style="color:inherit;">${p.title}</a>
+                </h3>
+                ${p.desc ? `<p class="post-desc">${p.desc}</p>` : ''}
+                <div class="post-footer">
+                  <span class="post-fecha">${new Date(p.date).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'})}</span>
+                  <a href="${href}"${target} class="post-link">Leer <span>→</span></a>
+                </div>
+              </div>
+            </article>`;
+        }).join('');
+      })
+      .catch(err => {
+        console.warn('No se pudo cargar articles.json:', err);
+      });
+  })();
 </script>
 
 </body>
