@@ -7,7 +7,7 @@
        Tarea 4.1: Blog propio en adriandeyme.com/blog
        
        UBICACIÓN: /blog/index.html
-       DEPENDENCIA: Lee artículos desde /articles.json
+       DEPENDENCIA: Lee artículos desde /blog/articles.json
        NOTA: Replica tokens, tipografía, nav y footer del index principal
   ============================================================ -->
 
@@ -701,13 +701,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   /* ============================================================
-     ARTÍCULOS — cargados desde /articles.json
+     ARTÍCULOS — ampliado con campo "category" para filtrado
      
-     Fuente única de verdad para todos los artículos del sitio.
-     
-     PARA AGREGAR UN ARTÍCULO NUEVO:
-     Abrir /blog/articles.json y agregar al inicio del array.
-     Este archivo y el index.html lo leen automáticamente.
+     NOTA PARA ADRIÁN: 
+     Este array se lee desde un archivo JSON externo en producción.
+     Para la primera versión, está embebido aquí.
+     Cuando el blog crezca, mover a /blog/articles.json y hacer fetch.
      
      Cada artículo necesita:
      - source: "Blog" (propio) | "Medium" | "La Estrella de Panamá"
@@ -719,18 +718,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      - desc: descripción corta (1-2 oraciones)
      - category: "liderazgo" | "transicion" | "herramientas" | "coaching"
   ============================================================ */
-  let articles = [];
-
-  /* Respaldo: se usa si el fetch falla (preview, offline, etc.)
-     Mantener sincronizado con /articles.json al publicar un artículo nuevo */
-  const fallback = [
-    { source:"Blog", title:"Qué escucha un líder cuando cree que está escuchando", date:"2026-06-02", slug:"/blog/escucha-lider.html", img:"https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/blog-cover-escucha.webp", desc:"La mayoría de los líderes confunde oír con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato técnico.", category:"coaching" },
-    { source:"La Estrella de Panamá", title:"¿Murió el trabajo estable?", date:"2026-02-07", url:"https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864", img:"https://www.laestrella.com.pa/binrepository/700x466/0c0/699d466/none/199516884/ALGQ/pexels-woman-1851464-1280_181-12524158_20260207094431.jpg", desc:"El trabajo estable no desapareció por factores externos — desapareció porque en contextos de alta complejidad ya no alcanza con hacer bien el trabajo.", category:"liderazgo" },
-    { source:"Blog", title:"El 90% de los Líderes Están Atrapados en el Pasado", date:"2025-10-23", slug:"/blog/lideres-atrapados-pasado.html", img:"https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png", desc:"Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual.", category:"liderazgo" },
-    { source:"Blog", title:"¿Qué Mueve Realmente a las Personas a Seguirte?", date:"2025-10-14", slug:"/blog/circulo-dorado-liderazgo.html", img:"https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png", desc:"Las personas no siguen lo que un líder hace — siguen lo que representa. El Círculo Dorado de Sinek aplicado al liderazgo ejecutivo.", category:"liderazgo" },
-    { source:"Blog", title:"Si tu Estrategia se Mueve a 100 km/h, ¿Por Qué Tu Estructura Va a 10?", date:"2025-10-02", slug:"/blog/estrategia-estructura-unfix.html", img:"https://miro.medium.com/v2/resize:fit:1400/format:webp/1*BhY2_8mIIOUmodGPYImNrg.png", desc:"Las estructuras rígidas frenan la ejecución. unFIX propone una arquitectura modular.", category:"herramientas" },
-    { source:"Blog", title:"Descubre el Método Kanban: Transforma el Caos en Eficiencia", date:"2025-10-09", slug:"/blog/metodo-kanban-eficiencia.html", img:"https://miro.medium.com/v2/resize:fit:1400/format:webp/1*dQdMWNNoBGemd8zrNdR2oQ.jpeg", desc:"Kanban no arregla personas — mejora el sistema de trabajo.", category:"herramientas" }
-  ];
 
   /* ---- Iconos por fuente ---- */
   const SOURCE_ICON = {
@@ -771,39 +758,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   const container = document.getElementById('posts-container');
 
-  function loadArticles(data) {
-    articles = data;
-    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-    container.innerHTML = articles.map(renderPost).join('');
-  }
-
-  fetch('/articles.json')
-    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(data => loadArticles(data))
-    .catch(() => loadArticles(fallback));
+  /* ---- Fetch articles from shared JSON ---- */
+  fetch('/blog/articles.json')
+    .then(r => r.json())
+    .then(articles => {
+      articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+      container.innerHTML = articles.map(renderPost).join('');
+      initFilters();
+    })
+    .catch(() => {
+      container.innerHTML = '<p style="color:var(--gris);text-align:center;">No se pudieron cargar los artículos.</p>';
+    });
 
   /* ---- Filtros ---- */
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  function initFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-      const filter = btn.dataset.filter;
-      const cards = container.querySelectorAll('.post-card');
+        const filter = btn.dataset.filter;
+        const cards = container.querySelectorAll('.post-card');
 
-      let visible = 0;
-      cards.forEach(card => {
-        if (filter === 'todos' || card.dataset.category === filter) {
-          card.style.display = '';
-          visible++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
+        let visible = 0;
+        cards.forEach(card => {
+          if (filter === 'todos' || card.dataset.category === filter) {
+            card.style.display = '';
+            visible++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
 
-      /* Estado vacío */
-      const existing = container.querySelector('.empty-state');
+        /* Estado vacío */
+        const existing = container.querySelector('.empty-state');
       if (existing) existing.remove();
 
       if (visible === 0) {
@@ -812,6 +801,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     });
   });
+  } // end initFilters
 
   /* ---- GA4: tracking de click en artículo del blog ---- */
   container.addEventListener('click', (e) => {
