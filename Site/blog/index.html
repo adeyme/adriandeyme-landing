@@ -759,7 +759,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const container = document.getElementById('posts-container');
 
   /* ---- Fetch articles from shared JSON ---- */
-  fetch('/blog/articles.json')
+  fetch('/articles.json')
     .then(r => r.json())
     .then(articles => {
       articles.sort((a, b) => new Date(b.date) - new Date(a.date));
