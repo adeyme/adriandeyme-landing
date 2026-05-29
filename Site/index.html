@@ -1909,12 +1909,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </article>
 
-      <!-- ============================================================
-           TARJETAS DINÁMICAS — Se cargan desde /articles.json
-           Muestra los 2 artículos más recientes (excluye el fijado)
-           NO TOCAR — se actualizan solas al agregar artículos al JSON
-      ============================================================ -->
-      <div id="dynamic-posts" style="display:contents;"></div>
+      <!-- Las tarjetas dinámicas se inyectan aquí vía JS, después de la tarjeta fijada -->
 
     </div>
     <div class="blog-cta reveal">
@@ -2106,13 +2101,12 @@ async function pedirEscucha() {
   (function() {
     const pinnedCard = document.getElementById('pinned-card');
     const pinnedUrl = pinnedCard?.dataset.pinnedUrl || '';
-    const container = document.getElementById('dynamic-posts');
-    if (!container) return;
+    if (!pinnedCard) return;
 
     /* Respaldo: se usa si el fetch falla (preview, offline, etc.)
        Mantener sincronizado con /articles.json cuando se publique un artículo nuevo */
     const fallback = [
-      { source:"Blog", title:"Qué escucha un líder cuando cree que está escuchando", date:"2026-06-02", slug:"/blog/escucha-lider.html", img:"", desc:"La mayoría de los líderes confunde oír con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato técnico.", category:"coaching" },
+      { source:"Blog", title:"Qué escucha un líder cuando cree que está escuchando", date:"2026-06-02", slug:"/blog/escucha-lider.html", img:"https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/blog-cover-escucha.webp", desc:"La mayoría de los líderes confunde oír con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato técnico.", category:"coaching" },
       { source:"La Estrella de Panamá", title:"¿Murió el trabajo estable?", date:"2026-02-07", url:"https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864", img:"https://www.laestrella.com.pa/binrepository/700x466/0c0/699d466/none/199516884/ALGQ/pexels-woman-1851464-1280_181-12524158_20260207094431.jpg", desc:"El trabajo estable no desapareció por factores externos — desapareció porque en contextos de alta complejidad ya no alcanza con hacer bien el trabajo.", category:"liderazgo" },
       { source:"Blog", title:"El 90% de los Líderes Están Atrapados en el Pasado", date:"2025-10-23", slug:"/blog/lideres-atrapados-pasado.html", img:"https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png", desc:"Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual.", category:"liderazgo" }
     ];
@@ -2122,7 +2116,7 @@ async function pedirEscucha() {
       const filtered = articles.filter(p => (p.slug || p.url || '') !== pinnedUrl);
       const recent = filtered.slice(0, 2);
 
-      container.innerHTML = recent.map((p, i) => {
+      const html = recent.map((p, i) => {
         const href = p.slug || p.url;
         const target = p.slug ? '' : ' target="_blank" rel="noopener"';
         const icon = p.source === 'Blog' ? '◉' : '◈';
@@ -2149,6 +2143,8 @@ async function pedirEscucha() {
             </div>
           </article>`;
       }).join('');
+
+      pinnedCard.insertAdjacentHTML('afterend', html);
     }
 
     fetch('/articles.json')
