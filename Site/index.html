@@ -1877,13 +1877,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2>Punto de vista.</h2>
       <p>Artículos sobre liderazgo, organizaciones y complejidad.</p>
     </div>
-    <div class="posts-grid" style="margin-top: 60px;" id="index-posts-grid">
+    <div class="posts-grid" style="margin-top: 60px;">
 
-      <!-- ============================================================
-           TARJETA FIJADA — Editable a mano por Adrián
-           Modificar cuando quieras destacar otro artículo.
-      ============================================================ -->
-      <article class="post-card reveal" id="pinned-card"
+      <!-- TARJETA FIJADA — Editable a mano -->
+      <article class="post-card reveal"
                data-pinned-url="https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864">
         <img src="https://www.laestrella.com.pa/binrepository/700x466/0c0/699d466/none/199516884/ALGQ/pexels-woman-1851464-1280_181-12524158_20260207094431.jpg"
              alt="¿Murió el trabajo estable?" class="post-img" loading="lazy"
@@ -1903,68 +1900,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </article>
 
     </div>
-    <script>
-      /* ============================================================
-         Agrega los 2 artículos más recientes al grid.
-         Misma lógica que el blog index: appendChild directo al grid.
-         Si falla, muestra el respaldo hardcodeado.
-      ============================================================ */
-      (function() {
-        var grid = document.getElementById('index-posts-grid');
-        var pinned = document.getElementById('pinned-card');
-        if (!grid || !pinned) return;
-        var pinnedUrl = pinned.getAttribute('data-pinned-url') || '';
-
-        function buildCard(p, delay) {
-          var href = p.slug || p.url;
-          var external = !p.slug;
-          var art = document.createElement('article');
-          art.className = 'post-card reveal ' + delay;
-
-          var inner = '';
-          if (p.img) {
-            inner += '<img src="' + p.img + '" alt="' + p.title + '" class="post-img" loading="lazy" onerror="this.style.display=\'none\'">';
-          } else {
-            inner += '<div class="post-placeholder"><span class="post-placeholder-icon">\u25C9</span></div>';
-          }
-          inner += '<div class="post-body">';
-          inner += '<span class="post-source">' + p.source + '</span>';
-          inner += '<h3 class="post-titulo"><a href="' + href + '"' + (external ? ' target="_blank" rel="noopener"' : '') + ' style="color:inherit;">' + p.title + '</a></h3>';
-          if (p.desc) inner += '<p class="post-desc">' + p.desc + '</p>';
-          inner += '<div class="post-footer">';
-          inner += '<span class="post-fecha">' + new Date(p.date + 'T12:00:00').toLocaleDateString('es-ES', {day:'2-digit', month:'short', year:'numeric'}) + '</span>';
-          inner += '<a href="' + href + '"' + (external ? ' target="_blank" rel="noopener"' : '') + ' class="post-link">Leer <span>\u2192</span></a>';
-          inner += '</div></div>';
-
-          art.innerHTML = inner;
-          return art;
-        }
-
-        function renderCards(articles) {
-          articles.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
-          var filtered = [];
-          for (var i = 0; i < articles.length; i++) {
-            if ((articles[i].slug || articles[i].url || '') !== pinnedUrl) {
-              filtered.push(articles[i]);
-            }
-          }
-          var card1 = filtered[0] ? buildCard(filtered[0], 'rd1') : null;
-          var card2 = filtered[1] ? buildCard(filtered[1], 'rd2') : null;
-          if (card1) grid.appendChild(card1);
-          if (card2) grid.appendChild(card2);
-        }
-
-        var fallback = [
-          { source:'Blog', title:'Qu\u00e9 escucha un l\u00edder cuando cree que est\u00e1 escuchando', date:'2026-06-02', slug:'/blog/escucha-lider.html', img:'https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/blog-cover-escucha.webp', desc:'La mayor\u00eda de los l\u00edderes confunde o\u00edr con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato t\u00e9cnico.', category:'coaching' },
-          { source:'Blog', title:'El 90% de los L\u00edderes Est\u00e1n Atrapados en el Pasado', date:'2025-10-23', slug:'/blog/lideres-atrapados-pasado.html', img:'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png', desc:'Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual.', category:'liderazgo' }
-        ];
-
-        fetch('/articles.json')
-          .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-          .then(function(data) { renderCards(data); })
-          .catch(function() { renderCards(fallback); });
-      })();
-    </script>
     <div class="blog-cta reveal">
       <a href="/blog/" class="btn btn-outline-oscuro">
         Ver todos los artículos →
@@ -2145,6 +2080,60 @@ async function pedirEscucha() {
   });
 </script>
 
+<script>
+/* Blog dinamico: agrega 2 articulos recientes al grid del index */
+(function() {
+  var grid = document.querySelector('#blog .posts-grid');
+  if (!grid) { console.warn('blog-grid: grid not found'); return; }
+
+  var pinnedEl = grid.querySelector('[data-pinned-url]');
+  var pinnedUrl = pinnedEl ? pinnedEl.getAttribute('data-pinned-url') : '';
+
+  function addCards(articles) {
+    articles.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+    var filtered = articles.filter(function(p) {
+      return (p.slug || p.url || '') !== pinnedUrl;
+    });
+    var show = filtered.slice(0, 2);
+    for (var i = 0; i < show.length; i++) {
+      var p = show[i];
+      var href = p.slug || p.url;
+      var external = !p.slug;
+      var tgt = external ? ' target="_blank" rel="noopener"' : '';
+      var cls = i === 0 ? 'post-card reveal rd1' : 'post-card reveal rd2';
+      var art = document.createElement('article');
+      art.className = cls;
+      var h = '';
+      if (p.img) {
+        h += '<img src="' + p.img + '" alt="' + p.title + '" class="post-img" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">';
+        h += '<div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">\u25C9</span></div>';
+      } else {
+        h += '<div class="post-placeholder"><span class="post-placeholder-icon">\u25C9</span></div>';
+      }
+      h += '<div class="post-body">';
+      h += '<span class="post-source">' + p.source + '</span>';
+      h += '<h3 class="post-titulo"><a href="' + href + '"' + tgt + ' style="color:inherit;">' + p.title + '</a></h3>';
+      if (p.desc) h += '<p class="post-desc">' + p.desc + '</p>';
+      h += '<div class="post-footer">';
+      h += '<span class="post-fecha">' + new Date(p.date + 'T12:00:00').toLocaleDateString('es-ES', {day:'2-digit', month:'short', year:'numeric'}) + '</span>';
+      h += '<a href="' + href + '"' + tgt + ' class="post-link">Leer <span>\u2192</span></a>';
+      h += '</div></div>';
+      art.innerHTML = h;
+      grid.appendChild(art);
+    }
+  }
+
+  var fallback = [
+    {source:'Blog',title:'Qu\u00e9 escucha un l\u00edder cuando cree que est\u00e1 escuchando',date:'2026-06-02',slug:'/blog/escucha-lider.html',img:'https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/blog-cover-escucha.webp',desc:'La mayor\u00eda de los l\u00edderes confunde o\u00edr con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato t\u00e9cnico.'},
+    {source:'Blog',title:'El 90% de los L\u00edderes Est\u00e1n Atrapados en el Pasado',date:'2025-10-23',slug:'/blog/lideres-atrapados-pasado.html',img:'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png',desc:'Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual.'}
+  ];
+
+  fetch('/articles.json')
+    .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function(data) { addCards(data); })
+    .catch(function() { addCards(fallback); });
+})();
+</script>
 
 </body>
 </html>
