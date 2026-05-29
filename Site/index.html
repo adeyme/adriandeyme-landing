@@ -1222,10 +1222,6 @@
       margin-top: 48px;
     }
 
-    #dynamic-posts {
-      display: contents;
-    }
-
     #gratis {
       padding: 120px 0;
       background: var(--noche);
@@ -1884,15 +1880,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="posts-grid" style="margin-top: 60px;">
 
       <!-- ============================================================
-           TARJETA FIJADA — Editable a mano por Adrián
+           TARJETA 1 — FIJADA — Editable a mano por Adrián
            
-           Esta tarjeta SIEMPRE se muestra en posición 1.
-           Modificar cuando quieras destacar otro artículo
-           (ej: nueva publicación en La Estrella, entrevista, etc.)
-           
-           Para cambiarla: editar href, img src, título, desc y fecha.
-           data-pinned-url debe coincidir con el href principal
-           para evitar duplicados con las tarjetas dinámicas.
+           Modificar cuando quieras destacar otro artículo.
+           data-pinned-url debe coincidir con el href.
       ============================================================ -->
       <article class="post-card reveal" id="pinned-card"
                data-pinned-url="https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864">
@@ -1913,8 +1904,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </article>
 
-      <!-- Las tarjetas dinámicas se renderizan aquí vía JS -->
-      <div id="dynamic-posts"></div>
+      <!-- ============================================================
+           TARJETAS 2 y 3 — DINÁMICAS
+           
+           Contenido de respaldo hardcodeado abajo.
+           El JS las actualiza desde articles.json si puede.
+           Si no puede, se ven con este contenido.
+           
+           ACTUALIZAR manualmente al publicar un artículo nuevo
+           solo si el fetch no funciona en producción.
+      ============================================================ -->
+      <article class="post-card reveal rd1" id="dynamic-card-1">
+        <img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/blog-cover-escucha.webp"
+             alt="Qué escucha un líder cuando cree que está escuchando" class="post-img" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">◉</span></div>
+        <div class="post-body">
+          <span class="post-source">Blog</span>
+          <h3 class="post-titulo">
+            <a href="/blog/escucha-lider.html" style="color:inherit;">Qué escucha un líder cuando cree que está escuchando</a>
+          </h3>
+          <p class="post-desc">La mayoría de los líderes confunde oír con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato técnico.</p>
+          <div class="post-footer">
+            <span class="post-fecha">02 jun 2026</span>
+            <a href="/blog/escucha-lider.html" class="post-link">Leer <span>→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card reveal rd2" id="dynamic-card-2">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png"
+             alt="El 90% de los Líderes Están Atrapados en el Pasado" class="post-img" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">◉</span></div>
+        <div class="post-body">
+          <span class="post-source">Blog</span>
+          <h3 class="post-titulo">
+            <a href="/blog/lideres-atrapados-pasado.html" style="color:inherit;">El 90% de los Líderes Están Atrapados en el Pasado</a>
+          </h3>
+          <p class="post-desc">Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual. La investigación de Leadership Agility explica por qué.</p>
+          <div class="post-footer">
+            <span class="post-fecha">23 oct 2025</span>
+            <a href="/blog/lideres-atrapados-pasado.html" class="post-link">Leer <span>→</span></a>
+          </div>
+        </div>
+      </article>
 
     </div>
     <div class="blog-cta reveal">
@@ -2097,62 +2131,6 @@ async function pedirEscucha() {
   });
 </script>
 
-<!-- ============================================================
-     BLOG DINAMICO - Carga los 2 articulos mas recientes
-============================================================ -->
-<script>
-  (function() {
-    try {
-      var pinned = document.getElementById('pinned-card');
-      var box = document.getElementById('dynamic-posts');
-      if (!pinned || !box) return;
-      var pinnedUrl = pinned.getAttribute('data-pinned-url') || '';
-
-      var fallback = [
-        { source:'Blog', title:'Que escucha un lider cuando cree que esta escuchando', date:'2026-06-02', slug:'/blog/escucha-lider.html', img:'https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/blog-cover-escucha.webp', desc:'La mayoria de los lideres confunde oir con escuchar.', category:'coaching' },
-        { source:'Blog', title:'El 90% de los Lideres Estan Atrapados en el Pasado', date:'2025-10-23', slug:'/blog/lideres-atrapados-pasado.html', img:'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png', desc:'Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual.', category:'liderazgo' },
-        { source:'Blog', title:'Que Mueve Realmente a las Personas a Seguirte?', date:'2025-10-14', slug:'/blog/circulo-dorado-liderazgo.html', img:'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png', desc:'Las personas no siguen lo que un lider hace, siguen lo que representa.', category:'liderazgo' }
-      ];
-
-      function render(articles) {
-        articles.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
-        var filtered = articles.filter(function(p) {
-          return (p.slug || p.url || '') !== pinnedUrl;
-        });
-        var recent = filtered.slice(0, 2);
-        var html = '';
-        for (var i = 0; i < recent.length; i++) {
-          var p = recent[i];
-          var href = p.slug || p.url;
-          var target = p.slug ? '' : ' target="_blank" rel="noopener"';
-          var cls = i === 0 ? 'post-card reveal rd1' : 'post-card reveal rd2';
-          html += '<article class="' + cls + '">';
-          if (p.img) {
-            html += '<img src="' + p.img + '" alt="' + p.title + '" class="post-img" loading="lazy" onerror="this.style.display=\'none\'">';
-          } else {
-            html += '<div class="post-placeholder"><span class="post-placeholder-icon">&#9673;</span></div>';
-          }
-          html += '<div class="post-body">';
-          html += '<span class="post-source">' + p.source + '</span>';
-          html += '<h3 class="post-titulo"><a href="' + href + '"' + target + ' style="color:inherit;">' + p.title + '</a></h3>';
-          if (p.desc) html += '<p class="post-desc">' + p.desc + '</p>';
-          html += '<div class="post-footer">';
-          html += '<span class="post-fecha">' + new Date(p.date).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'}) + '</span>';
-          html += '<a href="' + href + '"' + target + ' class="post-link">Leer <span>&rarr;</span></a>';
-          html += '</div></div></article>';
-        }
-        box.innerHTML = html;
-      }
-
-      fetch('/articles.json')
-        .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-        .then(function(data) { render(data); })
-        .catch(function() { render(fallback); });
-    } catch(e) {
-      console.warn('Error en blog dinamico:', e);
-    }
-  })();
-</script>
 
 </body>
 </html>
