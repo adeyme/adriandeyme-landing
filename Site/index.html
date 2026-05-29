@@ -1871,7 +1871,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- BLOG — Preview de 3 artículos recientes + enlace al blog completo -->
+<!-- BLOG — La Estrella estática + 2 artículos más recientes del blog (dinámicos) -->
 <section id="blog">
   <div class="container">
     <div class="section-header reveal">
@@ -1881,6 +1881,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="posts-grid" style="margin-top: 60px;">
 
+      <!-- La Estrella — estática (artículo externo) -->
       <article class="post-card reveal">
         <img src="https://www.laestrella.com.pa/binrepository/700x466/0c0/699d466/none/199516884/ALGQ/pexels-woman-1851464-1280_181-12524158_20260207094431.jpg"
              alt="¿Murió el trabajo estable?" class="post-img" loading="lazy"
@@ -1899,41 +1900,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </article>
 
-      <article class="post-card reveal rd1">
-        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png"
-             alt="El 90% de los Líderes Están Atrapados en el Pasado" class="post-img" loading="lazy"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">◉</span></div>
-        <div class="post-body">
-          <span class="post-source">Blog</span>
-          <h3 class="post-titulo">
-            <a href="/blog/lideres-atrapados-pasado.html" style="color:inherit;">El 90% de los Líderes Están Atrapados en el Pasado</a>
-          </h3>
-          <p class="post-desc">Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual. La investigación de Leadership Agility explica por qué.</p>
-          <div class="post-footer">
-            <span class="post-fecha">23 oct 2025</span>
-            <a href="/blog/lideres-atrapados-pasado.html" class="post-link">Leer <span>→</span></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="post-card reveal rd2">
-        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png"
-             alt="¿Qué Mueve Realmente a las Personas a Seguirte?" class="post-img" loading="lazy"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">◉</span></div>
-        <div class="post-body">
-          <span class="post-source">Blog</span>
-          <h3 class="post-titulo">
-            <a href="/blog/circulo-dorado-liderazgo.html" style="color:inherit;">¿Qué Mueve Realmente a las Personas a Seguirte?</a>
-          </h3>
-          <p class="post-desc">Las personas no siguen lo que un líder hace — siguen lo que representa. El Círculo Dorado de Sinek aplicado al liderazgo ejecutivo.</p>
-          <div class="post-footer">
-            <span class="post-fecha">14 oct 2025</span>
-            <a href="/blog/circulo-dorado-liderazgo.html" class="post-link">Leer <span>→</span></a>
-          </div>
-        </div>
-      </article>
+      <!-- Los 2 artículos más recientes del blog se renderizan aquí por JS -->
+      <div id="blog-dynamic-1"></div>
+      <div id="blog-dynamic-2"></div>
 
     </div>
     <div class="blog-cta reveal">
@@ -2114,6 +2083,69 @@ async function pedirEscucha() {
   document.getElementById('escucha-email')?.addEventListener('keydown', e => {
     if (e.key === 'Enter') pedirEscucha();
   });
+
+  /* ---- Blog preview: 2 artículos más recientes del blog ----
+     INSTRUCCIÓN: Cuando publiques un artículo nuevo en el blog,
+     añádelo a este array. El JS ordena por fecha y muestra los 2
+     más recientes automáticamente. La Estrella queda estática arriba.
+  ---- */
+  const blogArticles = [
+    {
+      title: "El 90% de los Líderes Están Atrapados en el Pasado",
+      slug: "/blog/lideres-atrapados-pasado.html",
+      date: "2025-10-23",
+      img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png",
+      desc: "Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual. La investigación de Leadership Agility explica por qué."
+    },
+    {
+      title: "¿Qué Mueve Realmente a las Personas a Seguirte?",
+      slug: "/blog/circulo-dorado-liderazgo.html",
+      date: "2025-10-14",
+      img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png",
+      desc: "Las personas no siguen lo que un líder hace — siguen lo que representa. El Círculo Dorado de Sinek aplicado al liderazgo ejecutivo."
+    },
+    {
+      title: "Si tu Estrategia se Mueve a 100 km/h, ¿Por Qué Tu Estructura Va a 10?",
+      slug: "/blog/estrategia-estructura-unfix.html",
+      date: "2025-10-02",
+      img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*BhY2_8mIIOUmodGPYImNrg.png",
+      desc: "Las estructuras rígidas frenan la ejecución. unFIX propone una arquitectura modular para reorganizar la empresa alrededor del flujo de valor."
+    },
+    {
+      title: "Descubre el Método Kanban: Transforma el Caos en Eficiencia",
+      slug: "/blog/metodo-kanban-eficiencia.html",
+      date: "2025-10-09",
+      img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*dQdMWNNoBGemd8zrNdR2oQ.jpeg",
+      desc: "Kanban no arregla personas — mejora el sistema de trabajo. Visualizar el flujo transforma entornos caóticos en sistemas predecibles."
+    }
+  ];
+
+  function renderBlogCard(article, delay) {
+    const cls = delay ? ` rd${delay}` : '';
+    return `<article class="post-card reveal${cls}">
+      ${article.img
+        ? `<img src="${article.img}" alt="${article.title}" class="post-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">◉</span></div>`
+        : `<div class="post-placeholder"><span class="post-placeholder-icon">◉</span></div>`}
+      <div class="post-body">
+        <span class="post-source">Blog</span>
+        <h3 class="post-titulo">
+          <a href="${article.slug}" style="color:inherit;">${article.title}</a>
+        </h3>
+        <p class="post-desc">${article.desc}</p>
+        <div class="post-footer">
+          <span class="post-fecha">${new Date(article.date).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'})}</span>
+          <a href="${article.slug}" class="post-link">Leer <span>→</span></a>
+        </div>
+      </div>
+    </article>`;
+  }
+
+  // Ordenar por fecha descendente y tomar los 2 más recientes
+  const latest = blogArticles.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 2);
+  const slot1 = document.getElementById('blog-dynamic-1');
+  const slot2 = document.getElementById('blog-dynamic-2');
+  if (slot1 && latest[0]) slot1.outerHTML = renderBlogCard(latest[0], 1);
+  if (slot2 && latest[1]) slot2.outerHTML = renderBlogCard(latest[1], 2);
 </script>
 
 </body>
