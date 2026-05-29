@@ -212,7 +212,7 @@
       --gris:       #8A8A8A;
       --gris2:      #555;
       --tinta:      #1A1A1A;
-      --blanco:     #FFFFFF;
+      --blanco:     #FAFAF7;
       --borde:      rgba(255,255,255,.08);
       --borde-claro: rgba(0,0,0,.1);
       --r-sm: 4px;
@@ -1031,11 +1031,10 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-      transition: border-color .3s cubic-bezier(.23,1,.32,1), transform .3s cubic-bezier(.23,1,.32,1);
+      transition: border-color .3s cubic-bezier(.23,1,.32,1);
     }
     .caso-card:hover {
       border-color: rgba(201,168,76,.3);
-      transform: translateY(-2px);
     }
 
     .caso-meta {
@@ -1133,11 +1132,10 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: border-color .3s cubic-bezier(.23,1,.32,1), transform .3s cubic-bezier(.23,1,.32,1);
+      transition: border-color .3s cubic-bezier(.23,1,.32,1);
     }
     .post-card:hover {
       border-color: rgba(201,168,76,.3);
-      transform: translateY(-3px);
     }
 
     .post-img {
@@ -1476,6 +1474,10 @@
       .creds-inner { flex-direction: column; align-items: flex-start; }
       .creds-divider-v { display: none; }
       .footer-inner { flex-direction: column; text-align: center; }
+      .label { font-size: 11px; }
+      .caso-bloque-titulo { font-size: 10px; }
+      .caso-num, .caso-duracion, .caso-industria { font-size: 10px; }
+      .post-source, .post-fecha { font-size: 10px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1506,9 +1508,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </svg>
       </a>
       <ul class="nav-links">
-        <li><a href="#problema">El problema</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#quien">Sobre mí</a></li>
+        <li><a href="/#problema">El problema</a></li>
+        <li><a href="/#servicios">Servicios</a></li>
+        <li><a href="/enfoque.html">Enfoque</a></li>
         <li><a href="/blog/">Blog</a></li>
       </ul>
       <a href="agenda.html" class="btn btn-oro" style="border-radius: 4px; font-size: 12px; padding: 11px 24px; letter-spacing: .06em; text-transform: uppercase;">Conversemos</a>
@@ -1518,9 +1520,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="nav-mobile" id="mobile-nav" role="dialog" aria-label="Navegación">
-    <a href="#problema" onclick="closeMobileNav()">El problema</a>
-    <a href="#servicios" onclick="closeMobileNav()">Servicios</a>
-    <a href="#quien" onclick="closeMobileNav()">Sobre mí</a>
+    <a href="/#problema" onclick="closeMobileNav()">El problema</a>
+    <a href="/#servicios" onclick="closeMobileNav()">Servicios</a>
+    <a href="/enfoque.html" onclick="closeMobileNav()">Enfoque</a>
     <a href="/blog/" onclick="closeMobileNav()">Blog</a>
     <a href="agenda.html" class="btn btn-oro">Conversemos</a>
   </div>
@@ -1613,10 +1615,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="enfoque-inner">
       <div class="enfoque-left reveal">
-        <span class="label">Mi enfoque</span>
+        <span class="label">Tres miradas</span>
         <h2>Un coach que comprende<br>al ejecutivo en <em>su contexto real.</em></h2>
-        <p>Construí mi mirada de forma progresiva — desde la intervención en equipos hasta el acompañamiento del líder en su contexto completo. Empecé como Agile Coach trabajando con equipos de alto desempeño, avancé hacia el coaching sistémico interviniendo en dinámicas culturales y relacionales, y profundicé en el coaching ontológico para trabajar con el lenguaje, la identidad y las emociones del líder.</p>
-        <p>El resultado es una mirada integradora: entiendo al ejecutivo en su contexto real — sus equipos, sus procesos, su cultura organizacional y su propio liderazgo. No como piezas separadas. Como un sistema.</p>
+        <p>Mi práctica integra tres dimensiones que rara vez conviven en el mismo profesional. No es una suma de certificaciones — es el resultado de una trayectoria que combina años de liderazgo corporativo con una formación profunda en coaching ontológico, coaching ágil y coaching de sistemas organizacionales vivos.</p>
       </div>
       <div class="enfoque-pilares reveal rd1">
         <div class="pilar">
@@ -1631,6 +1632,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="pilar-titulo">Experiencia en entornos corporativos complejos</p>
           <p class="pilar-desc">Trayectoria real en liderazgo, operaciones y transformación organizacional en empresas y equipos en América Latina. Lean-Agile, OKR, Kanban — herramientas que usé antes de enseñarlas. Eso no es un detalle menor: es lo que me permite hablar el idioma del ejecutivo, no el del consultor externo.</p>
         </div>
+        <a href="/enfoque.html" style="font-size:12px;font-weight:500;color:var(--oro2);letter-spacing:.04em;display:inline-flex;align-items:center;gap:4px;border-bottom:.5px solid var(--oro2);padding-bottom:1px;margin-top:12px;transition:gap .2s,color .2s;">Conoce mi enfoque completo <span>→</span></a>
       </div>
     </div>
   </div>
@@ -1879,9 +1881,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="posts-grid" style="margin-top: 60px;">
 
-      <!-- TARJETA FIJADA — Editable a mano -->
-      <article class="post-card reveal"
-               data-pinned-url="https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864">
+      <article class="post-card reveal">
         <img src="https://www.laestrella.com.pa/binrepository/700x466/0c0/699d466/none/199516884/ALGQ/pexels-woman-1851464-1280_181-12524158_20260207094431.jpg"
              alt="¿Murió el trabajo estable?" class="post-img" loading="lazy"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -1895,6 +1895,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="post-footer">
             <span class="post-fecha">07 feb 2026</span>
             <a href="https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864" target="_blank" rel="noopener" class="post-link">Leer <span>→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card reveal rd1">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png"
+             alt="El 90% de los Líderes Están Atrapados en el Pasado" class="post-img" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">◉</span></div>
+        <div class="post-body">
+          <span class="post-source">Blog</span>
+          <h3 class="post-titulo">
+            <a href="/blog/lideres-atrapados-pasado.html" style="color:inherit;">El 90% de los Líderes Están Atrapados en el Pasado</a>
+          </h3>
+          <p class="post-desc">Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual. La investigación de Leadership Agility explica por qué.</p>
+          <div class="post-footer">
+            <span class="post-fecha">23 oct 2025</span>
+            <a href="/blog/lideres-atrapados-pasado.html" class="post-link">Leer <span>→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="post-card reveal rd2">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*597fFJSUet4mtmhOTAMhrw.png"
+             alt="¿Qué Mueve Realmente a las Personas a Seguirte?" class="post-img" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">◉</span></div>
+        <div class="post-body">
+          <span class="post-source">Blog</span>
+          <h3 class="post-titulo">
+            <a href="/blog/circulo-dorado-liderazgo.html" style="color:inherit;">¿Qué Mueve Realmente a las Personas a Seguirte?</a>
+          </h3>
+          <p class="post-desc">Las personas no siguen lo que un líder hace — siguen lo que representa. El Círculo Dorado de Sinek aplicado al liderazgo ejecutivo.</p>
+          <div class="post-footer">
+            <span class="post-fecha">14 oct 2025</span>
+            <a href="/blog/circulo-dorado-liderazgo.html" class="post-link">Leer <span>→</span></a>
           </div>
         </div>
       </article>
@@ -1913,7 +1949,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="section-header reveal">
       <span class="label" style="color: rgba(201,168,76,.7);">Para llevarte</span>
-      <h2 style="color: var(--blanco);">Dos recursos.<br><span style="font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--oro);">Sin costo.</span></h2>
+      <h2 style="color: var(--blanco);">Dos recursos.<br><span style="font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--oro);">Para empezar a ordenar.</span></h2>
       <p style="color: rgba(255,255,255,.4);">Para empezar a ordenar antes de hablar.</p>
     </div>
     <div class="gratis-grid">
@@ -2078,61 +2114,6 @@ async function pedirEscucha() {
   document.getElementById('escucha-email')?.addEventListener('keydown', e => {
     if (e.key === 'Enter') pedirEscucha();
   });
-</script>
-
-<script>
-/* Blog dinamico: agrega 2 articulos recientes al grid del index */
-(function() {
-  var grid = document.querySelector('#blog .posts-grid');
-  if (!grid) { console.warn('blog-grid: grid not found'); return; }
-
-  var pinnedEl = grid.querySelector('[data-pinned-url]');
-  var pinnedUrl = pinnedEl ? pinnedEl.getAttribute('data-pinned-url') : '';
-
-  function addCards(articles) {
-    articles.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
-    var filtered = articles.filter(function(p) {
-      return (p.slug || p.url || '') !== pinnedUrl;
-    });
-    var show = filtered.slice(0, 2);
-    for (var i = 0; i < show.length; i++) {
-      var p = show[i];
-      var href = p.slug || p.url;
-      var external = !p.slug;
-      var tgt = external ? ' target="_blank" rel="noopener"' : '';
-      var cls = i === 0 ? 'post-card reveal visible rd1' : 'post-card reveal visible rd2';
-      var art = document.createElement('article');
-      art.className = cls;
-      var h = '';
-      if (p.img) {
-        h += '<img src="' + p.img + '" alt="' + p.title + '" class="post-img" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">';
-        h += '<div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">\u25C9</span></div>';
-      } else {
-        h += '<div class="post-placeholder"><span class="post-placeholder-icon">\u25C9</span></div>';
-      }
-      h += '<div class="post-body">';
-      h += '<span class="post-source">' + p.source + '</span>';
-      h += '<h3 class="post-titulo"><a href="' + href + '"' + tgt + ' style="color:inherit;">' + p.title + '</a></h3>';
-      if (p.desc) h += '<p class="post-desc">' + p.desc + '</p>';
-      h += '<div class="post-footer">';
-      h += '<span class="post-fecha">' + new Date(p.date + 'T12:00:00').toLocaleDateString('es-ES', {day:'2-digit', month:'short', year:'numeric'}) + '</span>';
-      h += '<a href="' + href + '"' + tgt + ' class="post-link">Leer <span>\u2192</span></a>';
-      h += '</div></div>';
-      art.innerHTML = h;
-      grid.appendChild(art);
-    }
-  }
-
-  var fallback = [
-    {source:'Blog',title:'Qu\u00e9 escucha un l\u00edder cuando cree que est\u00e1 escuchando',date:'2026-06-02',slug:'/blog/escucha-lider.html',img:'https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/images/blog-cover-escucha.webp',desc:'La mayor\u00eda de los l\u00edderes confunde o\u00edr con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato t\u00e9cnico.'},
-    {source:'Blog',title:'El 90% de los L\u00edderes Est\u00e1n Atrapados en el Pasado',date:'2025-10-23',slug:'/blog/lideres-atrapados-pasado.html',img:'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*xE3rFZ0zpytpHPlBgW8jQw.png',desc:'Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual.'}
-  ];
-
-  fetch('/articles.json')
-    .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(function(data) { addCards(data); })
-    .catch(function() { addCards(fallback); });
-})();
 </script>
 
 </body>
