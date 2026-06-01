@@ -1,0 +1,22 @@
+/* site-fixes.css — overrides cross-página. Se carga DESPUÉS del <style> inline. */
+
+/* A11y: etiqueta oculta visualmente, audible para lectores de pantalla */
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+/* Lock de acento: el ícono social usa oro, no azul LinkedIn */
+.li-icon:hover{
+  background:rgba(201,168,76,.1);
+  border-color:rgba(201,168,76,.3);
+  color:var(--oro);
+}
+
+/* Tap targets ≥44px */
+.nav-ham{ min-width:44px; min-height:44px; padding:10px; align-items:center; justify-content:center; }
+.footer-links a:not(.li-icon){ padding:10px 2px; }
+.post-link, .related-grid .post-link{ padding:8px 0; }
+
+/* Placeholder del formulario con más contraste */
+.email-form input::placeholder{ color:rgba(255,255,255,.45); }
