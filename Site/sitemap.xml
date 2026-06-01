@@ -48,13 +48,6 @@
     <priority>0.2</priority>
   </url>
 
-  <!-- Descubrimiento -->
-  <url>
-    <loc>https://www.adriandeyme.com/descubrimiento.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
   <!--
     NOTA: Cuando publiques artículos en el blog propio,
     añadir una entrada <url> por cada post individual:
