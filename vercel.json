@@ -1,5 +1,9 @@
 {
   "outputDirectory": "Site",
+  "redirects": [
+    { "source": "/agenda", "destination": "https://calendly.com/adriandeyme/reunion-exploratoria", "permanent": true },
+    { "source": "/wa", "destination": "https://wa.me/50766759179", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
