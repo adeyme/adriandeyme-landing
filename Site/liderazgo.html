@@ -11,11 +11,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Coaching de Liderazgo para directivos · Adrián Deyme</title>
-  <meta name="description" content="Coaching de liderazgo para directivos cuya forma de liderar ya no alcanza para el siguiente nivel. Dos ciclos de noventa días. Basado en el modelo de agilidad de liderazgo de Bill Joiner.">
+  <meta name="description" content="Coaching de liderazgo para directivos cuya forma de liderar ya no alcanza para el siguiente nivel. Umbral: dos ciclos de noventa días, con avance medible en OKRs.">
   <link rel="canonical" href="https://www.adriandeyme.com/liderazgo.html">
 
   <meta property="og:title" content="Coaching de Liderazgo para directivos · Adrián Deyme">
-  <meta property="og:description" content="Cuando la forma de liderar que te trajo hasta acá ya no alcanza para el siguiente nivel. Basado en el modelo de agilidad de liderazgo de Bill Joiner.">
+  <meta property="og:description" content="Cuando la forma de liderar que te trajo hasta acá ya no alcanza para el siguiente nivel. Umbral, el método para evolucionar tu forma de liderar.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.adriandeyme.com/liderazgo.html">
   <meta property="og:locale" content="es_LA">
@@ -58,7 +58,7 @@
       "@type": "Audience",
       "audienceType": "Directivos y gerentes que ya no avanzan con su forma de liderar, y empresas que desarrollan a un líder clave"
     },
-    "description": "Acompañamiento de coaching para el directivo cuya forma de liderar ya no alcanza para el siguiente nivel. Trabaja las competencias visibles del liderazgo y las capacidades internas que las sostienen, en dos ciclos de noventa días. Basado en el modelo de agilidad de liderazgo de Bill Joiner."
+    "description": "Acompañamiento de coaching para el directivo cuya forma de liderar ya no alcanza para el siguiente nivel. Trabaja las competencias visibles del liderazgo y las capacidades internas que las sostienen, en dos ciclos de noventa días, con avance medible en OKRs."
   }
   </script>
 
@@ -162,14 +162,15 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(38px, 5vw, 60px);
       font-weight: 400; line-height: 1.12;
-      color: var(--blanco); margin-bottom: 26px; max-width: 15ch;
+      color: var(--blanco); margin-bottom: 22px; max-width: 17ch;
     }
     .hero-headline em { font-style: italic; color: var(--oro); }
     .hero-sub {
-      font-size: clamp(16px, 1.9vw, 19px); font-weight: 300;
-      color: rgba(255,255,255,.6); max-width: 32ch; line-height: 1.8;
+      font-size: clamp(15px, 1.7vw, 17px); font-weight: 300;
+      color: rgba(255,255,255,.6); max-width: 40ch; line-height: 1.8; margin-bottom: 12px;
     }
     .hero-sub em { font-style: normal; color: var(--oro); }
+    .hero-fuente { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.08em; color:rgba(255,255,255,.3); }
 
     /* Ficha de resumen del hero */
     .ficha { background: rgba(255,255,255,.04); border: 0.5px solid rgba(255,255,255,.1); border-radius: var(--r-lg); padding: 32px 30px; position: relative; }
@@ -342,6 +343,75 @@
       .js-ready .reveal { opacity: 1; transform: none; transition: none; }
       .cone6 *, .salto2 * { animation: none !important; opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; }
     }
+
+    /* ===================== RESUMEN Umbral (oscuro) ===================== */
+    #resumen { background: var(--noche); padding: 40px 0 116px; position: relative; overflow: hidden; }
+    #resumen .container { position: relative; z-index: 1; }
+    .res-wrap { max-width: 860px; margin: 0 auto; }
+    .res-kick { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--oro); display:block; margin-bottom:18px; }
+    .res-titulo { font-family:'Cormorant Garamond',serif; font-size:clamp(26px,3.2vw,32px); font-weight:400; line-height:1.2; color:var(--blanco); margin-bottom:44px; }
+    .res-titulo em { font-style:italic; color:var(--oro); }
+    .res-duo { display:grid; gap:0; }
+    .res-lab { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.4); display:block; margin-bottom:14px; }
+    .res-quote { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; font-style:italic; color:var(--blanco); line-height:1.35; margin-bottom:12px; }
+    .res-echo { font-size:13px; font-weight:300; color:rgba(255,255,255,.55); line-height:1.6; margin:0; }
+    .res-nec { text-align:center; font-family:'Cormorant Garamond',serif; font-size:clamp(22px,2.6vw,25px); font-weight:400; line-height:1.3; color:var(--blanco); margin-top:44px; }
+    .res-nec em { font-style:italic; color:var(--oro); }
+    .res-umbral-rule { height:1px; background:linear-gradient(90deg,transparent,rgba(201,168,76,.45),transparent); margin:24px 0 40px; }
+    .res-intro { font-size:15px; font-weight:300; color:rgba(255,255,255,.7); margin-bottom:26px; }
+    .senda { position:relative; padding-left:42px; }
+    .senda::before { content:''; position:absolute; left:10.5px; top:4px; bottom:4px; width:1px; background:rgba(201,168,76,.35); }
+    .senda .paso { position:relative; margin-bottom:20px; }
+    .senda .paso .n { position:absolute; left:-42px; top:-2px; width:22px; height:22px; border-radius:50%; background:var(--noche); border:1px solid rgba(201,168,76,.55); color:var(--oro); font-family:'DM Mono',monospace; font-size:10px; display:flex; align-items:center; justify-content:center; }
+    .senda .paso p { font-size:14px; font-weight:400; color:var(--blanco); line-height:1.6; margin:0; }
+    .senda .nota { position:relative; margin-bottom:14px; }
+    .senda .nota .dot { position:absolute; left:-35px; top:7px; width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.4); }
+    .senda .nota p { font-size:14px; font-weight:400; color:rgba(255,255,255,.78); line-height:1.6; margin:0; }
+    .senda .cierre { position:relative; }
+    .senda .cierre .dot { position:absolute; left:-36px; top:5px; width:9px; height:9px; border-radius:50%; background:var(--oro); }
+    .senda .cierre p { font-family:'Cormorant Garamond',serif; font-size:18px; font-style:italic; color:var(--oro); line-height:1.4; margin:0; }
+    .res-rule { height:0.5px; background:rgba(255,255,255,.12); margin:40px 0; }
+    .res-fit p { font-size:14px; font-weight:300; color:rgba(255,255,255,.7); line-height:1.65; margin:0; }
+    .res-cta { display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:40px; }
+    .btn-ghost { display:inline-flex; align-items:center; color:rgba(255,255,255,.7); font-family:'DM Sans',sans-serif; font-size:11px; font-weight:400; letter-spacing:.08em; text-transform:uppercase; padding:12px 24px; border:0.5px solid rgba(255,255,255,.25); border-radius:var(--r-sm); transition: border-color .2s, color .2s; }
+    .btn-ghost:hover { color:var(--oro); border-color:rgba(201,168,76,.5); }
+    @media (min-width:760px){
+      .res-duo { grid-template-columns:1fr 1fr; }
+      .res-duo .col-l { padding-right:32px; }
+      .res-duo .col-r { padding-left:32px; border-left:0.5px solid rgba(255,255,255,.12); }
+    }
+
+    /* ===================== Estaciones: dato + puente ===================== */
+    .estacion-extra { max-width:640px; margin: 40px auto 0; }
+    .dato-line { font-size:14px; font-weight:300; line-height:1.6; margin:0; }
+    .dato-line .cifra { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:20px; }
+    .sec-claro .dato-line { color:var(--gris2); } .sec-claro .dato-line .cifra { color:var(--oro2); }
+    .sec-oscuro .dato-line { color:rgba(255,255,255,.62); } .sec-oscuro .dato-line .cifra { color:var(--oro); }
+    .puente { margin-top:28px; padding-top:28px; }
+    .sec-claro .puente { border-top:0.5px solid var(--borde-claro); }
+    .sec-oscuro .puente { border-top:0.5px solid rgba(255,255,255,.12); }
+    .puente .kicker { margin-bottom:6px; }
+    .puente-q { font-family:'Cormorant Garamond',serif; font-size:20px; font-style:italic; line-height:1.4; margin:0; }
+    .sec-claro .puente-q { color:var(--noche); } .sec-oscuro .puente-q { color:var(--blanco); }
+
+    /* ===================== El método en el tiempo: figura + terrenos ===================== */
+    .figura-osc { width:100%; border-radius:14px; overflow:hidden; border:0.5px solid rgba(201,168,76,.22); background:#0c1e2d; }
+    .figura-osc svg { display:block; width:100%; }
+    .lab-titulo { max-width:860px; margin:36px auto 16px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(18px,2vw,20px); color:var(--noche); }
+    .terrenos { max-width:860px; margin:0 auto; display:grid; gap:0; grid-template-columns:1fr; }
+    .terrenos .t-item { padding:14px 0; }
+    .terrenos .t-item .dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--oro); margin-bottom:8px; }
+    .terrenos .t-item p { font-size:14px; font-weight:300; color:var(--gris2); line-height:1.5; margin:0; }
+    @media (min-width:760px){
+      .terrenos { grid-template-columns:1fr 1fr 1fr; }
+      .terrenos .t-item { padding:0 20px; border-left:0.5px solid var(--borde-claro); }
+      .terrenos .t-item:first-child { padding-left:0; border-left:none; }
+    }
+
+    /* ===================== Cierre centrado ===================== */
+    #cta-lid .cta-lid-inner { text-align:center; }
+    #cta-lid .cta-lid-q { margin-left:auto; margin-right:auto; }
+
   </style>
   <link rel="stylesheet" href="/site-fixes.css">
 </head>
@@ -388,8 +458,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero-eyebrow reveal">
           <span class="label">Coaching de Liderazgo</span>
         </div>
-        <h1 class="hero-headline reveal rd1">Llegaste lejos con tu forma de liderar.</h1>
-        <p class="hero-sub reveal rd2">Y esa misma forma, la que te trajo hasta acá, hoy <em>no alcanza</em> para llegar adonde quieres o necesitas.</p>
+        <h1 class="hero-headline reveal rd1">¿Y si pudieras <em>elegir</em> qué estilo de líder quieres ser?</h1>
+        <p class="hero-sub reveal rd2">Solo el 44% de los líderes recibió formación formal para el rol.</p>
+        <p class="hero-fuente reveal rd2">Gallup &middot; State of the Global Workplace, 2025</p>
       </div>
       <aside class="ficha reveal rd2">
         <span class="ficha-label">El acompañamiento</span>
@@ -403,30 +474,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="ficha-row">
           <span class="ficha-term">Marco</span>
-          <span class="ficha-val">Agilidad de liderazgo · Bill Joiner</span>
+          <span class="ficha-val">Método propio · Umbral</span>
         </div>
       </aside>
     </div>
   </div>
 </section>
 
+<!-- ===================== RESUMEN · método Umbral (oscuro) ===================== -->
+<section id="resumen">
+  <div class="container">
+    <div class="res-wrap reveal">
+      <span class="res-kick">El método</span>
+      <p class="res-titulo"><em>Umbral</em>, el método para evolucionar tu forma de liderar.</p>
+
+      <div class="res-duo">
+        <div class="col-l">
+          <span class="res-lab">Para el líder</span>
+          <p class="res-quote">&ldquo;Lo que me trajo hasta acá ya no me alcanza.&rdquo;</p>
+          <p class="res-echo">El esfuerzo no es el problema. La forma, sí.</p>
+        </div>
+        <div class="col-r">
+          <span class="res-lab">Para la empresa</span>
+          <p class="res-quote">&ldquo;Tengo un líder clave. No puedo perderlo ni dejarlo estancarse.&rdquo;</p>
+          <p class="res-echo">Desarrollarlo a tiempo, para el rol que ocupa o el que viene.</p>
+        </div>
+      </div>
+
+      <p class="res-nec">Se trata de liderar distinto, <em>y eso se puede desarrollar.</em></p>
+      <div class="res-umbral-rule"></div>
+
+      <p class="res-intro">Umbral es el método con el que acompaño ese desarrollo:</p>
+      <div class="senda">
+        <div class="paso"><span class="n">01</span><p>Registramos tu estilo de liderazgo.</p></div>
+        <div class="paso"><span class="n">02</span><p>Analizamos el estilo que se requiere para tu desarrollo.</p></div>
+        <div class="paso"><span class="n">03</span><p>Establecemos un plan para alcanzar ese estilo requerido.</p></div>
+        <div class="paso" style="margin-bottom:26px;"><span class="n">04</span><p>Lo medimos con OKRs: metas ambiciosas y alcanzables, para saber dónde estás, adónde vas y cuándo llegaste.</p></div>
+        <div class="nota"><span class="dot"></span><p>Tu laboratorio es tu trabajo cotidiano: tus reuniones, tus conversaciones.</p></div>
+        <div class="cierre"><span class="dot"></span><p>Yo te acompaño en el camino.</p></div>
+      </div>
+
+      <div class="res-rule"></div>
+      <div class="res-duo res-fit">
+        <div class="col-l">
+          <span class="res-lab">Para el líder</span>
+          <p>Líderes con ambición de crecimiento, que saben que pueden materializar su potencial y quieren dar el próximo paso.</p>
+        </div>
+        <div class="col-r">
+          <span class="res-lab">Para la empresa</span>
+          <p>Empresas que apuestan por sus líderes clave y deciden invertir en prepararlos para el nivel que viene.</p>
+        </div>
+      </div>
+
+      <div class="res-cta">
+        <a href="agenda.html" class="btn btn-oro">Conversemos
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#recorrido" class="btn-ghost">Ver cómo trabajo &darr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== BLOQUE 2 · El espejo (claro + cono) ===================== -->
-<section class="sec-claro">
+<section class="sec-claro" id="recorrido">
   <div class="container">
     <div class="wrap">
-      <span class="kicker reveal">Los tres niveles</span>
+      <span class="kicker reveal">Dónde estás hoy</span>
       <div class="body">
-        <p class="lead reveal">Ningún líder lidera de una sola manera. Con los años desarrollaste varias, y una de ellas se volvió la tuya por defecto: la forma a la que vuelves sin pensarlo cuando hay presión.</p>
-        <p class="reveal">El modelo de agilidad de liderazgo de Bill Joiner describe tres niveles que se van sumando con la madurez. El primero es el del experto, que resuelve los problemas con su pericia y su autoridad. El segundo es el del realizador, que ya no resuelve todo él mismo, sino que orienta a los demás hacia un resultado. Esos dos niveles alcanzan mientras los problemas tienen una solución conocida, y la enorme mayoría de los directivos se mueve dentro de ellos durante toda su carrera. El límite aparece con los problemas nuevos, los que nadie resolvió antes: ahí no basta con saber más ni con exigir más al equipo.</p>
-        <p class="reveal">Ahí entra el tercer nivel, el del catalizador. El líder, en lugar de cargar con cada decisión, construye las condiciones para que el equipo y la organización respondan. Menos del 10% de los líderes opera con este nivel. No lo tienen desarrollado y no saben que pueden hacerlo.</p>
+        <p class="lead reveal">Primero identificamos el estilo desde el que lideras.</p>
+        <p class="reveal">Tu estilo de liderazgo no es uno solo: es un repertorio que se fue ampliando con los años. En Umbral lo leemos en niveles que se van sumando. El experto resuelve con su pericia y su autoridad. El realizador ya no resuelve todo él mismo: orienta a otros hacia un resultado. Esos dos estilos alcanzan mientras los problemas tienen una solución conocida, y la mayoría de los líderes se mueve ahí toda su carrera. El límite aparece con lo que nadie resolvió antes: ahí no basta con saber más ni exigir más al equipo.</p>
+        <p class="reveal">Y hay un estilo más, el del catalizador: en lugar de cargar con cada decisión, construye las condiciones para que el equipo y la organización respondan. Menos del 10% de los líderes lo tiene desarrollado, y la mayoría ni sabe que puede hacerlo.</p>
       </div>
     </div>
 
     <div class="figura wide">
-      <div class="cone6 reveal" role="img" aria-label="Los niveles de agilidad de liderazgo de Bill Joiner. Pre-experto en gris, Experto 45% y Realizador 35% forman el liderazgo heroico (90%); Catalizador 5% en oro abre el post-heroico, alcanzado por menos del 10%.">
+      <div class="cone6 reveal" role="img" aria-label="Los estilos de liderazgo, en niveles que se van sumando. El experto y el realizador forman el modo heroico, donde se mueve cerca del 90% de los líderes; el catalizador, en oro, abre el post-heroico, que habita menos del 10%.">
         <svg viewBox="0 0 680 548" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <text class="bm ch" x="40" y="42" style="font-size:11px;fill:#C9A84C;fill-opacity:0.85;letter-spacing:1.5px">modelo leadership agility · bill joiner</text>
-          <text class="bt ch" x="40" y="84" style="font-size:33px;fill:#F5F3EE;font-weight:500">La agilidad se recorre por niveles</text>
+          <text class="bm ch" x="40" y="42" style="font-size:11px;fill:#C9A84C;fill-opacity:0.85;letter-spacing:1.5px">los estilos de liderazgo</text>
+          <text class="bt ch" x="40" y="84" style="font-size:33px;fill:#F5F3EE;font-weight:500">Los niveles se van sumando</text>
           <text class="bs ch" x="40" y="110" style="font-size:13px;fill:#F5F3EE;fill-opacity:0.56">Cada nivel incluye al anterior. Madurar amplía el repertorio disponible.</text>
 
           <path class="cup k3" d="M70,264 L610,150 Q638,300 610,450 L70,336 Q56,300 70,264 Z" fill="#C9A84C"/>
@@ -444,22 +570,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <g class="lb m0">
             <text class="bs" x="125" y="290" text-anchor="middle" style="font-size:13px;fill:#F5F3EE;fill-opacity:0.5">Pre-experto</text>
-            <text class="bs" x="125" y="306" text-anchor="middle" style="font-size:11px;fill:#F5F3EE;fill-opacity:0.4">fiel ejecutor</text>
+            <text class="bs" x="125" y="306" text-anchor="middle" style="font-size:11px;fill:#F5F3EE;fill-opacity:0.4">ejecución fiel</text>
             <text class="bm" x="125" y="324" text-anchor="middle" style="font-size:11px;fill:#F5F3EE;fill-opacity:0.45">~10%</text>
           </g>
           <g class="lb m1">
             <text class="bs" x="262" y="290" text-anchor="middle" style="font-size:15px;fill:#F5F3EE;font-weight:500">Experto</text>
-            <text class="bs" x="262" y="307" text-anchor="middle" style="font-size:11px;fill:#F5F3EE;fill-opacity:0.6">pericia y autoridad</text>
+            <text class="bs" x="262" y="307" text-anchor="middle" style="font-size:11px;fill:#F5F3EE;fill-opacity:0.6">maestría y poder</text>
             <text class="bm" x="262" y="327" text-anchor="middle" style="font-size:12px;fill:#F5F3EE;fill-opacity:0.78">~45%</text>
           </g>
           <g class="lb m2">
             <text class="bs" x="400" y="290" text-anchor="middle" style="font-size:15px;fill:#F5F3EE;font-weight:500">Realizador</text>
-            <text class="bs" x="400" y="307" text-anchor="middle" style="font-size:11px;fill:#F5F3EE;fill-opacity:0.6">resultados estratégicos</text>
+            <text class="bs" x="400" y="307" text-anchor="middle" style="font-size:11px;fill:#F5F3EE;fill-opacity:0.6">logros clave</text>
             <text class="bm" x="400" y="327" text-anchor="middle" style="font-size:12px;fill:#F5F3EE;fill-opacity:0.78">~35%</text>
           </g>
           <g class="lb m3">
             <text class="bs" x="545" y="290" text-anchor="middle" style="font-size:15px;fill:#0D1F2D;font-weight:500">Catalizador</text>
-            <text class="bs" x="545" y="307" text-anchor="middle" style="font-size:11px;fill:#0D1F2D;fill-opacity:0.74">visión y participación</text>
+            <text class="bs" x="545" y="307" text-anchor="middle" style="font-size:11px;fill:#0D1F2D;fill-opacity:0.74">enfoque colaborativo</text>
             <text class="bm" x="545" y="327" text-anchor="middle" style="font-size:12px;fill:#0D1F2D;font-weight:500">~5%</text>
           </g>
 
@@ -470,8 +596,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <text class="bm" x="545" y="486" text-anchor="middle" style="font-size:11px;fill:#C9A84C;letter-spacing:0.5px">post-heroico · menos del 10%</text>
           </g>
 
-          <text class="bs ch" x="40" y="522" style="font-size:10px;fill:#F5F3EE;fill-opacity:0.42">Basado en el modelo Leadership Agility® de Bill Joiner. El grupo post-heroico incluye dos niveles más, Co-Creador y Sinergista.</text>
+          <text class="bs ch" x="40" y="522" style="font-size:10px;fill:#F5F3EE;fill-opacity:0.42">Por encima del catalizador hay estilos aún más colaborativos, que muy pocos líderes alcanzan.</text>
         </svg>
+      </div>
+    </div>
+    <div class="estacion-extra reveal">
+      <p class="dato-line">Cerca del <span class="cifra">90%</span> de los líderes se mueve dentro del modo heroico.</p>
+      <div class="puente">
+        <span class="kicker">Ciclo 1 · el dominio</span>
+        <p class="puente-q">Haces consciente tu estilo y lo afianzas, hasta moverte con soltura.</p>
       </div>
     </div>
   </div>
@@ -481,11 +614,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="sec-oscuro">
   <div class="container">
     <div class="wrap">
-      <span class="kicker reveal">El salto</span>
+      <span class="kicker reveal">Hacia dónde puedes moverte</span>
       <div class="body">
-        <p class="lead reveal">Esos tres niveles se parten en dos mundos. Joiner llama heroico al del experto y el realizador, y post-heroico al del catalizador en adelante. La diferencia no es de estilo. Es de <em>quién responde</em> cuando el problema llega.</p>
-        <p class="reveal">En el modo heroico, todo pasa por ti. Tú fijas los objetivos, tú coordinas a las personas, tú firmas la última decisión. Funciona mientras el entorno es estable. Cuando la complejidad sube, el mismo líder que antes resolvía todo se vuelve el cuello de botella: nada avanza sin su visto bueno, y el equipo aprende a esperar en lugar de decidir. El 90% de los líderes trabaja así.</p>
-        <p class="reveal">En el modo post-heroico sigues siendo el responsable último, pero dejas de ser el único que sostiene el sistema. Construyes las condiciones para que el equipo decida, coordine y resuelva sin que cada cosa pase por tu escritorio. Menos del 10% de los líderes llegó hasta acá. Ese cruce, del que carga todo al que crea el entorno donde el trabajo se sostiene solo, es el salto.</p>
+        <p class="lead reveal">Abrimos el acceso a estilos que hoy no tienes reconocidos, para que puedas luego usar el que cada situación requiera.</p>
+        <p class="reveal">Estos estilos se parten en dos mundos. Al del experto y el realizador los llamamos heroicos: todo pasa por ti, tú resuelves, tú decides, tú sostienes. Del catalizador en adelante, post-heroicos: dejas de ser el único que sostiene el sistema y construyes las condiciones para que el equipo decida y resuelva sin que cada cosa pase por tu escritorio. Ese cruce es el salto.</p>
         <div class="nota-empresa reveal">
           <span class="label">Para la empresa</span>
           <p>Un líder que es cuello de botella le pone techo a todo lo que tiene debajo.</p>
@@ -568,6 +700,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </svg>
       </div>
     </div>
+    <div class="estacion-extra reveal">
+      <p class="dato-line">Menos del <span class="cifra">10%</span> de los líderes habita la zona post-heroica.</p>
+      <div class="puente">
+        <span class="kicker">Ciclo 2 · el salto</span>
+        <p class="puente-q">Te entrenas para fluir con estilos nuevos de liderazgo.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -575,52 +714,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="sec-claro">
   <div class="container">
     <div class="wrap">
-      <span class="kicker reveal">El proceso</span>
+      <span class="kicker reveal">El método en el tiempo</span>
       <div class="body">
-        <p class="lead reveal">Trabajo en dos planos a la vez.</p>
+        <p class="lead reveal">Umbral trabaja en dos planos a la vez.</p>
         <p class="reveal">El primero son las competencias que se ven: cómo conversas en los momentos que definen, cómo decides, cómo conduces a tu equipo.</p>
-        <p class="reveal">El segundo son las capacidades internas que sostienen esas competencias: la forma en que observas una situación antes de actuar sobre ella. Entrenar solo lo primero rara vez alcanza, porque si quien observa sigue siendo el mismo, los comportamientos nuevos no se sostienen.</p>
+        <p class="reveal">El segundo son las capacidades internas que las sostienen: la forma en que observas una situación antes de actuar. Si el observador no cambia, lo nuevo no se sostiene.</p>
       </div>
     </div>
 
-    <div class="ciclos reveal">
-      <div class="ciclo">
-        <div class="n">01</div>
-        <span class="t">Primer ciclo · 90 días</span>
-        <p>Estabiliza tu nivel actual de liderazgo y empieza a mover comportamientos concretos en tu trabajo diario.</p>
-      </div>
-      <div class="ciclo">
-        <div class="n">02</div>
-        <span class="t">Segundo ciclo · 90 días</span>
-        <p>Acompaña el movimiento que necesitas realizar para alcanzar el nivel que hoy todavía no tienes disponible.</p>
+    <div class="figura wide reveal">
+      <div class="figura-osc">
+        <svg viewBox="0 0 620 250" role="img" aria-label="El método en el tiempo: dos ciclos de noventa días, el dominio y el salto, medidos de extremo a extremo por OKRs." xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="620" height="250" fill="#0c1e2d"/>
+          <text class="bm" x="40" y="36" style="font-size:10px;letter-spacing:1.6px;fill:#C9A84C;fill-opacity:.85">el recorrido</text>
+          <text class="bt" x="40" y="68" style="font-size:25px;fill:#F5F3EE">Dos ciclos de 90 días</text>
+          <line x1="70" y1="138" x2="550" y2="138" stroke="#C9A84C" stroke-opacity="0.4" stroke-width="1"/>
+          <g stroke="#F5F3EE" stroke-opacity="0.16" stroke-width="1">
+            <line x1="130" y1="134" x2="130" y2="142"/><line x1="190" y1="134" x2="190" y2="142"/><line x1="250" y1="134" x2="250" y2="142"/>
+            <line x1="370" y1="134" x2="370" y2="142"/><line x1="430" y1="134" x2="430" y2="142"/><line x1="490" y1="134" x2="490" y2="142"/>
+          </g>
+          <line x1="310" y1="120" x2="310" y2="156" stroke="#C9A84C" stroke-width="1"/>
+          <circle cx="70" cy="138" r="6" fill="#14283a" stroke="#C9A84C" stroke-opacity="0.7" stroke-width="1"/>
+          <circle cx="550" cy="138" r="6" fill="#14283a" stroke="#C9A84C" stroke-opacity="0.7" stroke-width="1"/>
+          <text class="bm" x="70" y="116" text-anchor="middle" style="font-size:10px;fill:#F5F3EE;fill-opacity:.7">dónde estás</text>
+          <text class="bm" x="550" y="116" text-anchor="middle" style="font-size:10px;fill:#F5F3EE;fill-opacity:.7">adónde vas</text>
+          <text class="bm" x="190" y="182" text-anchor="middle" style="font-size:11px;letter-spacing:.5px;fill:#C9A84C">Ciclo 1 &middot; 90 días</text>
+          <text class="bs" x="190" y="200" text-anchor="middle" style="font-size:11px;fill:#F5F3EE;fill-opacity:.6">el dominio</text>
+          <text class="bm" x="430" y="182" text-anchor="middle" style="font-size:11px;letter-spacing:.5px;fill:#C9A84C">Ciclo 2 &middot; 90 días</text>
+          <text class="bs" x="430" y="200" text-anchor="middle" style="font-size:11px;fill:#F5F3EE;fill-opacity:.6">el salto</text>
+          <line x1="70" y1="224" x2="550" y2="224" stroke="#C9A84C" stroke-opacity="0.5" stroke-width="1"/>
+          <line x1="70" y1="219" x2="70" y2="229" stroke="#C9A84C" stroke-opacity="0.5" stroke-width="1"/>
+          <line x1="550" y1="219" x2="550" y2="229" stroke="#C9A84C" stroke-opacity="0.5" stroke-width="1"/>
+          <text class="bm" x="310" y="244" text-anchor="middle" style="font-size:10px;letter-spacing:.8px;fill:#C9A84C">OKRs &middot; la vara que mide el avance</text>
+        </svg>
       </div>
     </div>
 
-    <p class="cierre-proc reveal">El laboratorio donde pondrás en práctica lo aprendido será tu trabajo diario: tus reuniones, tus conversaciones.</p>
+    <p class="lab-titulo reveal">El laboratorio es tu trabajo cotidiano:</p>
+    <div class="terrenos reveal">
+      <div class="t-item"><span class="dot"></span><p>Las conversaciones que definen</p></div>
+      <div class="t-item"><span class="dot"></span><p>La conducción de tu equipo</p></div>
+      <div class="t-item"><span class="dot"></span><p>Las iniciativas de cambio</p></div>
+    </div>
   </div>
 </section>
 
 <!-- ===================== BLOQUE 5 + 6 · Para quién + cierre (oscuro) ===================== -->
 <section id="cta-lid">
   <div class="container">
-    <div class="wrap">
-      <span class="kicker reveal">Para quién</span>
-      <div class="body"><p class="lead reveal" style="margin-bottom:0;">Dos lecturas del mismo trabajo.</p></div>
-    </div>
-
-    <div class="duo reveal">
-      <div>
-        <span class="label">Para el líder</span>
-        <p>El directivo que tiene personas a cargo y responde por resultados a través de otros. Un ejecutivo de primer nivel, un director, o quien conduce un equipo y siente que lo que le funcionó hasta ahora ya no le rinde igual.</p>
-      </div>
-      <div>
-        <span class="label">Para la empresa</span>
-        <p>La empresa que quiere desarrollar o blindar a un líder clave: alguien que ya es bueno en lo suyo, y al que le falta el nivel de liderazgo que su rol empezó a pedirle.</p>
-      </div>
-    </div>
-
-    <div class="fin-rule reveal"></div>
-
     <div class="cta-lid-inner reveal">
       <p class="cta-lid-q">De todo lo que decidiste esta semana, ¿cuánto lo elegiste y cuánto salió en <em>automático</em>?</p>
       <a href="agenda.html" class="btn btn-oro">
