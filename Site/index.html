@@ -198,7 +198,7 @@
 
   <style>
     /* ============================================================
-       TOKENS — sin cambios respecto al original
+       TOKENS
     ============================================================ */
     :root {
       --noche:      #0D1F2D;
@@ -217,6 +217,13 @@
       --r-md: 10px;
       --r-lg: 18px;
       --r-xl: 24px;
+      /* DoD-03 · Espina de medida: lectura angosta + ancho amplio */
+      --wrap: 640px;
+      --wide: 880px;
+      /* DoD-06 · Escala de ritmo vertical (3 pasos) */
+      --pad-s: 96px;
+      --pad-m: 120px;
+      --pad-l: 144px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -233,1265 +240,505 @@
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
+    /* DoD-04 · ancla bajo el nav sticky para que el H2 no quede tapado */
+    section[id] { scroll-margin-top: 84px; }
 
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
     .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
     .mono  { font-family: 'DM Mono', 'Courier New', monospace; }
 
     .label {
       font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--oro);
+      font-size: 10px; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--oro);
     }
-
     .label-muted {
       font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--gris);
+      font-size: 10px; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--gris);
     }
 
+    /* BOTONES */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: .05em;
-      cursor: pointer;
-      border: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'DM Sans', sans-serif; font-size: 13px;
+      font-weight: 600; letter-spacing: .05em; cursor: pointer; border: none;
       transition: background .2s cubic-bezier(.23,1,.32,1), transform .2s cubic-bezier(.23,1,.32,1), border-color .2s cubic-bezier(.23,1,.32,1), color .2s cubic-bezier(.23,1,.32,1);
       text-decoration: none;
     }
-    .btn:active {
-      transform: scale(.97);
-    }
-
-    .btn-oro {
-      background: var(--oro);
-      color: var(--noche);
-      padding: 14px 32px;
-      border-radius: var(--r-sm);
-    }
-    .btn-oro:hover {
-      background: var(--oro2);
-      transform: translateY(-1px);
-    }
-
+    .btn:active { transform: scale(.97); }
+    .btn-oro { background: var(--oro); color: var(--noche); padding: 14px 32px; border-radius: var(--r-sm); }
+    .btn-oro:hover { background: var(--oro2); transform: translateY(-1px); }
     .btn-outline-claro {
-      background: transparent;
-      color: rgba(255,255,255,.7);
-      padding: 13px 28px;
-      border-radius: var(--r-sm);
+      background: transparent; color: rgba(255,255,255,.7);
+      padding: 13px 28px; border-radius: var(--r-sm);
       border: 0.5px solid rgba(255,255,255,.25);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      font-size: 11px;
+      letter-spacing: .08em; text-transform: uppercase; font-size: 11px;
     }
-    .btn-outline-claro:hover {
-      border-color: rgba(255,255,255,.5);
-      color: var(--blanco);
-    }
-
+    .btn-outline-claro:hover { border-color: rgba(255,255,255,.5); color: var(--blanco); }
     .btn-outline-oscuro {
-      background: transparent;
-      color: var(--gris2);
-      padding: 13px 28px;
-      border-radius: var(--r-sm);
+      background: transparent; color: var(--gris2);
+      padding: 13px 28px; border-radius: var(--r-sm);
       border: 0.5px solid rgba(0,0,0,.2);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      font-size: 11px;
+      letter-spacing: .08em; text-transform: uppercase; font-size: 11px;
     }
-    .btn-outline-oscuro:hover {
-      border-color: var(--tinta);
-      color: var(--tinta);
+    .btn-outline-oscuro:hover { border-color: var(--tinta); color: var(--tinta); }
+
+    /* DoD-08 · foco visible de teclado unificado */
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--oro); outline-offset: 3px; border-radius: 2px;
     }
 
-    .btn-link {
-      background: transparent;
-      color: var(--oro2);
-      padding: 0;
-      font-size: 13px;
-      letter-spacing: .05em;
-      border-bottom: 0.5px solid var(--oro2);
-      padding-bottom: 2px;
-      border-radius: 0;
-    }
-    .btn-link:hover { color: var(--oro); border-color: var(--oro); }
-
+    /* NAV */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      background: rgba(13,31,45,.96);
-      backdrop-filter: blur(20px);
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(13,31,45,.96); backdrop-filter: blur(20px);
       border-bottom: 0.5px solid rgba(255,255,255,.07);
     }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 68px;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: baseline;
-      gap: 2px;
-    }
-    .nav-logo .nombre {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 400;
-      color: var(--oro);
-      letter-spacing: .01em;
-      line-height: 1;
-    }
-    .nav-logo .apellido {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 300;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.75);
-      margin-left: 10px;
-      padding-top: 4px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      list-style: none;
-    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .nav-logo { display: flex; align-items: baseline; gap: 2px; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
     .nav-links a {
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.45);
-      transition: color .2s;
+      font-size: 12px; font-weight: 400; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(255,255,255,.45); transition: color .2s;
     }
     .nav-links a:hover { color: rgba(255,255,255,.9); }
-
-    .nav-ham {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .nav-ham span {
-      display: block;
-      width: 22px;
-      height: 1px;
-      background: rgba(255,255,255,.6);
-      transition: transform .3s cubic-bezier(.23,1,.32,1), opacity .3s;
-    }
-
-    .nav-mobile {
-      display: none;
-      flex-direction: column;
-      background: var(--noche);
-      border-top: 0.5px solid rgba(255,255,255,.07);
-      padding: 24px 32px;
-      gap: 4px;
-    }
+    .nav-ham { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-ham span { display: block; width: 22px; height: 1px; background: rgba(255,255,255,.6); transition: transform .3s cubic-bezier(.23,1,.32,1), opacity .3s; }
+    .nav-mobile { display: none; flex-direction: column; background: var(--noche); border-top: 0.5px solid rgba(255,255,255,.07); padding: 24px 32px; gap: 4px; }
     .nav-mobile.open { display: flex; }
     .nav-mobile a {
-      font-size: 13px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.5);
-      padding: 12px 0;
-      border-bottom: 0.5px solid rgba(255,255,255,.06);
-      transition: color .2s;
+      font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.5); padding: 12px 0;
+      border-bottom: 0.5px solid rgba(255,255,255,.06); transition: color .2s;
     }
     .nav-mobile a:hover { color: var(--oro); }
     .nav-mobile .btn-oro { margin-top: 16px; justify-content: center; }
 
+    /* ============================================================
+       HERO — DoD-01 · dos columnas (texto + ficha con métricas integradas)
+    ============================================================ */
     #hero {
-      background: var(--noche);
-      min-height: 94vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding: 100px 0 80px;
+      background: var(--noche); position: relative; overflow: hidden;
+      padding: 116px 0 92px;
     }
-
     #hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background-image:
         linear-gradient(rgba(201,168,76,.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(201,168,76,.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
+      background-size: 60px 60px; pointer-events: none;
     }
-
     #hero::after {
-      content: '';
-      position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 700px;
-      height: 700px;
+      content: ''; position: absolute; top: -16%; right: -8%;
+      width: 680px; height: 680px;
       background: radial-gradient(ellipse, rgba(28,58,74,.6) 0%, transparent 65%);
       pointer-events: none;
     }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 780px;
+    .hero-grid {
+      position: relative; z-index: 1;
+      display: grid; gap: 56px; align-items: center;
     }
-
-    .hero-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 40px;
-    }
-    .hero-eyebrow::after {
-      content: '';
-      flex: 1;
-      max-width: 60px;
-      height: 0.5px;
-      background: rgba(201,168,76,.4);
-    }
-
-    /* ============================================================
-       F1 · TAREA 1.1 — .hero-headline ahora es <h1>
-       El CSS no cambia — solo cambia la semántica HTML
-    ============================================================ */
-    .hero-headline {
-      margin-bottom: 32px;
-    }
+    .hero-main { max-width: 680px; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+    .hero-eyebrow::after { content: ''; flex: 1; max-width: 60px; height: 0.5px; background: rgba(201,168,76,.4); }
+    .hero-headline { margin-bottom: 30px; }
     .hero-headline .linea1 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(36px, 5vw, 60px);
-      font-weight: 300;
-      letter-spacing: -.01em;
-      line-height: 1.1;
-      color: rgba(255,255,255,.9);
-      display: block;
+      font-family: 'DM Sans', sans-serif; font-size: clamp(34px, 4.6vw, 56px);
+      font-weight: 300; letter-spacing: -.01em; line-height: 1.1;
+      color: rgba(255,255,255,.9); display: block;
     }
     .hero-headline .linea2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(40px, 5.5vw, 66px);
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.1;
-      color: var(--oro);
-      display: block;
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 5vw, 62px);
+      font-weight: 400; font-style: italic; line-height: 1.1;
+      color: var(--oro); display: block;
     }
-
     .hero-sub {
-      font-size: 17px;
-      font-weight: 300;
-      color: rgba(255,255,255,.5);
-      max-width: 560px;
-      margin-bottom: 16px;
-      line-height: 1.8;
+      font-size: 16px; font-weight: 300; color: rgba(255,255,255,.5);
+      max-width: 540px; margin-bottom: 16px; line-height: 1.8;
     }
-
     .hero-credencial {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.25);
-      margin-bottom: 52px;
+      font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .15em;
+      text-transform: uppercase; color: rgba(255,255,255,.25); margin-bottom: 40px;
     }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
 
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
+    /* Ficha del hero: las 4 métricas pasan acá (se elimina la franja flotante) */
+    .hero-ficha {
+      background: rgba(255,255,255,.04); border: 0.5px solid rgba(255,255,255,.1);
+      border-radius: var(--r-lg); padding: 30px 30px; position: relative;
+    }
+    .hero-ficha::before {
+      content: ''; position: absolute; top: 0; left: 30px; right: 30px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,.4), transparent);
+    }
+    .hero-ficha-label {
+      font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .22em;
+      text-transform: uppercase; color: rgba(255,255,255,.3); display: block; margin-bottom: 20px;
+    }
+    .hf-row { padding: 16px 0; border-top: 0.5px solid rgba(255,255,255,.08); }
+    .hf-row:first-of-type { border-top: none; padding-top: 0; }
+    .hf-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 300;
+      color: var(--oro); line-height: 1; margin-bottom: 6px;
+    }
+    .hf-text { font-size: 12.5px; color: rgba(255,255,255,.5); line-height: 1.5; }
+
+    @media (min-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr 332px; gap: 76px; }
     }
 
     .divider { border: none; border-top: 0.5px solid var(--borde-claro); }
     .divider-claro { border: none; border-top: 0.5px solid rgba(255,255,255,.07); }
 
-    #metricas {
-      background: var(--noche);
-      padding: 0 0 80px;
-      border-bottom: 0.5px solid rgba(255,255,255,.05);
-    }
-
-    .metricas-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-    }
-
-    .metrica-item {
-      padding: 40px 32px;
-      border-right: 0.5px solid rgba(255,255,255,.06);
-      position: relative;
-    }
-    .metrica-item:last-child { border-right: none; }
-
-    .metrica-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 52px;
-      font-weight: 300;
-      color: var(--oro);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .metrica-label {
-      font-size: 12px;
-      color: rgba(255,255,255,.4);
-      line-height: 1.5;
-      max-width: 140px;
-    }
-
-    #problema {
-      padding: 120px 0;
-      background: var(--marfil);
-    }
-
-    .section-header {
-      margin-bottom: 72px;
-    }
-
+    /* ============================================================
+       SECTION HEADER (medida de lectura)
+    ============================================================ */
+    .section-header { margin-bottom: 64px; }
     .section-header h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(34px, 4vw, 52px);
-      font-weight: 400;
-      letter-spacing: -.01em;
-      line-height: 1.2;
-      color: var(--noche);
-      margin-top: 16px;
-      max-width: 600px;
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 4vw, 50px);
+      font-weight: 400; letter-spacing: -.01em; line-height: 1.2;
+      color: var(--noche); margin-top: 16px; max-width: 16ch;
     }
-
     .section-header p {
-      font-size: 16px;
-      color: var(--gris2);
-      margin-top: 20px;
-      max-width: 520px;
-      font-weight: 300;
-      line-height: 1.8;
+      font-size: 16px; color: var(--gris2); margin-top: 20px;
+      max-width: 52ch; font-weight: 300; line-height: 1.8;
+    }
+    /* Encabezados de sección autónomos: centrados (sin vacío a la derecha) */
+    .section-header.center { text-align: center; max-width: 760px; margin-left: auto; margin-right: auto; }
+    .section-header.center h2 { max-width: 20ch; margin-left: auto; margin-right: auto; }
+    .section-header.center p { max-width: 52ch; margin-left: auto; margin-right: auto; }
+
+    /* ============================================================
+       EL PROBLEMA — DoD-02 (de-cajado) + DoD-05 (figura) + DoD-03 (espina)
+    ============================================================ */
+    #problema { padding: 144px 0; background: var(--marfil); }
+
+    .problema-intro { display: grid; gap: 48px; align-items: center; }
+    @media (min-width: 980px) {
+      .problema-intro { grid-template-columns: 1fr 440px; gap: 64px; }
+      .problema-intro .section-header { margin-bottom: 0; }
     }
 
-    .problema-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: var(--borde-claro);
-      border: 0.5px solid var(--borde-claro);
-      border-radius: var(--r-lg);
-      overflow: hidden;
-    }
+    /* Figura conceptual: placa sobre fondo claro, oculta en mobile (DoD-05) */
+    .pf-fig { display: none; }
+    @media (min-width: 980px) { .pf-fig { display: block; } }
+    .pf-fig svg { display: block; width: 100%; height: auto; }
 
-    .problema-card {
-      background: var(--blanco);
-      padding: 40px 32px;
-      position: relative;
-      transition: background .3s;
+    /* Secuencia de roles (de-cajada, hairlines) */
+    .problema-roles { max-width: var(--wide); margin: 72px auto 0; }
+    .rol {
+      padding: 40px 0; border-top: 0.5px solid var(--borde-claro);
+      display: grid; gap: 16px;
     }
-    .problema-card:hover { background: #FDFCF9; }
-
-    .problema-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--oro);
-      opacity: 0;
-      transition: opacity .3s;
+    .rol:first-child { border-top: none; padding-top: 0; }
+    @media (min-width: 760px) {
+      .rol { grid-template-columns: 210px 1fr; gap: 48px; align-items: start; }
     }
-    .problema-card:hover::before { opacity: 1; }
-
-    .problema-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 48px;
-      font-weight: 300;
-      color: rgba(201,168,76,.2);
-      line-height: 1;
-      margin-bottom: 20px;
+    .rol-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300;
+      color: rgba(201,168,76,.28); line-height: 1; margin-bottom: 10px;
     }
-
-    .problema-rol {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--gris);
-      margin-bottom: 14px;
+    .rol-tag {
+      font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--gris); line-height: 1.5;
     }
-
-    .problema-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 400;
-      font-style: italic;
-      color: var(--noche);
-      line-height: 1.45;
-      margin-bottom: 16px;
+    .rol-quote {
+      font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 400;
+      font-style: italic; color: var(--noche); line-height: 1.45; margin-bottom: 14px;
     }
+    .rol-desc { font-size: 14px; color: var(--gris2); line-height: 1.8; }
 
-    .problema-desc {
-      font-size: 13px;
-      color: var(--gris2);
-      line-height: 1.7;
-    }
-
-    /* Franja de evidencia — dato atribuido que cierra el bloque (F5) */
+    /* Franja de evidencia — mismo grid que los roles (rail + statement), sin vacío */
     .problema-evidencia {
-      margin-top: 56px;
-      padding-top: 32px;
-      border-top: 0.5px solid var(--borde-claro);
-      max-width: 760px;
+      max-width: var(--wide); margin: 64px auto 0;
+      padding-top: 44px; border-top: 0.5px solid var(--borde-claro);
+      display: grid; gap: 20px;
     }
-    .problema-evidencia .label {
-      display: block;
-      margin-bottom: 16px;
+    @media (min-width: 760px) {
+      .problema-evidencia { grid-template-columns: 210px 1fr; gap: 48px; align-items: start; }
     }
-    .problema-evidencia p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(21px, 2.3vw, 27px);
-      font-weight: 400;
-      line-height: 1.5;
-      color: var(--noche);
-    }
-    .problema-evidencia .dato {
-      color: var(--oro2);
-      font-style: italic;
-    }
+    .problema-evidencia .label { display: block; margin-bottom: 16px; }
     .problema-evidencia .fuente {
-      display: block;
-      margin-top: 18px;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: .04em;
-      line-height: 1.6;
-      color: var(--gris);
+      display: block; font-family: 'DM Mono', monospace;
+      font-size: 11px; letter-spacing: .04em; line-height: 1.6; color: var(--gris);
     }
-
-    #enfoque {
-      padding: 120px 0;
-      background: var(--noche);
-      position: relative;
-      overflow: hidden;
+    .problema-evidencia .ev-statement {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2.4vw, 30px);
+      font-weight: 400; line-height: 1.45; color: var(--noche);
     }
+    .problema-evidencia .dato { color: var(--oro2); font-style: italic; }
 
+    /* ============================================================
+       ENFOQUE — DoD-02 (pilares de-cajados)
+    ============================================================ */
+    #enfoque { padding: 120px 0; background: var(--noche); position: relative; overflow: hidden; }
     #enfoque::before {
-      content: '';
-      position: absolute;
-      bottom: -200px;
-      left: -200px;
-      width: 600px;
-      height: 600px;
+      content: ''; position: absolute; bottom: -200px; left: -200px;
+      width: 600px; height: 600px;
       background: radial-gradient(ellipse, rgba(28,58,74,.5) 0%, transparent 65%);
       pointer-events: none;
     }
-
     .enfoque-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 100px;
-      align-items: start;
+      position: relative; z-index: 1; display: grid;
+      grid-template-columns: 1fr 1fr; gap: 100px; align-items: start;
     }
-
     .enfoque-left h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 3.5vw, 48px);
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--blanco);
-      margin-top: 16px;
-      margin-bottom: 28px;
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 400; line-height: 1.2; color: var(--blanco);
+      margin-top: 16px; margin-bottom: 28px;
     }
-    .enfoque-left h2 em {
-      font-style: italic;
-      color: var(--oro);
-    }
-
+    .enfoque-left h2 em { font-style: italic; color: var(--oro); }
     .enfoque-left p {
-      font-size: 16px;
-      font-weight: 300;
-      color: rgba(255,255,255,.5);
-      line-height: 1.85;
-      margin-bottom: 16px;
+      font-size: 16px; font-weight: 300; color: rgba(255,255,255,.5);
+      line-height: 1.85; margin-bottom: 16px;
     }
-
-    .enfoque-pilares {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
+    .enfoque-pilares { display: flex; flex-direction: column; gap: 0; }
     .pilar {
-      background: rgba(255,255,255,.03);
-      border: 0.5px solid rgba(255,255,255,.07);
-      border-radius: var(--r-md);
-      padding: 28px 28px;
-      transition: background .3s, border-color .3s;
+      background: none; border: none; border-top: 0.5px solid rgba(255,255,255,.08);
+      border-radius: 0; padding: 26px 0;
     }
-    .pilar:hover {
-      background: rgba(255,255,255,.05);
-      border-color: rgba(201,168,76,.2);
-    }
-
+    .pilar:first-child { border-top: none; padding-top: 0; }
     .pilar-titulo {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--blanco);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      font-size: 15px; font-weight: 500; color: var(--blanco); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 12px;
     }
     .pilar-titulo::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--oro);
-      flex-shrink: 0;
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--oro); flex-shrink: 0;
     }
-
-    .pilar-desc {
-      font-size: 13px;
-      color: rgba(255,255,255,.4);
-      line-height: 1.7;
-      padding-left: 18px;
-    }
-
-    #servicios {
-      padding: 120px 0;
-      background: var(--marfil);
-    }
-
-    .servicios-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      margin-top: 64px;
-    }
-
-    .servicio {
-      background: var(--blanco);
-      border: 0.5px solid var(--borde-claro);
-      border-radius: var(--r-md);
-      padding: 48px 48px;
-      display: grid;
-      grid-template-columns: 240px 1fr auto;
-      gap: 48px;
-      align-items: start;
-      transition: border-color .3s;
-    }
-    .servicio:hover { border-color: rgba(201,168,76,.3); }
-
-    .servicio-meta {}
-    .servicio-nivel {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--gris);
-      margin-bottom: 12px;
-    }
-    .servicio-titulo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 400;
-      color: var(--noche);
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }
-    .servicio-para {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--oro2);
-      letter-spacing: .03em;
-    }
-
-    .servicio-contenido {}
-    .servicio-desc {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--gris2);
-      line-height: 1.8;
-      margin-bottom: 16px;
-    }
-    .servicio-nota {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: .1em;
-      color: rgba(0,0,0,.3);
-      font-style: normal;
-    }
-
-    .servicio-cta {
-      display: flex;
-      align-items: flex-start;
-      padding-top: 4px;
-    }
-
-    #quien {
-      padding: 120px 0;
-      background: var(--noche);
-    }
-
-    .quien-grid {
-      display: grid;
-      grid-template-columns: 1fr 440px;
-      gap: 100px;
-      align-items: start;
-    }
-
-    .quien-left {}
-
-    .quien-left h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 3.5vw, 48px);
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--blanco);
-      margin-top: 16px;
-      margin-bottom: 32px;
-    }
-    .quien-left h2 em {
-      font-style: italic;
-      color: var(--oro);
-    }
-
-    .quien-texto {
-      font-size: 15px;
-      font-weight: 300;
-      color: rgba(255,255,255,.5);
-      line-height: 1.85;
-      margin-bottom: 20px;
-    }
-
-    .quien-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 32px 0;
-    }
-    .chip {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--oro);
-      background: rgba(201,168,76,.08);
-      border: 0.5px solid rgba(201,168,76,.25);
-      border-radius: var(--r-sm);
-      padding: 6px 14px;
-    }
-
-    .quien-right {}
-
-    .quote-card {
-      background: rgba(255,255,255,.03);
-      border: 0.5px solid rgba(255,255,255,.08);
-      border-radius: var(--r-xl);
-      padding: 40px 36px;
-      margin-bottom: 20px;
-    }
-
-    .quote-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 400;
-      font-style: italic;
-      color: rgba(255,255,255,.8);
-      line-height: 1.65;
-      margin-bottom: 24px;
-    }
-
-    .quote-firma {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.3);
-    }
-
-    .icf-badge {
-      background: rgba(255,255,255,.03);
-      border: 0.5px solid rgba(255,255,255,.08);
-      border-radius: var(--r-lg);
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .icf-badge img {
-      height: 44px;
-      width: auto;
-      object-fit: contain;
-      flex-shrink: 0;
-      opacity: .9;
-    }
-    .icf-badge-text {}
-    .icf-badge-title {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--oro);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      margin-bottom: 2px;
-    }
-    .icf-badge-sub {
-      font-size: 12px;
-      color: rgba(255,255,255,.4);
-      line-height: 1.5;
-    }
-
-    #credenciales {
-      padding: 80px 0;
-      background: var(--petroleo);
-      border-top: 0.5px solid rgba(255,255,255,.05);
-      border-bottom: 0.5px solid rgba(255,255,255,.05);
-    }
-
-    .creds-inner {
-      display: flex;
-      align-items: center;
-      gap: 48px;
-      flex-wrap: wrap;
-    }
-
-    .creds-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.3);
-      flex-shrink: 0;
-      white-space: nowrap;
-    }
-
-    .creds-divider-v {
-      width: 0.5px;
-      height: 40px;
-      background: rgba(255,255,255,.1);
-      flex-shrink: 0;
-    }
-
-    .badges-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 28px;
-      align-items: center;
-      flex: 1;
-    }
-
-    .badge-wrap img {
-      height: 56px;
-      width: auto;
-      object-fit: contain;
-      filter: brightness(.85) saturate(.7);
-      transition: filter .3s, transform .3s;
-    }
-    .badge-wrap:hover img {
-      filter: brightness(1) saturate(1);
-      transform: translateY(-2px);
-    }
+    .pilar-desc { font-size: 13px; color: rgba(255,255,255,.4); line-height: 1.7; padding-left: 18px; }
 
     /* ============================================================
-       CASOS DE IMPACTO — F3.2
+       SERVICIOS — DoD-02 (mantener) + fix CTA y nota Amrop
     ============================================================ */
-    #impacto {
-      padding: 120px 0;
-      background: var(--marfil);
+    #servicios { padding: 120px 0; background: var(--marfil); }
+    .servicios-grid {
+      display: flex; flex-direction: column; gap: 16px;
+      margin: 56px auto 0; max-width: var(--wide);
     }
-
-    .impacto-header {
-      max-width: 600px;
-      margin-bottom: 64px;
+    .servicio {
+      background: var(--blanco); border: 0.5px solid var(--borde-claro);
+      border-radius: var(--r-md); padding: 40px 40px;
+      display: grid; grid-template-columns: 230px 1fr; gap: 48px;
+      align-items: start; transition: border-color .3s;
     }
+    .servicio:hover { border-color: rgba(201,168,76,.3); }
+    .servicio-nivel {
+      font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gris); margin-bottom: 12px;
+    }
+    .servicio-titulo {
+      font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400;
+      color: var(--noche); line-height: 1.2; margin-bottom: 8px;
+    }
+    .servicio-para { font-size: 12px; font-weight: 500; color: var(--oro2); letter-spacing: .03em; }
+    .servicio-desc { font-size: 15px; font-weight: 300; color: var(--gris2); line-height: 1.8; }
+    /* Nota Amrop legible (antes: mono 10px gris casi invisible) */
+    .servicio-nota {
+      margin-top: 16px; padding-top: 16px; border-top: 0.5px solid var(--borde-claro);
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-style: normal;
+      letter-spacing: 0; color: var(--gris2); line-height: 1.7;
+    }
+    /* CTA dentro de la columna de contenido (sin hueco a la derecha) */
+    .servicio-cta { margin-top: 24px; }
 
+    /* ============================================================
+       QUIÉN SOY — fuera de alcance (se mantiene)
+    ============================================================ */
+    #quien { padding: 120px 0; background: var(--noche); }
+    .quien-grid { display: grid; grid-template-columns: 1fr 440px; gap: 100px; align-items: start; }
+    .quien-left h2 {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 400; line-height: 1.2; color: var(--blanco);
+      margin-top: 16px; margin-bottom: 32px;
+    }
+    .quien-left h2 em { font-style: italic; color: var(--oro); }
+    .quien-texto { font-size: 15px; font-weight: 300; color: rgba(255,255,255,.5); line-height: 1.85; margin-bottom: 20px; }
+    .quote-card {
+      background: rgba(255,255,255,.03); border: 0.5px solid rgba(255,255,255,.08);
+      border-radius: var(--r-xl); padding: 40px 36px; margin-bottom: 20px;
+    }
+    .quote-text {
+      font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400;
+      font-style: italic; color: rgba(255,255,255,.8); line-height: 1.65; margin-bottom: 24px;
+    }
+    .quote-firma { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.3); }
+    .icf-badge {
+      background: rgba(255,255,255,.03); border: 0.5px solid rgba(255,255,255,.08);
+      border-radius: var(--r-lg); padding: 20px 24px; display: flex; align-items: center; gap: 16px;
+    }
+    .icf-badge img { height: 44px; width: auto; object-fit: contain; flex-shrink: 0; opacity: .9; }
+    .icf-badge-title { font-size: 11px; font-weight: 600; color: var(--oro); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 2px; }
+    .icf-badge-sub { font-size: 12px; color: rgba(255,255,255,.4); line-height: 1.5; }
+
+    /* ============================================================
+       CREDENCIALES
+    ============================================================ */
+    #credenciales {
+      padding: 80px 0; background: var(--petroleo);
+      border-top: 0.5px solid rgba(255,255,255,.05); border-bottom: 0.5px solid rgba(255,255,255,.05);
+    }
+    .creds-inner { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+    .creds-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.3); flex-shrink: 0; white-space: nowrap; }
+    .creds-divider-v { width: 0.5px; height: 40px; background: rgba(255,255,255,.1); flex-shrink: 0; }
+    .badges-row { display: flex; flex-wrap: wrap; gap: 28px; align-items: center; flex: 1; }
+    .badge-wrap img { height: 56px; width: auto; object-fit: contain; filter: brightness(.85) saturate(.7); transition: filter .3s, transform .3s; }
+    .badge-wrap:hover img { filter: brightness(1) saturate(1); transform: translateY(-2px); }
+
+    /* ============================================================
+       CASOS DE IMPACTO — DoD-02 (de-cajado, alturas que no compiten)
+    ============================================================ */
+    #impacto { padding: 116px 0; background: var(--marfil); }
+    .impacto-header { max-width: 760px; margin: 0 auto 48px; text-align: center; }
     .impacto-header h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 3.5vw, 46px);
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--noche);
-      margin-top: 16px;
-      margin-bottom: 16px;
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 3.5vw, 46px);
+      font-weight: 400; line-height: 1.2; color: var(--noche); margin: 16px auto; max-width: 24ch;
     }
-    .impacto-header h2 em {
-      font-style: italic;
-      color: var(--oro2);
-    }
+    .impacto-header h2 em { font-style: italic; color: var(--oro2); }
+    .impacto-header p { font-size: 15px; font-weight: 300; color: var(--gris2); line-height: 1.8; max-width: 52ch; margin: 0 auto; }
 
-    .impacto-header p {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--gris2);
-      line-height: 1.8;
+    .impacto-casos { max-width: var(--wide); margin: 0 auto; }
+    .caso { padding: 52px 0; border-top: 0.5px solid var(--borde-claro); }
+    .caso:first-child { border-top: none; padding-top: 0; }
+    .caso-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+    .caso-num { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--oro2); }
+    .caso-duracion { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .1em; color: rgba(0,0,0,.35); }
+    .caso-perfil { font-family: 'Cormorant Garamond', serif; font-size: 27px; font-weight: 400; line-height: 1.2; color: var(--noche); }
+    .caso-industria { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--gris); margin-top: 6px; margin-bottom: 28px; }
+    .caso-cuerpo { display: grid; gap: 28px; }
+    @media (min-width: 760px) {
+      .caso-cuerpo { grid-template-columns: 1fr 1fr; gap: 48px; }
+      .caso-resultado { grid-column: 1 / -1; }
     }
+    .caso-bloque-titulo { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--oro2); margin-bottom: 8px; }
+    .caso-texto { font-size: 14px; font-weight: 300; color: var(--gris2); line-height: 1.8; }
+    .caso-resultado { margin-top: 8px; padding-top: 24px; border-top: 0.5px solid var(--borde-claro); }
+    .caso-resultado .caso-texto { color: var(--noche); font-weight: 400; }
+    .impacto-nota { max-width: var(--wide); margin: 48px auto 0; }
+    .impacto-nota p { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .1em; color: rgba(0,0,0,.3); }
 
-    .impacto-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+    /* ============================================================
+       BLOG — DoD-07 (quiebre sutil tras el doble marfil)
+    ============================================================ */
+    #blog { padding: 96px 0; background: var(--marfil); position: relative; }
+    #blog::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,0,0,.1), transparent);
     }
-
-    .caso-card {
-      background: var(--blanco);
-      border: 0.5px solid var(--borde-claro);
-      border-radius: var(--r-lg);
-      padding: 40px 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      transition: border-color .3s cubic-bezier(.23,1,.32,1);
-    }
-    .caso-card:hover {
-      border-color: rgba(201,168,76,.3);
-    }
-
-    .caso-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .caso-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--oro2);
-    }
-
-    .caso-duracion {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: .1em;
-      color: rgba(0,0,0,.3);
-    }
-
-    .caso-perfil {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      font-weight: 400;
-      line-height: 1.25;
-      color: var(--noche);
-    }
-
-    .caso-industria {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--gris);
-    }
-
-    .caso-bloque-titulo {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--oro2);
-      margin-bottom: 8px;
-    }
-
-    .caso-texto {
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--gris2);
-      line-height: 1.8;
-    }
-
-    .caso-resultado {
-      border-top: 0.5px solid var(--borde-claro);
-      padding-top: 20px;
-    }
-
-    .caso-resultado .caso-texto {
-      color: var(--noche);
-      font-weight: 400;
-    }
-
-    .impacto-nota {
-      margin-top: 48px;
-      text-align: center;
-    }
-    .impacto-nota p {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: .1em;
-      color: rgba(0,0,0,.25);
-    }
-
-    #blog {
-      padding: 120px 0;
-      background: var(--marfil);
-    }
-
-    .posts-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 60px;
-    }
-
+    .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 60px; }
     .post-card {
-      background: var(--blanco);
-      border: 0.5px solid var(--borde-claro);
-      border-radius: var(--r-lg);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      background: var(--blanco); border: 0.5px solid var(--borde-claro);
+      border-radius: var(--r-lg); overflow: hidden; display: flex; flex-direction: column;
       transition: border-color .3s cubic-bezier(.23,1,.32,1);
     }
-    .post-card:hover {
-      border-color: rgba(201,168,76,.3);
-    }
-
-    .post-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .post-placeholder {
-      width: 100%;
-      height: 180px;
-      background: var(--petroleo);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .post-placeholder-icon {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 48px;
-      color: rgba(201,168,76,.3);
-    }
-
-    .post-body {
-      padding: 28px 24px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .post-source {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--oro2);
-    }
-
-    .post-titulo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 1.35;
-      color: var(--noche);
-      flex: 1;
-    }
-
-    .post-desc {
-      font-size: 12px;
-      color: var(--gris);
-      line-height: 1.6;
-    }
-
-    .post-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 4px;
-    }
-
-    .post-fecha {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: rgba(0,0,0,.3);
-    }
-
-    .post-link {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--oro2);
-      letter-spacing: .04em;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      border-bottom: 0.5px solid var(--oro2);
-      padding-bottom: 1px;
-      transition: gap .2s;
-    }
+    .post-card:hover { border-color: rgba(201,168,76,.3); }
+    .post-img { width: 100%; height: 180px; object-fit: cover; }
+    .post-placeholder { width: 100%; height: 180px; background: var(--petroleo); display: flex; align-items: center; justify-content: center; }
+    .post-placeholder-icon { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: rgba(201,168,76,.3); }
+    .post-body { padding: 28px 24px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+    .post-source { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--oro2); }
+    .post-titulo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; line-height: 1.35; color: var(--noche); flex: 1; }
+    .post-desc { font-size: 12px; color: var(--gris); line-height: 1.6; }
+    .post-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
+    .post-fecha { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(0,0,0,.3); }
+    .post-link { font-size: 12px; font-weight: 500; color: var(--oro2); letter-spacing: .04em; display: inline-flex; align-items: center; gap: 4px; border-bottom: 0.5px solid var(--oro2); padding-bottom: 1px; transition: gap .2s; }
     .post-link:hover { gap: 8px; color: var(--oro); border-color: var(--oro); }
+    .blog-cta { text-align: center; margin-top: 48px; }
 
-    .blog-cta {
-      text-align: center;
-      margin-top: 48px;
-    }
-
-    #gratis {
-      padding: 120px 0;
-      background: var(--noche);
-    }
-
-    .gratis-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 64px;
-    }
-
+    /* ============================================================
+       RECURSOS GRATIS
+    ============================================================ */
+    #gratis { padding: 132px 0; background: var(--noche); }
+    .gratis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 56px; }
     .gratis-card {
-      background: rgba(255,255,255,.03);
-      border: 0.5px solid rgba(255,255,255,.08);
-      border-radius: var(--r-xl);
-      padding: 40px 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      position: relative;
-      transition: border-color .3s;
+      background: rgba(255,255,255,.03); border: 0.5px solid rgba(255,255,255,.08);
+      border-radius: var(--r-xl); padding: 40px 36px; display: flex; flex-direction: column;
+      gap: 20px; position: relative; transition: border-color .3s;
     }
     .gratis-card:hover { border-color: rgba(201,168,76,.2); }
-
     .gratis-badge {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--oro);
-      background: rgba(201,168,76,.1);
-      border: 0.5px solid rgba(201,168,76,.25);
-      border-radius: var(--r-sm);
-      padding: 4px 10px;
+      position: absolute; top: 20px; right: 20px; font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--oro);
+      background: rgba(201,168,76,.1); border: 0.5px solid rgba(201,168,76,.25);
+      border-radius: var(--r-sm); padding: 4px 10px;
     }
-
-    .gratis-card img,
-    .gratis-card svg {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      filter: drop-shadow(0 8px 20px rgba(201,168,76,.2));
-    }
-
-    .gratis-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 400;
-      color: var(--blanco);
-      line-height: 1.2;
-    }
-
-    .gratis-card p {
-      font-size: 14px;
-      font-weight: 300;
-      color: rgba(255,255,255,.45);
-      line-height: 1.75;
-      flex: 1;
-    }
-
-    .email-form {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+    .gratis-card img, .gratis-card svg { width: 80px; height: 80px; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(201,168,76,.2)); }
+    .gratis-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--blanco); line-height: 1.2; }
+    .gratis-card p { font-size: 14px; font-weight: 300; color: rgba(255,255,255,.45); line-height: 1.75; flex: 1; }
+    .email-form { display: flex; gap: 8px; flex-wrap: wrap; }
     .email-form input {
-      flex: 1;
-      min-width: 180px;
-      background: rgba(255,255,255,.06);
-      border: 0.5px solid rgba(255,255,255,.15);
-      border-radius: var(--r-sm);
-      padding: 12px 18px;
-      font-size: 13px;
-      color: var(--blanco);
-      font-family: 'DM Sans', sans-serif;
-      outline: none;
-      transition: border-color .2s;
+      flex: 1; min-width: 180px; background: rgba(255,255,255,.06);
+      border: 0.5px solid rgba(255,255,255,.15); border-radius: var(--r-sm);
+      padding: 12px 18px; font-size: 13px; color: var(--blanco);
+      font-family: 'DM Sans', sans-serif; outline: none; transition: border-color .2s;
     }
     .email-form input::placeholder { color: rgba(255,255,255,.25); }
     .email-form input:focus { border-color: var(--oro); }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
-    #cta {
-      padding: 140px 0;
-      background: var(--marfil);
-      position: relative;
-      overflow: hidden;
-    }
-
-    #cta::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201,168,76,.3), transparent);
-    }
-
-    .cta-inner {
-      max-width: 680px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .cta-headline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 5vw, 58px);
-      font-weight: 400;
-      line-height: 1.15;
-      color: var(--noche);
-      margin-top: 20px;
-      margin-bottom: 24px;
-    }
-    .cta-headline em {
-      font-style: italic;
-      color: var(--oro2);
-    }
-
-    .cta-sub {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--gris2);
-      max-width: 480px;
-      margin: 0 auto 52px;
-      line-height: 1.8;
-    }
-
-    .cta-actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-
-    .cta-email {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: .1em;
-      color: rgba(0,0,0,.3);
-      transition: color .2s;
-    }
+    /* ============================================================
+       CTA FINAL
+    ============================================================ */
+    #cta { padding: 144px 0; background: var(--marfil); position: relative; overflow: hidden; }
+    #cta::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,.3), transparent); }
+    .cta-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+    .cta-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 58px); font-weight: 400; line-height: 1.15; color: var(--noche); margin-top: 20px; margin-bottom: 24px; }
+    .cta-headline em { font-style: italic; color: var(--oro2); }
+    .cta-sub { font-size: 16px; font-weight: 300; color: var(--gris2); max-width: 480px; margin: 0 auto 52px; line-height: 1.8; }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+    .cta-email { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .1em; color: rgba(0,0,0,.3); transition: color .2s; }
     .cta-email:hover { color: var(--oro2); }
 
-    footer {
-      background: var(--noche);
-      border-top: 0.5px solid rgba(255,255,255,.06);
-      padding: 44px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-logo {
-      display: flex;
-      align-items: baseline;
-      gap: 2px;
-    }
-    .footer-logo .nombre {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--oro);
-    }
-    .footer-logo .apellido {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      font-weight: 300;
-      letter-spacing: .25em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.4);
-      margin-left: 8px;
-    }
-
-    .footer-copy {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: .1em;
-      color: rgba(255,255,255,.25);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-    .footer-links a {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.25);
-      transition: color .2s;
-    }
+    /* FOOTER */
+    footer { background: var(--noche); border-top: 0.5px solid rgba(255,255,255,.06); padding: 44px 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-logo { display: flex; align-items: baseline; gap: 2px; }
+    .footer-logo .nombre { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--oro); }
+    .footer-logo .apellido { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-left: 8px; }
+    .footer-copy { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .1em; color: rgba(255,255,255,.25); }
+    .footer-links { display: flex; gap: 20px; align-items: center; }
+    .footer-links a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.25); transition: color .2s; }
     .footer-links a:hover { color: var(--oro); }
-
     .li-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      background: rgba(255,255,255,.05);
-      border: 0.5px solid rgba(255,255,255,.1);
-      border-radius: var(--r-sm);
-      color: rgba(255,255,255,.4);
+      display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px;
+      background: rgba(255,255,255,.05); border: 0.5px solid rgba(255,255,255,.1);
+      border-radius: var(--r-sm); color: rgba(255,255,255,.4);
       transition: background .2s cubic-bezier(.23,1,.32,1), border-color .2s cubic-bezier(.23,1,.32,1), color .2s cubic-bezier(.23,1,.32,1);
     }
-    .li-icon:hover {
-      background: rgba(0,119,181,.2);
-      border-color: rgba(0,119,181,.4);
-      color: #5DB8E8;
-    }
+    .li-icon:hover { background: rgba(0,119,181,.2); border-color: rgba(0,119,181,.4); color: #5DB8E8; }
 
+    /* ============================================================
+       REVEAL + figura conceptual (animación al entrar en vista)
+    ============================================================ */
     .reveal { opacity: 1; transform: none; }
-    .js-ready .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .8s cubic-bezier(.23,1,.32,1), transform .8s cubic-bezier(.23,1,.32,1);
-    }
+    .js-ready .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.23,1,.32,1), transform .8s cubic-bezier(.23,1,.32,1); }
     .js-ready .reveal.visible { opacity: 1; transform: none; }
     .rd1 { transition-delay: .1s; }
     .rd2 { transition-delay: .2s; }
     .rd3 { transition-delay: .3s; }
 
+    .js-ready .pf-fig .pf-vis { opacity: 0; }
+    .js-ready .pf-fig .pf-surf { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    .js-ready .pf-fig .pf-links { opacity: 0; }
+    .js-ready .pf-fig .pf-edges path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    .js-ready .pf-fig .pf-nodes { opacity: 0; }
+    .pf-fig.visible .pf-vis   { animation: pfFade .8s ease forwards .2s; }
+    .pf-fig.visible .pf-surf  { animation: pfDraw .9s ease forwards 1s; }
+    .pf-fig.visible .pf-links { animation: pfFade .8s ease forwards 1.25s; }
+    .pf-fig.visible .pf-edges path { animation: pfDraw 1.1s ease forwards 1.35s; }
+    .pf-fig.visible .pf-nodes { animation: pfFade .7s ease forwards 1.95s; }
+    @keyframes pfFade { to { opacity: 1; } }
+    @keyframes pfDraw { to { stroke-dashoffset: 0; } }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
     @media (max-width: 960px) {
-      .metricas-grid { grid-template-columns: repeat(2, 1fr); }
-      .problema-grid { grid-template-columns: 1fr; }
       .enfoque-inner { grid-template-columns: 1fr; gap: 60px; }
       .servicio { grid-template-columns: 1fr; gap: 24px; }
-      .servicio-cta { justify-content: flex-start; }
       .quien-grid { grid-template-columns: 1fr; gap: 60px; }
       .posts-grid { grid-template-columns: 1fr; }
-      .impacto-grid { grid-template-columns: 1fr; }
-      .caso-card { padding: 32px 24px; }
       .gratis-grid { grid-template-columns: 1fr; }
       .nav-links, .nav-links + .btn-oro { display: none; }
       .nav-ham { display: flex; }
@@ -1499,13 +746,16 @@
 
     @media (max-width: 600px) {
       .container { padding: 0 20px; }
-      .metricas-grid { grid-template-columns: 1fr 1fr; }
-      .metrica-item { padding: 28px 20px; }
       .creds-inner { flex-direction: column; align-items: flex-start; }
       .creds-divider-v { display: none; }
       .footer-inner { flex-direction: column; text-align: center; }
       .label { font-size: 11px; }
-      .caso-bloque-titulo { font-size: 10px; }
+      /* DoD-06 · ritmo comprimido en mobile */
+      #hero { padding: 84px 0 64px; }
+      #problema, #enfoque, #servicios, #quien, #gratis, #cta { padding-top: 80px; padding-bottom: 80px; }
+      #impacto { padding: 80px 0; }
+      #blog { padding-top: 64px; padding-bottom: 80px; }
+      #credenciales { padding: 64px 0; }
       .caso-num, .caso-duracion, .caso-industria { font-size: 10px; }
       .post-source, .post-fecha { font-size: 10px; }
     }
@@ -1513,6 +763,7 @@
     @media (prefers-reduced-motion: reduce) {
       .js-ready .reveal { opacity: 1; transform: none; transition: none; }
       .btn:hover { transform: none; }
+      .pf-fig * { animation: none !important; opacity: 1 !important; stroke-dashoffset: 0 !important; }
     }
   </style>
   <link rel="stylesheet" href="/site-fixes.css">
@@ -1559,94 +810,175 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — DoD-01 · texto + ficha (métricas integradas) -->
 <section id="hero">
   <div class="container">
-    <div class="hero-inner">
-      <div class="hero-eyebrow">
-        <span class="label">Coach Ejecutivo · ICF </span>
+    <div class="hero-grid">
+      <div class="hero-main">
+        <div class="hero-eyebrow">
+          <span class="label">Coach Ejecutivo · ICF </span>
+        </div>
+        <h1 class="hero-headline">
+          <span class="linea1">Lideras una organización compleja.</span>
+          <span class="linea2">El sistema no te espera.</span>
+        </h1>
+        <p class="hero-sub">
+          Acompaño a ejecutivos C-Level y directivos — y a las empresas que los buscan e incorporan — en procesos de Coaching de Transición, desarrollo de liderazgo y transformación organizacional en contextos de alta complejidad.
+        </p>
+        <p class="hero-credencial">Coaching ejecutivo en toda Latinoamérica</p>
+        <div class="hero-actions">
+          <a href="agenda.html" class="btn btn-oro">
+            Conversemos 30 minutos
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#servicios" class="btn btn-outline-claro">Ver cómo trabajo</a>
+        </div>
       </div>
-      <!-- F1 · TAREA 1.1 — H1 semántico (antes era <div>) -->
-      <h1 class="hero-headline">
-        <span class="linea1">Lideras una organización compleja.</span>
-        <span class="linea2">El sistema no te espera.</span>
-      </h1>
-      <p class="hero-sub">
-        Acompaño a ejecutivos C-Level y directivos — y a las empresas que los buscan e incorporan — en procesos de Coaching de Transición, desarrollo de liderazgo y transformación organizacional en contextos de alta complejidad.
-      </p>
-      <p class="hero-credencial">Coaching ejecutivo en toda Latinoamérica</p>
-      <div class="hero-actions">
-        <a href="agenda.html" class="btn btn-oro">
-          Conversemos 30 minutos
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#servicios" class="btn btn-outline-claro">Ver cómo trabajo</a>
-      </div>
+
+      <aside class="hero-ficha reveal rd1">
+        <span class="hero-ficha-label">En síntesis</span>
+        <div class="hf-row">
+          <p class="hf-num">+25</p>
+          <p class="hf-text">procesos de coaching con líderes y ejecutivos</p>
+        </div>
+        <div class="hf-row">
+          <p class="hf-num">16</p>
+          <p class="hf-text">años en entornos corporativos multinacionales</p>
+        </div>
+        <div class="hf-row">
+          <p class="hf-num">ICF</p>
+          <p class="hf-text">Level 2 — la certificación educativa más reconocida de ICF</p>
+        </div>
+        <div class="hf-row">
+          <p class="hf-num">LATAM</p>
+          <p class="hf-text">ejecutivos y equipos en toda Latinoamérica</p>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
 
-<!-- MÉTRICAS -->
-<section id="metricas">
-  <div class="container">
-    <div class="metricas-grid">
-      <div class="metrica-item reveal">
-        <p class="metrica-num">+25</p>
-        <p class="metrica-label">procesos de coaching con líderes y ejecutivos</p>
-      </div>
-      <div class="metrica-item reveal rd1">
-        <p class="metrica-num">16</p>
-        <p class="metrica-label">años en entornos corporativos multinacionales</p>
-      </div>
-      <div class="metrica-item reveal rd2">
-        <p class="metrica-num">ICF</p>
-        <p class="metrica-label">Level 2 — la certificación educativa más reconocida de ICF</p>
-      </div>
-      <div class="metrica-item reveal rd3">
-        <p class="metrica-num">LATAM</p>
-        <p class="metrica-label">ejecutivos y equipos en toda Latinoamérica</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EL PROBLEMA -->
+<!-- EL PROBLEMA — DoD-02 (de-cajado) + DoD-05 (figura) -->
 <section id="problema">
   <div class="container">
-    <div class="section-header reveal">
-      <span class="label">El problema</span>
-      <h2>Los problemas de una organización compleja casi nunca están donde se cree.</h2>
-      <p>Lo que falla en una organización compleja se ve siempre afuera: en el equipo, en el comité, en el mercado. Y rara vez es del todo falso. Pero por debajo de esas escenas corre otra capa —cómo se coordina, cómo se decide, qué se conversa y qué se calla—: ahí vive el sistema que diriges. Leer esa capa, contigo dentro, es donde empieza mi trabajo.</p>
+    <div class="problema-intro">
+      <div class="section-header reveal" style="margin-bottom:0;">
+        <span class="label">El problema</span>
+        <h2>Los problemas de una organización compleja casi nunca están donde se cree.</h2>
+        <p>Lo que falla en una organización compleja se ve siempre afuera: en el equipo, en el comité, en el mercado. Y rara vez es del todo falso. Pero por debajo de esas escenas corre otra capa —cómo se coordina, cómo se decide, qué se conversa y qué se calla—: ahí vive el sistema que diriges. Leer esa capa, contigo dentro, es donde empieza mi trabajo.</p>
+      </div>
+
+      <!-- Figura conceptual: lo visible / el sistema debajo. Oculta en mobile. -->
+      <div class="pf-fig reveal rd1" aria-hidden="true">
+        <svg width="100%" viewBox="0 0 460 452" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>La estructura visible y el sistema real debajo de la superficie</title>
+          <desc>Arriba, un organigrama formal de líneas rectas. Debajo de una línea de superficie, los mismos actores aparecen reconectados por una red orgánica y densa que representa el sistema real de relaciones y conversaciones que nadie escribió.</desc>
+          <defs>
+            <clipPath id="pf-plate"><rect x="0" y="0" width="460" height="452" rx="14"/></clipPath>
+          </defs>
+          <rect x="0.5" y="0.5" width="459" height="451" rx="14" fill="#0c1e2d" stroke="#C9A84C" stroke-opacity="0.3" stroke-width="1"/>
+          <g clip-path="url(#pf-plate)">
+            <ellipse cx="105" cy="91" rx="330" ry="250" fill="#173650" opacity="0.4"/>
+          </g>
+
+          <g class="pf-vis" fill="none" stroke="#C9A84C" stroke-opacity="0.42" stroke-width="1">
+            <path d="M230 73 L230 114"/>
+            <path d="M90 114 L370 114"/>
+            <path d="M90 114 L90 164"/>
+            <path d="M183 114 L183 164"/>
+            <path d="M277 114 L277 164"/>
+            <path d="M370 114 L370 164"/>
+            <rect x="216" y="55" width="28" height="18" rx="2" fill="#14283a" stroke-opacity="0.6"/>
+            <rect x="79" y="164" width="22" height="15" rx="2" fill="#14283a" stroke-opacity="0.55"/>
+            <rect x="172" y="164" width="22" height="15" rx="2" fill="#14283a" stroke-opacity="0.55"/>
+            <rect x="266" y="164" width="22" height="15" rx="2" fill="#14283a" stroke-opacity="0.55"/>
+            <rect x="359" y="164" width="22" height="15" rx="2" fill="#14283a" stroke-opacity="0.55"/>
+          </g>
+
+          <rect x="40" y="231" width="380" height="6" fill="#C9A84C" opacity="0.04"/>
+          <line class="pf-surf" x1="40" y1="234" x2="420" y2="234" pathLength="1" stroke="#C9A84C" stroke-opacity="0.5" stroke-width="1"/>
+
+          <g class="pf-links" fill="none" stroke="#C9A84C" stroke-opacity="0.12" stroke-width="0.75" stroke-dasharray="2 4">
+            <path d="M90 180 L90 299"/>
+            <path d="M183 180 L183 287"/>
+            <path d="M277 180 L277 299"/>
+            <path d="M370 180 L370 287"/>
+          </g>
+
+          <g class="pf-edges" fill="none" stroke="#C9A84C">
+            <path d="M90 306 Q183 276 277 306" stroke-opacity="0.5" stroke-width="1.1" pathLength="1"/>
+            <path d="M183 294 Q277 266 370 294" stroke-opacity="0.5" stroke-width="1.1" pathLength="1"/>
+            <path d="M230 384 Q190 336 183 294" stroke-opacity="0.5" stroke-width="1.1" pathLength="1"/>
+            <path d="M230 384 Q270 336 277 306" stroke-opacity="0.5" stroke-width="1.1" pathLength="1"/>
+            <path d="M90 306 Q136 290 183 294" stroke-opacity="0.3" stroke-width="0.85" pathLength="1"/>
+            <path d="M183 294 Q230 294 277 306" stroke-opacity="0.3" stroke-width="0.85" pathLength="1"/>
+            <path d="M277 306 Q323 294 370 294" stroke-opacity="0.3" stroke-width="0.85" pathLength="1"/>
+            <path d="M90 306 Q110 342 135 374" stroke-opacity="0.3" stroke-width="0.85" pathLength="1"/>
+            <path d="M135 374 Q182 384 230 384" stroke-opacity="0.3" stroke-width="0.85" pathLength="1"/>
+            <path d="M230 384 Q278 384 325 374" stroke-opacity="0.3" stroke-width="0.85" pathLength="1"/>
+            <path d="M325 374 Q350 336 370 294" stroke-opacity="0.3" stroke-width="0.85" pathLength="1"/>
+            <path d="M135 374 Q159 334 183 294" stroke-opacity="0.3" stroke-width="0.85" pathLength="1"/>
+            <path d="M325 374 Q301 340 277 306" stroke-opacity="0.3" stroke-width="0.85" pathLength="1"/>
+          </g>
+
+          <g class="pf-nodes" fill="#14283a" stroke="#C9A84C" stroke-opacity="0.7" stroke-width="1">
+            <circle cx="90" cy="306" r="7"/>
+            <circle cx="183" cy="294" r="7"/>
+            <circle cx="277" cy="306" r="7"/>
+            <circle cx="370" cy="294" r="7"/>
+            <circle cx="230" cy="384" r="7"/>
+            <circle cx="135" cy="374" r="7"/>
+            <circle cx="325" cy="374" r="7"/>
+          </g>
+        </svg>
+      </div>
     </div>
-    <div class="problema-grid reveal">
-      <div class="problema-card">
-        <p class="problema-num">01</p>
-        <p class="problema-rol">El ejecutivo que acaba de asumir</p>
-        <p class="problema-quote">"Llegué con una estrategia clara. La aplico y no funciona: la realidad no es la que me contaron. Es como querer usar un mapa en el terreno equivocado."</p>
-        <p class="problema-desc">Los primeros 90 días fijan la autoridad que tendrás el resto del mandato. El terreno a comprender está en las reglas que nadie escribió y en las conversaciones que viven en los pasillos sin llegar a las reuniones o comunicaciones oficiales. Eso es lo que hay que leer rápido, y es lo único que ningún onboarding entrega.</p>
+
+    <!-- Tres roles, de-cajados (secuencia tipográfica) -->
+    <div class="problema-roles">
+      <div class="rol reveal">
+        <div class="rol-meta">
+          <p class="rol-num">01</p>
+          <p class="rol-tag">El ejecutivo que acaba de asumir</p>
+        </div>
+        <div class="rol-cuerpo">
+          <p class="rol-quote">"Llegué con una estrategia clara. La aplico y no funciona: la realidad no es la que me contaron. Es como querer usar un mapa en el terreno equivocado."</p>
+          <p class="rol-desc">Los primeros 90 días fijan la autoridad que tendrás el resto del mandato. El terreno a comprender está en las reglas que nadie escribió y en las conversaciones que viven en los pasillos sin llegar a las reuniones o comunicaciones oficiales. Eso es lo que hay que leer rápido, y es lo único que ningún onboarding entrega.</p>
+        </div>
       </div>
-      <div class="problema-card">
-        <p class="problema-num">02</p>
-        <p class="problema-rol">El directivo o manager que quiere ir más lejos</p>
-        <p class="problema-quote">"Sé que doy para más. Pero por más que empujo con toda mi energía, nada se mueve y yo termino drenado."</p>
-        <p class="problema-desc">Llegaste hasta aquí dándolo todo: construyendo piso por piso, resolviendo, batallando en cada frente, en cada nivel. Pero te has topado con un techo que no cede por más horas y energía que le pongas. El liderazgo que te trajo hasta esta instancia es el mismo que hoy no te deja subir al siguiente nivel.</p>
+      <div class="rol reveal">
+        <div class="rol-meta">
+          <p class="rol-num">02</p>
+          <p class="rol-tag">El directivo o manager que quiere ir más lejos</p>
+        </div>
+        <div class="rol-cuerpo">
+          <p class="rol-quote">"Sé que doy para más. Pero por más que empujo con toda mi energía, nada se mueve y yo termino drenado."</p>
+          <p class="rol-desc">Llegaste hasta aquí dándolo todo: construyendo piso por piso, resolviendo, batallando en cada frente, en cada nivel. Pero te has topado con un techo que no cede por más horas y energía que le pongas. El liderazgo que te trajo hasta esta instancia es el mismo que hoy no te deja subir al siguiente nivel.</p>
+        </div>
       </div>
-      <div class="problema-card">
-        <p class="problema-num">03</p>
-        <p class="problema-rol">La empresa que necesita transformarse</p>
-        <p class="problema-quote">"Tenemos todo para crecer. Pero no lo hacemos a la velocidad que deberíamos."</p>
-        <p class="problema-desc">Están los recursos, el posicionamiento, los procesos diseñados. Cada área cumple sus números y, aun así, el conjunto no avanza. Lo que frena no vive dentro de un área, sino en la coordinación de las áreas entre sí. Y esa capa es la que la organización casi nunca consigue ver. Ahí un problema puede frenar a toda la organización durante años, sin que nadie sepa de dónde viene.</p>
+      <div class="rol reveal">
+        <div class="rol-meta">
+          <p class="rol-num">03</p>
+          <p class="rol-tag">La empresa que necesita transformarse</p>
+        </div>
+        <div class="rol-cuerpo">
+          <p class="rol-quote">"Tenemos todo para crecer. Pero no lo hacemos a la velocidad que deberíamos."</p>
+          <p class="rol-desc">Están los recursos, el posicionamiento, los procesos diseñados. Cada área cumple sus números y, aun así, el conjunto no avanza. Lo que frena no vive dentro de un área, sino en la coordinación de las áreas entre sí. Y esa capa es la que la organización casi nunca consigue ver. Ahí un problema puede frenar a toda la organización durante años, sin que nadie sepa de dónde viene.</p>
+        </div>
       </div>
     </div>
-    <!-- Franja de evidencia (F5 + dato medible F2.2). Texto v1. -->
+
     <div class="problema-evidencia reveal rd1">
-      <span class="label">No es percepción tuya</span>
-      <p>Cerca de <span class="dato">la mitad</span> de las incorporaciones ejecutivas no logra los resultados esperados en sus primeros 18 meses. Y la causa más citada es no haber leído a tiempo la cultura y las alianzas que nadie pone por escrito.<span class="fuente">Investigación de Harvard Business Review y el Leadership Pipeline Institute.</span></p>
+      <div class="ev-meta">
+        <span class="label">No es percepción tuya</span>
+        <span class="fuente">Investigación de Harvard Business Review y el Leadership Pipeline Institute.</span>
+      </div>
+      <p class="ev-statement">Cerca de <span class="dato">la mitad</span> de las incorporaciones ejecutivas no logra los resultados esperados en sus primeros 18 meses. Y la causa más citada es no haber leído a tiempo la cultura y las alianzas que nadie pone por escrito.</p>
     </div>
   </div>
 </section>
 
-<!-- ENFOQUE -->
+<!-- ENFOQUE — DoD-02 (pilares de-cajados) -->
 <section id="enfoque">
   <div class="container">
     <div class="enfoque-inner">
@@ -1660,24 +992,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="pilar-titulo">Coaching ontológico y ejecutivo</p>
           <p class="pilar-desc">Trabajo con el observador que hay detrás de cada decisión. Cómo el líder mira, interpreta y se interpreta determina lo que hace y lo que logra. Ahí, en la mirada, empieza el cambio.</p>
         </div>
-        <div class="pilar" style="margin-top: 2px;">
+        <div class="pilar">
           <p class="pilar-titulo">Mirada sistémica de la organización</p>
           <p class="pilar-desc">El líder nunca está solo en la foto: está en una red de relaciones, expectativas y reglas tácitas que casi nadie nombra. Mi trabajo es hacer visible esa red —al líder, a sus equipos y a la organización—, porque un sistema que se ve a sí mismo encuentra lo que lo traba.</p>
         </div>
-        <div class="pilar" style="margin-top: 2px;">
+        <div class="pilar">
           <p class="pilar-titulo">Experiencia en entornos corporativos complejos</p>
           <p class="pilar-desc">Pasé más de veinte años del lado del ejecutivo, liderando operaciones y transformaciones en la región. Sé lo que se siente decidir con información incompleta, sostener un equipo bajo presión y responder por el resultado. Esa es la silla desde la que te escucho.</p>
         </div>
-        <a href="/enfoque.html" style="font-size:12px;font-weight:500;color:var(--oro2);letter-spacing:.04em;display:inline-flex;align-items:center;gap:4px;border-bottom:.5px solid var(--oro2);padding-bottom:1px;margin-top:12px;transition:gap .2s,color .2s;">Conoce mi enfoque completo <span>→</span></a>
+        <a href="/enfoque.html" style="font-size:12px;font-weight:500;color:var(--oro2);letter-spacing:.04em;display:inline-flex;align-items:center;gap:4px;border-bottom:.5px solid var(--oro2);padding-bottom:1px;margin-top:24px;transition:gap .2s,color .2s;">Conoce mi enfoque completo <span>→</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICIOS -->
+<!-- SERVICIOS — DoD-02 (mantener) + fix CTA y nota Amrop -->
 <section id="servicios">
   <div class="container">
-    <div class="section-header reveal">
+    <div class="section-header center reveal">
       <span class="label">Servicios</span>
       <h2>Trabajo con tres tipos de cliente.</h2>
       <p>El ejecutivo, el líder y la organización.</p>
@@ -1692,9 +1024,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="servicio-contenido">
           <p class="servicio-desc">Un proceso de acompañamiento para el ejecutivo que acaba de asumir un nuevo rol. Dos espacios en paralelo: sesiones individuales de coaching donde el ejecutivo trabaja lo que necesita trabajar, y tres sprints de soporte operativo para los aspectos estratégicos de los primeros 90 días. Con posibilidad de continuidad al año completo.</p>
           <p class="servicio-nota">Trabajo con empresas de Executive Search y áreas de Recursos Humanos que incorporan ejecutivos de alto nivel. Amrop, firma global de Executive Search, es uno de mis clientes en la región.</p>
-        </div>
-        <div class="servicio-cta">
-          <a href="transicion.html" class="btn btn-oro">Ver el proceso →</a>
+          <div class="servicio-cta">
+            <a href="transicion.html" class="btn btn-oro">Ver el proceso →</a>
+          </div>
         </div>
       </div>
       <div class="servicio reveal rd1">
@@ -1705,9 +1037,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="servicio-contenido">
           <p class="servicio-desc">Para el directivo o gerente que construyó una carrera exitosa con su forma de liderar, pero a quien esa misma forma ya no le alcanza para el siguiente nivel. Con un marco ágil, trabajo la manera en que observa, conversa y decide, para que pueda dar el siguiente paso.</p>
-        </div>
-        <div class="servicio-cta">
-          <a href="liderazgo.html" class="btn btn-oro">Ver el proceso →</a>
+          <div class="servicio-cta">
+            <a href="liderazgo.html" class="btn btn-oro">Ver el proceso →</a>
+          </div>
         </div>
       </div>
       <div class="servicio reveal rd2">
@@ -1718,16 +1050,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="servicio-contenido">
           <p class="servicio-desc">Acompaño a organizaciones que necesitan transformar su cultura: cómo se decide, cómo se coordina, qué se conversa y qué se calla. La cultura la construyen todos los que forman la organización, no se cambia por decreto. Por eso su transformación empieza cuando el sistema toma conciencia de sus propios patrones. Desde el coaching de equipos y organizaciones, hago visible esa cultura para que cada persona pueda ser parte de su cambio. El sistema es el cliente; el cambio sale de él.</p>
-        </div>
-        <div class="servicio-cta">
-          <a href="agenda.html" class="btn btn-outline-oscuro">Conversemos →</a>
+          <div class="servicio-cta">
+            <a href="agenda.html" class="btn btn-outline-oscuro">Conversemos →</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- QUIÉN SOY -->
+<!-- QUIÉN SOY — fuera de alcance (se mantiene) -->
 <section id="quien">
   <div class="container">
     <div class="quien-grid">
@@ -1781,110 +1113,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ============================================================
-     F3.2 — CASOS DE IMPACTO
-     Procesos reales anonimizados. Entre #quien y #credenciales.
-============================================================ -->
-<section id="impacto">
-  <div class="container">
-    <div class="impacto-header reveal">
-      <span class="label">Procesos reales</span>
-      <h2>Lo que se destrabó <em>en el camino.</em></h2>
-      <p>Cada proceso es confidencial. Lo que comparto aquí es la estructura de lo que ocurrió — anonimizado, pero real.</p>
-    </div>
-
-    <div class="impacto-grid">
-      <div class="caso-card reveal">
-        <div class="caso-meta">
-          <span class="caso-num">Caso 01</span>
-          <span class="caso-duracion">6 sesiones · 90 días</span>
-        </div>
-        <p class="caso-perfil">Gerente General</p>
-        <p class="caso-industria">Logística · Centroamérica</p>
-        <div>
-          <p class="caso-bloque-titulo">El contexto</p>
-          <p class="caso-texto">Una ejecutiva con quince años en operaciones asumió la gerencia general de una empresa logística regional en pleno crecimiento. Su claridad operativa era enorme — pero esa misma fortaleza se había convertido en límite: intervenía demasiado pronto, absorbía decisiones que otros debían tomar y era el principal punto de dependencia del sistema.</p>
-        </div>
-        <div>
-          <p class="caso-bloque-titulo">El trabajo</p>
-          <p class="caso-texto">Durante el proceso, la ejecutiva pudo observar cómo su forma de liderar — resolver todo, estar en todo — generaba exactamente lo que quería evitar: un equipo que no tomaba decisiones sin ella. A partir de esa observación, identificó las conversaciones que estaba evitando, redefinió lo que significaba "agregar valor" desde el rol de gerente general y diseñó una forma de estar presente sin absorber.</p>
-        </div>
-        <div class="caso-resultado">
-          <p class="caso-bloque-titulo">Lo que se destrabó</p>
-          <p class="caso-texto">Redujo su intervención directa en lo operativo. El equipo directivo empezó a asumir mayor responsabilidad. El cambio más profundo fue en cómo medía su propio valor: dejó de medirlo por la cantidad de problemas que resolvía y empezó a medirlo por la capacidad que generaba en otros.</p>
-        </div>
-      </div>
-
-      <div class="caso-card reveal rd1">
-        <div class="caso-meta">
-          <span class="caso-num">Caso 02</span>
-          <span class="caso-duracion">6 sesiones · 90 días</span>
-        </div>
-        <p class="caso-perfil">VP Comercial</p>
-        <p class="caso-industria">Tecnología B2B · Panamá</p>
-        <div>
-          <p class="caso-bloque-titulo">El contexto</p>
-          <p class="caso-texto">Una ejecutiva con trayectoria en ventas consultivas asumió como VP Comercial en una empresa tecnológica B2B en crecimiento acelerado. Encontró un equipo reactivo, un pipeline poco confiable y presión del CEO por resultados rápidos — sin romper la confianza del equipo heredado.</p>
-        </div>
-        <div>
-          <p class="caso-bloque-titulo">El trabajo</p>
-          <p class="caso-texto">En el proceso, la ejecutiva pudo ver que su mayor riesgo no era "no vender" sino repetir lo que siempre le había funcionado: cerrar ella misma. Exploró qué significaba pasar de ejecutora a líder de un sistema comercial. Identificó dónde su equipo evitaba conversaciones difíciles con clientes y dónde ella misma evitaba conversaciones difíciles con el CEO. Trabajó sobre ambas.</p>
-        </div>
-        <div class="caso-resultado">
-          <p class="caso-bloque-titulo">Lo que se destrabó</p>
-          <p class="caso-texto">El equipo operaba con mayor autonomía, las reuniones tenían otro foco y la VP dejó de cargar sola con el resultado. El cambio más relevante fue que el equipo empezó a hacerse cargo de la calidad de sus oportunidades — no solo del volumen de actividad.</p>
-        </div>
-      </div>
-
-      <div class="caso-card reveal rd2">
-        <div class="caso-meta">
-          <span class="caso-num">Caso 03</span>
-          <span class="caso-duracion">8 sesiones · 4 meses</span>
-        </div>
-        <p class="caso-perfil">Director de Operaciones</p>
-        <p class="caso-industria">Retail · Centroamérica</p>
-        <div>
-          <p class="caso-bloque-titulo">El contexto</p>
-          <p class="caso-texto">Un ejecutivo con amplia experiencia operativa asumió como Director de Operaciones de una cadena de retail con presencia regional. La empresa había crecido rápido, pero los procesos internos seguían funcionando como cuando la operación era mucho más pequeña. Todo terminaba pasando por él.</p>
-        </div>
-        <div>
-          <p class="caso-bloque-titulo">El trabajo</p>
-          <p class="caso-texto">El proceso le permitió observar un patrón que no tenía visible: su disponibilidad permanente no era compromiso — era una forma de controlar que le costaba soltar. A partir de ahí, trabajó sobre qué debía seguir en sus manos y qué necesitaba salir de su agenda. Revisó sus acuerdos con los mandos medios y construyó una forma de liderar la operación sin ser el cuello de botella.</p>
-        </div>
-        <div class="caso-resultado">
-          <p class="caso-bloque-titulo">Lo que se destrabó</p>
-          <p class="caso-texto">Los mandos medios empezaron a resolver con mayor criterio. Las reuniones dejaron de ser espacios de reporte y se convirtieron en espacios de decisión. El mayor cambio fue dejar de confundirse con la operación: seguía cerca del negocio, pero ya no estaba atrapado en cada urgencia.</p>
-        </div>
-      </div>
-
-      <div class="caso-card reveal rd3">
-        <div class="caso-meta">
-          <span class="caso-num">Caso 04</span>
-          <span class="caso-duracion">10 sesiones · 6 meses</span>
-        </div>
-        <p class="caso-perfil">CEO · Segunda generación</p>
-        <p class="caso-industria">Industrial / Manufactura · Sudamérica</p>
-        <div>
-          <p class="caso-bloque-titulo">El contexto</p>
-          <p class="caso-texto">Un ejecutivo de segunda generación asumió como CEO de una empresa familiar industrial. Tenía legitimidad técnica y conocimiento profundo del negocio, pero su autoridad todavía convivía con la presencia activa de los fundadores. Formalmente era CEO; en la práctica, muchas decisiones seguían siendo consultadas o revisadas por la generación anterior.</p>
-        </div>
-        <div>
-          <p class="caso-bloque-titulo">El trabajo</p>
-          <p class="caso-texto">En el proceso, el CEO pudo distinguir algo que no tenía claro: la diferencia entre respetar la historia de la empresa y pedir permiso para liderarla. Exploró los vínculos entre lo familiar y lo empresarial, identificó dónde estaba cediendo autoridad sin darse cuenta y preparó conversaciones que venía postergando — con los fundadores, con el directorio y con su propio equipo.</p>
-        </div>
-        <div class="caso-resultado">
-          <p class="caso-bloque-titulo">Lo que se destrabó</p>
-          <p class="caso-texto">Clarificó su mandato, ordenó la relación con el equipo directivo y estableció conversaciones que llevaban tiempo pendientes. La empresa no cambió de un día para otro, pero el sistema empezó a reconocer un nuevo centro de conducción. Dejó de pedir permiso para ocupar el rol y comenzó a ejercerlo con mayor serenidad y legitimidad.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="impacto-nota">
-      <p>Todos los procesos son individuales y confidenciales. Los casos están anonimizados con autorización de los participantes.</p>
-    </div>
-  </div>
-</section>
-
 <!-- CREDENCIALES -->
 <section id="credenciales">
   <div class="container">
@@ -1905,17 +1133,126 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- BLOG — La Estrella estática + 2 artículos más recientes del blog (dinámicos) -->
+<!-- CASOS DE IMPACTO — DoD-02 (de-cajado) -->
+<section id="impacto">
+  <div class="container">
+    <div class="impacto-header reveal">
+      <span class="label">Procesos reales</span>
+      <h2>Lo que se destrabó <em>en el camino.</em></h2>
+      <p>Cada proceso es confidencial. Lo que comparto aquí es la estructura de lo que ocurrió — anonimizado, pero real.</p>
+    </div>
+
+    <div class="impacto-casos">
+      <div class="caso reveal">
+        <div class="caso-meta">
+          <span class="caso-num">Caso 01</span>
+          <span class="caso-duracion">6 sesiones · 90 días</span>
+        </div>
+        <p class="caso-perfil">Gerente General</p>
+        <p class="caso-industria">Logística · Centroamérica</p>
+        <div class="caso-cuerpo">
+          <div>
+            <p class="caso-bloque-titulo">El contexto</p>
+            <p class="caso-texto">Una ejecutiva con quince años en operaciones asumió la gerencia general de una empresa logística regional en pleno crecimiento. Su claridad operativa era enorme — pero esa misma fortaleza se había convertido en límite: intervenía demasiado pronto, absorbía decisiones que otros debían tomar y era el principal punto de dependencia del sistema.</p>
+          </div>
+          <div>
+            <p class="caso-bloque-titulo">El trabajo</p>
+            <p class="caso-texto">Durante el proceso, la ejecutiva pudo observar cómo su forma de liderar — resolver todo, estar en todo — generaba exactamente lo que quería evitar: un equipo que no tomaba decisiones sin ella. A partir de esa observación, identificó las conversaciones que estaba evitando, redefinió lo que significaba "agregar valor" desde el rol de gerente general y diseñó una forma de estar presente sin absorber.</p>
+          </div>
+          <div class="caso-resultado">
+            <p class="caso-bloque-titulo">Lo que se destrabó</p>
+            <p class="caso-texto">Redujo su intervención directa en lo operativo. El equipo directivo empezó a asumir mayor responsabilidad. El cambio más profundo fue en cómo medía su propio valor: dejó de medirlo por la cantidad de problemas que resolvía y empezó a medirlo por la capacidad que generaba en otros.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="caso reveal">
+        <div class="caso-meta">
+          <span class="caso-num">Caso 02</span>
+          <span class="caso-duracion">6 sesiones · 90 días</span>
+        </div>
+        <p class="caso-perfil">VP Comercial</p>
+        <p class="caso-industria">Tecnología B2B · Panamá</p>
+        <div class="caso-cuerpo">
+          <div>
+            <p class="caso-bloque-titulo">El contexto</p>
+            <p class="caso-texto">Una ejecutiva con trayectoria en ventas consultivas asumió como VP Comercial en una empresa tecnológica B2B en crecimiento acelerado. Encontró un equipo reactivo, un pipeline poco confiable y presión del CEO por resultados rápidos — sin romper la confianza del equipo heredado.</p>
+          </div>
+          <div>
+            <p class="caso-bloque-titulo">El trabajo</p>
+            <p class="caso-texto">En el proceso, la ejecutiva pudo ver que su mayor riesgo no era "no vender" sino repetir lo que siempre le había funcionado: cerrar ella misma. Exploró qué significaba pasar de ejecutora a líder de un sistema comercial. Identificó dónde su equipo evitaba conversaciones difíciles con clientes y dónde ella misma evitaba conversaciones difíciles con el CEO. Trabajó sobre ambas.</p>
+          </div>
+          <div class="caso-resultado">
+            <p class="caso-bloque-titulo">Lo que se destrabó</p>
+            <p class="caso-texto">El equipo operaba con mayor autonomía, las reuniones tenían otro foco y la VP dejó de cargar sola con el resultado. El cambio más relevante fue que el equipo empezó a hacerse cargo de la calidad de sus oportunidades — no solo del volumen de actividad.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="caso reveal">
+        <div class="caso-meta">
+          <span class="caso-num">Caso 03</span>
+          <span class="caso-duracion">8 sesiones · 4 meses</span>
+        </div>
+        <p class="caso-perfil">Director de Operaciones</p>
+        <p class="caso-industria">Retail · Centroamérica</p>
+        <div class="caso-cuerpo">
+          <div>
+            <p class="caso-bloque-titulo">El contexto</p>
+            <p class="caso-texto">Un ejecutivo con amplia experiencia operativa asumió como Director de Operaciones de una cadena de retail con presencia regional. La empresa había crecido rápido, pero los procesos internos seguían funcionando como cuando la operación era mucho más pequeña. Todo terminaba pasando por él.</p>
+          </div>
+          <div>
+            <p class="caso-bloque-titulo">El trabajo</p>
+            <p class="caso-texto">El proceso le permitió observar un patrón que no tenía visible: su disponibilidad permanente no era compromiso — era una forma de controlar que le costaba soltar. A partir de ahí, trabajó sobre qué debía seguir en sus manos y qué necesitaba salir de su agenda. Revisó sus acuerdos con los mandos medios y construyó una forma de liderar la operación sin ser el cuello de botella.</p>
+          </div>
+          <div class="caso-resultado">
+            <p class="caso-bloque-titulo">Lo que se destrabó</p>
+            <p class="caso-texto">Los mandos medios empezaron a resolver con mayor criterio. Las reuniones dejaron de ser espacios de reporte y se convirtieron en espacios de decisión. El mayor cambio fue dejar de confundirse con la operación: seguía cerca del negocio, pero ya no estaba atrapado en cada urgencia.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="caso reveal">
+        <div class="caso-meta">
+          <span class="caso-num">Caso 04</span>
+          <span class="caso-duracion">10 sesiones · 6 meses</span>
+        </div>
+        <p class="caso-perfil">CEO · Segunda generación</p>
+        <p class="caso-industria">Industrial / Manufactura · Sudamérica</p>
+        <div class="caso-cuerpo">
+          <div>
+            <p class="caso-bloque-titulo">El contexto</p>
+            <p class="caso-texto">Un ejecutivo de segunda generación asumió como CEO de una empresa familiar industrial. Tenía legitimidad técnica y conocimiento profundo del negocio, pero su autoridad todavía convivía con la presencia activa de los fundadores. Formalmente era CEO; en la práctica, muchas decisiones seguían siendo consultadas o revisadas por la generación anterior.</p>
+          </div>
+          <div>
+            <p class="caso-bloque-titulo">El trabajo</p>
+            <p class="caso-texto">En el proceso, el CEO pudo distinguir algo que no tenía claro: la diferencia entre respetar la historia de la empresa y pedir permiso para liderarla. Exploró los vínculos entre lo familiar y lo empresarial, identificó dónde estaba cediendo autoridad sin darse cuenta y preparó conversaciones que venía postergando — con los fundadores, con el directorio y con su propio equipo.</p>
+          </div>
+          <div class="caso-resultado">
+            <p class="caso-bloque-titulo">Lo que se destrabó</p>
+            <p class="caso-texto">Clarificó su mandato, ordenó la relación con el equipo directivo y estableció conversaciones que llevaban tiempo pendientes. La empresa no cambió de un día para otro, pero el sistema empezó a reconocer un nuevo centro de conducción. Dejó de pedir permiso para ocupar el rol y comenzó a ejercerlo con mayor serenidad y legitimidad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="impacto-nota">
+      <p>Todos los procesos son individuales y confidenciales. Los casos están anonimizados con autorización de los participantes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG — La Estrella estática + 2 artículos más recientes (dinámicos) -->
 <section id="blog">
   <div class="container">
-    <div class="section-header reveal">
+    <div class="section-header center reveal">
       <span class="label">Publicaciones</span>
       <h2>Punto de vista.</h2>
       <p>Artículos sobre liderazgo, organizaciones y complejidad.</p>
     </div>
     <div class="posts-grid" style="margin-top: 60px;">
 
-      <!-- La Estrella — estática (artículo externo) -->
+      <!-- La Estrella — estática (artículo externo, editable a mano) -->
       <article class="post-card reveal">
         <img src="https://www.adriandeyme.com/assets/images/blog/blog-cover-trabajo-estable.webp"
              alt="¿Murió el trabajo estable?" class="post-img" loading="lazy"
@@ -1950,7 +1287,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- RECURSOS GRATIS -->
 <section id="gratis">
   <div class="container">
-    <div class="section-header reveal">
+    <div class="section-header center reveal">
       <span class="label" style="color: rgba(201,168,76,.7);">Para llevarte</span>
       <h2 style="color: var(--blanco);">Dos recursos.<br><span style="font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--oro);">Para empezar a ordenar.</span></h2>
       <p style="color: rgba(255,255,255,.4);">Para empezar a ordenar antes de hablar.</p>
@@ -1977,19 +1314,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="gratis-card reveal rd2">
         <span class="gratis-badge" style="color: rgba(255,255,255,.5); background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.1);">PDF gratuito</span>
         <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 8px 20px rgba(201,168,76,.2));">
-          <!-- Ear shape -->
           <path d="M44 16c-13 0-20 9-20 22 0 8 2 13 5 18 2 4 4 7 4 12 0 3 2 5 5 5h4c3 0 5-2 5-5" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".7"/>
           <path d="M47 53c0-5-3-8-6-12-3-4-5-7-5-13 0-7 5-12 12-12s12 5 12 12" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".7"/>
-          <!-- Sound waves -->
           <path d="M56 28c3 3 5 7 5 12s-2 9-5 12" stroke="#C9A84C" stroke-width="1" stroke-linecap="round" fill="none" opacity=".35"/>
           <path d="M62 22c5 5 8 12 8 18s-3 13-8 18" stroke="#C9A84C" stroke-width=".75" stroke-linecap="round" fill="none" opacity=".2"/>
-          <!-- Inner detail -->
           <circle cx="44" cy="38" r="4" stroke="#C9A84C" stroke-width="1" fill="none" opacity=".5"/>
           <circle cx="44" cy="38" r="1.5" fill="#C9A84C" opacity=".6"/>
         </svg>
         <h3>La Escucha Ejecutiva</h3>
         <p>¿Qué escucho cuando escucho? Los Siete Órdenes de la Escucha en el liderazgo de alta dirección. Una bitácora de práctica con casos de estudio, herramientas de autoobservación y preguntas de quiebre para tu próxima reunión.</p>
-		<div class="email-form">
+        <div class="email-form">
           <label for="escucha-email" class="sr-only">Tu correo electrónico</label>
           <input type="email" id="escucha-email" placeholder="tu@email.com" autocomplete="email">
           <button class="btn btn-oro" onclick="pedirEscucha()">Quiero mi copia</button>
@@ -2071,9 +1405,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   /* ---- Lead form ---- */
-async function pedirEscucha() {
+  async function pedirEscucha() {
     const input = document.getElementById('escucha-email');
-    const btn = document.querySelector('#gratis .btn-oro');
+    const btn = document.querySelector('#gratis .email-form .btn-oro');
     const msg = document.getElementById('escucha-msg');
     const form = document.querySelector('.email-form');
     const email = input.value.trim();
@@ -2120,7 +1454,7 @@ async function pedirEscucha() {
   });
 
   /* ---- Blog preview: 2 artículos más recientes del blog ----
-     Lee de /blog/articles.json — fuente única de datos.
+     Lee de /articles.json — fuente única de datos.
      Cuando publiques un artículo nuevo, actualiza solo el JSON.
   ---- */
   function renderBlogCard(article, delay) {
@@ -2146,15 +1480,12 @@ async function pedirEscucha() {
   fetch('/articles.json')
     .then(r => r.json())
     .then(articles => {
-      // Filtrar solo artículos del blog (no La Estrella ni externos)
       const blogOnly = articles.filter(a => a.source === 'Blog');
-      // Ordenar por fecha descendente, tomar los 2 más recientes
       const latest = blogOnly.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 2);
       const slot1 = document.getElementById('blog-dynamic-1');
       const slot2 = document.getElementById('blog-dynamic-2');
       if (slot1 && latest[0]) slot1.outerHTML = renderBlogCard(latest[0], 1);
       if (slot2 && latest[1]) slot2.outerHTML = renderBlogCard(latest[1], 2);
-      // Registrar las nuevas cards en el observer de reveal
       document.querySelectorAll('#blog .post-card.reveal:not(.visible)').forEach(el => observer.observe(el));
     })
     .catch(() => { /* Si falla el fetch, los slots quedan vacíos — no rompe nada */ });
