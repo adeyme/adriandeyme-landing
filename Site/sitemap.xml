@@ -25,6 +25,14 @@
     <priority>0.8</priority>
   </url>
 
+    <!-- Coaching de Liderazgo — landing de servicio -->
+  <url>
+    <loc>https://www.adriandeyme.com/liderazgo.html</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Mi Enfoque — filosofía y declaración de principios -->
   <url>
     <loc>https://www.adriandeyme.com/enfoque.html</loc>
