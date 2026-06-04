@@ -125,7 +125,7 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Coaching de Equipos y Organizaciones",
+              "name": "Coaching Organizacional",
               "description": "Coaching de equipos y coaching organizacional para acompañar procesos de cambio cultural y transformación. El sistema es el cliente: el trabajo es hacer visible la cultura para que la organización pueda transformarla."
             }
           }
@@ -394,58 +394,49 @@
        Jerarquía por escala: tesis-statement = foco; ledger a ancho completo;
        resolución marcada con regla de oro. Sin cards, sin side-stripes.
     ============================================================ */
-    /* Top reducido: el hero ya aporta 92px abajo; antes sumaba 144px = demasiado aire. */
-    #problema { padding: 96px 0 132px; background: var(--marfil); }
+    /* ============================================================
+       EL PROBLEMA — v2: intro 25/75 · evidencia en panel oscuro · cierre amplio
+    ============================================================ */
+    #problema { padding: clamp(72px,9vw,110px) 0; background: var(--marfil); }
 
-    /* Todo centrado sobre UN MISMO ancho (~860px): kicker, header, texto,
-       evidencia y cierre comparten borde izq/der. Coherente con Servicios/Impacto/CTA. */
-    #problema .container > * { max-width: 860px; margin-left: auto; margin-right: auto; }
-
-    /* Header con titular real (la sección necesitaba un ancla, no solo el rótulo) */
-    .prob-header { text-align: center; margin-bottom: 56px; }
-    .prob-header .label { display: inline-block; margin-bottom: 18px; }
-    .prob-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 4.2vw, 50px); font-weight: 400; line-height: 1.14; letter-spacing: -.015em; color: var(--noche); max-width: 16ch; margin: 0 auto; }
+    /* Intro asimétrico: titular 25% · prosa 75% */
+    #problema .prob-intro { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,3fr); gap: clamp(32px,5vw,64px); align-items: start; }
+    .prob-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(28px,3vw,44px); line-height: 1.1; letter-spacing: -.015em; color: var(--noche); }
     .prob-title em { font-style: italic; color: var(--oro2); }
+    .prob-list { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: clamp(20px,2.1vw,25px); line-height: 1.5; color: var(--noche); margin: 0 0 28px; }
+    .prob-p { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 16.5px; line-height: 1.8; color: var(--gris2); margin: 0 0 22px; }
+    .prob-thesis { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(23px,2.5vw,31px); line-height: 1.34; letter-spacing: -.01em; color: var(--noche); margin: 8px 0 22px; }
+    .prob-thesis em { font-style: italic; color: var(--oro2); }
+    .prob-body p:last-child { margin-bottom: 0; }
 
-    /* Intro lineal, centrada */
-    .prob-grid { display: block; text-align: center; }
-    .prob-lead { font-size: 18px; font-weight: 300; color: var(--gris2); line-height: 1.8; margin: 0 auto; max-width: 60ch; }
-    .prob-sintomas { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(21px, 2.2vw, 25px); font-weight: 400; color: var(--noche); line-height: 1.5; margin: 32px auto 0; max-width: 38ch; }
-    /* Giro — el centro de gravedad del argumento */
-    .prob-turn { margin: 60px auto 0; }
-    .prob-thesis { font-family: 'Cormorant Garamond', serif; font-size: clamp(25px, 2.8vw, 34px); font-weight: 400; color: var(--noche); line-height: 1.32; letter-spacing: -.01em; margin: 0 auto; max-width: 26ch; }
-    .prob-thesis-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(18px, 1.7vw, 21px); font-weight: 400; color: var(--gris2); line-height: 1.5; margin: 18px auto 0; max-width: 40ch; }
-    /* Consecuencia — puente hacia la evidencia (especificidad sobre la envoltura) */
-    #problema .prob-conector { font-size: 15px; font-weight: 300; color: var(--gris2); line-height: 1.8; margin: 40px auto 0; max-width: 60ch; text-align: center; }
+    /* Tabla protagonista: panel oscuro, objeto aparte */
+    .prob-ledger { background: var(--noche); border-radius: 18px; padding: clamp(28px,3.4vw,44px) clamp(28px,3.6vw,48px); margin-top: clamp(48px,6vw,72px); }
+    .prob-ledger-head, .prob-row { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(24px,4vw,52px); }
+    .prob-ledger-head { padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.14); }
+    .prob-h { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .24em; text-transform: uppercase; color: var(--oro); }
+    .prob-row { padding: clamp(22px,2.6vw,30px) 0; border-bottom: 1px solid rgba(255,255,255,.1); align-items: start; }
+    .prob-row:last-child { border-bottom: none; padding-bottom: 2px; }
+    .prob-sintoma { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: clamp(17px,1.7vw,20px); line-height: 1.5; color: rgba(245,243,238,.92); padding-right: clamp(0px,2vw,28px); }
+    .prob-dinamica { display: flex; align-items: baseline; gap: 16px; }
+    .prob-dinamica .cifra { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: clamp(32px,3.6vw,44px); line-height: 1; color: var(--oro); flex-shrink: 0; }
+    .prob-dinamica .d-body { min-width: 0; }
+    .prob-dinamica .texto { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 14px; line-height: 1.6; color: rgba(245,243,238,.66); }
+    .prob-dinamica .fuente { display: block; margin-top: 10px; font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: .04em; line-height: 1.6; color: rgba(245,243,238,.42); }
 
-    /* Evidencia: ledger voz ↔ dato. Hairlines sobre el marfil, sin tarjeta ni sombra. */
-    .prob-ledger { width: 100%; margin: 76px auto 0; border-top: 0.5px solid var(--borde-claro); text-align: left; }
-    .prob-row { display: grid; grid-template-columns: 1fr 1fr; padding: 30px 0; border-bottom: 0.5px solid var(--borde-claro); align-items: start; }
-    .prob-head { padding: 16px 0; }
-    .prob-h { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--gris); }
-    .prob-h + .prob-h { padding-left: 64px; }
-    .prob-veo { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; font-weight: 400; color: var(--noche); line-height: 1.5; margin: 0; padding-right: 64px; }
-    .prob-dato { font-size: 14px; font-weight: 300; color: #5e5e5e; line-height: 1.7; margin: 0; padding-left: 64px; border-left: 0.5px solid var(--borde-claro); }
-    .prob-dato .cifra { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: var(--oro2); }
-    .prob-dato .fuente { display: block; margin-top: 12px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .04em; line-height: 1.6; color: var(--gris); font-style: normal; }
-
-    /* Resolución: cierre final, centrado, marcado con regla de oro */
-    .prob-resolucion { margin-top: 80px; padding-top: 44px; position: relative; text-align: center; }
-    .prob-resolucion::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 64px; height: 1px; background: var(--oro); }
-    .prob-cierre { font-family: 'Cormorant Garamond', serif; font-size: clamp(27px, 3.2vw, 38px); font-weight: 400; color: var(--noche); line-height: 1.3; letter-spacing: -.01em; margin: 0 auto; max-width: 30ch; }
+    /* Cierre: ~73% del ancho, izquierda, con aire */
+    .prob-cierre-wrap { margin-top: clamp(44px,5.5vw,64px); }
+    .prob-rule { width: 56px; height: 1px; background: var(--oro); margin-bottom: 26px; }
+    .prob-cierre { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(26px,3vw,37px); line-height: 1.32; letter-spacing: -.01em; color: var(--noche); max-width: 73%; }
     .prob-cierre em { font-style: italic; color: var(--oro2); }
 
     @media (max-width: 760px) {
-      #problema { padding: 72px 0 88px; }
-      .prob-title { max-width: 14ch; }
-      .prob-thesis, .prob-thesis-sub { max-width: none; }
-      .prob-ledger { margin-top: 60px; }
-      .prob-head { display: none; }
-      .prob-row { grid-template-columns: 1fr; padding: 24px 0; text-align: left; }
-      .prob-veo { padding-right: 0; margin-bottom: 14px; font-size: 19px; }
-      .prob-dato { padding-left: 0; border-left: none; }
-      .prob-veo::before { content: "Lo que veo"; display: block; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--gris); margin-bottom: 10px; }
-      .prob-dato::before { content: "Lo que muestran los datos"; display: block; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--gris); margin-bottom: 8px; }
+      #problema .prob-intro { grid-template-columns: 1fr; gap: 24px; }
+      .prob-ledger { padding: 24px 22px; border-radius: 14px; }
+      .prob-ledger-head { display: none; }
+      .prob-row { grid-template-columns: 1fr; gap: 14px; padding: 22px 0; }
+      .prob-sintoma { padding-right: 0; }
+      .prob-sintoma::before { content: "El síntoma"; display: block; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .24em; text-transform: uppercase; color: var(--oro); margin-bottom: 9px; }
+      .prob-dinamica { gap: 12px; }
       .prob-cierre { max-width: none; }
     }
 
@@ -568,6 +559,7 @@
       font-weight: 400; line-height: 1.2; color: var(--noche); margin: 16px auto; max-width: 24ch;
     }
     .impacto-header h2 em { font-style: italic; color: var(--oro2); }
+    .impacto-header p.impacto-sub { font-size: 11px; font-family: 'DM Mono', monospace; letter-spacing: .08em; color: rgba(0,0,0,.4); }
     .impacto-header p { font-size: 15px; font-weight: 300; color: var(--gris2); line-height: 1.8; max-width: 52ch; margin: 0 auto; }
 
     .impacto-casos { max-width: var(--wide); margin: 0 auto; }
@@ -580,7 +572,6 @@
     .caso-industria { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--gris); margin-top: 6px; margin-bottom: 28px; }
     .caso-cuerpo { display: grid; gap: 28px; }
     @media (min-width: 760px) {
-      .caso-cuerpo { grid-template-columns: 1fr 1fr; gap: 48px; }
       .caso-resultado { grid-column: 1 / -1; }
     }
     .caso-bloque-titulo { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--oro2); margin-bottom: 8px; }
@@ -788,7 +779,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="hf-text">procesos de coaching con líderes y ejecutivos</p>
         </div>
         <div class="hf-row">
-          <p class="hf-num">16</p>
+          <p class="hf-num">+20</p>
           <p class="hf-text">años en entornos corporativos multinacionales</p>
         </div>
         <div class="hf-row">
@@ -804,50 +795,65 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- EL PROBLEMA — pieza editorial: apertura · tesis · evidencia · resolución -->
+<!-- EL PROBLEMA — v2: intro 25/75 · evidencia oscura · cierre -->
 <section id="problema">
   <div class="container">
-    <header class="prob-header reveal">
-      <span class="label">El problema</span>
-      <h2 class="prob-title">El síntoma no es la <em>causa</em>.</h2>
-    </header>
 
-    <div class="prob-grid">
-      <div class="prob-frame reveal">
-        <p class="prob-lead">Muchos líderes llegan a sus desafíos con experiencia, inteligencia y capacidad de ejecución. Sin embargo, cuando los resultados no aparecen, suelen concentrar su energía en aquello que reclama atención inmediata.</p>
-        <p class="prob-sintomas">Una decisión urgente. Un conflicto. Un equipo que no responde. Una estrategia que no avanza. Un área que no entrega.</p>
+    <div class="prob-intro reveal">
+      <div class="prob-anchor">
+        <h2 class="prob-title">El síntoma no es la <em>causa</em>.</h2>
       </div>
-      <div class="prob-turn reveal rd1">
-        <p class="prob-thesis">El problema es que aquello que demanda atención urgente no siempre es lo que está produciendo el problema.</p>
-        <p class="prob-thesis-sub">Con frecuencia, los síntomas son visibles. Las dinámicas que los generan no.</p>
+      <div class="prob-body">
+        <p class="prob-list">Una decisión urgente. Un conflicto. Un equipo que no responde. Una estrategia estancada. Un área que no entrega.</p>
+        <p class="prob-p">La mayoría de los líderes enfrenta sus desafíos con experiencia, inteligencia y capacidad de ejecución. Y aun así, los resultados no llegan. Llegan los reclamos. Y la atención se concentra en lo que exige solución inmediata.</p>
+        <p class="prob-thesis">Pero lo que exige atención rara vez es <em>la causa</em>. Los síntomas son visibles; las dinámicas que los producen, no.</p>
+        <p class="prob-p">Así, líderes, equipos y organizaciones agotan su energía resolviendo consecuencias mientras las causas profundas siguen intactas.</p>
       </div>
     </div>
 
-    <p class="prob-conector reveal">Por eso líderes, equipos y organizaciones terminan invirtiendo enormes cantidades de energía resolviendo consecuencias mientras las causas profundas permanecen intactas.</p>
-
-    <!-- Evidencia: lo que ve el cliente, pareado con el dato -->
+    <!-- Evidencia: síntoma (voz) ↔ dinámica (dato) -->
     <div class="prob-ledger">
-      <div class="prob-row prob-head">
-        <span class="prob-h">Lo que veo</span>
-        <span class="prob-h">Lo que muestran los datos</span>
+      <div class="prob-ledger-head">
+        <p class="prob-h">El síntoma</p>
+        <p class="prob-h">La dinámica</p>
       </div>
       <div class="prob-row reveal rd1">
-        <p class="prob-veo">"Llegué con una estrategia clara. La aplico y no funciona: la realidad no es la que me contaron. Es como querer usar un mapa en el terreno equivocado."</p>
-        <p class="prob-dato"><span class="cifra">40%</span> · de los ejecutivos que asumen un cargo nuevo no logra lo esperado en sus primeros 18 meses.<span class="fuente">— Harvard Business Review · Spencer Stuart</span></p>
+        <p class="prob-sintoma">"Llegué con una estrategia clara. La aplico y no funciona: la realidad no es la que me contaron. Es como querer usar un mapa en el terreno equivocado."</p>
+        <div class="prob-dinamica">
+          <span class="cifra">40%</span>
+          <span class="d-body">
+            <span class="texto">de los ejecutivos que asumen un cargo nuevo no logra lo esperado en sus primeros 18 meses.</span>
+            <span class="fuente">Harvard Business Review · Spencer Stuart</span>
+          </span>
+        </div>
       </div>
       <div class="prob-row reveal rd2">
-        <p class="prob-veo">"Sé que doy para más. Pero por más que empujo con toda mi energía, nada se mueve y yo termino drenado."</p>
-        <p class="prob-dato"><span class="cifra">70%</span> · de las diferencias de compromiso entre un equipo y otro las explica su líder directo.<span class="fuente">— Gallup · State of the American Manager</span></p>
+        <p class="prob-sintoma">"Sé que doy para más. Pero por más que empujo con toda mi energía, nada se mueve y yo termino drenado."</p>
+        <div class="prob-dinamica">
+          <span class="cifra">70%</span>
+          <span class="d-body">
+            <span class="texto">de las diferencias de compromiso entre un equipo y otro las explica su líder directo.</span>
+            <span class="fuente">Gallup · State of the American Manager</span>
+          </span>
+        </div>
       </div>
       <div class="prob-row reveal rd3">
-        <p class="prob-veo">"Cada área hace bien su trabajo. El problema es que no trabajan juntas."</p>
-        <p class="prob-dato">Las organizaciones con equipos altamente alineados tienen hasta <span class="cifra">3 veces</span> más probabilidades de superar a sus competidores.<span class="fuente">— McKinsey</span></p>
+        <p class="prob-sintoma">"Cada área hace bien su trabajo. El problema es que no trabajan juntas."</p>
+        <div class="prob-dinamica">
+          <span class="cifra">×3</span>
+          <span class="d-body">
+            <span class="texto">más probabilidades de superar a sus competidores tienen las organizaciones con equipos alineados.</span>
+            <span class="fuente">McKinsey</span>
+          </span>
+        </div>
       </div>
     </div>
 
-    <div class="prob-resolucion reveal">
-      <p class="prob-cierre">Distintos síntomas. Un mismo desafío: comprender con mayor claridad las <em>dinámicas</em> que influyen en los resultados de líderes, equipos y organizaciones.</p>
+    <div class="prob-cierre-wrap reveal">
+      <div class="prob-rule"></div>
+      <p class="prob-cierre">Distintos síntomas. <em>Un mismo desafío</em>: comprender con mayor claridad las dinámicas que influyen en los resultados de líderes, equipos y organizaciones.</p>
     </div>
+
   </div>
 </section>
 
@@ -856,22 +862,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="enfoque-inner">
       <div class="enfoque-left reveal">
-        <span class="label">Tres miradas</span>
-        <h2>Comprendo al ejecutivo en su mundo real.</h2>
-        <p>Mi práctica integra tres dimensiones que rara vez conviven en el mismo profesional. Es el resultado de una trayectoria que combina años de liderazgo corporativo con una formación profunda que incluye coaching ontológico ICF, coaching ágil y coaching sistémico de equipos y organizaciones.</p>
+        <span class="label">Cómo lo miro</span>
+        <h2>Tres miradas que rara vez conviven en la misma persona.</h2>
       </div>
       <div class="enfoque-pilares reveal rd1">
         <div class="pilar">
-          <p class="pilar-titulo">Coaching ontológico y ejecutivo</p>
-          <p class="pilar-desc">Trabajo con el observador que hay detrás de cada decisión. Cómo el líder mira, interpreta y se interpreta determina lo que hace y lo que logra. Ahí, en la mirada, empieza el cambio.</p>
+          <p class="pilar-titulo">La mirada del observador</p>
+          <p class="pilar-desc">Cómo el líder mira, interpreta y decide.</p>
         </div>
         <div class="pilar">
-          <p class="pilar-titulo">Mirada sistémica de la organización</p>
-          <p class="pilar-desc">El líder nunca está solo en la foto: está en una red de relaciones, expectativas y reglas tácitas que casi nadie nombra. Mi trabajo es hacer visible esa red —al líder, a sus equipos y a la organización—, porque un sistema que se ve a sí mismo encuentra lo que lo traba.</p>
+          <p class="pilar-titulo">La mirada sistémica de la organización</p>
+          <p class="pilar-desc">Las redes informales que casi nadie nombra y que conviven con las formales.</p>
         </div>
         <div class="pilar">
-          <p class="pilar-titulo">Experiencia en entornos corporativos complejos</p>
-          <p class="pilar-desc">Pasé más de veinte años del lado del ejecutivo, liderando operaciones y transformaciones en la región. Sé lo que se siente decidir con información incompleta, sostener un equipo bajo presión y responder por el resultado. Esa es la silla desde la que te escucho.</p>
+          <p class="pilar-titulo">La mirada corporativa</p>
+          <p class="pilar-desc">No se estudia, se vive: más de veinte años liderando en empresas.</p>
         </div>
         <a href="/enfoque.html" style="font-size:12px;font-weight:500;color:var(--oro2);letter-spacing:.04em;display:inline-flex;align-items:center;gap:4px;border-bottom:.5px solid var(--oro2);padding-bottom:1px;margin-top:24px;transition:gap .2s,color .2s;">Conoce mi enfoque completo <span>→</span></a>
       </div>
@@ -884,19 +889,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="section-header center reveal">
       <span class="label">Servicios</span>
-      <h2>Trabajo con tres tipos de cliente.</h2>
-      <p>El ejecutivo, el líder y la organización.</p>
+      <h2>Cada desafío requiere una conversación diferente.</h2>
     </div>
     <div class="servicios-grid">
       <div class="servicio reveal">
         <div class="servicio-meta">
           <p class="servicio-nivel">El ejecutivo</p>
           <p class="servicio-titulo">Coaching de Transición</p>
-          <p class="servicio-para">Ejecutivos C-Level · Empresas · Firmas de Executive Search</p>
+          <p class="servicio-para">Para Ejecutivos: C-Level · Directores · Managers</p>
         </div>
         <div class="servicio-contenido">
-          <p class="servicio-desc">Un proceso de acompañamiento para el ejecutivo que acaba de asumir un nuevo rol. Dos espacios en paralelo: sesiones individuales de coaching donde el ejecutivo trabaja lo que necesita trabajar, y tres sprints de soporte operativo para los aspectos estratégicos de los primeros 90 días. Con posibilidad de continuidad al año completo.</p>
-          <p class="servicio-nota">Trabajo con empresas de Executive Search y áreas de Recursos Humanos que incorporan ejecutivos de alto nivel. Amrop, firma global de Executive Search, es uno de mis clientes en la región.</p>
+          <p class="servicio-desc">Un proceso de acompañamiento individual para el ejecutivo que acaba de asumir un rol nuevo, durante los 90 días que definen el mandato. Dos espacios en paralelo: el coaching, donde el ejecutivo lleva la agenda, y el soporte de transición, un método para leer el sistema que heredó antes de que el sistema lo lea a él. Seis sesiones de coaching y tres sprints de soporte, con posibilidad de continuidad al año completo.</p>
+          <p class="servicio-nota">También trabajo con empresas y firmas de Executive Search que incorporan ejecutivos y quieren proteger esa inversión más allá de la búsqueda. Amrop, firma global de Executive Search, es uno de mis clientes en la región.</p>
           <div class="servicio-cta">
             <a href="transicion.html" class="btn btn-oro">Ver el proceso →</a>
           </div>
@@ -906,10 +910,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="servicio-meta">
           <p class="servicio-nivel">El líder</p>
           <p class="servicio-titulo">Coaching de Liderazgo</p>
-          <p class="servicio-para">Líderes · Empresas que desarrollan a un líder clave</p>
+          <p class="servicio-para">Para Líderes de Empresas</p>
         </div>
         <div class="servicio-contenido">
-          <p class="servicio-desc">Para el directivo o gerente que construyó una carrera exitosa con su forma de liderar, pero a quien esa misma forma ya no le alcanza para el siguiente nivel. Con un marco ágil, trabajo la manera en que observa, conversa y decide, para que pueda dar el siguiente paso.</p>
+          <p class="servicio-desc">Con el método Umbral, el líder evoluciona su forma de liderar: reconoce el estilo desde el que opera, define el que su desarrollo requiere y traza el camino para llegar, medido con OKRs. Dos ciclos de noventa días cada uno.</p>
+          <p class="servicio-nota">Para empresas que apuestan por sus líderes clave y deciden invertir en prepararlos para el nivel que viene. Y para líderes con ambición de crecimiento, que saben que pueden dar el próximo paso.</p>
           <div class="servicio-cta">
             <a href="liderazgo.html" class="btn btn-oro">Ver el proceso →</a>
           </div>
@@ -918,11 +923,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="servicio reveal rd2">
         <div class="servicio-meta">
           <p class="servicio-nivel">La organización</p>
-          <p class="servicio-titulo">Coaching de Equipos y Organizaciones</p>
-          <p class="servicio-para">Equipos y organizaciones con necesidades de transformación</p>
+          <p class="servicio-titulo">Coaching Organizacional</p>
+          <p class="servicio-para">Para empresas</p>
         </div>
         <div class="servicio-contenido">
-          <p class="servicio-desc">Acompaño a organizaciones que necesitan transformar su cultura: cómo se decide, cómo se coordina, qué se conversa y qué se calla. La cultura la construyen todos los que forman la organización, no se cambia por decreto. Por eso su transformación empieza cuando el sistema toma conciencia de sus propios patrones. Desde el coaching de equipos y organizaciones, hago visible esa cultura para que cada persona pueda ser parte de su cambio. El sistema es el cliente; el cambio sale de él.</p>
+          <p class="servicio-desc">Cuando los resultados dependen de cómo la organización decide, coordina y conversa, el límite ya no es individual: es del sistema. Acompaño a empresas que deciden trabajar sobre su cultura y sus equipos para mover los indicadores que hoy se les estancan. Un proceso pensado como inversión, con su retorno definido desde el inicio.</p>
           <div class="servicio-cta">
             <a href="agenda.html" class="btn btn-outline-oscuro">Conversemos →</a>
           </div>
@@ -949,7 +954,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span style="font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.45); padding: 10px 16px; white-space: nowrap;">ICF Panamá</span>
         </div>
         <p class="quien-texto">Argentino radicado en Panamá, construí mi carrera como ingeniero en organizaciones complejas. Empecé en tecnología, evolucioné hacia operaciones y gestión de proyectos a escala regional —más de 30 ciudades en Latinoamérica, más de 120 personas a cargo— y llegué al coaching buscando entender algo que desde adentro de las empresas no lograba explicarme: ¿qué fuerzas actúan detrás de los resultados de un líder y de una organización? ¿Por qué un mismo líder, en condiciones parecidas, brilla en una empresa y fracasa en otra?</p>
-        <p class="quien-texto">La respuesta que encontré guía mi trabajo hoy: los resultados dependen tanto del líder como del sistema en el que decide —su equipo, su organización— y de cómo aprende a leerlo. Por eso trabajo en los tres planos: con la persona, con el equipo y con la organización, y sobre todo con el vínculo entre ellos.</p>
+        <p class="quien-texto">La respuesta que encontré guía mi trabajo hoy: los resultados dependen tanto del líder como del sistema en el que decide —su equipo, su organización— y de cómo aprende a leerlo.</p>
         <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/"
            target="_blank" rel="noopener"
            class="btn btn-outline-claro" style="margin-top: 8px;">
@@ -986,6 +991,80 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- CASOS DE IMPACTO — DoD-02 (de-cajado) -->
+<section id="impacto">
+  <div class="container">
+    <div class="impacto-header reveal">
+      <span class="label">Casos</span>
+      <h2>Conversaciones que <em>Transformaron.</em></h2>
+      <p class="impacto-sub">Datos anonimizados para preservar confidencialidad.</p>
+    </div>
+
+    <div class="impacto-casos">
+      <div class="caso reveal">
+        <div class="caso-meta">
+          <span class="caso-num">Caso 01</span>
+          <span class="caso-duracion">6 sesiones · 90 días</span>
+        </div>
+        <p class="caso-perfil">VP Comercial</p>
+        <p class="caso-industria">Tecnología B2B · Panamá</p>
+        <div class="caso-cuerpo">
+          <div>
+            <p class="caso-bloque-titulo">El contexto</p>
+            <p class="caso-texto">Una ejecutiva con trayectoria en ventas consultivas asumió como VP Comercial en una empresa tecnológica B2B en crecimiento acelerado. Encontró un equipo reactivo, un pipeline poco confiable y presión del CEO por resultados rápidos — sin romper la confianza del equipo heredado.</p>
+          </div>
+          <div class="caso-resultado">
+            <p class="caso-bloque-titulo">El resultado</p>
+            <p class="caso-texto">El equipo operaba con mayor autonomía, las reuniones tenían otro foco y la VP dejó de cargar sola con el resultado. El cambio más relevante fue que el equipo empezó a hacerse cargo de la calidad de sus oportunidades — no solo del volumen de actividad.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="caso reveal">
+        <div class="caso-meta">
+          <span class="caso-num">Caso 02</span>
+          <span class="caso-duracion">8 sesiones · 4 meses</span>
+        </div>
+        <p class="caso-perfil">Director de Operaciones</p>
+        <p class="caso-industria">Retail · Centroamérica</p>
+        <div class="caso-cuerpo">
+          <div>
+            <p class="caso-bloque-titulo">El contexto</p>
+            <p class="caso-texto">Un ejecutivo con amplia experiencia operativa asumió como Director de Operaciones de una cadena de retail con presencia regional. La empresa había crecido rápido, pero los procesos internos seguían funcionando como cuando la operación era mucho más pequeña. Todo terminaba pasando por él.</p>
+          </div>
+          <div class="caso-resultado">
+            <p class="caso-bloque-titulo">El resultado</p>
+            <p class="caso-texto">Los mandos medios empezaron a resolver con mayor criterio. Las reuniones dejaron de ser espacios de reporte y se convirtieron en espacios de decisión. El mayor cambio fue dejar de confundirse con la operación: seguía cerca del negocio, pero ya no estaba atrapado en cada urgencia.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="caso reveal">
+        <div class="caso-meta">
+          <span class="caso-num">Caso 03</span>
+          <span class="caso-duracion">10 sesiones · 6 meses</span>
+        </div>
+        <p class="caso-perfil">CEO · Segunda generación</p>
+        <p class="caso-industria">Industrial / Manufactura · Sudamérica</p>
+        <div class="caso-cuerpo">
+          <div>
+            <p class="caso-bloque-titulo">El contexto</p>
+            <p class="caso-texto">Un ejecutivo de segunda generación asumió como CEO de una empresa familiar industrial. Tenía legitimidad técnica y conocimiento profundo del negocio, pero su autoridad todavía convivía con la presencia activa de los fundadores. Formalmente era CEO; en la práctica, muchas decisiones seguían siendo consultadas o revisadas por la generación anterior.</p>
+          </div>
+          <div class="caso-resultado">
+            <p class="caso-bloque-titulo">El resultado</p>
+            <p class="caso-texto">Clarificó su mandato, ordenó la relación con el equipo directivo y estableció conversaciones que llevaban tiempo pendientes. La empresa no cambió de un día para otro, pero el sistema empezó a reconocer un nuevo centro de conducción. Dejó de pedir permiso para ocupar el rol y comenzó a ejercerlo con mayor serenidad y legitimidad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="impacto-nota">
+      <p>Todos los procesos son individuales y confidenciales. Los casos están anonimizados con autorización de los participantes.</p>
+    </div>
+  </div>
+</section>
+
 <!-- CREDENCIALES -->
 <section id="credenciales">
   <div class="container">
@@ -1002,115 +1081,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="badge-wrap"><img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/lcm.png" alt="LCM" title="Lean Change Management"></div>
         <div class="badge-wrap"><img src="https://cdn.jsdelivr.net/gh/adeyme/adriandeyme-landing@main/Site/assets/badges/M30-2026.png" alt="Management 3.0" title="Management 3.0" style="height:56px;width:56px;object-fit:contain;"></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- CASOS DE IMPACTO — DoD-02 (de-cajado) -->
-<section id="impacto">
-  <div class="container">
-    <div class="impacto-header reveal">
-      <span class="label">Procesos reales</span>
-      <h2>Lo que se destrabó <em>en el camino.</em></h2>
-      <p>Cada proceso es confidencial. Lo que comparto aquí es la estructura de lo que ocurrió — anonimizado, pero real.</p>
-    </div>
-
-    <div class="impacto-casos">
-      <div class="caso reveal">
-        <div class="caso-meta">
-          <span class="caso-num">Caso 01</span>
-          <span class="caso-duracion">6 sesiones · 90 días</span>
-        </div>
-        <p class="caso-perfil">Gerente General</p>
-        <p class="caso-industria">Logística · Centroamérica</p>
-        <div class="caso-cuerpo">
-          <div>
-            <p class="caso-bloque-titulo">El contexto</p>
-            <p class="caso-texto">Una ejecutiva con quince años en operaciones asumió la gerencia general de una empresa logística regional en pleno crecimiento. Su claridad operativa era enorme — pero esa misma fortaleza se había convertido en límite: intervenía demasiado pronto, absorbía decisiones que otros debían tomar y era el principal punto de dependencia del sistema.</p>
-          </div>
-          <div>
-            <p class="caso-bloque-titulo">El trabajo</p>
-            <p class="caso-texto">Durante el proceso, la ejecutiva pudo observar cómo su forma de liderar — resolver todo, estar en todo — generaba exactamente lo que quería evitar: un equipo que no tomaba decisiones sin ella. A partir de esa observación, identificó las conversaciones que estaba evitando, redefinió lo que significaba "agregar valor" desde el rol de gerente general y diseñó una forma de estar presente sin absorber.</p>
-          </div>
-          <div class="caso-resultado">
-            <p class="caso-bloque-titulo">Lo que se destrabó</p>
-            <p class="caso-texto">Redujo su intervención directa en lo operativo. El equipo directivo empezó a asumir mayor responsabilidad. El cambio más profundo fue en cómo medía su propio valor: dejó de medirlo por la cantidad de problemas que resolvía y empezó a medirlo por la capacidad que generaba en otros.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="caso reveal">
-        <div class="caso-meta">
-          <span class="caso-num">Caso 02</span>
-          <span class="caso-duracion">6 sesiones · 90 días</span>
-        </div>
-        <p class="caso-perfil">VP Comercial</p>
-        <p class="caso-industria">Tecnología B2B · Panamá</p>
-        <div class="caso-cuerpo">
-          <div>
-            <p class="caso-bloque-titulo">El contexto</p>
-            <p class="caso-texto">Una ejecutiva con trayectoria en ventas consultivas asumió como VP Comercial en una empresa tecnológica B2B en crecimiento acelerado. Encontró un equipo reactivo, un pipeline poco confiable y presión del CEO por resultados rápidos — sin romper la confianza del equipo heredado.</p>
-          </div>
-          <div>
-            <p class="caso-bloque-titulo">El trabajo</p>
-            <p class="caso-texto">En el proceso, la ejecutiva pudo ver que su mayor riesgo no era "no vender" sino repetir lo que siempre le había funcionado: cerrar ella misma. Exploró qué significaba pasar de ejecutora a líder de un sistema comercial. Identificó dónde su equipo evitaba conversaciones difíciles con clientes y dónde ella misma evitaba conversaciones difíciles con el CEO. Trabajó sobre ambas.</p>
-          </div>
-          <div class="caso-resultado">
-            <p class="caso-bloque-titulo">Lo que se destrabó</p>
-            <p class="caso-texto">El equipo operaba con mayor autonomía, las reuniones tenían otro foco y la VP dejó de cargar sola con el resultado. El cambio más relevante fue que el equipo empezó a hacerse cargo de la calidad de sus oportunidades — no solo del volumen de actividad.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="caso reveal">
-        <div class="caso-meta">
-          <span class="caso-num">Caso 03</span>
-          <span class="caso-duracion">8 sesiones · 4 meses</span>
-        </div>
-        <p class="caso-perfil">Director de Operaciones</p>
-        <p class="caso-industria">Retail · Centroamérica</p>
-        <div class="caso-cuerpo">
-          <div>
-            <p class="caso-bloque-titulo">El contexto</p>
-            <p class="caso-texto">Un ejecutivo con amplia experiencia operativa asumió como Director de Operaciones de una cadena de retail con presencia regional. La empresa había crecido rápido, pero los procesos internos seguían funcionando como cuando la operación era mucho más pequeña. Todo terminaba pasando por él.</p>
-          </div>
-          <div>
-            <p class="caso-bloque-titulo">El trabajo</p>
-            <p class="caso-texto">El proceso le permitió observar un patrón que no tenía visible: su disponibilidad permanente no era compromiso — era una forma de controlar que le costaba soltar. A partir de ahí, trabajó sobre qué debía seguir en sus manos y qué necesitaba salir de su agenda. Revisó sus acuerdos con los mandos medios y construyó una forma de liderar la operación sin ser el cuello de botella.</p>
-          </div>
-          <div class="caso-resultado">
-            <p class="caso-bloque-titulo">Lo que se destrabó</p>
-            <p class="caso-texto">Los mandos medios empezaron a resolver con mayor criterio. Las reuniones dejaron de ser espacios de reporte y se convirtieron en espacios de decisión. El mayor cambio fue dejar de confundirse con la operación: seguía cerca del negocio, pero ya no estaba atrapado en cada urgencia.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="caso reveal">
-        <div class="caso-meta">
-          <span class="caso-num">Caso 04</span>
-          <span class="caso-duracion">10 sesiones · 6 meses</span>
-        </div>
-        <p class="caso-perfil">CEO · Segunda generación</p>
-        <p class="caso-industria">Industrial / Manufactura · Sudamérica</p>
-        <div class="caso-cuerpo">
-          <div>
-            <p class="caso-bloque-titulo">El contexto</p>
-            <p class="caso-texto">Un ejecutivo de segunda generación asumió como CEO de una empresa familiar industrial. Tenía legitimidad técnica y conocimiento profundo del negocio, pero su autoridad todavía convivía con la presencia activa de los fundadores. Formalmente era CEO; en la práctica, muchas decisiones seguían siendo consultadas o revisadas por la generación anterior.</p>
-          </div>
-          <div>
-            <p class="caso-bloque-titulo">El trabajo</p>
-            <p class="caso-texto">En el proceso, el CEO pudo distinguir algo que no tenía claro: la diferencia entre respetar la historia de la empresa y pedir permiso para liderarla. Exploró los vínculos entre lo familiar y lo empresarial, identificó dónde estaba cediendo autoridad sin darse cuenta y preparó conversaciones que venía postergando — con los fundadores, con el directorio y con su propio equipo.</p>
-          </div>
-          <div class="caso-resultado">
-            <p class="caso-bloque-titulo">Lo que se destrabó</p>
-            <p class="caso-texto">Clarificó su mandato, ordenó la relación con el equipo directivo y estableció conversaciones que llevaban tiempo pendientes. La empresa no cambió de un día para otro, pero el sistema empezó a reconocer un nuevo centro de conducción. Dejó de pedir permiso para ocupar el rol y comenzó a ejercerlo con mayor serenidad y legitimidad.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="impacto-nota">
-      <p>Todos los procesos son individuales y confidenciales. Los casos están anonimizados con autorización de los participantes.</p>
     </div>
   </div>
 </section>
