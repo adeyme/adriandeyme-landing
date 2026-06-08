@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KPCL8GBK');</script>
+  <!-- Fin Google Tag Manager -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Política de privacidad · Adrián Deyme</title>
+  <meta name="description" content="Política de privacidad de adriandeyme.com: datos de contacto, suscripción a recursos, agenda de reuniones, analítica y derechos del usuario.">
+  <link rel="canonical" href="https://www.adriandeyme.com/privacidad.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0D1F2D">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32-v2.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/favicon-180-v2.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --noche: #0D1F2D;
+      --petroleo: #1C3A4A;
+      --oro: #C9A84C;
+      --oro2: #B8963E;
+      --marfil: #F5F3EE;
+      --gris: #666;
+      --tinta: #1A1A1A;
+      --blanco: #FAFAF7;
+      --r-sm: 4px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--marfil);
+      color: var(--tinta);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* BOTÓN (mismo sistema que el resto del sitio) */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'DM Sans', sans-serif; font-size: 13px;
+      font-weight: 600; letter-spacing: .05em; cursor: pointer; border: none;
+      transition: background .2s cubic-bezier(.23,1,.32,1), transform .2s cubic-bezier(.23,1,.32,1), color .2s cubic-bezier(.23,1,.32,1);
+      text-decoration: none;
+    }
+    .btn:active { transform: scale(.97); }
+    .btn-oro { background: var(--oro); color: var(--noche); padding: 14px 32px; border-radius: var(--r-sm); }
+    .btn-oro:hover { background: var(--oro2); transform: translateY(-1px); }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(13,31,45,.96);
+      backdrop-filter: blur(20px);
+      border-bottom: 0.5px solid rgba(255,255,255,.07);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+
+    .nav-logo .nombre {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--oro);
+      letter-spacing: .01em;
+      line-height: 1;
+    }
+
+    .nav-logo .apellido {
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      margin-left: 10px;
+      padding-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: rgba(255,255,255,.9); }
+
+    /* Menú móvil (hamburguesa) — idéntico al resto del sitio */
+    .nav-ham { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-ham span { display: block; width: 22px; height: 1px; background: rgba(255,255,255,.6); transition: transform .3s cubic-bezier(.23,1,.32,1), opacity .3s; }
+    .nav-mobile { display: none; flex-direction: column; background: var(--noche); border-top: 0.5px solid rgba(255,255,255,.07); padding: 24px 32px; gap: 4px; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.5); padding: 12px 0;
+      border-bottom: 0.5px solid rgba(255,255,255,.06); transition: color .2s;
+    }
+    .nav-mobile a:hover { color: var(--oro); }
+    .nav-mobile .btn-oro { margin-top: 16px; justify-content: center; }
+
+    .hero {
+      background: var(--noche);
+      color: var(--blanco);
+      padding: 92px 0 74px;
+      border-bottom: 1px solid rgba(201,168,76,.18);
+    }
+
+    .label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--oro);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 400;
+      line-height: 1.08;
+      max-width: 760px;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin-top: 24px;
+      color: rgba(255,255,255,.58);
+      font-weight: 300;
+      font-size: 16px;
+    }
+
+    main { padding: 72px 0 96px; }
+
+    .content {
+      max-width: 760px;
+      background: rgba(255,255,255,.42);
+      border: 0.5px solid rgba(0,0,0,.08);
+      padding: clamp(28px, 5vw, 52px);
+    }
+
+    .updated {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gris);
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 3vw, 34px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--noche);
+      margin: 42px 0 14px;
+    }
+
+    h2:first-of-type { margin-top: 0; }
+
+    p, li {
+      font-size: 15.5px;
+      font-weight: 300;
+      color: var(--gris);
+      margin-bottom: 14px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 10px 0 18px;
+    }
+
+    strong { color: var(--tinta); font-weight: 500; }
+
+    .content a {
+      color: var(--oro2);
+      border-bottom: 0.5px solid rgba(184,150,62,.45);
+    }
+
+    /* Nota de cierre — bloque tenue con kicker, sin barra lateral */
+    .note {
+      margin-top: 40px;
+      padding: 22px 24px;
+      background: rgba(13,31,45,.04);
+      border: 0.5px solid rgba(0,0,0,.08);
+    }
+
+    .note .k {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--oro2);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .note p { margin-bottom: 0; }
+
+    /* FOOTER */
+    footer {
+      background: var(--noche);
+      border-top: 0.5px solid rgba(255,255,255,.06);
+      padding: 44px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo { display: flex; align-items: baseline; gap: 2px; }
+    .footer-logo .nombre { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--oro); }
+    .footer-logo .apellido { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-left: 8px; }
+
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.25);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .footer-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.25);
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: var(--oro); }
+
+    .li-icon {
+      display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px;
+      background: rgba(255,255,255,.05); border: 0.5px solid rgba(255,255,255,.1);
+      border-radius: var(--r-sm); color: rgba(255,255,255,.4);
+      transition: background .2s cubic-bezier(.23,1,.32,1), border-color .2s cubic-bezier(.23,1,.32,1), color .2s cubic-bezier(.23,1,.32,1);
+    }
+    .li-icon:hover { background: rgba(0,119,181,.2); border-color: rgba(0,119,181,.4); color: #5DB8E8; }
+
+    /* RESPONSIVE (misma lógica de breakpoints que el resto del sitio) */
+    @media (max-width: 960px) {
+      .nav-links, .nav-links + .btn-oro { display: none; }
+      .nav-ham { display: flex; }
+    }
+
+    @media (max-width: 720px) {
+      .container { padding: 0 24px; }
+      .hero { padding: 72px 0 56px; }
+      main { padding: 48px 0 72px; }
+    }
+
+    @media (max-width: 600px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+  <link rel="stylesheet" href="/site-fixes.css">
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPCL8GBK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Fin Google Tag Manager (noscript) -->
+
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Volver al inicio">
+        <span class="nombre">Adrián</span>
+        <span class="apellido">Deyme</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#problema">El problema</a></li>
+        <li><a href="/#servicios">Servicios</a></li>
+        <li><a href="/enfoque.html">Enfoque</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+      <a href="/agenda.html" class="btn btn-oro" style="border-radius: 4px; font-size: 12px; padding: 11px 24px; letter-spacing: .06em; text-transform: uppercase;">Conversemos</a>
+      <button class="nav-ham" id="ham-btn" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="mobile-nav" role="dialog" aria-label="Navegación">
+    <a href="/#problema" onclick="closeMobileNav()">El problema</a>
+    <a href="/#servicios" onclick="closeMobileNav()">Servicios</a>
+    <a href="/enfoque.html" onclick="closeMobileNav()">Enfoque</a>
+    <a href="/blog/" onclick="closeMobileNav()">Blog</a>
+    <a href="/agenda.html" class="btn btn-oro">Conversemos</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <span class="label">Privacidad</span>
+    <h1>Política de privacidad.</h1>
+    <p>Esta página explica qué datos puedo recibir a través de este sitio, para qué los uso y cómo puedes solicitar acceso, corrección o eliminación.</p>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <article class="content">
+      <p class="updated">Última actualización: 8 de junio de 2026</p>
+
+      <h2>Responsable</h2>
+      <p>El responsable de este sitio es <strong>Adrián Deyme</strong>, Coach Ejecutivo ICF, radicado en Panamá.</p>
+      <p>Para cualquier consulta relacionada con privacidad o datos personales, puedes escribir a <a href="mailto:adrian@adriandeyme.com">adrian@adriandeyme.com</a>.</p>
+
+      <h2>Datos que puedo recibir</h2>
+      <p>Este sitio puede recoger datos en tres situaciones principales:</p>
+      <ul>
+        <li>Cuando solicitas un recurso gratuito, como <strong>La Escucha Ejecutiva</strong>, puedo recibir tu correo electrónico.</li>
+        <li>Cuando agendas una conversación, Calendly puede recoger los datos necesarios para gestionar la reunión.</li>
+        <li>Cuando navegas por el sitio, herramientas de analítica pueden registrar información técnica y de uso, como páginas visitadas, dispositivo, navegador o eventos de conversión.</li>
+      </ul>
+
+      <h2>Para qué uso los datos</h2>
+      <p>Uso los datos únicamente para fines relacionados con este sitio y mi práctica profesional:</p>
+      <ul>
+        <li>Enviar el recurso que solicitaste.</li>
+        <li>Gestionar conversaciones exploratorias o reuniones agendadas.</li>
+        <li>Responder consultas enviadas por email.</li>
+        <li>Medir el funcionamiento del sitio y entender qué contenidos resultan útiles.</li>
+        <li>Enviar comunicaciones relacionadas con liderazgo, coaching ejecutivo u organizaciones, cuando corresponda y siempre con posibilidad de dejar de recibirlas.</li>
+      </ul>
+
+      <h2>Herramientas externas</h2>
+      <p>Para operar el sitio puedo usar servicios de terceros. Entre ellos:</p>
+      <ul>
+        <li><strong>Brevo</strong>, para gestionar contactos y el envío de recursos por email.</li>
+        <li><strong>Calendly</strong>, para facilitar la agenda de reuniones.</li>
+        <li><strong>Google Tag Manager y Google Analytics</strong>, para medición y analítica del sitio.</li>
+        <li><strong>Vercel</strong>, para alojamiento e infraestructura del sitio.</li>
+      </ul>
+      <p>Estos proveedores pueden tratar datos de acuerdo con sus propias políticas de privacidad y condiciones de servicio.</p>
+
+      <h2>Base del tratamiento</h2>
+      <p>Cuando solicitas un recurso o agendas una conversación, el tratamiento se basa en tu solicitud expresa. La analítica del sitio se usa para mejorar la experiencia, medir el rendimiento y entender el interés en los contenidos.</p>
+
+      <h2>Conservación</h2>
+      <p>Conservo los datos durante el tiempo necesario para cumplir el propósito para el que fueron recibidos, atender solicitudes, mantener registros razonables de comunicación o cumplir obligaciones aplicables.</p>
+
+      <h2>Tus derechos</h2>
+      <p>Puedes solicitar acceso, corrección, actualización o eliminación de tus datos escribiendo a <a href="mailto:adrian@adriandeyme.com">adrian@adriandeyme.com</a>. También puedes pedir dejar de recibir comunicaciones cuando lo desees.</p>
+
+      <h2>Cookies y medición</h2>
+      <p>El sitio puede utilizar cookies o tecnologías similares para analítica, medición de conversiones y funcionamiento de herramientas integradas. Puedes administrar o bloquear cookies desde la configuración de tu navegador.</p>
+
+      <h2>Cambios en esta política</h2>
+      <p>Esta política puede actualizarse para reflejar cambios en el sitio, en las herramientas utilizadas o en requisitos aplicables. La fecha de actualización indica la versión vigente.</p>
+
+      <div class="note">
+        <span class="k">Nota</span>
+        <p>Esta política está redactada para explicar de forma clara el uso básico de datos en el sitio. Si en el futuro se agregan newsletters regulares, campañas pagas, formularios más extensos o nuevas integraciones, conviene revisarla nuevamente.</p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="nombre">Adrián</span>
+        <span class="apellido">Deyme</span>
+      </div>
+      <p class="footer-copy">© 2026 · Adrián Deyme · Panamá</p>
+      <div class="footer-links">
+        <a href="/blog/">Blog</a>
+        <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" target="_blank" rel="noopener" class="li-icon" aria-label="LinkedIn">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.51-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.769 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="/privacidad.html">Privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ---- Menú móvil ---- */
+  const hamBtn = document.getElementById('ham-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamBtn.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    hamBtn.setAttribute('aria-expanded', open);
+  });
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    hamBtn.setAttribute('aria-expanded', false);
+  }
+</script>
+
+</body>
+</html>
