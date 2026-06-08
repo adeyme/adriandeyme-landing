@@ -1,5 +1,14 @@
 [
   {
+    "source": "Blog",
+    "title": "Qué escucha un líder cuando cree que está escuchando",
+    "date": "2026-06-02",
+    "slug": "/blog/escucha-lider.html",
+    "img": "https://www.adriandeyme.com/assets/images/blog/blog-cover-escucha.webp",
+    "desc": "La mayoría de los líderes confunde oír con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato técnico.",
+    "category": "coaching"
+  },
+  {
     "source": "La Estrella de Panamá",
     "title": "¿Murió el trabajo estable?",
     "date": "2026-02-07",
@@ -8,15 +17,6 @@
     "desc": "El trabajo estable no desapareció por factores externos — desapareció porque en contextos de alta complejidad ya no alcanza con hacer bien el trabajo.",
     "category": "liderazgo"
   },
-  {
-  "source": "Blog",
-  "title": "Qué escucha un líder cuando cree que está escuchando",
-  "date": "2026-06-02",
-  "slug": "/blog/escucha-lider.html",
-  "img": "https://www.adriandeyme.com/assets/images/blog/blog-cover-escucha.webp",
-  "desc": "La mayoría de los líderes confunde oír con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato técnico.",
-  "category": "coaching"
-},
   {
     "source": "Blog",
     "title": "El 90% de los Líderes Están Atrapados en el Pasado",
@@ -37,20 +37,20 @@
   },
   {
     "source": "Blog",
-    "title": "Si tu Estrategia se Mueve a 100 km/h, ¿Por Qué Tu Estructura Va a 10?",
-    "date": "2025-10-02",
-    "slug": "/blog/estrategia-estructura-unfix.html",
-    "img": "https://www.adriandeyme.com/assets/images/blog/blog-cover-unfix.webp",
-    "desc": "Las estructuras rígidas frenan la ejecución. unFIX propone una arquitectura modular para reorganizar la empresa alrededor del flujo de valor.",
-    "category": "herramientas"
-  },
-  {
-    "source": "Blog",
     "title": "Descubre el Método Kanban: Transforma el Caos en Eficiencia",
     "date": "2025-10-09",
     "slug": "/blog/metodo-kanban-eficiencia.html",
     "img": "https://www.adriandeyme.com/assets/images/blog/blog-cover-kanban.webp",
     "desc": "Kanban no arregla personas — mejora el sistema de trabajo. Visualizar el flujo transforma entornos caóticos en sistemas predecibles.",
+    "category": "herramientas"
+  },
+  {
+    "source": "Blog",
+    "title": "Si tu Estrategia se Mueve a 100 km/h, ¿Por Qué Tu Estructura Va a 10?",
+    "date": "2025-10-02",
+    "slug": "/blog/estrategia-estructura-unfix.html",
+    "img": "https://www.adriandeyme.com/assets/images/blog/blog-cover-unfix.webp",
+    "desc": "Las estructuras rígidas frenan la ejecución. unFIX propone una arquitectura modular para reorganizar la empresa alrededor del flujo de valor.",
     "category": "herramientas"
   }
 ]
