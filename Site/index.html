@@ -15,7 +15,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Adrián Deyme · Coaching Ejecutivo para Líderes y Organizaciones | ICF |Panamá</title>
+  <title>Adrián Deyme · Coach Ejecutivo ICF | Panamá</title>
 
   <meta name="description" content="Coach Ejecutivo ICF Level 2 en Panamá. Acompaño a ejecutivos C-Level y directivos en Coaching de Transición, liderazgo y transformación organizacional.">
 
@@ -81,8 +81,8 @@
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "name": "Adrián Deyme — Coach Ejecutivo ICF para Líderes y Organizaciones",
-      "description": "Coaching de Transición, Coaching de Liderazgo y Coaching Organizacional para ejecutivos C-Level, Directores, Gerentes y Empresas en Latinoamérica.",
+      "name": "Adrián Deyme — Coach Ejecutivo ICF",
+      "description": "Coaching de Transición, Coaching de Liderazgo y Transformación Organizacional para ejecutivos C-Level y empresas en Latinoamérica.",
       "url": "https://www.adriandeyme.com",
       "logo": "https://www.adriandeyme.com/assets/brand/favicon-180-v2.png",
       "image": "https://www.adriandeyme.com/assets/social/og-default.jpg",
@@ -634,6 +634,27 @@
     }
     .email-form input::placeholder { color: rgba(255,255,255,.25); }
     .email-form input:focus { border-color: var(--oro); }
+    .privacy-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .04em;
+      line-height: 1.6;
+      color: rgba(255,255,255,.32);
+      margin-top: -4px;
+      flex-basis: 100%;
+    }
+    .privacy-note a {
+      color: rgba(201,168,76,.82);
+      border-bottom: 0.5px solid rgba(201,168,76,.35);
+    }
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
     .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
     /* CTA FINAL */
@@ -754,7 +775,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-grid">
       <div class="hero-main">
         <div class="hero-eyebrow">
-          <span class="label">Coaching ejecutivo para líderes y organizaciones · ICF</span>
+          <span class="label">Coaching ejecutivo y organizacional · ICF</span>
         </div>
         <h1 class="hero-headline">
           <span class="linea1">Fortalecer el liderazgo. Acelerar la adaptación. Sostener los resultados.</span>
@@ -974,7 +995,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <div class="quote-card">
-          <p class="quote-text">"Mi propósito es acompañar a los líderes a observar mejor para decidir mejor."</p>
+          <p class="quote-text">"El problema del liderazgo en las organizaciones está en la falta de claridad sobre el sistema en el que se opera. Mi trabajo es construir esa claridad."</p>
           <p class="quote-firma">— Adrián Deyme</p>
         </div>
         <div class="icf-badge">
@@ -1169,7 +1190,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="email-form">
           <label for="escucha-email" class="sr-only">Tu correo electrónico</label>
           <input type="email" id="escucha-email" placeholder="tu@email.com" autocomplete="email">
+          <label class="hp-field" for="escucha-website" aria-hidden="true">Sitio web</label>
+          <input class="hp-field" type="text" id="escucha-website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button class="btn btn-oro" onclick="pedirEscucha()">Quiero mi copia</button>
+          <p class="privacy-note">
+            Al solicitar la guía aceptas recibir este recurso por email y el tratamiento de tus datos según la
+            <a href="/privacidad.html">política de privacidad</a>.
+          </p>
         </div>
         <p id="escucha-msg" style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.08em; color:var(--oro); display:none; margin-top:-8px;">✓ Revisa tu correo. El material ya está en camino.</p>
       </div>
@@ -1216,7 +1243,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" target="_blank" rel="noopener" class="li-icon" aria-label="LinkedIn">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.51-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.769 7 2.476v6.759z"/></svg>
         </a>
-        <a href="#">Privacidad</a>
+        <a href="/privacidad.html">Privacidad</a>
       </div>
     </div>
   </div>
@@ -1254,8 +1281,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const msg = document.getElementById('escucha-msg');
     const form = document.querySelector('.email-form');
     const email = input.value.trim();
+    const website = document.getElementById('escucha-website')?.value || '';
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(email);
 
-    if (!email || !email.includes('@')) {
+    if (!emailOk) {
       input.focus();
       input.style.borderColor = '#C9A84C';
       setTimeout(() => input.style.borderColor = '', 2000);
@@ -1269,7 +1298,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, website }),
       });
 
       if (res.ok) {
