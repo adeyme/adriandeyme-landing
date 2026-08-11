@@ -1,6 +1,15 @@
 [
   {
     "source": "Blog",
+    "title": "Qué deja de ver un líder cuando cree que ya sabe",
+    "date": "2026-08-11",
+    "slug": "/blog/estado-de-experto.html",
+    "img": "https://www.adriandeyme.com/assets/images/blog/blog-cover-estado-experto.webp",
+    "desc": "Ford despedía al que se creía experto. Qué pierde un ejecutivo cuando el estado de experto reemplaza al dominio real, sobre todo al asumir un cargo nuevo.",
+    "category": "liderazgo"
+  },
+  {
+    "source": "Blog",
     "title": "Qué escucha un líder cuando cree que está escuchando",
     "date": "2026-06-02",
     "slug": "/blog/escucha-lider.html",
