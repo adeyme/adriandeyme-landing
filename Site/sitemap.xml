@@ -40,14 +40,6 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Conversión -->
-  <url>
-    <loc>https://www.adriandeyme.com/agenda.html</loc>
-    <lastmod>2026-06-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
   <!-- Legal -->
   <url>
     <loc>https://www.adriandeyme.com/privacidad.html</loc>
