@@ -85,7 +85,7 @@
           "@type": "OfferCatalog",
           "name": "Etapas del acompañamiento",
           "itemListElement": [
-            { "@type": "Offer", "name": "90 días · Cimientos", "description": "Leer el sistema, tomar el mando y entregar la primera victoria. Seis sesiones de coaching y tres sprints de soporte." },
+            { "@type": "Offer", "name": "90 días · Cimientos", "description": "Leer el sistema, tomar el mando y entregar la primera victoria. Seis sesiones de coaching, tres sprints de soporte y tres tutorías." },
             { "@type": "Offer", "name": "6 meses · Punto de equilibrio", "description": "El líder pasa de consumir valor a generarlo." },
             { "@type": "Offer", "name": "1 año · Liderazgo asentado", "description": "Se cruza el tramo de mayor riesgo y el liderazgo queda asentado." }
           ]
@@ -127,7 +127,7 @@
           {
             "@type": "Question",
             "name": "¿Qué incluye?",
-            "acceptedAnswer": { "@type": "Answer", "text": "En los primeros noventa días, seis sesiones de coaching individual con estándares ICF y tres sprints de soporte de transición para que el ejecutivo trabaje por su cuenta entre sesiones. Luego de los primeros 90 días, la oferta se extiende con coaching ejecutivo por objetivos." }
+            "acceptedAnswer": { "@type": "Answer", "text": "En los primeros noventa días, seis sesiones de coaching individual con estándares ICF y tres sprints de soporte de transición, con una tutoría por sprint, que el ejecutivo trabaja a su ritmo entre sesiones. Luego de los primeros 90 días, la oferta se extiende con coaching ejecutivo por objetivos." }
           },
           {
             "@type": "Question",
@@ -897,66 +897,6 @@
     @media (prefers-reduced-motion: reduce) {
       .js-ready .reveal { opacity: 1; transform: none; transition: none; }
     }
-
-    /* ===================== SUBMENÚ DE SERVICIOS =====================
-       Escritorio: abre con hover y con foco de teclado (:focus-within).
-       Móvil: <details>, abre al tocar. Sin JavaScript nuevo. */
-    .nav-drop { position: relative; }
-    .nav-caret {
-      display: inline-block; width: 5px; height: 5px; margin-left: 8px;
-      border-right: 1px solid currentColor; border-bottom: 1px solid currentColor;
-      transform: rotate(45deg) translateY(-2px); opacity: .65;
-      transition: transform .2s cubic-bezier(.23,1,.32,1), opacity .2s;
-    }
-    .nav-sub {
-      position: absolute; top: 100%; left: -20px; min-width: 238px; margin-top: 16px;
-      list-style: none; padding: 8px 0;
-      background: rgba(13,31,45,.98); backdrop-filter: blur(20px);
-      border: 0.5px solid rgba(255,255,255,.1); border-radius: var(--r-sm);
-      box-shadow: 0 18px 44px rgba(0,0,0,.38);
-      opacity: 0; visibility: hidden; transform: translateY(-6px);
-      transition: opacity .2s cubic-bezier(.23,1,.32,1), transform .2s cubic-bezier(.23,1,.32,1), visibility .2s;
-    }
-    /* Puente invisible: evita que el hover se corte en el hueco entre el nav y el panel */
-    .nav-sub::before { content: ''; position: absolute; top: -16px; left: 0; right: 0; height: 16px; }
-    .nav-drop:hover .nav-sub, .nav-drop:focus-within .nav-sub { opacity: 1; visibility: visible; transform: none; }
-    .nav-drop:hover .nav-caret, .nav-drop:focus-within .nav-caret { transform: rotate(225deg) translateY(1px); opacity: 1; }
-    .nav-links .nav-sub a {
-      display: flex; align-items: center; min-height: 44px; padding: 11px 22px;
-      font-size: 12px; letter-spacing: .04em; text-transform: none;
-      color: rgba(255,255,255,.6); white-space: nowrap;
-    }
-    .nav-links .nav-sub a:hover { color: var(--oro); background: rgba(255,255,255,.05); }
-    .nav-links .nav-sub a[aria-current="page"] { color: var(--oro); }
-
-    .nav-mobile details.nav-m-drop { border-bottom: 0.5px solid rgba(255,255,255,.06); }
-    .nav-mobile details.nav-m-drop summary {
-      list-style: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: space-between;
-      min-height: 44px; padding: 12px 0;
-      font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
-      color: rgba(255,255,255,.5); transition: color .2s;
-    }
-    .nav-mobile details.nav-m-drop summary::-webkit-details-marker { display: none; }
-    .nav-mobile details.nav-m-drop summary:hover { color: var(--oro); }
-    .nav-mobile details.nav-m-drop summary::after {
-      content: ''; width: 6px; height: 6px; margin-right: 4px;
-      border-right: 1px solid currentColor; border-bottom: 1px solid currentColor;
-      transform: rotate(45deg) translateY(-2px);
-      transition: transform .2s cubic-bezier(.23,1,.32,1);
-    }
-    .nav-mobile details.nav-m-drop[open] summary::after { transform: rotate(225deg) translateY(1px); }
-    .nav-mobile details.nav-m-drop a {
-      display: flex; align-items: center; min-height: 44px;
-      padding: 10px 0 10px 18px; border-bottom: none;
-      font-size: 12px; letter-spacing: .04em; text-transform: none;
-      color: rgba(255,255,255,.45);
-    }
-    .nav-mobile details.nav-m-drop a:hover { color: var(--oro); }
-    .nav-mobile details.nav-m-drop a[aria-current="page"] { color: var(--oro); }
-    @media (prefers-reduced-motion: reduce) {
-      .nav-sub, .nav-caret, .nav-mobile details.nav-m-drop summary::after { transition: none; }
-    }
   </style>
   <link rel="stylesheet" href="/site-fixes.css">
 </head>
@@ -976,13 +916,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
       <ul class="nav-links">
         <li><a href="/#problema">El problema</a></li>
-        <li class="nav-drop">
-          <a href="/#servicios">Servicios<span class="nav-caret" aria-hidden="true"></span></a>
-          <ul class="nav-sub">
-            <li><a href="/liderazgo.html">Coaching de Liderazgo</a></li>
-            <li><a href="/transicion.html" aria-current="page">Coaching de Transición</a></li>
-          </ul>
-        </li>
+        <li><a href="/#servicios">Servicios</a></li>
         <li><a href="/enfoque.html">Enfoque</a></li>
         <li><a href="/blog/">Blog</a></li>
       </ul>
@@ -994,12 +928,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="nav-mobile" id="mobile-nav" role="dialog" aria-label="Navegación">
     <a href="/#problema" onclick="closeMobileNav()">El problema</a>
-    <details class="nav-m-drop">
-      <summary>Servicios</summary>
-      <a href="/#servicios" onclick="closeMobileNav()">Todos los servicios</a>
-      <a href="/liderazgo.html" onclick="closeMobileNav()">Coaching de Liderazgo</a>
-      <a href="/transicion.html" aria-current="page" onclick="closeMobileNav()">Coaching de Transición</a>
-    </details>
+    <a href="/#servicios" onclick="closeMobileNav()">Servicios</a>
     <a href="/enfoque.html" onclick="closeMobileNav()">Enfoque</a>
     <a href="/blog/" onclick="closeMobileNav()">Blog</a>
     <a href="/agenda.html" class="btn btn-oro">Conversemos</a>
@@ -1042,8 +971,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ficha-item">
             <div class="ficha-dot"></div>
             <div>
-              <p class="ficha-titulo">3 sprints de soporte operativo</p>
-              <p class="ficha-desc">Material de transición para trabajar de forma autónoma, fuera de sesión</p>
+              <p class="ficha-titulo">3 sprints de soporte, con tutoría</p>
+              <p class="ficha-desc">Material de transición que trabajas a tu ritmo, con una tutoría por sprint para guiarte</p>
             </div>
           </div>
           <div class="ficha-item">
@@ -1101,7 +1030,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="para-card-tipo">Para el ejecutivo</span>
         <h3>Proyectar seguridad requiere trabajar tu identidad.</h3>
         <p>Frente al equipo, a los pares y al jefe, mostrar que algo no lo tienes claro se paga caro. Necesitas un lugar aparte para pensar en voz alta lo que ahí adentro no puedes decir. Ese lugar es el coaching, y es solo tuyo.</p>
-        <p>Tú marcas la agenda en cada encuentro. El soporte de transición lo trabajas por tu cuenta, a tu ritmo. Nada de lo que pasa en sesión sale de ahí.</p>
+        <p>Tú marcas la agenda en cada encuentro. El soporte de transición lo trabajas a tu ritmo, con una tutoría por sprint que te guía. Nada de lo que pasa en sesión sale de ahí.</p>
         <div class="para-card-recibe">
           <span class="para-card-recibe-label">Lo que construye en 90 días</span>
           <ul class="recibe-list">
@@ -1136,7 +1065,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="espacios-header reveal">
       <span class="label-dark">Arquitectura del proceso</span>
       <h2>Dos espacios en paralelo.<br><em>Cada uno cumple una función.</em></h2>
-      <p>El coaching sostiene todo el proceso: es tuyo y puede acompañarte hasta el año completo. El soporte de transición dura menos, solo los primeros noventa días: material que trabajas por tu cuenta, fuera de sesión. El coaching es la columna; el soporte, un andamio que se retira cuando ya no hace falta.</p>
+      <p>El coaching sostiene todo el proceso: es tuyo y puede acompañarte hasta el año completo. El soporte de transición dura menos, solo los primeros noventa días: material que trabajas a tu ritmo, con una tutoría por sprint donde te guío sobre cómo trabajarlo. El coaching es la columna; el soporte, un andamio que se retira cuando ya no hace falta.</p>
     </div>
 
     <div class="espacios-grid">
@@ -1152,8 +1081,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="espacio-num">02</p>
         <span class="espacio-tipo">Soporte de transición</span>
         <p class="espacio-titulo">Un método para los 90 días. Lo trabajas a tu ritmo.</p>
-        <p class="espacio-desc">Tres sprints pensados para los primeros noventa días. Esto no es coaching: es soporte experto, material que yo preparo y tú trabajas a tu ritmo, fuera de sesión. Si algo de ahí te abre una pregunta y quieres llevarla al coaching, la llevas. Si no, no pasa nada.</p>
-        <p class="espacio-nota">3 sprints · uno al inicio de cada mes · trabajo autónomo · sin agenda de contenido en sesión</p>
+        <p class="espacio-desc">Tres sprints pensados para los primeros noventa días. Esto no es coaching: es soporte experto, material que yo preparo y tú trabajas a tu ritmo, con una tutoría por sprint donde te guío sobre cómo trabajarlo. Si algo de ahí te abre una pregunta y quieres llevarla al coaching, la llevas. Si no, no pasa nada.</p>
+        <p class="espacio-nota">3 sprints · 1 tutoría por sprint · uno al inicio de cada mes · trabajo autónomo entre encuentros</p>
       </div>
     </div>
   </div>
@@ -1203,7 +1132,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="noventa-header reveal">
       <span class="label">El soporte de transición, por dentro</span>
       <h2>Tres sprints.<br><em>Una sola lógica de fondo.</em></h2>
-      <p>Este es el segundo espacio, el 02: un andamiaje para los primeros noventa días. Material que trabajas por tu cuenta, fuera de sesión, y que alimenta tu coaching sin reemplazarlo. Cada sprint tiene una pregunta que lo ordena y tres frentes que avanzan a la vez: aprender, relacionarse y entregar.</p>
+      <p>Este es el segundo espacio, el 02: un andamiaje para los primeros noventa días. Material que trabajas a tu ritmo, con una tutoría por sprint donde te guío, y que alimenta tu coaching sin reemplazarlo. Cada sprint tiene una pregunta que lo ordena y tres frentes que avanzan a la vez: aprender, relacionarse y entregar.</p>
     </div>
 
     <div class="sprints-grid reveal rd1">
@@ -1326,11 +1255,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="sesiones-nota-divider"></div>
       <div class="sesiones-nota-item">
+        <p class="sesiones-nota-num">3</p>
+        <p class="sesiones-nota-label">tutorías<br>por sprint</p>
+      </div>
+      <div class="sesiones-nota-divider"></div>
+      <div class="sesiones-nota-item">
         <p class="sesiones-nota-num">90</p>
         <p class="sesiones-nota-label">días con<br>estructura</p>
       </div>
       <div class="sesiones-nota-divider"></div>
-      <p class="sesiones-nota-desc">6 sesiones con tu agenda del momento + 3 sprints con material de apoyo para que el proceso fluya y sea un éxito.</p>
+      <p class="sesiones-nota-desc">6 sesiones con tu agenda del momento + 3 sprints con material de apoyo, cada uno con su tutoría, para que el proceso fluya y sea un éxito.</p>
     </div>
   </div>
 </section>
@@ -1407,7 +1341,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </details>
       <details class="faq-item">
         <summary><span class="faq-q">¿Qué incluye?</span><span class="faq-icon"></span></summary>
-        <p class="faq-answer">En los primeros noventa días, seis sesiones de coaching individual con estándares ICF y tres sprints de soporte de transición para que el ejecutivo trabaje por su cuenta entre sesiones. Luego de los primeros 90 días, la oferta se extiende con coaching ejecutivo por objetivos.</p>
+        <p class="faq-answer">En los primeros noventa días, seis sesiones de coaching individual con estándares ICF y tres sprints de soporte de transición, con una tutoría por sprint, que el ejecutivo trabaja a su ritmo entre sesiones. Luego de los primeros 90 días, la oferta se extiende con coaching ejecutivo por objetivos.</p>
       </details>
       <details class="faq-item">
         <summary><span class="faq-q">¿Para quién es?</span><span class="faq-icon"></span></summary>
