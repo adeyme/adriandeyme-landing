@@ -724,6 +724,66 @@
       .js-ready .reveal { opacity: 1; transform: none; transition: none; }
       .btn:hover { transform: none; }
     }
+
+    /* ===================== SUBMENÚ DE SERVICIOS =====================
+       Escritorio: abre con hover y con foco de teclado (:focus-within).
+       Móvil: <details>, abre al tocar. Sin JavaScript nuevo. */
+    .nav-drop { position: relative; }
+    .nav-caret {
+      display: inline-block; width: 5px; height: 5px; margin-left: 8px;
+      border-right: 1px solid currentColor; border-bottom: 1px solid currentColor;
+      transform: rotate(45deg) translateY(-2px); opacity: .65;
+      transition: transform .2s cubic-bezier(.23,1,.32,1), opacity .2s;
+    }
+    .nav-sub {
+      position: absolute; top: 100%; left: -20px; min-width: 238px; margin-top: 16px;
+      list-style: none; padding: 8px 0;
+      background: rgba(13,31,45,.98); backdrop-filter: blur(20px);
+      border: 0.5px solid rgba(255,255,255,.1); border-radius: var(--r-sm);
+      box-shadow: 0 18px 44px rgba(0,0,0,.38);
+      opacity: 0; visibility: hidden; transform: translateY(-6px);
+      transition: opacity .2s cubic-bezier(.23,1,.32,1), transform .2s cubic-bezier(.23,1,.32,1), visibility .2s;
+    }
+    /* Puente invisible: evita que el hover se corte en el hueco entre el nav y el panel */
+    .nav-sub::before { content: ''; position: absolute; top: -16px; left: 0; right: 0; height: 16px; }
+    .nav-drop:hover .nav-sub, .nav-drop:focus-within .nav-sub { opacity: 1; visibility: visible; transform: none; }
+    .nav-drop:hover .nav-caret, .nav-drop:focus-within .nav-caret { transform: rotate(225deg) translateY(1px); opacity: 1; }
+    .nav-links .nav-sub a {
+      display: flex; align-items: center; min-height: 44px; padding: 11px 22px;
+      font-size: 12px; letter-spacing: .04em; text-transform: none;
+      color: rgba(255,255,255,.6); white-space: nowrap;
+    }
+    .nav-links .nav-sub a:hover { color: var(--oro); background: rgba(255,255,255,.05); }
+    .nav-links .nav-sub a[aria-current="page"] { color: var(--oro); }
+
+    .nav-mobile details.nav-m-drop { border-bottom: 0.5px solid rgba(255,255,255,.06); }
+    .nav-mobile details.nav-m-drop summary {
+      list-style: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      min-height: 44px; padding: 12px 0;
+      font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.5); transition: color .2s;
+    }
+    .nav-mobile details.nav-m-drop summary::-webkit-details-marker { display: none; }
+    .nav-mobile details.nav-m-drop summary:hover { color: var(--oro); }
+    .nav-mobile details.nav-m-drop summary::after {
+      content: ''; width: 6px; height: 6px; margin-right: 4px;
+      border-right: 1px solid currentColor; border-bottom: 1px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+      transition: transform .2s cubic-bezier(.23,1,.32,1);
+    }
+    .nav-mobile details.nav-m-drop[open] summary::after { transform: rotate(225deg) translateY(1px); }
+    .nav-mobile details.nav-m-drop a {
+      display: flex; align-items: center; min-height: 44px;
+      padding: 10px 0 10px 18px; border-bottom: none;
+      font-size: 12px; letter-spacing: .04em; text-transform: none;
+      color: rgba(255,255,255,.45);
+    }
+    .nav-mobile details.nav-m-drop a:hover { color: var(--oro); }
+    .nav-mobile details.nav-m-drop a[aria-current="page"] { color: var(--oro); }
+    @media (prefers-reduced-motion: reduce) {
+      .nav-sub, .nav-caret, .nav-mobile details.nav-m-drop summary::after { transition: none; }
+    }
   </style>
   <link rel="stylesheet" href="/site-fixes.css">
 </head>
@@ -750,7 +810,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </a>
       <ul class="nav-links">
         <li><a href="/#problema">El problema</a></li>
-        <li><a href="/#servicios">Servicios</a></li>
+        <li class="nav-drop">
+          <a href="/#servicios">Servicios<span class="nav-caret" aria-hidden="true"></span></a>
+          <ul class="nav-sub">
+            <li><a href="/liderazgo.html">Coaching de Liderazgo</a></li>
+            <li><a href="/transicion.html">Coaching de Transición</a></li>
+          </ul>
+        </li>
         <li><a href="/enfoque.html">Enfoque</a></li>
         <li><a href="/blog/">Blog</a></li>
       </ul>
@@ -762,7 +828,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="nav-mobile" id="mobile-nav" role="dialog" aria-label="Navegación">
     <a href="/#problema" onclick="closeMobileNav()">El problema</a>
-    <a href="/#servicios" onclick="closeMobileNav()">Servicios</a>
+    <details class="nav-m-drop">
+      <summary>Servicios</summary>
+      <a href="/#servicios" onclick="closeMobileNav()">Todos los servicios</a>
+      <a href="/liderazgo.html" onclick="closeMobileNav()">Coaching de Liderazgo</a>
+      <a href="/transicion.html" onclick="closeMobileNav()">Coaching de Transición</a>
+    </details>
     <a href="/enfoque.html" onclick="closeMobileNav()">Enfoque</a>
     <a href="/blog/" onclick="closeMobileNav()">Blog</a>
     <a href="agenda.html" class="btn btn-oro">Conversemos</a>
