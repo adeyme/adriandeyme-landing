@@ -51,7 +51,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Google Fonts sin bloquear el render (A1): se precarga y se aplica al llegar; el noscript cubre sin JS -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap"></noscript>
 
   <script type="application/ld+json">
 {
@@ -832,7 +834,30 @@
       .nav-sub, .nav-caret, .nav-mobile details.nav-m-drop summary::after { transition: none; }
     }
   </style>
-  <link rel="stylesheet" href="/site-fixes.css">
+  <style>
+  /* site-fixes (inline desde el 19-ago, A1/A15): retoques cross-página que antes cargaban desde /site-fixes.css y bloqueaban el render; con file:// ahora también se ven. Replicar cambios en todas las páginas. */
+  
+  /* A11y: etiqueta oculta visualmente, audible para lectores de pantalla */
+  .sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+  
+  /* Lock de acento: el ícono social usa oro, no azul LinkedIn */
+  .li-icon:hover{
+    background:rgba(201,168,76,.1);
+    border-color:rgba(201,168,76,.3);
+    color:var(--oro);
+  }
+  
+  /* Tap targets ≥44px */
+  .nav-ham{ min-width:44px; min-height:44px; padding:10px; align-items:center; justify-content:center; }
+  .footer-links a:not(.li-icon){ padding:10px 2px; }
+  .post-link, .related-grid .post-link{ padding:8px 0; }
+  
+  /* Placeholder del formulario con más contraste */
+  .email-form input::placeholder{ color:rgba(255,255,255,.45); }
+  </style>
 </head>
 <body>
 
@@ -1287,9 +1312,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </article>
 
-      <!-- Los 2 artículos más recientes del blog se renderizan aquí por JS -->
-      <div id="blog-dynamic-1"></div>
-      <div id="blog-dynamic-2"></div>
+      <!-- Los 2 artículos más recientes del blog: tarjetas estáticas de respaldo (rastreables sin JS, A9).
+           El script del pie las reemplaza con las dos más nuevas de /articles.json al cargar.
+           Al publicar un artículo, actualizar también estas dos tarjetas (mismo patrón que blog/index.html). -->
+      <article id="blog-dynamic-1" class="post-card reveal rd1">
+        <img src="https://www.adriandeyme.com/assets/images/blog/blog-cover-estado-experto.webp" alt="Qué deja de ver un líder cuando cree que ya sabe" class="post-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">◉</span></div>
+        <div class="post-body">
+          <span class="post-source">Blog</span>
+          <h3 class="post-titulo">
+            <a href="/blog/estado-de-experto.html" style="color:inherit;">Qué deja de ver un líder cuando cree que ya sabe</a>
+          </h3>
+          <p class="post-desc">Ford despedía al que se creía experto. Qué pierde un ejecutivo cuando el estado de experto reemplaza al dominio real, sobre todo al asumir un cargo nuevo.</p>
+          <div class="post-footer">
+            <span class="post-fecha">11 ago 2026</span>
+            <a href="/blog/estado-de-experto.html" class="post-link">Leer <span>→</span></a>
+          </div>
+        </div>
+      </article>
+      <article id="blog-dynamic-2" class="post-card reveal rd2">
+        <img src="https://www.adriandeyme.com/assets/images/blog/blog-cover-escucha.webp" alt="Qué escucha un líder cuando cree que está escuchando" class="post-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="post-placeholder" style="display:none"><span class="post-placeholder-icon">◉</span></div>
+        <div class="post-body">
+          <span class="post-source">Blog</span>
+          <h3 class="post-titulo">
+            <a href="/blog/escucha-lider.html" style="color:inherit;">Qué escucha un líder cuando cree que está escuchando</a>
+          </h3>
+          <p class="post-desc">La mayoría de los líderes confunde oír con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato técnico.</p>
+          <div class="post-footer">
+            <span class="post-fecha">02 jun 2026</span>
+            <a href="/blog/escucha-lider.html" class="post-link">Leer <span>→</span></a>
+          </div>
+        </div>
+      </article>
 
     </div>
     <div class="blog-cta reveal">
@@ -1517,8 +1572,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const latest = blogOnly.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 2);
       const slot1 = document.getElementById('blog-dynamic-1');
       const slot2 = document.getElementById('blog-dynamic-2');
-      if (slot1 && latest[0]) slot1.outerHTML = renderBlogCard(latest[0], 1);
-      if (slot2 && latest[1]) slot2.outerHTML = renderBlogCard(latest[1], 2);
+      /* Solo reemplaza la tarjeta estática si articles.json trae un artículo distinto (evita el parpadeo). */
+      const distinto = (slot, a) => slot && a && !slot.querySelector('a[href="' + a.slug + '"]');
+      if (distinto(slot1, latest[0])) slot1.outerHTML = renderBlogCard(latest[0], 1);
+      if (distinto(slot2, latest[1])) slot2.outerHTML = renderBlogCard(latest[1], 2);
       document.querySelectorAll('#blog .post-card.reveal:not(.visible)').forEach(el => observer.observe(el));
     })
     .catch(() => { /* Si falla el fetch, los slots quedan vacíos — no rompe nada */ });
