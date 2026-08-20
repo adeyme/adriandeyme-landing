@@ -1,7 +1,8 @@
 {
   "redirects": [
     { "source": "/agenda", "destination": "https://calendly.com/adriandeyme/reunion-exploratoria", "permanent": true },
-    { "source": "/wa", "destination": "https://wa.me/50766759179", "permanent": true }
+    { "source": "/wa", "destination": "https://wa.me/50766759179", "permanent": true },
+    { "source": "/ig", "destination": "https://wa.me/50766759179?text=Hola%20Adri%C3%A1n%2C%20vi%20tu%20Instagram%20y%20quiero%20hacerte%20una%20consulta", "permanent": false }
   ],
   "headers": [
     {
