@@ -1,6 +1,15 @@
 [
   {
     "source": "Blog",
+    "title": "¿Qué es el coaching ejecutivo?",
+    "date": "2026-08-25",
+    "slug": "/blog/que-es-coaching-ejecutivo.html",
+    "img": "https://www.adriandeyme.com/assets/images/blog/blog-cover-coaching-ejecutivo.webp",
+    "desc": "El coaching ejecutivo es un acompañamiento confidencial, uno a uno, con un objetivo definido de antemano. Qué es, qué no es, y cómo elegir bien.",
+    "category": "coaching"
+  },
+  {
+    "source": "Blog",
     "title": "Qué deja de ver un líder cuando cree que ya sabe",
     "date": "2026-08-11",
     "slug": "/blog/estado-de-experto.html",
