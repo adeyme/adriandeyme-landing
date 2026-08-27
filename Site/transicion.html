@@ -766,6 +766,29 @@
       letter-spacing: .08em; color: var(--gris);
     }
 
+    .testimonio-nombre {
+      font-size: 13px; font-weight: 500; color: var(--noche);
+      margin-bottom: 3px;
+    }
+
+    .testimonio-empresa {
+      margin-top: 20px;
+      background: var(--blanco);
+      border: 0.5px solid var(--borde-claro);
+      border-radius: var(--r-xl);
+      padding: 36px 40px;
+      display: grid; grid-template-columns: 210px 1fr;
+      gap: 36px; align-items: start;
+    }
+    .testimonio-empresa-label {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--gris); line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .testimonio-empresa { grid-template-columns: 1fr; gap: 24px; padding: 32px 28px; }
+    }
+
     /* SECCIÓN CTA */
     #cta {
       padding: 140px 0;
@@ -1387,34 +1410,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="reveal">
       <span class="label">Lo que dicen quienes pasaron por el proceso</span>
-      <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(28px,3vw,40px); font-weight:400; line-height:1.2; color:var(--noche); margin-top:16px; max-width:520px;">
-        La confidencialidad es parte del valor. Por eso, sin nombres.
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(28px,3vw,40px); font-weight:400; line-height:1.2; color:var(--noche); margin-top:16px; max-width:560px;">
+        Con nombre y cargo. Cada uno autoriz&oacute; que lo citara.
       </h2>
     </div>
 
     <div class="testimonios-grid">
       <div class="testimonio reveal rd1">
         <p class="testimonio-comillas">"</p>
-        <p class="testimonio-texto">Lo que cambió no fue solo mi claridad sobre el negocio; cambió cómo me veía a mí mismo en el rol. Llegué creyendo que el problema era externo. A la tercera sesión entendí que el primer sistema que necesitaba leer era el mío.</p>
+        <p class="testimonio-texto">Este proceso me sirvi&oacute; de acompa&ntilde;amiento y ayuda para comprenderme y comprender de forma m&aacute;s completa c&oacute;mo adaptarme profesionalmente a un ambiente y una cultura nuevos. La gu&iacute;a y el insight surgidos de las conversaciones me dieron material para pensar y aplicar en mi nueva posici&oacute;n.</p>
         <div class="testimonio-firma">
-          <p class="testimonio-rol">Director General</p>
-          <p class="testimonio-contexto">Sector financiero</p>
+          <p class="testimonio-nombre">Fernando Machado</p>
+          <p class="testimonio-rol">Director de Operaciones</p>
+          <p class="testimonio-contexto">Escuela Internacional de Panam&aacute;</p>
         </div>
       </div>
       <div class="testimonio reveal rd2">
         <p class="testimonio-comillas">"</p>
-        <p class="testimonio-texto">Tenía 25 años de trayectoria pero era mi primera vez como CEO. Creía que lo sabía todo sobre liderazgo. El proceso me mostró la diferencia entre saber de liderazgo y ejercerlo desde este lugar, con esta organización, con esta historia.</p>
+        <p class="testimonio-texto">De grandiosa utilidad personal y profesionalmente para despejar dudas y fortalecer la seguridad en el rol y la hoja de ruta.</p>
         <div class="testimonio-firma">
-          <p class="testimonio-rol">CEO</p>
-          <p class="testimonio-contexto">Empresa familiar de segunda generación</p>
+          <p class="testimonio-nombre">Iv&aacute;n Dar&iacute;o Su&aacute;rez</p>
+          <p class="testimonio-rol">Gerente General</p>
+          <p class="testimonio-contexto">Avanta &middot; Guatemala</p>
         </div>
       </div>
       <div class="testimonio reveal rd3">
         <p class="testimonio-comillas">"</p>
-        <p class="testimonio-texto">Lo que más valoré fue la separación entre el coaching y el soporte de transición. Las sesiones eran mías: podía traer lo que necesitaba sin sentir que seguía un manual. Y el material de soporte me daba el marco para las cosas que ningún manual corporativo te enseña.</p>
+        <p class="testimonio-texto">Los di&aacute;logos, las preguntas, los cuestionamientos, el espacio a pensar y reflexionar.</p>
         <div class="testimonio-firma">
-          <p class="testimonio-rol">Vicepresidenta de Operaciones</p>
-          <p class="testimonio-contexto">Multinacional</p>
+          <p class="testimonio-nombre">Francisco Sapene</p>
+          <p class="testimonio-rol">Gerente de Planificaci&oacute;n Estrat&eacute;gica</p>
+          <p class="testimonio-contexto">GLP</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonio-empresa reveal rd3">
+      <p class="testimonio-empresa-label">Desde Recursos Humanos,<br>quien decide la inversi&oacute;n</p>
+      <div>
+        <p class="testimonio-texto" style="margin-bottom:20px;">Definitivamente, hacer el proceso completo: ayuda tanto en la transici&oacute;n como a nivel personal.</p>
+        <div class="testimonio-firma">
+          <p class="testimonio-nombre">Mar&iacute;a Cristina Choy</p>
+          <p class="testimonio-rol">Gerente de RR.&nbsp;HH. Centroam&eacute;rica</p>
         </div>
       </div>
     </div>
