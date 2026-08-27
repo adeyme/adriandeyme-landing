@@ -435,6 +435,22 @@
       font-size: clamp(20px, 2.2vw, 24px); line-height: 1.45; color: var(--noche);
     }
 
+    /* Cita de cliente (tipográfica, sin tarjeta) */
+    .cita {
+      max-width: 640px; margin: 52px auto 0; padding-top: 38px;
+      border-top: 0.5px solid rgba(255,255,255,.12);
+    }
+    .cita-texto {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(19px, 2.1vw, 23px); font-weight: 400;
+      line-height: 1.5; color: var(--blanco); margin-bottom: 22px;
+    }
+    .cita-nombre { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.88); margin-bottom: 3px; }
+    .cita-rol {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: .08em; color: rgba(255,255,255,.42); line-height: 1.6;
+    }
+
     /* Para quién: dos columnas tipográficas (sin tarjetas) */
     .duo { max-width: 860px; margin: 44px auto 0; display: grid; gap: 40px; }
     .duo .label { display: block; margin-bottom: 16px; color: var(--oro); }
@@ -955,6 +971,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Antes de ser coach fui ingeniero, y pasé más de veinte años dentro de organizaciones conduciendo operaciones y proyectos. Cuando me cuentas que Finanzas cierra tarde porque Operaciones no le pasa los datos, o que el dueño se metió en la compra de un proveedor, no necesito que me lo traduzcas. Sé lo que es un flujo que se traba y una estructura que decide mal, porque los tuve a cargo.</p>
         <p>Estudié muchas formas de mirar una empresa, su gente y sus productos. Las uso para entender lo que me dices, no para recetarte nada. Soy Coach Ejecutivo certificado por la ICF, y la sesión es coaching: tú decides. Si conozco tres formas en que se resolvió algo parecido, te lo digo, y después volvemos a tu decisión.</p>
       </div>
+      <div class="cita reveal">
+        <p class="cita-texto">&ldquo;Se nota que pone todas sus herramientas, experiencia y atenci&oacute;n al servicio de la persona que tiene enfrente, buscando que salgas fortalecido del encuentro.&rdquo;</p>
+        <p class="cita-nombre">Bel&eacute;n De la Rosa</p>
+        <p class="cita-rol">Co-Fundadora y Directora Creativa, DE LA ROSA TULUM</p>
+      </div>
+
       <div class="puente">
         <p class="puente-q">¿Cuánto de lo que te pasa tienes que explicar desde cero cada vez que lo cuentas?</p>
       </div>
