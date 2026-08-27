@@ -618,6 +618,18 @@
     .caso-det summary:hover, .caso-det[open] summary { color: var(--noche); }
     .caso-det .caso-texto { margin-top: 12px; }
     @media (max-width: 960px) { .impacto-casos { grid-template-columns: 1fr; max-width: 640px; } }
+    /* Testimonios reales (reemplazan los casos) */
+    .testi-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: stretch; }
+    .testi { background: var(--blanco); border: 0.5px solid var(--borde-claro); border-radius: var(--r-md); padding: 34px 30px; display: flex; flex-direction: column; gap: 18px; transition: border-color .3s; }
+    .testi:hover { border-color: rgba(201,168,76,.3); }
+    .testi-comillas { font-family: 'Cormorant Garamond', serif; font-size: 44px; line-height: 1; height: 28px; color: rgba(201,168,76,.22); }
+    .testi-texto { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; font-weight: 400; line-height: 1.6; color: var(--noche); flex: 1; }
+    .testi-firma { padding-top: 18px; border-top: 0.5px solid var(--borde-claro); }
+    .testi-nombre { font-size: 13px; font-weight: 500; color: var(--noche); margin-bottom: 3px; }
+    .testi-rol { font-size: 12px; color: var(--gris2); margin-bottom: 3px; }
+    .testi-ctx { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .08em; color: var(--gris); }
+    @media (max-width: 960px) { .testi-grid { grid-template-columns: 1fr; max-width: 560px; } }
+
     .impacto-nota { max-width: 1040px; margin: 36px auto 0; text-align: center; }
     .impacto-nota p { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .1em; color: rgba(0,0,0,.3); }
 
@@ -1201,60 +1213,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="impacto">
   <div class="container">
     <div class="impacto-header reveal">
-      <span class="label">Casos</span>
-      <h2>Conversaciones que <em>transformaron.</em></h2>
-      <p class="impacto-sub">Anonimizados con autorización de los participantes.</p>
+      <span class="label">Testimonios</span>
+      <h2>Ejecutivos que <em>ya pasaron por el proceso.</em></h2>
+      <p class="impacto-sub">Con nombre y cargo, autorizado por cada uno.</p>
     </div>
 
-    <div class="impacto-casos">
-      <article class="caso reveal">
-        <div class="caso-meta">
-          <span class="caso-num">Coaching de Transición</span>
-          <span class="caso-duracion">6 sesiones · 90 días</span>
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <p class="testi-comillas">"</p>
+        <p class="testi-texto">Este proceso me sirvi&oacute; de acompa&ntilde;amiento y ayuda para comprenderme y comprender de forma m&aacute;s completa c&oacute;mo adaptarme profesionalmente a un ambiente y una cultura nuevos. La gu&iacute;a y el insight surgidos de las conversaciones me dieron material para pensar y aplicar en mi nueva posici&oacute;n.</p>
+        <div class="testi-firma">
+          <p class="testi-nombre">Fernando Machado</p>
+          <p class="testi-rol">Director de Operaciones</p>
+          <p class="testi-ctx">International School of Panama &middot; ISP</p>
         </div>
-        <p class="caso-perfil">VP Comercial</p>
-        <p class="caso-industria">Tecnología B2B · Panamá</p>
-        <div class="caso-resultado">
-          <p class="caso-bloque-titulo">El resultado</p>
-          <p class="caso-texto">El equipo operaba con mayor autonomía, las reuniones tenían otro foco y la VP dejó de cargar sola con el resultado. El cambio más relevante fue que el equipo empezó a hacerse cargo de la calidad de sus oportunidades, no solo del volumen de actividad.</p>
+      </div>
+      <div class="testi reveal rd1">
+        <p class="testi-comillas">"</p>
+        <p class="testi-texto">Definitivamente, hacer el proceso completo: ayuda tanto en la transici&oacute;n como a nivel personal.</p>
+        <div class="testi-firma">
+          <p class="testi-nombre">Mar&iacute;a Cristina Choy</p>
+          <p class="testi-rol">Gerente de RR.&nbsp;HH. Centroam&eacute;rica</p>
         </div>
-        <details class="caso-det">
-          <summary>El contexto</summary>
-          <p class="caso-texto">Una ejecutiva con trayectoria en ventas consultivas asumió como VP Comercial en una empresa tecnológica B2B en crecimiento acelerado. Encontró un equipo reactivo, un pipeline poco confiable y presión del CEO por resultados rápidos, sin romper la confianza del equipo heredado.</p>
-        </details>
-      </article>
-      <article class="caso reveal rd1">
-        <div class="caso-meta">
-          <span class="caso-num">Coaching de Liderazgo</span>
-          <span class="caso-duracion">8 sesiones · 4 meses</span>
-        </div>
-        <p class="caso-perfil">Director de Operaciones</p>
-        <p class="caso-industria">Retail · Centroamérica</p>
-        <div class="caso-resultado">
-          <p class="caso-bloque-titulo">El resultado</p>
-          <p class="caso-texto">Los mandos medios empezaron a resolver con mayor criterio. Las reuniones dejaron de ser espacios de reporte y se convirtieron en espacios de decisión. El mayor cambio fue dejar de confundirse con la operación: seguía cerca del negocio, pero ya no estaba atrapado en cada urgencia.</p>
-        </div>
-        <details class="caso-det">
-          <summary>El contexto</summary>
-          <p class="caso-texto">Un ejecutivo con amplia experiencia operativa asumió como Director de Operaciones de una cadena de retail con presencia regional. La empresa había crecido rápido, pero los procesos internos seguían funcionando como cuando la operación era mucho más pequeña. Todo terminaba pasando por él.</p>
-        </details>
-      </article>
-      <article class="caso reveal rd2">
-        <div class="caso-meta">
-          <span class="caso-num">Coaching Ejecutivo</span>
-          <span class="caso-duracion">10 sesiones · 6 meses</span>
-        </div>
-        <p class="caso-perfil">CEO · Segunda generación</p>
-        <p class="caso-industria">Industrial / Manufactura · Sudamérica</p>
-        <div class="caso-resultado">
-          <p class="caso-bloque-titulo">El resultado</p>
-          <p class="caso-texto">Clarificó su mandato, ordenó la relación con el equipo directivo y estableció conversaciones que llevaban tiempo pendientes. La empresa no cambió de un día para otro, pero el sistema empezó a reconocer un nuevo centro de conducción. Dejó de pedir permiso para ocupar el rol y comenzó a ejercerlo con mayor serenidad y legitimidad.</p>
-        </div>
-        <details class="caso-det">
-          <summary>El contexto</summary>
-          <p class="caso-texto">Un ejecutivo de segunda generación asumió como CEO de una empresa familiar industrial. Tenía legitimidad técnica y conocimiento profundo del negocio, pero su autoridad todavía convivía con la presencia activa de los fundadores. Formalmente era CEO; en la práctica, muchas decisiones seguían siendo consultadas o revisadas por la generación anterior.</p>
-        </details>
-      </article>
+      </div>
     </div>
 
     <div class="impacto-nota">
