@@ -370,6 +370,33 @@
       margin-bottom: 16px;
     }
 
+    .article-body table {
+      width: 100%; border-collapse: collapse; margin: 32px 0 12px;
+      font-size: 15px;
+    }
+    .article-body table th,
+    .article-body table td {
+      padding: 12px 14px; text-align: left; vertical-align: top;
+      border-bottom: 0.5px solid var(--borde-claro);
+    }
+    .article-body table thead th {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--gris); font-weight: 400;
+      border-bottom: 1px solid rgba(201,168,76,.4);
+      white-space: nowrap;
+    }
+    .article-body table td:first-child {
+      font-weight: 400; color: var(--gris2); min-width: 148px;
+    }
+    .article-body table th:first-child { min-width: 148px; }
+    .article-body table td strong { color: var(--noche); }
+    .article-body .tabla-wrap { overflow-x: auto; margin: 0 -4px; padding: 0 4px; }
+    .article-body .tabla-nota {
+      font-family: 'DM Mono', monospace; font-size: 11px;
+      line-height: 1.7; color: var(--gris); margin-bottom: 32px;
+    }
+
     .article-body blockquote {
       border-left: 2px solid var(--oro);
       padding: 4px 0 4px 24px;
@@ -626,7 +653,7 @@
 
     @media (max-width: 640px) {
       .related-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
+      .nav-links, .nav-links + .btn-oro { display: none; }
       .nav-ham { display: flex; }
       .article-header { padding: 80px 0 52px; }
       .article-cta { padding: 36px 24px; }
@@ -795,6 +822,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p>El mentor cuenta lo que él haría en tu lugar, desde su propia experiencia. El consultor entrega un diagnóstico y una recomendación para ejecutar. El terapeuta trabaja el malestar y de dónde viene. El coach ejecutivo no hace nada de eso. Hace preguntas sobre una situación puntual de tu rol, no sobre tu vida entera, hasta que la decisión aparece con más claridad, antes de que él te la sugiera.</p>
 
+      <div class="tabla-wrap">
+        <table>
+          <thead>
+            <tr><th>&nbsp;</th><th>Qu&eacute; hace</th><th>Desde d&oacute;nde trabaja</th><th>Qu&eacute; te llevas</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Coach ejecutivo</strong></td>
+              <td>Pregunta sobre una situaci&oacute;n puntual de tu rol hasta que la decisi&oacute;n aparece con claridad</td>
+              <td>Tu propia lectura de la situaci&oacute;n</td>
+              <td>Una decisi&oacute;n que tomaste t&uacute;, y una forma de leer las que se parezcan</td>
+            </tr>
+            <tr>
+              <td><strong>Mentor</strong></td>
+              <td>Te cuenta lo que &eacute;l har&iacute;a en tu lugar</td>
+              <td>Su experiencia en un rol como el tuyo</td>
+              <td>El criterio de alguien que ya pas&oacute; por ah&iacute;</td>
+            </tr>
+            <tr>
+              <td><strong>Consultor</strong></td>
+              <td>Diagnostica y recomienda qu&eacute; ejecutar</td>
+              <td>Su m&eacute;todo y el an&aacute;lisis del caso</td>
+              <td>Un diagn&oacute;stico y un plan</td>
+            </tr>
+            <tr>
+              <td><strong>Terapeuta</strong></td>
+              <td>Trabaja el malestar y de d&oacute;nde viene</td>
+              <td>Tu historia</td>
+              <td>Comprensi&oacute;n y tratamiento de lo que te pasa</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <p>Eso no significa que un coach ejecutivo nunca opine. Cuando sabe algo útil sobre la situación, lo dice como una opción nombrada, no como una recomendación que hay que seguir. Esa diferencia, aunque parezca menor, es la que separa el coaching de la consultoría disfrazada de coaching.</p>
 
       <h2>Para qué situaciones sirve</h2>
@@ -806,6 +867,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Hay un caso en el que la conversación deriva a otro proceso: cuando el propio ejecutivo, o quien lo acompaña (su jefe, Recursos Humanos), identifica que lo que hace falta no es pensar una situación puntual sino desarrollar ciertas habilidades que mejorarían su forma de liderar. Eso ya no se resuelve en unas semanas: es un proceso de desarrollo con método propio, y tiene su propio nombre: <a href="/liderazgo.html">coaching de liderazgo</a>.</p>
 
       <p>Y si la situación es otra (asumiste un rol nuevo hace poco y tienes que recorrer los primeros meses sin perder terreno), el proceso que responde a eso también es distinto: <a href="/transicion.html">coaching de transición</a>.</p>
+
+      <h2>Los tres procesos que ofrezco</h2>
+
+      <p>Los tres son coaching ejecutivo y los tres son individuales y confidenciales. Lo que cambia es la situaci&oacute;n desde la que se entra, cu&aacute;nto dura el acompa&ntilde;amiento y si hay material entre sesiones.</p>
+
+      <div class="tabla-wrap">
+        <table>
+          <thead>
+            <tr><th>&nbsp;</th><th>Para qui&eacute;n</th><th>El proceso</th><th>Qu&eacute; m&aacute;s incluye</th><th>C&oacute;mo se mide</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong><a href="/transicion.html">Coaching de Transici&oacute;n</a></strong></td>
+              <td>Ejecutivos que asumen un rol nuevo</td>
+              <td>6 sesiones en 90 d&iacute;as, hasta 24 en el a&ntilde;o</td>
+              <td>El material de tres sprints, con una tutor&iacute;a por sprint</td>
+              <td>Defines tu objetivo al inicio y se revisa al cierre</td>
+            </tr>
+            <tr>
+              <td><strong><a href="/liderazgo.html">Coaching de Liderazgo</a></strong></td>
+              <td>Directivos cuyo puesto concentra las decisiones</td>
+              <td>6 sesiones por ciclo, dos ciclos en 6 meses</td>
+              <td>Cinco sesiones de trabajo donde se construye el mapa de decisiones</td>
+              <td>Un objetivo por ciclo, con reporte escrito al cerrar cada uno</td>
+            </tr>
+            <tr>
+              <td><strong><a href="/ejecutivo.html">Coaching Ejecutivo</a></strong></td>
+              <td>Una situaci&oacute;n concreta que resolver en tu rol</td>
+              <td>6 o 12 sesiones quincenales, o una suelta</td>
+              <td>Nada m&aacute;s: son las sesiones</td>
+              <td>El objetivo se define en la primera sesi&oacute;n y se revisa en la &uacute;ltima</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tabla-nota">Cu&aacute;l corresponde no lo decide el cat&aacute;logo. Se decide en la conversaci&oacute;n exploratoria, mirando la situaci&oacute;n.</p>
 
       <h2>Cómo se sabe si un proceso de coaching funcionó</h2>
 

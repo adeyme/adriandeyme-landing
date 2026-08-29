@@ -628,6 +628,32 @@
     }
 
     /* SECCIÓN EL AÑO COMPLETO */
+
+    /* Tabla de marca sobre fondo oscuro (A24) */
+    .tabla-wrap { overflow-x: auto; margin-top: 40px; position: relative; z-index: 1; }
+    .tabla-marca {
+      width: 100%; border-collapse: collapse; font-size: 15px;
+      color: rgba(245,243,238,.75); font-weight: 300;
+    }
+    .tabla-marca th, .tabla-marca td {
+      padding: 14px 16px; text-align: left; vertical-align: top;
+      border-bottom: 0.5px solid rgba(255,255,255,.07);
+    }
+    .tabla-marca thead th {
+      font-family: 'DM Mono', monospace; font-size: 10px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(245,243,238,.45); font-weight: 400; white-space: nowrap;
+      border-bottom: 1px solid rgba(201,168,76,.4);
+    }
+    .tabla-marca td:first-child { min-width: 190px; }
+    .tabla-marca td strong {
+      font-family: 'Cormorant Garamond', serif; font-size: 19px;
+      font-weight: 400; color: var(--marfil);
+    }
+    .tabla-marca .num {
+      font-family: 'DM Mono', monospace; color: var(--oro); font-size: 16px;
+    }
+
     #el-año {
       padding: 120px 0;
       background: var(--petroleo);
@@ -1274,6 +1300,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="continuidad-subtitulo">El liderazgo deja de demostrarse y se ejerce.</p>
         <p class="continuidad-desc">Al cumplir el año cruzaste el tramo donde más se cae la gente. Tu forma de conducir quedó asentada, y en el coaching ya aparece la pregunta por el próximo nivel.</p>
       </div>
+    </div>
+
+    <div class="tabla-wrap reveal rd2">
+      <table class="tabla-marca">
+        <thead>
+          <tr><th>Etapa</th><th>Cu&aacute;ndo</th><th>Sesiones de coaching</th><th>Qu&eacute; m&aacute;s incluye</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1 &middot; Cimientos</strong></td>
+            <td>Los primeros 90 d&iacute;as</td>
+            <td class="num">6</td>
+            <td>Tres sprints, con una tutor&iacute;a cada uno</td>
+          </tr>
+          <tr>
+            <td><strong>2 &middot; Punto de equilibrio</strong></td>
+            <td>Hasta los 6 meses</td>
+            <td class="num">6</td>
+            <td>Solo coaching</td>
+          </tr>
+          <tr>
+            <td><strong>3 &middot; Liderazgo asentado</strong></td>
+            <td>Hasta el a&ntilde;o</td>
+            <td class="num">12</td>
+            <td>Solo coaching</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <p class="año-cierre reveal rd2">
