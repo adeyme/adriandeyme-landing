@@ -496,13 +496,17 @@
     .prob-ledger-head { padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.14); }
     .prob-h { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .24em; text-transform: uppercase; color: var(--oro); }
     .prob-row { padding: clamp(22px,2.6vw,30px) 0; border-bottom: 1px solid rgba(255,255,255,.1); align-items: start; }
-    .prob-row:last-child { border-bottom: none; padding-bottom: 2px; }
+    .prob-row:last-of-type { border-bottom: none; padding-bottom: 2px; }
     .prob-sintoma { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: clamp(17px,1.7vw,20px); line-height: 1.5; color: rgba(245,243,238,.92); padding-right: clamp(0px,2vw,28px); }
     .prob-dinamica { display: flex; align-items: baseline; gap: 16px; }
     .prob-dinamica .cifra { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: clamp(32px,3.6vw,44px); line-height: 1; color: var(--oro); flex-shrink: 0; }
     .prob-dinamica .d-body { min-width: 0; }
     .prob-dinamica .texto { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 14px; line-height: 1.6; color: rgba(245,243,238,.66); }
     .prob-dinamica .fuente { display: block; margin-top: 10px; font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: .04em; line-height: 1.6; color: rgba(245,243,238,.42); }
+    /* Dato local bajo la tabla (29-ago) */
+    .prob-local { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 14px; line-height: 1.7; color: rgba(245,243,238,.66); }
+    .prob-local a { color: var(--oro); border-bottom: 0.5px solid rgba(201,168,76,.45); transition: color .2s, border-color .2s; }
+    .prob-local a:hover { color: var(--marfil); border-color: var(--marfil); }
 
     /* Cierre: ~73% del ancho, izquierda, con aire */
     .prob-cierre-wrap { margin-top: clamp(44px,5.5vw,64px); }
@@ -1093,6 +1097,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </span>
         </div>
       </div>
+    <p class="prob-local reveal">En Panam&aacute;, el 76% de los especialistas de Recursos Humanos califica el liderazgo de su propia organizaci&oacute;n como regular o deficiente. Reun&iacute; <a href="/liderazgo-en-panama.html">cuatro a&ntilde;os de mediciones sobre el liderazgo en Panam&aacute;</a>.</p>
     </div>
 
     <div class="prob-cierre-wrap reveal">
