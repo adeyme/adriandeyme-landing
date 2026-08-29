@@ -718,6 +718,13 @@
     @media (prefers-reduced-motion: reduce) {
       .nav-sub, .nav-caret, .nav-mobile details.nav-m-drop summary::after { transition: none; }
     }
+  
+    @media (max-width: 760px) { .footer-inner { flex-direction: column; align-items: center; text-align: center; } }
+    /* FOOTER · colofón (A45) */
+    .footer-colofon { margin-top: 26px; padding-top: 18px; border-top: 0.5px solid rgba(255,255,255,.06); text-align: center; }
+    .footer-colofon p { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.18); }
+    .footer-colofon a { color: rgba(255,255,255,.28); transition: color .2s; }
+    .footer-colofon a:hover { color: var(--oro); }
   </style>
   <style>
   /* site-fixes (inline desde el 19-ago, A1/A15): retoques cross-página que antes cargaban desde /site-fixes.css y bloqueaban el render; con file:// ahora también se ven. Replicar cambios en todas las páginas. */
@@ -963,24 +970,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
 </div>
 
+<!-- FOOTER · bloque canónico A45 · si cambia, cambia en las 19 páginas -->
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <a href="/" class="footer-logo">
-        <span class="nombre">Adrián</span>
-        <span class="apellido">Deyme</span>
-      </a>
-      <p class="footer-copy">&copy; 2026 Adrián Deyme. Todos los derechos reservados.</p>
+      <a href="/" class="footer-logo"><span class="nombre">Adri&aacute;n</span><span class="apellido">Deyme</span></a>
+      <p class="footer-copy">&copy; 2026 &middot; Adri&aacute;n Deyme &middot; Panam&aacute;</p>
       <div class="footer-links">
         <a href="/blog/">Blog</a>
-        <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" target="_blank" rel="noopener" class="li-icon" aria-label="LinkedIn">
-          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
-        </a>
+        <a href="https://www.linkedin.com/in/adriandeyme-coach-ontologico/" target="_blank" rel="noopener" class="li-icon" aria-label="LinkedIn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.51-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.769 7 2.476v6.759z"/></svg></a>
         <a href="/privacidad.html">Privacidad</a>
       </div>
     </div>
+    <div class="footer-colofon"><p>Dise&ntilde;o <a href="/">Adri&aacute;n Deyme</a></p></div>
   </div>
 </footer>
+<!-- /FOOTER -->
 
 <script>
   /* ---- NAV MOBILE ---- */

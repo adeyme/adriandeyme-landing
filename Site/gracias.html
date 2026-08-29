@@ -246,6 +246,12 @@
       .actions { flex-direction: column; align-items: stretch; }
       .btn-oro, .btn-outline { justify-content: center; }
     }
+  
+    /* FOOTER · colofón (A45) */
+    .footer-colofon { margin-top: 16px; padding-top: 12px; border-top: 0.5px solid rgba(255,255,255,.05); text-align: center; }
+    .footer-colofon p { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.18); }
+    .footer-colofon a { color: rgba(255,255,255,.28); transition: color .2s; }
+    .footer-colofon a:hover { color: var(--oro); }
   </style>
 </head>
 <body>
@@ -324,9 +330,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </main>
 
-  <footer>
-    <p class="footer-copy">© 2026 Adrián Deyme · Panamá · Centroamérica y el Caribe</p>
-  </footer>
+  <!-- FOOTER · bloque canónico A45 · si cambia, cambia en las 19 páginas -->
+<footer>
+  <p class="footer-copy">&copy; 2026 &middot; Adri&aacute;n Deyme &middot; Panam&aacute;</p>
+  <div class="footer-colofon"><p>Dise&ntilde;o <a href="/">Adri&aacute;n Deyme</a></p></div>
+</footer>
+<!-- /FOOTER -->
 
   <!-- Evento de conversión GA4 — disparado vía GTM dataLayer -->
   <script>
