@@ -1132,7 +1132,13 @@
   
   /* Placeholder del formulario con más contraste */
   .email-form input::placeholder{ color:rgba(255,255,255,.45); }
-  </style>
+  
+    /* Enlace en prosa hacia otra página del sitio (29-ago). Antes no existía
+       ninguna regla para <a> dentro del cuerpo: un enlace nuevo salía invisible. */
+    .enlace{color:var(--oro2);border-bottom:.5px solid rgba(184,150,62,.45);transition:color .2s,border-color .2s}
+    .enlace:hover{color:var(--oro);border-color:var(--oro)}
+    .sec-petroleo .enlace,.sec-oscuro .enlace{color:var(--oro);border-bottom-color:rgba(201,168,76,.45)}
+</style>
 </head>
 <body>
 
@@ -1297,6 +1303,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3>Encontrar al ejecutivo es la mitad del trabajo.</h3>
         <p>Una incorporación de alto nivel cuesta meses de búsqueda junto a una decisión que compromete el presupuesto de un año. Ingresa el ejecutivo a su nuevo puesto, y a los seis meses ya mira la puerta. Al año no está: a veces se fue, a veces lo fueron. Rara vez el motivo es el dinero.</p>
         <p>Y no es una impresión mía. Un líder nuevo tarda alrededor de seis meses en devolver más de lo que cuesta, y cerca del 40% de las incorporaciones ejecutivas no pasa de los primeros dieciocho meses.</p>
+        <p>Y hay un dato local. En Panamá, solo el 39% de los trabajadores considera que su jefe es un líder, y la queja más frecuente es que no está dispuesto a enseñar. Reuní <a class="enlace" href="/liderazgo-en-panama.html">cuatro años de mediciones sobre el liderazgo en Panamá</a>.</p>
         <p>Para reducir ese riesgo existe mi servicio. Acompaño al ejecutivo a cruzar ese camino de transición. Y si eres una firma de búsqueda, soy el último eslabón, el que convierte tu recruiting en una satisfacción no solo para ti sino también para tu cliente.</p>
         <div class="para-card-recibe">
           <p style="font-family:'Cormorant Garamond',serif; font-size:22px; font-style:italic; color:var(--noche); line-height:1.3; margin:0;">¿Cuánto te costó el último ejecutivo que tuviste que reemplazar?</p>

@@ -882,7 +882,13 @@
   
   /* Placeholder del formulario con más contraste */
   .email-form input::placeholder{ color:rgba(255,255,255,.45); }
-  </style>
+  
+    /* Enlace en prosa hacia otra página del sitio (29-ago). Antes no existía
+       ninguna regla para <a> dentro del cuerpo: un enlace nuevo salía invisible. */
+    .enlace{color:var(--oro2);border-bottom:.5px solid rgba(184,150,62,.45);transition:color .2s,border-color .2s}
+    .enlace:hover{color:var(--oro);border-color:var(--oro)}
+    .sec-petroleo .enlace,.sec-oscuro .enlace{color:var(--oro);border-bottom-color:rgba(201,168,76,.45)}
+</style>
 </head>
 <body>
 
@@ -1079,6 +1085,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div>
         <span class="label">Si inviertes en alguien de tu equipo</span>
         <p>Un jefe que no quiere perder a una persona, o un área de Recursos Humanos que apuesta por ella. El objetivo lo acuerdo con quien se sienta conmigo. La empresa conoce ese objetivo y su resultado, nunca el contenido. Al cierre, si lo quieren, una llamada de los tres donde esa persona cuenta lo que decide contar.</p>
+        <p>En Panamá, el 44% de los trabajadores dice que su jefe no está dispuesto a enseñar, y el 76% de los especialistas de Recursos Humanos califica el liderazgo de su propia organización como regular o deficiente. Reuní <a class="enlace" href="/liderazgo-en-panama.html">cuatro años de mediciones sobre el liderazgo en Panamá</a>.</p>
         <p>Reemplazar a un líder cuesta cerca del doble de su salario anual (Gallup, 2024); un programa de sesiones cuesta una fracción de eso.</p>
         <p class="duo-q">¿A quién de tu equipo le vendría bien un lugar donde pensar?</p>
       </div>
