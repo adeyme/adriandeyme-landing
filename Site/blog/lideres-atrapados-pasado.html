@@ -30,6 +30,8 @@
   <title>El 90% de los líderes están atrapados en el pasado · Adrián Deyme</title>
   <meta name="description" content="Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual. La investigación de Leadership Agility explica por qué.">
   <link rel="canonical" href="https://www.adriandeyme.com/blog/lideres-atrapados-pasado.html">
+  <link rel="alternate" hreflang="es" href="https://www.adriandeyme.com/blog/lideres-atrapados-pasado.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.adriandeyme.com/blog/lideres-atrapados-pasado.html">
 
   <!-- OG / Social — [REEMPLAZAR] -->
   <meta property="og:type" content="article">
@@ -45,11 +47,10 @@
   <meta name="theme-color" content="#0D1F2D">
 
   <!-- hreflang -->
-  <link rel="alternate" hreflang="es" href="https://www.adriandeyme.com/blog/lideres-atrapados-pasado.html">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32-v2.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/favicon-180-v2.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32-v3.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/favicon-180-v3.png">
 
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -797,6 +798,11 @@
   
   /* A33 · margen del contenedor en móvil, igual que en el home y las páginas de servicio */
   @media (max-width: 600px) { .container { padding: 0 20px; } }
+
+  /* A6 · objetivos táctiles de 44 px en los controles reales (29-ago) */
+  .footer-links a:not(.li-icon){ display:inline-flex; align-items:center; min-height:44px; padding:0 2px; }
+  .footer-links .li-icon{ width:44px; height:44px; }
+  .filter-btn{ min-height:44px; }
 </style>
 </head>
 <body>
@@ -849,6 +855,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="/agenda.html" class="btn btn-oro">Conversemos</a>
   </div>
 </nav>
+
+<main id="contenido">
 
 <!-- ============================================================
      ARTICLE HEADER
@@ -994,7 +1002,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="post-body">
           <span class="post-source">Blog</span>
           <h3 class="post-titulo"><a href="/blog/circulo-dorado-liderazgo.html">¿Qué mueve realmente a las personas a seguirte?</a></h3>
-          <a href="/blog/circulo-dorado-liderazgo.html" class="post-link">Leer <span>→</span></a>
+          <a href="/blog/circulo-dorado-liderazgo.html" class="post-link">Leer<span class="sr-only"> ¿Qué mueve realmente a las personas a seguirte?</span> <span aria-hidden="true">→</span></a>
         </div>
       </article>
       <article class="post-card">
@@ -1002,7 +1010,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="post-body">
           <span class="post-source">Blog</span>
           <h3 class="post-titulo"><a href="/blog/estrategia-estructura-unfix.html">Si tu estrategia se mueve a 100 km/h, ¿por qué tu estructura va a 10?</a></h3>
-          <a href="/blog/estrategia-estructura-unfix.html" class="post-link">Leer <span>→</span></a>
+          <a href="/blog/estrategia-estructura-unfix.html" class="post-link">Leer<span class="sr-only"> Si tu estrategia se mueve a 100 km/h, ¿por qué tu estructura va a 10?</span> <span aria-hidden="true">→</span></a>
         </div>
       </article>
     </div>
@@ -1022,6 +1030,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ============================================================
      FOOTER
 ============================================================ -->
+</main>
+
 <!-- FOOTER · bloque canónico A45 · si cambia, cambia en las 19 páginas -->
 <footer>
   <div class="container">

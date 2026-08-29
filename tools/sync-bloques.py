@@ -32,6 +32,7 @@ PAGINA_ACTUAL = {
     "enfoque.html": "/enfoque.html",
     "liderazgo-en-panama.html": None,   # página de referencia, no está en el menú
     "privacidad.html": None,
+    "404.html": None,                  # página de error, tampoco está en el menú
     "blog/index.html": "/blog/",
 }
 # Todos los artículos del blog marcan Blog.

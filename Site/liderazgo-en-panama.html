@@ -8,6 +8,8 @@
   <title>El liderazgo en Panamá, medido en cuatro años · Adrián Deyme</title>
   <meta name="description" content="Cuatro ediciones del estudio Líderes o Jefes de Konzerta, puestas en serie: qué cambió en la relación con el jefe en Panamá entre 2022 y 2026, y qué explica el cambio.">
   <link rel="canonical" href="https://www.adriandeyme.com/liderazgo-en-panama.html">
+  <link rel="alternate" hreflang="es" href="https://www.adriandeyme.com/liderazgo-en-panama.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.adriandeyme.com/liderazgo-en-panama.html">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="es_LA">
   <meta property="og:url" content="https://www.adriandeyme.com/liderazgo-en-panama.html">
@@ -18,9 +20,8 @@
   <meta name="twitter:title" content="El liderazgo en Panamá, medido en cuatro años">
   <meta name="twitter:description" content="Cuatro ediciones del estudio Líderes o Jefes de Konzerta, puestas en serie: qué cambió en la relación con el jefe en Panamá entre 2022 y 2026.">
   <meta name="theme-color" content="#0D1F2D">
-  <link rel="alternate" hreflang="es" href="https://www.adriandeyme.com/liderazgo-en-panama.html">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32-v2.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/favicon-180-v2.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32-v3.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/favicon-180-v3.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Google Fonts sin bloquear el render (A1): se precarga y se aplica al llegar; el noscript cubre sin JS -->
@@ -426,6 +427,11 @@
   
   /* A33 · margen del contenedor en móvil, igual que en el home y las páginas de servicio */
   @media (max-width: 600px) { .container { padding: 0 20px; } }
+
+  /* A6 · objetivos táctiles de 44 px en los controles reales (29-ago) */
+  .footer-links a:not(.li-icon){ display:inline-flex; align-items:center; min-height:44px; padding:0 2px; }
+  .footer-links .li-icon{ width:44px; height:44px; }
+  .filter-btn{ min-height:44px; }
 </style>
 </head>
 <body>
@@ -471,6 +477,8 @@
     <a href="/agenda.html" class="btn btn-oro">Conversemos</a>
   </div>
 </nav>
+
+<main id="contenido">
 
 <section class="page-hero">
   <div class="container">
@@ -656,6 +664,8 @@
 <div class="back-section">
   <a href="/" class="btn btn-outline"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Volver al inicio</a>
 </div>
+
+</main>
 
 <!-- FOOTER · bloque canónico A45 · si cambia, cambia en las 19 páginas -->
 <footer>

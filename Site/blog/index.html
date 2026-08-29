@@ -26,6 +26,8 @@
   <title>Blog sobre liderazgo y coaching ejecutivo · Adrián Deyme</title>
   <meta name="description" content="Artículos sobre liderazgo, coaching ejecutivo y el paso a un rol nuevo. Los escribe Adrián Deyme, Coach Ejecutivo ICF en Panamá y Latinoamérica.">
   <link rel="canonical" href="https://www.adriandeyme.com/blog/">
+  <link rel="alternate" hreflang="es" href="https://www.adriandeyme.com/blog/">
+  <link rel="alternate" hreflang="x-default" href="https://www.adriandeyme.com/blog/">
 
   <!-- OG / Social -->
   <meta property="og:type" content="website">
@@ -38,11 +40,10 @@
   <meta name="theme-color" content="#0D1F2D">
 
   <!-- hreflang -->
-  <link rel="alternate" hreflang="es" href="https://www.adriandeyme.com/blog/">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32-v2.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/favicon-180-v2.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32-v3.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/favicon-180-v3.png">
 
   <!-- Fuentes — mismas que el index principal -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -749,6 +750,11 @@
   
   /* A33 · margen del contenedor en móvil, igual que en el home y las páginas de servicio */
   @media (max-width: 600px) { .container { padding: 0 20px; } }
+
+  /* A6 · objetivos táctiles de 44 px en los controles reales (29-ago) */
+  .footer-links a:not(.li-icon){ display:inline-flex; align-items:center; min-height:44px; padding:0 2px; }
+  .footer-links .li-icon{ width:44px; height:44px; }
+  .filter-btn{ min-height:44px; }
 </style>
 </head>
 <body>
@@ -801,6 +807,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="/agenda.html" class="btn btn-oro">Conversemos</a>
   </div>
 </nav>
+
+<main id="contenido">
 
 <!-- ============================================================
      BLOG HERO
@@ -855,7 +863,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="post-desc">Qué hacer en los primeros noventa días de un cargo directivo nuevo: diagnosticar la situación, leer la cultura y acordar con tu jefe cómo se mide.</p>
           <div class="post-footer">
             <span class="post-fecha">29 ago 2026</span>
-            <a href="/blog/primeros-90-dias-puesto-directivo.html" class="post-link">Leer <span>→</span></a>
+            <a href="/blog/primeros-90-dias-puesto-directivo.html" class="post-link">Leer<span class="sr-only"> Primeros 90 días en un puesto directivo: cómo leer la organización antes de que te evalúen</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </article>
@@ -874,7 +882,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="post-desc">Qué puedes comprobar antes de contratar, por qué la química engaña y las cuatro preguntas que separan a un coach de otro. Con la evidencia detrás.</p>
           <div class="post-footer">
             <span class="post-fecha">28 ago 2026</span>
-            <a href="/blog/como-elegir-coach-ejecutivo.html" class="post-link">Leer <span>→</span></a>
+            <a href="/blog/como-elegir-coach-ejecutivo.html" class="post-link">Leer<span class="sr-only"> Cómo elegir un coach ejecutivo</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </article>
@@ -892,7 +900,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="post-desc">La sesión promedio en Latinoamérica cuesta USD 114 y en Panamá el coaching ejecutivo va de 150 a 250. Qué explica la diferencia y contra qué se compara.</p>
           <div class="post-footer">
             <span class="post-fecha">27 ago 2026</span>
-            <a href="/blog/cuanto-cuesta-coaching-ejecutivo.html" class="post-link">Leer <span>→</span></a>
+            <a href="/blog/cuanto-cuesta-coaching-ejecutivo.html" class="post-link">Leer<span class="sr-only"> Cuánto cuesta un proceso de coaching ejecutivo en Panamá y Latinoamérica</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </article>
@@ -910,7 +918,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="post-desc">El coaching ejecutivo es un acompañamiento confidencial, uno a uno, con un objetivo definido de antemano. Qué es, qué no es, y cómo elegir bien.</p>
           <div class="post-footer">
             <span class="post-fecha">25 ago 2026</span>
-            <a href="/blog/que-es-coaching-ejecutivo.html" class="post-link">Leer <span>→</span></a>
+            <a href="/blog/que-es-coaching-ejecutivo.html" class="post-link">Leer<span class="sr-only"> ¿Qué es el coaching ejecutivo?</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </article>
@@ -928,7 +936,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="post-desc">Ford despedía al que se creía experto. Qué pierde un ejecutivo cuando el estado de experto reemplaza al dominio real, sobre todo al asumir un cargo nuevo.</p>
           <div class="post-footer">
             <span class="post-fecha">11 ago 2026</span>
-            <a href="/blog/estado-de-experto.html" class="post-link">Leer <span>→</span></a>
+            <a href="/blog/estado-de-experto.html" class="post-link">Leer<span class="sr-only"> Qué deja de ver un líder cuando cree que ya sabe</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </article>
@@ -947,7 +955,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="post-desc">La mayoría de los líderes confunde oír con escuchar. Lo que pierdes cuando tu escucha se queda en la superficie del dato técnico.</p>
           <div class="post-footer">
             <span class="post-fecha">02 jun 2026</span>
-            <a href="/blog/escucha-lider.html" class="post-link">Leer <span>→</span></a>
+            <a href="/blog/escucha-lider.html" class="post-link">Leer<span class="sr-only"> Qué escucha un líder cuando cree que está escuchando</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </article>
@@ -966,7 +974,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="post-desc">El trabajo estable no desapareció por factores externos — desapareció porque en contextos de alta complejidad ya no alcanza con hacer bien el trabajo.</p>
           <div class="post-footer">
             <span class="post-fecha">07 feb 2026</span>
-            <a href="https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864" target="_blank" rel="noopener" class="post-link">Leer <span>→</span></a>
+            <a href="https://www.laestrella.com.pa/vida-y-cultura/murio-el-trabajo-estable-DM19739864" target="_blank" rel="noopener" class="post-link">Leer<span class="sr-only"> ¿Murió el trabajo estable?</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </article>
@@ -985,7 +993,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="post-desc">Solo el 10% de los gerentes opera con un liderazgo apto para la complejidad actual. La investigación de Leadership Agility explica por qué.</p>
           <div class="post-footer">
             <span class="post-fecha">23 oct 2025</span>
-            <a href="/blog/lideres-atrapados-pasado.html" class="post-link">Leer <span>→</span></a>
+            <a href="/blog/lideres-atrapados-pasado.html" class="post-link">Leer<span class="sr-only"> El 90% de los líderes están atrapados en el pasado</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </article>
@@ -1004,7 +1012,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="post-desc">Las personas no siguen lo que un líder hace — siguen lo que representa. El Círculo Dorado de Sinek aplicado al liderazgo ejecutivo.</p>
           <div class="post-footer">
             <span class="post-fecha">14 oct 2025</span>
-            <a href="/blog/circulo-dorado-liderazgo.html" class="post-link">Leer <span>→</span></a>
+            <a href="/blog/circulo-dorado-liderazgo.html" class="post-link">Leer<span class="sr-only"> ¿Qué mueve realmente a las personas a seguirte?</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </article>
@@ -1023,7 +1031,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="post-desc">Kanban no arregla personas — mejora el sistema de trabajo. Visualizar el flujo transforma entornos caóticos en sistemas predecibles.</p>
           <div class="post-footer">
             <span class="post-fecha">09 oct 2025</span>
-            <a href="/blog/metodo-kanban-eficiencia.html" class="post-link">Leer <span>→</span></a>
+            <a href="/blog/metodo-kanban-eficiencia.html" class="post-link">Leer<span class="sr-only"> Descubre el método Kanban: transforma el caos en eficiencia</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </article>
@@ -1042,7 +1050,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="post-desc">Las estructuras rígidas frenan la ejecución. unFIX propone una arquitectura modular para reorganizar la empresa alrededor del flujo de valor.</p>
           <div class="post-footer">
             <span class="post-fecha">02 oct 2025</span>
-            <a href="/blog/estrategia-estructura-unfix.html" class="post-link">Leer <span>→</span></a>
+            <a href="/blog/estrategia-estructura-unfix.html" class="post-link">Leer<span class="sr-only"> Si tu estrategia se mueve a 100 km/h, ¿por qué tu estructura va a 10?</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </article>
@@ -1053,6 +1061,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ============================================================
      FOOTER — réplica del index
 ============================================================ -->
+</main>
+
 <!-- FOOTER · bloque canónico A45 · si cambia, cambia en las 19 páginas -->
 <footer>
   <div class="container">
@@ -1136,7 +1146,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           ${p.desc ? `<p class="post-desc">${p.desc}</p>` : ''}
           <div class="post-footer">
             <span class="post-fecha">${new Date(p.date).toLocaleDateString('es-ES',{day:'2-digit',month:'short',year:'numeric'})}</span>
-            <a href="${href}"${target} class="post-link">Leer <span>→</span></a>
+            <a href="${href}"${target} class="post-link">Leer<span class="sr-only"> ${p.title}</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </article>`;
