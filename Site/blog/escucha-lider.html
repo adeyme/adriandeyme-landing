@@ -739,7 +739,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav>
   <div class="container">
     <div class="nav-inner">
-      <a href="/" class="nav-logo">
+      <a href="/" class="nav-logo" aria-label="Adrián Deyme, ir al inicio">
         <span class="nombre">Adrián</span>
         <span class="apellido">Deyme</span>
       </a>
@@ -757,7 +757,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li><a href="/blog/" class="active">Blog</a></li>
       </ul>
       <a href="/agenda.html" class="btn btn-oro" style="border-radius: 4px; font-size: 12px; padding: 11px 24px; letter-spacing: .06em; text-transform: uppercase;">Conversemos</a>
-      <button class="nav-ham" id="ham-btn" aria-label="Menú" aria-expanded="false">
+      <button class="nav-ham" id="ham-btn" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -772,7 +772,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/ejecutivo.html" onclick="closeMobileNav()">Coaching Ejecutivo</a>
     </details>
     <a href="/enfoque.html" onclick="closeMobileNav()">Enfoque</a>
-    <a href="/blog/" onclick="closeMobileNav()">Blog</a>
+    <a href="/blog/" aria-current="page" onclick="closeMobileNav()">Blog</a>
     <a href="/agenda.html" class="btn btn-oro">Conversemos</a>
   </div>
 </nav>
