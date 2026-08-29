@@ -327,6 +327,43 @@
   .footer-links a:not(.li-icon){ display:inline-flex; align-items:center; min-height:44px; padding:0 2px; }
   .footer-links .li-icon{ width:44px; height:44px; }
   .filter-btn{ min-height:44px; }
+
+  /* A5 · contraste (29-ago). El oro sobre fondo oscuro está en 7,35 y no se toca.
+     Lo que se corrige es el texto chico sobre fondo claro, que estaba en 2,06–3,11,
+     y el blanco transparente sobre noche, que estaba en 2,26–3,19. Mínimo: 4,5. */
+  :root{ --oro-texto:#856D28; --gris-texto:#6A6A6A; }
+
+  /* texto chico en oro sobre fondo claro */
+  .label, .kicker, .servicio-nota-k, .para-card-tipo, .post-source, .sprint-num,
+  .servicio-para, .enlace, .t, .tabla-datos thead th, .fuentes h2 { color: var(--oro-texto); }
+  .enlace{ border-bottom-color: var(--oro-texto); }
+
+  /* sobre fondo oscuro el oro se queda como está */
+  .sec-oscuro .label, .sec-petroleo .label, .sec-oscuro .kicker, .sec-petroleo .kicker,
+  .page-cta .label, .article-cta .label, .prob-ledger .prob-h, footer .label,
+  .sec-oscuro .enlace, .sec-petroleo .enlace, .prob-local a { color: var(--oro); }
+  .sec-oscuro .enlace, .sec-petroleo .enlace{ border-bottom-color: rgba(201,168,76,.45); }
+
+  /* grises chicos sobre fondo claro */
+  .post-fecha, .post-category, .post-desc, .filter-btn, .tabla-nota, .scroll-hint,
+  .sprint-periodo, .sprint-pregunta, .sprint-frentes-label, .para-card-recibe-label,
+  .testi-ctx, .servicio-nivel, .impacto-sub, .cta-email, .cta-sep { color: var(--gris-texto); }
+
+  /* blanco transparente sobre noche */
+  .footer-copy, .footer-links a { color: rgba(255,255,255,.5); }
+  .ficha-desc, .ficha-label, .hero-ficha-label, .continuidad-periodo, .continuidad-desc,
+  .label-dark, .quote-firma, .espacio-nota, .año-cierre, .creds-label { color: rgba(255,255,255,.55); }
+
+  /* A5 bis · segunda pasada: especificidad y los que faltaban (29-ago) */
+  :root{ --oro-texto:#7D6626; }
+  .label.label, .kicker.kicker, .t.t, .servicio-para.servicio-para,
+  .page-content p a, .article-body p a, .article-body li a, .fuentes a,
+  .tabla-datos thead th, .post-source.post-source { color: var(--oro-texto); }
+  .sec-oscuro .label.label, .sec-petroleo .label.label, .sec-oscuro .kicker.kicker,
+  .sec-petroleo .kicker.kicker, .page-cta .label.label, .article-cta .label.label,
+  footer .label.label, .sec-oscuro .page-content p a, .sec-petroleo .page-content p a { color: var(--oro); }
+  .frente-desc, .testimonio-contexto, .impacto-sub { color: var(--gris-texto); }
+  .footer-claim{ color: rgba(201,168,76,.85); }
 </style>
 </head>
 <body>
