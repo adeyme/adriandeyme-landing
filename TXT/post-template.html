@@ -2,37 +2,38 @@
 <html lang="es">
 <head>
   <!-- ============================================================
-       F4.1 — BLOG POST TEMPLATE
-       Frente 4: Contenido y autoridad SEO
-       
-       UBICACIÓN: /blog/[slug].html
-       
-       PUBLICAR UN ARTÍCULO SON TRES ARCHIVOS.
-       Con el HTML solo, el artículo queda en línea pero INVISIBLE:
-       no aparece en el listado del blog (que lee de articles.json)
-       ni en el sitemap.
+       PLANTILLA DE ARTICULO DEL BLOG
+       UBICACION: Site/blog/[slug].html
+
+       PUBLICAR UN ARTICULO ES UN ARCHIVO Y UN COMANDO.
 
        PASO 1 · El HTML  ->  Site/blog/[slug].html
          a. Copiar este archivo y renombrarlo con el slug.
          b. Reemplazar todos los [VARIABLE] con contenido real.
             Buscar "[" para no dejarse ninguno.
          c. Ajustar el CTA contextual segun el segmento del articulo.
-         d. Si el articulo ya existe en Medium, el rel="canonical"
-            apunta a ESTE archivo (el dominio propio), no a Medium.
+         d. El rel="canonical", el og:url y los dos hreflang apuntan a
+            ESTE archivo. Si el articulo ya existe en Medium, igual:
+            el canonico es el dominio propio.
 
-       PASO 2 · El listado  ->  Site/articles.json
-         Agregar la entrada AL TOPE del array. Es la fuente unica de
-         verdad del blog: el index y el listado leen de ahi.
+       PASO 2 · Correr el sincronizador
+            python3 tools/sync-blog.py             (muestra que cambiaria)
+            python3 tools/sync-blog.py --escribir  (escribe)
 
-       PASO 3 · El sitemap  ->  Site/sitemap.xml
-         Agregar <url><loc>https://www.adriandeyme.com/blog/[slug].html</loc></url>
+         El script lee el articulo y de ahi saca el titulo (el H1), la
+         descripcion (meta description), la fecha (article:published_time),
+         la portada (og:image) y la categoria (article:section). Con eso
+         escribe solo:
+            Site/articles.json
+            Site/blog/index.html   (las tarjetas estaticas de respaldo)
+            Site/index.html        (las dos tarjetas del home)
+            Site/sitemap.xml
 
-       PASO 4 · Las tarjetas estaticas de respaldo (desde el 19-ago)
-         Site/blog/index.html: sumar la tarjeta del articulo al tope del grid.
-         Site/index.html: reemplazar la mas vieja de las dos tarjetas
-         #blog-dynamic-1 / #blog-dynamic-2 por la nueva (la nueva va en
-         #blog-dynamic-1). El JS las pisa con /articles.json en vivo, pero
-         son lo que ven los rastreadores sin JS y la vista con file://.
+         Esos cuatro NO se editan a mano. Si el articulo tiene un dato
+         mal puesto, el script se planta y dice cual, y no escribe nada.
+
+         Los articulos publicados fuera del sitio (La Estrella, Medium)
+         no tienen archivo del que leer: viven en tools/externos.json.
 
        ------------------------------------------------------------
        ANTES DE COMITEAR
@@ -40,19 +41,16 @@
          Asi lo previsualiza Adrian, y asi se detectan los errores que
          un servidor local esconde.
        - Verificar que el submenu de Servicios este cerrado al cargar
-         y que se abra al pasar el mouse. Si aparece desplegado dentro
-         de la barra, falta el CSS inline del submenu.
+         y que se abra al pasar el mouse.
        - Buscar "[" en todo el archivo: no debe quedar ningun marcador.
 
        ------------------------------------------------------------
-       EL NAV VIVE EN 12 PAGINAS Y NO HAY INCLUDES.
-       Si algun dia cambia el menu, hay que replicarlo a mano en las
-       12 y TAMBIEN en esta plantilla, o el proximo articulo nace viejo.
-       Detalle en el proyecto:
-       claude/Navegacion del sitio - Submenu de Servicios.md
+       EL MENU Y EL PIE NO SE COPIAN A MANO.
+       Viven en tools/bloques/nav.html y tools/bloques/footer.html, y
+       los escribe tools/sync-bloques.py en los 19 archivos, esta
+       plantilla incluida. Correrlo tambien despues de crear el articulo.
 
-       Ultima actualizacion de esta plantilla: 17 de agosto de 2026
-       (submenu de Servicios + instrucciones de los tres archivos).
+       Ultima actualizacion: 30 de agosto de 2026 (sincronizador del blog).
   ============================================================ -->
 
   <!-- Google Tag Manager -->

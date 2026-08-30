@@ -55,7 +55,19 @@
     <priority>0.3</priority>
   </url>
 
-  <!-- Artículos del blog -->
+  <!-- ARTICULOS · bloque generado por tools/sync-blog.py · no editar a mano -->
+  <url>
+    <loc>https://www.adriandeyme.com/blog/primeros-90-dias-puesto-directivo.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.adriandeyme.com/blog/como-elegir-coach-ejecutivo.html</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
     <loc>https://www.adriandeyme.com/blog/cuanto-cuesta-coaching-ejecutivo.html</loc>
     <lastmod>2026-08-27</lastmod>
@@ -68,62 +80,43 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
   <url>
     <loc>https://www.adriandeyme.com/blog/estado-de-experto.html</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
   <url>
     <loc>https://www.adriandeyme.com/blog/escucha-lider.html</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
   <url>
     <loc>https://www.adriandeyme.com/blog/lideres-atrapados-pasado.html</loc>
     <lastmod>2025-10-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
   <url>
     <loc>https://www.adriandeyme.com/blog/circulo-dorado-liderazgo.html</loc>
     <lastmod>2025-10-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
   <url>
     <loc>https://www.adriandeyme.com/blog/metodo-kanban-eficiencia.html</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
   <url>
     <loc>https://www.adriandeyme.com/blog/estrategia-estructura-unfix.html</loc>
     <lastmod>2025-10-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
-  <url>
-    <loc>https://www.adriandeyme.com/blog/primeros-90-dias-puesto-directivo.html</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.adriandeyme.com/blog/como-elegir-coach-ejecutivo.html</loc>
-    <lastmod>2026-08-28</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  <!-- /ARTICULOS -->
 
   <url>
     <loc>https://www.adriandeyme.com/liderazgo-en-panama.html</loc>
