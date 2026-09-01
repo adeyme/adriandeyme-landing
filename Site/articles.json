@@ -1,6 +1,15 @@
 [
   {
     "source": "Blog",
+    "title": "Gen Z y millennials: no quieren asumir el costo de liderar",
+    "date": "2026-09-01",
+    "slug": "/blog/gen-z-millennials-liderazgo.html",
+    "img": "https://www.adriandeyme.com/assets/images/blog/blog-cover-gen-z-liderazgo.webp",
+    "desc": "El 71% de los líderes reporta más estrés desde que asumió el cargo. Los datos de Deloitte y DDI sobre por qué Gen Z y millennials posponen el liderazgo, y qué puede cambiarlo.",
+    "category": "liderazgo"
+  },
+  {
+    "source": "Blog",
     "title": "Primeros 90 días en un puesto directivo: cómo leer la organización antes de que te evalúen",
     "date": "2026-08-29",
     "slug": "/blog/primeros-90-dias-puesto-directivo.html",
